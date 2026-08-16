@@ -5,20 +5,24 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Executed 2026-08-16 (from the cnc-pc session)
 
-- ⏳ Full ScanPen safety copy → `D:\ScanPen-backup-2026-08-16` (6.6 GB incl.
-  `.git` and uncommitted capture takes) — robocopy running, verify size when
-  done
+- ✅ Full ScanPen safety copy → `D:\ScanPen-backup-2026-08-16` (USB stick) —
+  verified: 843 files, 6.50 GB incl. `.git` and the uncommitted capture
+  takes, 0 failures
 - ✅ personal-os relocated: fresh clone at `C:\Projects\_system\personal-os`,
-  seeded (this commit), pushed to origin/main
-- ⏳ `scanpen` repo (private) created on GitHub; fresh-start history pushed:
-  code/configs/docs/tests **without** the capture blobs; `PROVENANCE.md` in
-  that repo maps to the full local history (`C:\ScanPen` @ 3e90a27 + D: copy)
-- ⏳ helmcnc-app: 20 already-made local commits pushed (origin/master
+  seeded, pushed to origin/main
+- ✅ scanpen fresh-start commit built and ready to push: 135 files, ~10 MB,
+  largest blob 1.5 MB, `PROVENANCE.md` maps to the full local history
+  (`C:\ScanPen` @ 3e90a27 + the D: copy). Push waits only on repo creation
+  (first item below)
+- ✅ helmcnc-app: 20 already-made local commits pushed (origin/master
   22fc611 → 0a0b493); local-only branch `resume-rapid-approach` pushed as
   backup. No working-tree changes made.
 
 ## Waiting on Tenis
 
+- 🔒 **Create the empty private GitHub repo `scanpen`** — github.com/new,
+  owner PreissWorkshop, name `scanpen`, Private, **no** README/gitignore/
+  license (must be empty). The prepared push completes right after.
 - 🔒 **HelmCNC integration commit** — 12 dirty files in `C:\HelmCNC.bak`,
   message prepared at the top of `HELMCNC_NOTES.md`. Paste it from a
   `C:\HelmCNC.bak`-rooted session (or by hand), then push again.
