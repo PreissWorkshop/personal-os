@@ -21,6 +21,8 @@ working environment that clones what it needs and pushes what it produces.
 
 - [docs/architecture.md](docs/architecture.md) — the rules that keep this from becoming chaos again
 - [registry/projects.yaml](registry/projects.yaml) — every project, its repos and canonical roots
+- [docs/projects.md](docs/projects.md) — the projects in prose
+- [docs/backups.md](docs/backups.md) — every backup, where it lives, how fresh
 - [docs/bootstrap-new-machine.md](docs/bootstrap-new-machine.md) — set up a new computer in ~30 minutes
 - [docs/migration-plan.md](docs/migration-plan.md) — the 2026-08 cleanup: done, pending, decisions
 
