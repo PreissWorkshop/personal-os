@@ -5,6 +5,8 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
 1. **Install**: Git for Windows, VS Code, Python 3.11.x, Claude Code
    (claude.com/claude-code — desktop app or CLI). Optional but handy:
    GitHub Desktop (easiest sign-in) and the `gh` CLI.
+   On **main-pc** additionally: Node.js LTS and the `gh` CLI are wanted —
+   the agent/automation phase runs there (never on the shop PC).
 2. **Sign in to GitHub once** — GitHub Desktop login, or just run the first
    `git push`/private clone and complete the credential-manager browser flow.
 3. **Control layer first**:
