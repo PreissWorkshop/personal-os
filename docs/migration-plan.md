@@ -16,14 +16,17 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 - ✅ helmcnc-app: 20 already-made local commits pushed (origin/master
   22fc611 → 0a0b493); local-only branch `resume-rapid-approach` pushed as
   backup. No working-tree changes made.
+- ✅ Old `C:\HelmCNC\GitHub\personal-os` clone deleted (guard first refused —
+  it held one auto-fetched ref, verified to be the new repo's own first
+  commit — then re-verified every ref as contained in the new history);
+  empty `GitHub\` parent removed. The production install dir hosts no repos
+  anymore.
 
 ## Waiting on Tenis
 
 - 🔒 **HelmCNC integration commit** — 12 dirty files in `C:\HelmCNC.bak`,
   message prepared at the top of `HELMCNC_NOTES.md`. Paste it from a
   `C:\HelmCNC.bak`-rooted session (or by hand), then push again.
-- 🔒 Delete the now-redundant empty `C:\HelmCNC\GitHub\personal-os`
-  (verified 0 commits, 0 files before relocation).
 - 🔒 **Laptop bootstrap before vacation** — docs/bootstrap-new-machine.md.
 - 🔒 Approve later cleanups: empty husks (`Mach3`, `KilnController`, `lbr`,
   `Voiceover`, `New folder` — all verified 0 bytes); archive `HelmCNC.56` +
