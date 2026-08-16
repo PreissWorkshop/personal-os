@@ -1,0 +1,11 @@
+# Secrets backstop — this repo must never carry credentials.
+.env
+.env.*
+*.env
+*private_key*.xml
+*private-key*.xml
+*_signing_key*.xml
+*token*.txt
+secrets/
+*.pem
+*.key

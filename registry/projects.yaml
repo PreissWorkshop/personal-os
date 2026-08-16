@@ -1,0 +1,51 @@
+# Central project registry — read by humans and AI agents.
+# Rule: local paths are per-machine "canonical roots". Sessions and agents
+# scope to one root; never work a project from another project's root.
+
+machines:
+  cnc-pc:   "DESKTOP-A60V7P2 — shop PC at the CNC machine; HelmCNC only; keep lean"
+  main-pc:  "primary dev workstation (the RDP source); full C:\\Projects layout"
+  laptop:   "Samsung travel machine; clones on demand"
+
+projects:
+  - id: personal-os
+    name: personal-os (this repo)
+    status: active
+    repo: https://github.com/PreissWorkshop/personal-os
+    roots:
+      cnc-pc:  C:\Projects\_system\personal-os
+      main-pc: C:\Projects\_system\personal-os
+      laptop:  C:\Projects\_system\personal-os
+
+  - id: helm-cnc
+    name: HelmCNC
+    status: active — shipping product; live production machine attached to cnc-pc
+    repos:
+      app:  https://github.com/PreissWorkshop/helmcnc-app    # private dev repo, branch master
+      site: https://github.com/PreissWorkshop/HelmCNC        # public site + releases
+    roots:
+      cnc-pc: C:\HelmCNC.bak        # THE dev tree (name is historical — do not "clean up")
+      # C:\HelmCNC is the installed operator app — never a repo, never touched by dev work.
+      # Site repo checkout on cnc-pc: C:\HelmCNC.bak\GitHub\HelmCNC
+      main-pc: C:\Projects\HelmCNC\app     # optional off-shop clone
+      laptop:  C:\Projects\HelmCNC\app     # optional
+    notes: >
+      Build/deploy/suite procedure lives in-tree (CLAUDE.md + HELMCNC_NOTES.md)
+      and is binding. Machine-critical neighbors on cnc-pc: KMotion*,
+      FlexiCAM-AmpBackups, HelmCNC-StateBackups, HelmCNC-Signing (secrets).
+      See docs/filesystem.md.
+
+  - id: scan-pen
+    name: ScanPen / Scan Pen Probe
+    status: active — Phase 1; development moved OFF cnc-pc (2026-08)
+    repo: https://github.com/PreissWorkshop/scanpen    # fresh-start history 2026-08-16
+    roots:
+      cnc-pc:  C:\ScanPen                  # frozen full-history archive; retire after laptop verified
+      main-pc: C:\Projects\ScanPen\repo
+      laptop:  C:\Projects\ScanPen\repo
+    data:
+      captures: >
+        Big mp4 takes live OUTSIDE git: full archive at
+        D:\ScanPen-backup-2026-08-16 (USB stick) and original C:\ScanPen\capture
+        on cnc-pc. Copy takes to a machine only when re-analyzing real footage;
+        the synthetic suite runs without them.
