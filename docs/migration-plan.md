@@ -22,6 +22,16 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   empty `GitHub\` parent removed. The production install dir hosts no repos
   anymore.
 
+## Executed 2026-08-20 (from the main-pc session)
+
+- ✅ main-pc bootstrapped per `Post/MAIN-PC-SETUP.md`: Python 3.11.9, VS Code,
+  gh installed (all user-scope); personal-os / scanpen / helmcnc-app cloned to
+  their registry roots; GCM credential (PreissWorkshop) verified push-capable —
+  the sign-in step was already done.
+- ✅ **ScanPen verified on main-pc**: fresh clone @ 506dd95 — suite 47 passed /
+  0 failed, `selftest --full` 38 checks / 0 failed. Report:
+  `docs/reports/2026-08-20-main-pc-setup.md`.
+
 ## Waiting on Tenis
 
 - 🔒 **HelmCNC integration commit** — 12 dirty files in `C:\HelmCNC.bak`,
@@ -35,7 +45,8 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   branch `resume-rapid-approach` (now safe on origin).
 - 🔒 **After the laptop clone is verified working**: retire `C:\ScanPen`
   from cnc-pc (frees ~6.6 GB, roughly doubling free disk; the D: archive and
-  GitHub remain).
+  GitHub remain). *2026-08-20: the **main-pc** clone is verified green, which
+  `Post/MAIN-PC-SETUP.md` deems sufficient for the retire — Tenis's call.*
 
 ## Standing decisions
 
