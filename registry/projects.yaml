@@ -49,3 +49,25 @@ projects:
         D:\ScanPen-backup-2026-08-16 (USB stick) and original C:\ScanPen\capture
         on cnc-pc. Copy takes to a machine only when re-analyzing real footage;
         the synthetic suite runs without them.
+
+  - id: preiss-website
+    name: Preiss Workshop website
+    status: active — redesign; newest work on feature/fable-design-refinement (2026-07-13, on origin)
+    repo: https://github.com/PreissWorkshop/preiss-workshop-website
+    roots:
+      main-pc: C:\PREISS_WEBSITE\website   # + worktrees preiss-workshop-{codex,design-polish,fable} beside it
+      laptop:  C:\Projects\PreissWebsite\website
+    data:
+      photos: >
+        Raw photos live OUTSIDE git, on main-pc only: C:\PREISS_WEBSITE\PHOTOS_RAW
+        (17 GB) and C:\PREISS_WEBSITE\photos_new (9.9 GB); Logo .ai sources and
+        reference-only sit beside them. The repo carries only optimized copies
+        (~34 MB under public/images) — the site builds and previews without the
+        raws. New-photo picks/optimization happen on main-pc, or carry the
+        needed originals over by USB/cloud.
+    notes: >
+      Static generated site, stdlib Python only: build `python src/site/build.py`,
+      preview `python -m http.server 8790 -d public`. In-tree rules are binding:
+      AGENT_WORKFLOW.md (+ FABLE-HANDOFF.md, PROGRESS.md). Never merge to main
+      without Tenis's OK. Clone via HTTPS; the repo-local SSH deploy key on
+      main-pc (.ssh-local/, untracked) has a broken file ACL as of 2026-08-21.

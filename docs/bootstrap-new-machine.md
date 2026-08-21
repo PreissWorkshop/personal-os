@@ -35,5 +35,18 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
    Building needs the roslyn toolset restored per the repo's `.gitignore`
    note. Nothing built off-shop touches the machine except through the
    documented deploy on the shop PC.
-6. **Open Claude Code at `C:\Projects\_system\personal-os`** and say what
+6. **Preiss Workshop website** (optional — homepage work):
+
+       git clone https://github.com/PreissWorkshop/preiss-workshop-website C:\Projects\PreissWebsite\website
+       cd C:\Projects\PreissWebsite\website
+       git checkout feature/fable-design-refinement
+       python src\site\build.py              # expect "Build OK - ... pages"
+       python -m http.server 8790 -d public  # preview at http://localhost:8790
+
+   Stdlib Python only, nothing to pip-install. Read `AGENT_WORKFLOW.md` and
+   `FABLE-HANDOFF.md` before changing anything — they are binding. The raw
+   photo archives (`PHOTOS_RAW`, `photos_new` — ~27 GB) are deliberately not
+   in git and exist only on main-pc; the repo's optimized images are all the
+   site needs.
+7. **Open Claude Code at `C:\Projects\_system\personal-os`** and say what
    you're working on — the registry and docs do the rest.

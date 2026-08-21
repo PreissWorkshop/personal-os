@@ -32,12 +32,23 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   0 failed, `selftest --full` 38 checks / 0 failed. Report:
   `docs/reports/2026-08-20-main-pc-setup.md`.
 
+## Executed 2026-08-21 (from the main-pc session)
+
+- ✅ **Website registered for multi-machine work**: `preiss-website` added to
+  the registry and a website step added to `docs/bootstrap-new-machine.md`.
+  Verified nothing is stranded locally: every branch's commits are on origin
+  (`feature/fable-design-refinement` @ 7af1a24 == origin, working trees clean
+  except pycache). Noted: main-pc's repo-local SSH deploy key
+  (`.ssh-local/`, untracked) fails with a file-ACL error — pushes from
+  main-pc currently work via HTTPS/GCM instead.
+
 ## Waiting on Tenis
 
 - 🔒 **HelmCNC integration commit** — 12 dirty files in `C:\HelmCNC.bak`,
   message prepared at the top of `HELMCNC_NOTES.md`. Paste it from a
   `C:\HelmCNC.bak`-rooted session (or by hand), then push again.
-- 🔒 **Laptop bootstrap before vacation** — docs/bootstrap-new-machine.md.
+- 🔒 **Laptop bootstrap before vacation** — docs/bootstrap-new-machine.md
+  (now includes the website step).
 - 🔒 Approve later cleanups: empty husks (`Mach3`, `KilnController`, `lbr`,
   `Voiceover`, `New folder` — all verified 0 bytes); archive `HelmCNC.56` +
   `HelmCNC-preclean-2026-07-25-*` as dated zips; remove merged worktrees
