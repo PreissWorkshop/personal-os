@@ -71,3 +71,18 @@ projects:
       AGENT_WORKFLOW.md (+ FABLE-HANDOFF.md, PROGRESS.md). Never merge to main
       without Tenis's OK. Clone via HTTPS; the repo-local SSH deploy key on
       main-pc (.ssh-local/, untracked) has a broken file ACL as of 2026-08-21.
+
+  - id: claude-system
+    name: Preiss Workshop Claude system (workshop ops)
+    status: active — v1 (14 agents, 13 skills, numbered knowledge base)
+    repo: https://github.com/PreissWorkshop/PREISS_WORKSHOP_CLAUDE_SYSTEM-   # trailing hyphen IS part of the name
+    roots:
+      main-pc: C:\PREISS_WORKSHOP_CLAUDE_SYSTEM\PREISS_WORKSHOP_CLAUDE_SYSTEM   # nested name is historical
+      laptop:  C:\Projects\PreissClaudeSystem\repo
+    notes: >
+      The workshop-operations brain for Claude Code sessions: numbered
+      knowledge dirs (00_MASTER_CONTEXT, brand, quoting/pricing, woodworking,
+      signmaking, plastics/adhesives, finishing, ...) plus .claude/agents and
+      .claude/skills. Open sessions at this root for quoting/ops work.
+      Business facts inside — keep the repo private. On Windows clones set
+      `git config core.fileMode false` (mode-bit noise otherwise).

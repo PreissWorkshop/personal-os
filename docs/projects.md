@@ -31,6 +31,25 @@ main-pc / laptop; the CNC-cut truth artifact is its only tie to the shop.
 This repo: the control layer (machine map, registry, policies, plans,
 reports). Not a product.
 
+## Preiss Workshop website — active, redesign
+
+Static generated site for the workshop's public presence — premium,
+architectural, material-focused. Stdlib-Python generator in `src/site/`,
+committed output in `public/`. Repo: **preiss-workshop-website**; newest
+work on `feature/fable-design-refinement`. In-tree `AGENT_WORKFLOW.md` is
+binding; never merge to `main` without approval. The raw photo archives
+(~27 GB) stay on main-pc outside git — the repo carries only optimized
+images and builds without the raws.
+
+## Claude system (workshop ops) — active
+
+The operations brain for Claude Code sessions: numbered knowledge folders
+(master context, brand/client style, quoting and pricing, woodworking,
+signmaking, plastics/adhesives, finishing, ...) plus 14 agents and 13
+skills under `.claude/`. Repo: **PREISS_WORKSHOP_CLAUDE_SYSTEM-** (the
+trailing hyphen is part of the name; business facts inside — keep it
+private). Clone to any machine where quoting/workshop sessions should run.
+
 ## Ideas / dormant
 
 - **KilnController** — name reserved once (an empty 0-byte dir existed on

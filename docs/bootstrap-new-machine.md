@@ -48,5 +48,13 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
    photo archives (`PHOTOS_RAW`, `photos_new` — ~27 GB) are deliberately not
    in git and exist only on main-pc; the repo's optimized images are all the
    site needs.
-7. **Open Claude Code at `C:\Projects\_system\personal-os`** and say what
+7. **Workshop Claude system** (quoting/ops sessions):
+
+       git clone https://github.com/PreissWorkshop/PREISS_WORKSHOP_CLAUDE_SYSTEM- C:\Projects\PreissClaudeSystem\repo
+       git -C C:\Projects\PreissClaudeSystem\repo config core.fileMode false
+
+   The trailing hyphen is part of the repo name. Knowledge base + 14
+   agents + 13 skills; open Claude Code at that root for quoting and
+   workshop-operations work.
+8. **Open Claude Code at `C:\Projects\_system\personal-os`** and say what
    you're working on — the registry and docs do the rest.

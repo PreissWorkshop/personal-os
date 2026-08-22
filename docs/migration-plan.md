@@ -42,6 +42,19 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   (`.ssh-local/`, untracked) fails with a file-ACL error — pushes from
   main-pc currently work via HTTPS/GCM instead.
 
+## Executed 2026-08-22 (from the main-pc session)
+
+- ✅ **Claude system registered**: `claude-system` (workshop ops brain, repo
+  `PREISS_WORKSHOP_CLAUDE_SYSTEM-`) added to registry, prose, and bootstrap.
+  Verified fully pushed (main @ 27b3808 == origin); the only local diff was
+  a Windows file-mode artifact, silenced via `core.fileMode false`.
+- ✅ Full laptop-readiness check across projects: website, ScanPen, HelmCNC
+  app, personal-os, claude-system all on origin with nothing stranded
+  locally (HelmCNC's 12 dirty shop-PC files remain the known exception,
+  tracked below). KilnController confirmed still ideas-only — no code
+  exists anywhere. Noted: main-pc also carries 0-byte husks `C:\Voiceover`,
+  `C:\lbr` (same cleanup family as the cnc-pc ones).
+
 ## Waiting on Tenis
 
 - 🔒 **HelmCNC integration commit** — 12 dirty files in `C:\HelmCNC.bak`,
