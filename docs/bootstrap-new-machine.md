@@ -2,6 +2,33 @@
 
 Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
 
+## Paste this into Claude Code on the new machine
+
+> You're on Tenis's laptop (fresh Windows) — set it up for ScanPen + HelmCNC code
+> work away from the shop. Everything lives under github.com/PreissWorkshop.
+>
+> 1. Verify/install: Git for Windows, Python 3.11.x, VS Code. Tell me what you
+>    can't install yourself.
+> 2. Clone the control layer first (I'll complete the GitHub browser sign-in when
+>    the first private clone asks):
+>    `git clone https://github.com/PreissWorkshop/personal-os C:\Projects\_system\personal-os`
+> 3. Read its README.md and registry/projects.yaml, then follow
+>    docs/bootstrap-new-machine.md exactly — it clones every project at its
+>    laptop root and runs each one's readiness check: scanpen (pytest +
+>    selftest green = machine ready), helmcnc-app, the website (build.py →
+>    "Build OK"), the workshop Claude system.
+> 4. Rules that don't bend: read each repo's CLAUDE.md / in-tree workflow docs
+>    before touching it (HelmCNC: top of HELMCNC_NOTES.md first; website:
+>    AGENT_WORKFLOW.md + FABLE-HANDOFF.md are binding, and main never merges
+>    without Tenis's OK). The HelmCNC test gate is `HelmSelfTest.exe offline` —
+>    NEVER run it without arguments. Release/promote scripts never run
+>    off-shop. Big media (ScanPen captures, website photo raws) is
+>    deliberately not in git — never commit media.
+> 5. Report back: installed versions, each project's check result, and the top
+>    HELMCNC_NOTES entry, so Tenis knows exactly where work stands.
+
+## The steps themselves
+
 1. **Install**: Git for Windows, VS Code, Python 3.11.x, Claude Code
    (claude.com/claude-code — desktop app or CLI). Optional but handy:
    GitHub Desktop (easiest sign-in) and the `gh` CLI.
@@ -32,9 +59,16 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
 
        git clone https://github.com/PreissWorkshop/helmcnc-app C:\Projects\HelmCNC\app
 
-   Building needs the roslyn toolset restored per the repo's `.gitignore`
-   note. Nothing built off-shop touches the machine except through the
-   documented deploy on the shop PC.
+   Building needs the roslyn toolset restored first — the how-to sits at the
+   top of the repo's `.gitignore` (Microsoft.Net.Compilers 4.8.0 nupkg from
+   nuget.org, unzipped so `csc.exe` lands at `tools/roslyn/tasks/net472/csc.exe`),
+   then `build.cmd ReleaseNew`. The test gate on ANY machine is
+   `HelmSelfTest.exe offline` — never no-args (that form is the live-board
+   test on the shop PC; keep the habit machine-independent). Read
+   `HELMCNC_NOTES.md` (top section) and `CLAUDE.md` before working; the
+   release/promote scripts run only at the shop-PC console. Nothing built
+   off-shop touches the machine except through the documented deploy on the
+   shop PC.
 6. **Preiss Workshop website** (optional — homepage work):
 
        git clone https://github.com/PreissWorkshop/preiss-workshop-website C:\Projects\PreissWebsite\website

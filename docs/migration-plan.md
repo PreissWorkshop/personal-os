@@ -51,17 +51,33 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 - ✅ Full laptop-readiness check across projects: website, ScanPen, HelmCNC
   app, personal-os, claude-system all on origin with nothing stranded
   locally (HelmCNC's 12 dirty shop-PC files remain the known exception,
-  tracked below). KilnController confirmed still ideas-only — no code
+  tracked below). *Same day, from the shop: that exception is cleared — the
+  files had landed 08-20; see the cnc-pc section.* KilnController confirmed
+  still ideas-only — no code
   exists anywhere. Noted: main-pc also carries 0-byte husks `C:\Voiceover`,
   `C:\lbr` (same cleanup family as the cnc-pc ones).
 
+## Executed 2026-08-22 (from the cnc-pc session)
+
+- ✅ **The "12 dirty shop-PC files" exception is CLEARED** — they had already
+  landed 2026-08-20 as the "five nights" commit (9c333e7) and were pushed.
+  Today's shop-side sweep re-verified helmcnc-app end to end: master =
+  origin, main tree and all four worktrees clean, every side-branch tip
+  contained in origin. Site repo (`C:\HelmCNC.bak\GitHub\HelmCNC`) clean at
+  "Dev release 1.0.90", main = origin.
+- ✅ scanpen re-verified from the shop side: GitHub `master` @ 506dd95 still
+  carries the current code (local head 3e90a27 unchanged since the
+  fresh-start; the GitHub tree is exactly it minus `capture/`). The
+  `C:\ScanPen` clone had no `origin` remote configured — now added.
+  Untracked capture takes stay local by design (they are in the D: archive).
+- ✅ Laptop paste-prompt written — top of docs/bootstrap-new-machine.md,
+  covering all five projects; also handed to Tenis in chat.
+
 ## Waiting on Tenis
 
-- 🔒 **HelmCNC integration commit** — 12 dirty files in `C:\HelmCNC.bak`,
-  message prepared at the top of `HELMCNC_NOTES.md`. Paste it from a
-  `C:\HelmCNC.bak`-rooted session (or by hand), then push again.
-- 🔒 **Laptop bootstrap before vacation** — docs/bootstrap-new-machine.md
-  (now includes the website step).
+- 🔒 **Laptop bootstrap before vacation** — paste the prompt at the top of
+  docs/bootstrap-new-machine.md into Claude Code on the laptop; the doc
+  covers all five projects.
 - 🔒 Approve later cleanups: empty husks (`Mach3`, `KilnController`, `lbr`,
   `Voiceover`, `New folder` — all verified 0 bytes); archive `HelmCNC.56` +
   `HelmCNC-preclean-2026-07-25-*` as dated zips; remove merged worktrees
