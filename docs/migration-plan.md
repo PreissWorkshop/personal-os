@@ -73,11 +73,30 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 - ✅ Laptop paste-prompt written — top of docs/bootstrap-new-machine.md,
   covering all five projects; also handed to Tenis in chat.
 
+## Executed 2026-08-26 (from the laptop session)
+
+- ✅ **Laptop bootstrap is done and verified** — done 2026-08-22, re-checked
+  today: all five projects sit at their registry roots and every local head
+  equals origin. personal-os ff23c05, scanpen 506dd95, helmcnc-app 3674778,
+  claude-system 27b3808, website `feature/fable-design-refinement` 7af1a24
+  (49 commits ahead of an otherwise-empty `main`, unmerged by design).
+  Tailscale up on the laptop; the shop PC reachable both by Claude-to-Claude
+  Remote Control and by RDP.
+- ✅ **Laptop global agent file created** — `~/.claude/CLAUDE.md` did not
+  exist on this machine, although `docs/agent-system.md` names it as binding
+  instruction file #1. It now carries the machine map, this laptop's project
+  roots, the hard rules, the shop-PC contact procedure, and the not-on-PATH
+  tool paths, so a session rooted anywhere on the laptop starts with the same
+  world instead of only sessions rooted where its memory happens to live.
+
 ## Waiting on Tenis
 
-- 🔒 **Laptop bootstrap before vacation** — paste the prompt at the top of
-  docs/bootstrap-new-machine.md into Claude Code on the laptop; the doc
-  covers all five projects.
+- 🔒 **ScanPen tolerance call** — on the laptop, `sweep-artifacts-verified`
+  misses by floating-point dust: `spot_recompute_max_deviation` 1.857e-07 mm
+  against a `< 1e-07 mm` gate, suite otherwise 46/47 green (47/0 on main-pc
+  and cnc-pc). Cross-machine FP variance, not a regression — but the house
+  rule is that a missed threshold is reported, never loosened. Widen the gate
+  or pin package versions: Tenis's call.
 - 🔒 Approve later cleanups: empty husks (`Mach3`, `KilnController`, `lbr`,
   `Voiceover`, `New folder` — all verified 0 bytes); archive `HelmCNC.56` +
   `HelmCNC-preclean-2026-07-25-*` as dated zips; remove merged worktrees
