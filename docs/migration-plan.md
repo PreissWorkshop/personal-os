@@ -89,8 +89,36 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   tool paths, so a session rooted anywhere on the laptop starts with the same
   world instead of only sessions rooted where its memory happens to live.
 
+- ✅ **The helmcnc-app SelfTest fixture blocker is CLEARED.**
+  `SelfTest/Fixtures/script_S.dxf` was never in git — the root `.gitignore`
+  rule `Fixtures/` matched it at any depth — so fresh clones failed the suite
+  build with MSB3030 even though HELMCNC_NOTES.md claimed it was committed.
+  Force-added and pushed from the shop session (0d3b730, that file only, 15210
+  bytes, sha256 b878e662…); `.gitignore` was left alone, since the rule still
+  guards `Data/` and a tracked path overrides it. Verified on the laptop:
+  fast-forward pull, byte-identical fixture, HelmCNC.exe + HelmSelfTest.exe
+  both build, and `HelmSelfTest.exe offline` reports **2166 passed / 0
+  failed** — the suite is green off-shop for the first time. The shop session
+  also confirmed no other ignored-but-required file exists: HelmSelfTest.csproj
+  has exactly one Content item. The build recipe it took to get there is now
+  written into docs/bootstrap-new-machine.md instead of living in one
+  session's memory.
+- ✅ Shop PC notification settings checked while we were there —
+  `agentPushNotifEnabled` and `inputNeededNotifEnabled` are **already true**;
+  nothing needed changing. Whether that actually reaches Tenis's phone is
+  **unverified** — see the open item below.
+
 ## Waiting on Tenis
 
+- 🔒 **Prove the input-needed notification path, or stop relying on it.**
+  On 2026-08-26 the shop session sat in `requires_action` on a permission
+  prompt and nobody knew; Tenis walked to the shop PC to find out. Both
+  notification keys are already true there, and a `PushNotification` test
+  returned "Mobile push requested" — but "requested" is not "delivered", and
+  that tool is a *deliberate* call, not the harness-raised permission-prompt
+  path that actually stalled us. That path remains untested. The honest test:
+  nobody at the shop PC, a session hits a real prompt, and we see whether the
+  phone buzzes. Until then, assume it does not.
 - 🔒 **ScanPen tolerance call** — on the laptop, `sweep-artifacts-verified`
   misses by floating-point dust: `spot_recompute_max_deviation` 1.857e-07 mm
   against a `< 1e-07 mm` gate, suite otherwise 46/47 green (47/0 on main-pc

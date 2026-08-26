@@ -69,6 +69,29 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
    release/promote scripts run only at the shop-PC console. Nothing built
    off-shop touches the machine except through the documented deploy on the
    shop PC.
+
+   **Verified off-shop recipe** (laptop, 2026-08-26 — suite 2166 passed / 0
+   failed). `build.cmd` builds only `HelmCNC.csproj`; the suite is a second
+   MSBuild call that was undocumented until now. Both need `KMotionRelease`
+   pointed at a folder holding `KMotion_dotNet.dll` — off-shop, extract it
+   from the repo's dist installer payload (the laptop keeps it at
+   `C:\Projects\HelmCNC\kmotion-ref`) — because the csproj default
+   `C:\KMotion5.4.1\KMotion\Release` exists only on the shop PC:
+
+       set KMotionRelease=C:\Projects\HelmCNC\kmotion-ref
+       build.cmd ReleaseNew
+
+       %WINDIR%\Microsoft.NET\Framework4.0.30319\MSBuild.exe SelfTest\HelmSelfTest.csproj ^
+         /p:Configuration=Release /p:Platform=x86 ^
+         /p:CscToolPath=<repo>	oolsoslyn	asks
+et472 ^
+         /p:KMotionRelease=C:\Projects\HelmCNC\kmotion-ref ^
+         /p:HelmCncRef=..in\ReleaseNew /p:OutputPath=..in\ReleaseNew
+       cd bin\ReleaseNew  &&  HelmSelfTest.exe offline
+
+   `HelmCncRef` and `OutputPath` are overridden together, as the csproj
+   comment instructs — they aim the suite at the same output folder it
+   compiles against. Still never `HelmSelfTest.exe` with no arguments.
 6. **Preiss Workshop website** (optional — homepage work):
 
        git clone https://github.com/PreissWorkshop/preiss-workshop-website C:\Projects\PreissWebsite\website
