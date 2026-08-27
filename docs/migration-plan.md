@@ -105,20 +105,57 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   session's memory.
 - ✅ Shop PC notification settings checked while we were there —
   `agentPushNotifEnabled` and `inputNeededNotifEnabled` are **already true**;
-  nothing needed changing. Whether that actually reaches Tenis's phone is
-  **unverified** — see the open item below.
+  nothing needed changing. Phone delivery was unverified that day; it was
+  proved the next morning — see the 08-27 section.
+
+## Executed 2026-08-27 (from the laptop session)
+
+- ✅ **The stall-notification path is VERIFIED end to end** — the fix for the
+  08-26 incident, proved rather than assumed. Tenis left the shop PC, the shop
+  session was put into an input-needed stall at 07:50 with nobody there, and
+  his phone buzzed **while locked**; tapping through gave approval buttons on
+  the phone and answering from it unblocked the session. He never walked to
+  the shop. Two traps that make re-tests lie: the mobile push is **suppressed
+  while the user is active at the terminal** (leave a session unattended ~3
+  min before concluding anything — the first two attempts were false
+  negatives), and `PushNotification` returns "Mobile push requested"
+  regardless of what happens downstream, so its result string is not a
+  delivery receipt. Nothing local records which channel an answer arrived on.
+- ⚠ Still untested, narrowly: a real **tool-permission** prompt as opposed to
+  a question. What was proved is the input-needed category, which carries the
+  same actionable phone UI, so the permission path is likely fine — not
+  proven. It could not be forced from the shop session; see the new open item
+  below for why that is its own problem.
+- ✅ **The 1.0.91 suite-red mystery is narrowed** (helmcnc-app a17df66). First
+  off-shop run of the offline gate: **2166 passed / 0 failed** on the laptop,
+  with the nine touch-router SAFETY checks that are red on cnc-pc firing for
+  real. The machines differ in hardware, not source — laptop SM_DIGITIZER=197
+  with 10 touch points, cnc-pc 0 — and without a digitizer the synthetic
+  WM_POINTERDOWN transport never reaches the handlers, which is exactly the
+  shop symptom (fires=0). This establishes the E-STOP routing is correct in
+  the current code; it does NOT explain cnc-pc's console-green 2117/0 on
+  08-16 on the same digitizer-less machine, so that stays unexplained. The
+  cheap decisive test is recorded in HELMCNC_NOTES.md. Nothing promotes on
+  this alone.
+
 
 ## Waiting on Tenis
 
-- 🔒 **Prove the input-needed notification path, or stop relying on it.**
-  On 2026-08-26 the shop session sat in `requires_action` on a permission
-  prompt and nobody knew; Tenis walked to the shop PC to find out. Both
-  notification keys are already true there, and a `PushNotification` test
-  returned "Mobile push requested" — but "requested" is not "delivered", and
-  that tool is a *deliberate* call, not the harness-raised permission-prompt
-  path that actually stalled us. That path remains untested. The honest test:
-  nobody at the shop PC, a session hits a real prompt, and we see whether the
-  phone buzzes. Until then, assume it does not.
+- 🔒 **The shop-PC Claude session appears to run WITHOUT permission
+  gating — check this before anything else on this list.** Reported by that
+  session itself on 08-27, not independently verified from the laptop: every
+  project has `allowedTools: []`, there is no `permissions` block and no
+  `defaultMode` in any settings file there, yet `git push` and `WebFetch` both
+  execute ungated, and it could not raise a tool-permission prompt on demand
+  even when trying to. It declined to force one by running something
+  destructive — correct call. This means yesterday's approvals were the
+  session choosing to ask Tenis questions, not the harness stopping it: the
+  safety came from its judgment, not from enforcement. On a machine wired to a
+  live CNC that is worth a deliberate decision. It also reverses the
+  git-allowlist idea floated on 08-26 — that session does not need loosening,
+  it may need gating. Check how `shell:startup\claude-remote-control.cmd`
+  launches it (a `--dangerously-skip-permissions`-style flag would explain
+  everything).
 - 🔒 **ScanPen tolerance call** — on the laptop, `sweep-artifacts-verified`
   misses by floating-point dust: `spot_recompute_max_deviation` 1.857e-07 mm
   against a `< 1e-07 mm` gate, suite otherwise 46/47 green (47/0 on main-pc
