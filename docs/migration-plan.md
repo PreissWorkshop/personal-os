@@ -139,8 +139,57 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   this alone.
 
 
+## Executed 2026-08-28 (from the laptop session)
+
+- ✅ **The 1.0.91 suite-red is proven a runtime artifact, not a code defect -
+  the promote gate stays shut pending one console run.** The three files that
+  generate the 9 touch SAFETY checks and implement the router they drive are
+  byte-identical between the shop's failing-binary source and the laptop build
+  that passes all 9; the 9 deliver via PostMessage through the app message pump
+  into an IMessageFilter, so the failure is a pumped message not reaching the
+  filter under the shop's RDP session, not an E-STOP logic bug. Shop-side
+  read-only sweep ruled out hotfixes, Windows updates and device changes and
+  falsified the digitizer idea. Full detail in helmcnc-app NOTES (f60b5c8). The
+  one uncontrolled variable is RDP session 2 vs console session 1; on this
+  Win10-client box a headless RDP connection can only land in its own session
+  2, so the decisive console run needs a real console logon.
+- ✅ **Console test STAGED, safely: no reboot / no tscon / no auto-logon.**
+  Per Tenis's constraint (must not lose Tailscale+RDP access to the shop), both
+  access-risky routes were declined. Instead an opt-in double-click script sits
+  on the shop console desktop (Lenovo\Desktop\RUN-SUITE-CONSOLE-TEST.cmd +
+  README): runs HelmSelfTest.exe offline, detects console-vs-RDP via
+  `query session` (not the unreliable %SESSIONNAME%, which reads "Console" for
+  RDP on this box), and writes a timestamped result file. The answer arrives the
+  next time anyone logs into the shop console, or when Tenis is next there
+  physically. Offline self-test confirmed to do no machine motion and need no
+  KFLOP/KMotion.
+- ✅ **Reboot-resilience of shop remote access, established read-only:**
+  Tailscale service and RDP TermService are both StartType=Automatic and come up
+  at boot before any login, so remote access survives a reboot with nobody
+  logged in. Reachability is over the Tailscale interface, not the LAN 3389
+  firewall rule (which showed 0 enabled rules - flagged, not a problem while
+  Tailscale is the path).
+
 ## Waiting on Tenis
 
+- 🔒 **BitLocker status on the shop PC - one elevated command, and the last
+  unknown gating any future reboot.** The shop session runs at Medium integrity
+  and cannot read it. Run ELEVATED on cnc-pc: `manage-bde -status C:` (or
+  `Get-BitLockerVolume C:`). Protection On with a TPM-only protector => a reboot
+  resumes with no prompt (safe). TPM+PIN, Password, or a state needing the
+  Recovery Key => a headless reboot could stop at a recovery prompt and lock out
+  remote access - never reboot the shop PC remotely in that case. Only matters if
+  the console test is pursued via a reboot rather than a natural console logon.
+- 🔒 **Uncommitted button-sweep work in the laptop helmcnc-app tree needs
+  committing by its own session so it is not lost.** A parallel session built an
+  offline UI button-sweep harness (SelfTest/ButtonSweepTests.cs, plus UiShots.cs
+  and Program.cs/csproj edits) - 99 controls pressed, 0 crashes - and
+  independently found that SWITCH PROBE and HOME SWITCH GUIDE cannot build
+  offline because their ctors demand a concrete KflopController. It is currently
+  UNCOMMITTED and partly UNTRACKED in C:\Projects\HelmCNC\app, with a 71-line
+  NOTES entry also uncommitted. This session deliberately did NOT touch that tree
+  to avoid clobbering it. Commit it as its own coherent unit (source + NOTES) and
+  push.
 - 🔒 **The shop-PC Claude session appears to run WITHOUT permission
   gating — check this before anything else on this list.** Reported by that
   session itself on 08-27, not independently verified from the laptop: every
