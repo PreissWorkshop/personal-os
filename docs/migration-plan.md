@@ -141,6 +141,26 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Executed 2026-08-28 (from the laptop session)
 
+- ❌ **RETRACTED, 2026-08-28 later: the "runtime artifact" conclusion below is
+  WRONG and the item under it must not be acted on.** The 9 touch SAFETY
+  failures are a REAL E-STOP defect, not an RDP artifact.
+  `EmergencyTouchRouter.HitAndFire` (Controls/TouchInput.cs:591-593) compares a
+  SIGNED `Environment.TickCount` against a 350 ms debounce with a -100000
+  sentinel; past ~24.9 days uptime TickCount goes negative, the difference is
+  about -1.14 billion, the press is swallowed permanently, and `en.Fire()`
+  never runs. MainForm registers the real E-STOP/STOP buttons through that
+  router, so after ~25 days uptime the on-screen E-STOP BREAK-THROUGH (firing
+  while a jog holds the touch capture) silently dies. cnc-pc is in that state
+  now (37 d uptime, TickCount measured -1137538843); the 08-16 green / 08-20
+  red transition is exactly the wrap. Four failing checks call PreFilterMessage
+  DIRECTLY in-process, which no message-delivery theory can explain.
+  **DANGER THIS CREATED: a reboot resets TickCount, the 9 go green,
+  release.ps1 stops refusing, and 1.0.91 would ship with a dead E-STOP
+  break-through. A post-reboot green proves NOTHING.** The laptop's 2166/0 is
+  not evidence either - at 4.7 days uptime it cannot reach the failing branch.
+  Full detail and the fix idiom in helmcnc-app NOTES top entry (00c2548).
+  Gate stays SHUT.
+
 - ✅ **The 1.0.91 suite-red is proven a runtime artifact, not a code defect -
   the promote gate stays shut pending one console run.** The three files that
   generate the 9 touch SAFETY checks and implement the router they drive are
@@ -172,6 +192,17 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Waiting on Tenis
 
+- 🔒 **1.0.91 RELEASE BLOCKED ON A REAL DEFECT - fix the TickCount
+  wrap before anything ships.** Decide and fix: TouchInput.cs (a one-line fix is
+  applied but UNCOMMITTED and UNVERIFIED in cnc-pc's tree), plus the siblings
+  Tenis must rule on because they are motion code - `KflopController._liftFenceTick`
+  (soft-limit re-push watchdog currently dead on cnc-pc), ToolpathControl x3, and
+  `_lastMachMmTick = int.MinValue` which overflows at LOW uptime. Correct idiom
+  everywhere: `unchecked((uint)(now - last)) < window` - right across the wrap and
+  fails safe. Then require the suite green on a HIGH-UPTIME machine, or with the
+  wrap forced in a test; a low-uptime green cannot detect this class of bug.
+  Also fix `ship-1091.cmd`'s header, which still encodes the wrong "refuses over
+  RDP" diagnosis and sends the next person to the console expecting a pass.
 - ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.
 - 🔒 **Uncommitted button-sweep work in the laptop helmcnc-app tree needs
   committing by its own session so it is not lost.** A parallel session built an
