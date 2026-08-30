@@ -172,14 +172,7 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Waiting on Tenis
 
-- 🔒 **BitLocker status on the shop PC - one elevated command, and the last
-  unknown gating any future reboot.** The shop session runs at Medium integrity
-  and cannot read it. Run ELEVATED on cnc-pc: `manage-bde -status C:` (or
-  `Get-BitLockerVolume C:`). Protection On with a TPM-only protector => a reboot
-  resumes with no prompt (safe). TPM+PIN, Password, or a state needing the
-  Recovery Key => a headless reboot could stop at a recovery prompt and lock out
-  remote access - never reboot the shop PC remotely in that case. Only matters if
-  the console test is pursued via a reboot rather than a natural console logon.
+- ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.
 - 🔒 **Uncommitted button-sweep work in the laptop helmcnc-app tree needs
   committing by its own session so it is not lost.** A parallel session built an
   offline UI button-sweep harness (SelfTest/ButtonSweepTests.cs, plus UiShots.cs
