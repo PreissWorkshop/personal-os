@@ -192,17 +192,7 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Waiting on Tenis
 
-- 🔒 **1.0.91 RELEASE BLOCKED ON A REAL DEFECT - fix the TickCount
-  wrap before anything ships.** Decide and fix: TouchInput.cs (a one-line fix is
-  applied but UNCOMMITTED and UNVERIFIED in cnc-pc's tree), plus the siblings
-  Tenis must rule on because they are motion code - `KflopController._liftFenceTick`
-  (soft-limit re-push watchdog currently dead on cnc-pc), ToolpathControl x3, and
-  `_lastMachMmTick = int.MinValue` which overflows at LOW uptime. Correct idiom
-  everywhere: `unchecked((uint)(now - last)) < window` - right across the wrap and
-  fails safe. Then require the suite green on a HIGH-UPTIME machine, or with the
-  wrap forced in a test; a low-uptime green cannot detect this class of bug.
-  Also fix `ship-1091.cmd`'s header, which still encodes the wrong "refuses over
-  RDP" diagnosis and sends the next person to the console expecting a pass.
+- ✅ **RESOLVED 2026-08-31: the TickCount-wrap defect is fixed, and the suite is GREEN on the failing machine itself.** `Controllers/TickWindow.cs` (5c70d83) carries the wrap-safe predicates; every sentinel comparison converted (E-STOP router, both `_liftFenceTick` gates, `_lastMachMmTick` via saturating AgeMs, UI windows); a `tickwrap` suite section drives the incident's exact tick so ANY machine proves the wrap. Decisive run on cnc-pc at 38 d uptime, TickCount live-negative: **2181 passed / 0 failed**, all nine formerly-red SAFETY checks firing (fires=1/2/3 vs 0). En route the tickwrap section's first shop run exposed a reporter NRE that silently killed 2076 checks while printing an ordinary-looking red - fixed at the reporter (8ce66f1); lesson recorded in NOTES. `test_m0.ngc` recreated and committed at the repo root (e7993d7) - the share copy is unreachable - and ship-1091.cmd repointed. **1.0.91 is one console visit from customers: `git pull` in C:\HelmCNC.bak, then `ship-1091.cmd`** (release -> watched live M0 test -> promote, Tenis's typed words at the gate).
 - ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.
 - 🔒 **Uncommitted button-sweep work in the laptop helmcnc-app tree needs
   committing by its own session so it is not lost.** A parallel session built an
