@@ -52,7 +52,10 @@ projects:
 
   - id: preiss-website
     name: Preiss Workshop website
-    status: active — redesign; newest work on feature/fable-design-refinement (2026-07-13, on origin)
+    status: >
+      active — the redesign, CRM and admin have LANDED ON main (2026-09-07).
+      feature/fable-design-refinement and feat/requests-crm are merged and dead;
+      the live branch is feat/projects-board, 1 commit ahead. Verified 2026-09-07.
     repo: https://github.com/PreissWorkshop/preiss-workshop-website
     roots:
       main-pc: C:\PREISS_WEBSITE\website   # + worktrees preiss-workshop-{codex,design-polish,fable} beside it

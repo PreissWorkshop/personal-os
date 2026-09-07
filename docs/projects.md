@@ -35,9 +35,11 @@ reports). Not a product.
 
 Static generated site for the workshop's public presence — premium,
 architectural, material-focused. Stdlib-Python generator in `src/site/`,
-committed output in `public/`. Repo: **preiss-workshop-website**; newest
-work on `feature/fable-design-refinement`. In-tree `AGENT_WORKFLOW.md` is
-binding; never merge to `main` without approval. The raw photo archives
+committed output in `public/`. Repo: **preiss-workshop-website**. The
+redesign, the CRM and the admin all landed on `main` by 2026-09-07;
+`feature/fable-design-refinement` and `feat/requests-crm` are merged and
+dead, and live work is on `feat/projects-board`. In-tree `AGENT_WORKFLOW.md`
+is binding; never merge to `main` without approval. The raw photo archives
 (~27 GB) stay on main-pc outside git — the repo carries only optimized
 images and builds without the raws.
 

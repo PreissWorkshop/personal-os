@@ -96,7 +96,6 @@ et472 ^
 
        git clone https://github.com/PreissWorkshop/preiss-workshop-website C:\Projects\PreissWebsite\website
        cd C:\Projects\PreissWebsite\website
-       git checkout feature/fable-design-refinement
        python src\site\build.py              # expect "Build OK - ... pages"
        python -m http.server 8790 -d public  # preview at http://localhost:8790
 
