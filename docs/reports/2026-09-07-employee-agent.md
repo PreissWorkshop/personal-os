@@ -81,11 +81,13 @@ suppliers and clients on his behalf. It is `assistant@preissworkshop.is`,
 and it is close to free and close to instant, because most of it is already
 running:
 
-- **Inbound already works.** Cloudflare Email Routing has been live on
-  `preissworkshop.is` since 2026-09-06 - verified today by DNS lookup, MX at
-  `route1-3.mx.cloudflare.net`, SPF `include:_spf.mx.cloudflare.net` - with a
-  catch-all to `preissworkshop@gmail.com`. Mail to the new address arrives
-  today with nothing configured. A named route is two minutes of tidying.
+- **Inbound is most of the way there.** Cloudflare Email Routing is live on
+  `preissworkshop.is` - verified today by DNS lookup, MX at
+  `route1-3.mx.cloudflare.net`, SPF `include:_spf.mx.cloudflare.net`. The
+  2026-09-06 notes record a catch-all to `preissworkshop@gmail.com`, which
+  would mean the new address already receives; the catch-all rule itself is
+  `[UNVERIFIED - needs check]` from outside, so it wants one test mail. The
+  named route is two minutes either way.
 - **Outbound needs one key.** `src/api/mail.js` in the website repo is
   already written against Resend's free tier (3,000/month) and is
   **outbox-first**: every message becomes a `crm_outbox` row in D1 before any

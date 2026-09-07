@@ -130,11 +130,15 @@ The employee writes as `assistant@preissworkshop.is`, never as you. What it
 may send alone and what it must draft for your approval is written in
 `docs/employee.md` → E-mail; read that section before turning this on.
 
-**Receiving already works.** Cloudflare Email Routing has been live on
-`preissworkshop.is` since 2026-09-06 (MX at `route1-3.mx.cloudflare.net`)
-and the catch-all forwards everything to `preissworkshop@gmail.com`. So mail
-to `assistant@preissworkshop.is` arrives today with nothing done. Two
-minutes of tidying makes it a named route rather than catch-all overflow:
+**Receiving is most of the way there already.** Cloudflare Email Routing is
+live on `preissworkshop.is` - verified 2026-09-07 by DNS lookup, MX at
+`route1-3.mx.cloudflare.net`, SPF `include:_spf.mx.cloudflare.net`. Per the
+2026-09-06 setup notes a catch-all forwards everything to
+`preissworkshop@gmail.com`, which would mean mail to the new address already
+arrives; **that catch-all is not something this session could verify from
+outside, so send one test mail to `assistant@preissworkshop.is` and confirm
+it lands before relying on it.** Either way, add the named route - two
+minutes, and it beats living on catch-all overflow:
 
 1. Cloudflare → `preissworkshop.is` → **Email → Email Routing → Routes**.
 2. Add `assistant@` → forward to `preissworkshop@gmail.com`. Your click:
