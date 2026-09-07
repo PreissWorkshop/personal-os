@@ -242,16 +242,14 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 - ✅ **RESOLVED 2026-08-31: the TickCount-wrap defect is fixed, and the suite is GREEN on the failing machine itself.** `Controllers/TickWindow.cs` (5c70d83) carries the wrap-safe predicates; every sentinel comparison converted (E-STOP router, both `_liftFenceTick` gates, `_lastMachMmTick` via saturating AgeMs, UI windows); a `tickwrap` suite section drives the incident's exact tick so ANY machine proves the wrap. Decisive run on cnc-pc at 38 d uptime, TickCount live-negative: **2181 passed / 0 failed**, all nine formerly-red SAFETY checks firing (fires=1/2/3 vs 0). En route the tickwrap section's first shop run exposed a reporter NRE that silently killed 2076 checks while printing an ordinary-looking red - fixed at the reporter (8ce66f1); lesson recorded in NOTES. `test_m0.ngc` recreated and committed at the repo root (e7993d7) - the share copy is unreachable - and ship-1091.cmd repointed. **1.0.91 is one console visit from customers: `git pull` in C:\HelmCNC.bak, then `ship-1091.cmd`** (release -> watched live M0 test -> promote, Tenis's typed words at the gate).
 - ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.
-- 🔒 **Uncommitted button-sweep work in the laptop helmcnc-app tree needs
-  committing by its own session so it is not lost.** A parallel session built an
-  offline UI button-sweep harness (SelfTest/ButtonSweepTests.cs, plus UiShots.cs
-  and Program.cs/csproj edits) - 99 controls pressed, 0 crashes - and
-  independently found that SWITCH PROBE and HOME SWITCH GUIDE cannot build
-  offline because their ctors demand a concrete KflopController. It is currently
-  UNCOMMITTED and partly UNTRACKED in C:\Projects\HelmCNC\app, with a 71-line
-  NOTES entry also uncommitted. This session deliberately did NOT touch that tree
-  to avoid clobbering it. Commit it as its own coherent unit (source + NOTES) and
-  push.
+- ✅ **RESOLVED (was open as of 2026-08-28, cleared by 2026-08-30): the
+  button-sweep work is committed and pushed.** helmcnc-app 67a0596 lands
+  SelfTest/ButtonSweepTests.cs, UiShots.cs, SizeCeiling.cs and the csproj
+  edits together (105 controls seen, 99 pressed, 0 threw, 0 dead — matches
+  the figures this item was tracking); HELMCNC_NOTES.md carries the same
+  entry at 2026-08-27/30. This 🔒 item sat open in the tracker for over a
+  week after the work it describes had already landed — corrected
+  2026-09-07 standup.
 - 🔒 **The shop-PC Claude session appears to run WITHOUT permission
   gating — check this before anything else on this list.** Reported by that
   session itself on 08-27, not independently verified from the laptop: every
