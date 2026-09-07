@@ -66,11 +66,17 @@ ASCII-only and parse clean. Keep them that way.
 
 ## What could be wrong
 
-- The routines have **never fired yet**. Cloning depends on the claude.ai
-  account's GitHub access; PR creation may need the GitHub App installed on
-  each repo. First real runs are 2026-09-08 06:30 and will prove or disprove
-  both. A green run status means the session started and exited, **not** that
-  the task succeeded — read the transcript.
+- ~~The routines have never fired yet.~~ **The standup was test-fired today
+  and succeeded** (run 12:41-12:44, status SUCCEEDED). It cloned all four
+  repos, read `employee.md`, the registry and the tracker, and found on its
+  own that the "uncommitted button-sweep work" item had been open for eight
+  days after helmcnc-app `67a0596` landed it on 2026-08-30. It corrected the
+  tracker, pushed `claude/migration-plan-button-sweep-correction-0907`, and
+  opened PR #1 — which was verified against the real commit and merged.
+  It also flagged the website branch drift that this session then fixed.
+  So cloning, GitHub access, PR creation and the honesty rules all work.
+  Still true in general: a green run status means the session started and
+  exited, **not** that the task succeeded — read the transcript.
 - HelmCNC **support-report triage was dropped from phase 0 on purpose.** The
   reports live behind an admin endpoint whose token is in the Signing folder;
   a cloud sandbox has neither the token nor the network permission, and this
@@ -98,6 +104,12 @@ Routine creation and the connector strip confirmed from the API responses.
 
 ## Safest next step
 
-Let the standup fire on 2026-09-08 and read what it says. If it clones and
-reports, phase 0 is real and Thursday is a 20-minute sitting. If it fails on
-repo access, that is one permission fix, not a redesign.
+Phase 0 is proven, so Thursday is a 20-minute sitting, not a build. Read the
+06:30 standup on 2026-09-08 to see the employee working unprompted, then run
+`docs/employee-setup-main-pc.md` at main-pc.
+
+The employee's own pick for what matters most, from its first run: **the
+shop-PC permission-gating question**, open since 2026-08-27 on the machine
+wired to the live CNC. Five minutes checking
+`shell:startup\claude-remote-control.cmd` for a skip-permissions flag,
+before anything else runs there.
