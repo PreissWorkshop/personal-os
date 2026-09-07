@@ -23,8 +23,16 @@ them (`clear_mcp_connections`) unless the routine genuinely needs one, and
 check `mcp_connections` on the response. See
 `docs/reports/2026-09-07-employee-agent.md`.
 
-Phase 1 (Telegram + always-on session on main-pc) is scripted and waiting:
-`docs/employee-setup-main-pc.md`, `scripts/employee-*.ps1`.
+Phase 1 (Telegram + always-on session on main-pc + the employee's own
+mailbox) is scripted and waiting: `docs/employee-setup-main-pc.md`,
+`scripts/employee-*.ps1`.
+
+**The employee has an address**, `assistant@preissworkshop.is` — never
+Tenis's own, and it signs as the workshop rather than as him. Outgoing mail
+is outbox-first through `src/api/mail.js`, so a draft is a `crm_outbox` row
+and a row is not a sent mail. What it may send unattended is deliberately
+narrow; anything carrying a commitment waits for Tenis. The rules are in
+`docs/employee.md` → E-mail, and they are the binding version.
 
 ## Today (2026-08)
 
@@ -50,9 +58,12 @@ Phase 1 (Telegram + always-on session on main-pc) is scripted and waiting:
    master agent is `docs/employee.md`, read by three routines that need no
    computer to be awake. Step 4's point stands: prove the dispatch loop
    before writing custom orchestration — the first standup fires 2026-09-08.
-5. ⏳ Reach it from the phone: Telegram into an always-on main-pc session
-   (Thursday 2026-09-10), then WhatsApp via a Managed Agent and a bridge we
-   write — no official WhatsApp support exists in the Claude stack.
+5. ⏳ Reach it from the phone, and give it a mailbox: Telegram into an
+   always-on main-pc session plus `assistant@preissworkshop.is`, both free,
+   both Thursday 2026-09-10. **WhatsApp was assessed and dropped the same
+   day** — no official support in the Claude stack, per-message fees, Meta
+   verification, and a bridge and Managed Agent to pay for, all to deliver
+   the same chat box Telegram gives free.
 6. Business/media agents (marketing, sales, content, social) join only once
    the engineering loop is boring and reliable.
 

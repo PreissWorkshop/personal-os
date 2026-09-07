@@ -226,19 +226,36 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Waiting on Tenis
 
-- 🔒 **Thursday 2026-09-10 at main-pc: bring the employee to the phone.**
-  Follow `docs/employee-setup-main-pc.md` steps 1-6 (~20 min). Two steps are
-  his alone: creating the Telegram bot with BotFather (account creation), and
-  choosing the permission posture - the shipped default keeps prompts and
-  approves from the phone, which is the recommended one. Everything else is
+- 🔒 **Thursday 2026-09-10 at main-pc: give the employee a phone and a
+  mailbox.** Follow `docs/employee-setup-main-pc.md` steps 1-7 (~30 min).
+  Steps 1-6 are the Telegram channel; step 7 gives it
+  `assistant@preissworkshop.is`. Three things are his alone, all account
+  signups: the Telegram bot from BotFather, a free Resend account for
+  outgoing mail (this is also TODO-OWNER's "Connect outgoing e-mail" item,
+  so it turns on the CRM's mail at the same time), and the Cloudflare Email
+  Routing route. Plus one choice: the permission posture, where the shipped
+  default keeps prompts and approves from the phone. Everything else is
   scripted.
-- 🔒 **Phase 2 go/no-go: WhatsApp + Managed Agent.** No official WhatsApp
-  support exists anywhere in the Claude stack, so it means Meta's Business
-  Cloud API plus a Cloudflare Worker bridge in front of a Managed Agent with
-  a memory store and a delegation roster - roughly $3-15/day of API usage on
-  top of the subscription, and business verification on Meta's side can take
-  days. Nothing depends on it; phases 0 and 1 stand alone. Voice calls are a
-  further step again (media server + speech-to-text/text-to-speech).
+- ⚠ **The employee's e-mail is deliberately gated.** Inbound already works -
+  Email Routing has been live on preissworkshop.is since 09-06 with a
+  catch-all, verified by DNS lookup 09-07, so mail to the new address arrives
+  today. Outbound rides `src/api/mail.js`, which is outbox-first: every
+  message becomes a `crm_outbox` row before any provider sees it, so a draft
+  is a row and a row is not a sent mail. What it may send alone is narrow on
+  purpose (acknowledgements, a supplier asked for a price list, a chase with
+  nothing new); anything carrying a commitment - prices, dates, accepting or
+  declining an order, an unhappy client, a first approach, money either way -
+  waits for Tenis. Full list in `docs/employee.md` -> E-mail. Widen it once
+  there is a track record he has read.
+- ✅ **DECIDED 2026-09-07, same day: no WhatsApp, no Managed Agent, no API
+  bill.** Tenis asked what the cheapest way is and said he does not care
+  which chat app it is, because it works the same way. Telegram is free with
+  no per-message fee and takes minutes; WhatsApp charges per delivered
+  template message, needs Meta business verification, and needs a bridge and
+  a Managed Agent we would write, host and pay for (~$3-15/day) to deliver
+  the same chat box. Dropping it removes the only paid tier in the plan -
+  the employee now costs nothing beyond the existing subscription. Voice went
+  with it; voice notes into Telegram cover the case.
 
 - ✅ **RESOLVED 2026-08-31: the TickCount-wrap defect is fixed, and the suite is GREEN on the failing machine itself.** `Controllers/TickWindow.cs` (5c70d83) carries the wrap-safe predicates; every sentinel comparison converted (E-STOP router, both `_liftFenceTick` gates, `_lastMachMmTick` via saturating AgeMs, UI windows); a `tickwrap` suite section drives the incident's exact tick so ANY machine proves the wrap. Decisive run on cnc-pc at 38 d uptime, TickCount live-negative: **2181 passed / 0 failed**, all nine formerly-red SAFETY checks firing (fires=1/2/3 vs 0). En route the tickwrap section's first shop run exposed a reporter NRE that silently killed 2076 checks while printing an ordinary-looking red - fixed at the reporter (8ce66f1); lesson recorded in NOTES. `test_m0.ngc` recreated and committed at the repo root (e7993d7) - the share copy is unreachable - and ship-1091.cmd repointed. **1.0.91 is one console visit from customers: `git pull` in C:\HelmCNC.bak, then `ship-1091.cmd`** (release -> watched live M0 test -> promote, Tenis's typed words at the gate).
 - ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.

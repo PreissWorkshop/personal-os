@@ -5,9 +5,14 @@ Everything here was prepared 2026-09-07 from the laptop and is meant to be
 a decision while you are at the keyboard except the two marked 🔒.
 
 Goal: an always-on Claude Code session on main-pc, rooted in this repo,
-reachable from the phone by Telegram, that reads `docs/employee.md` and
-runs the operation between sittings. Cloud routines (phase 0) are already
-live and need none of this.
+reachable from the phone by Telegram **and by its own e-mail address**, that
+reads `docs/employee.md` and runs the operation between sittings. Cloud
+routines (phase 0) are already live and need none of this.
+
+Steps 1-6 are the chat channel, step 7 is the e-mail address. Both are free.
+Budget about 30 minutes for the lot. The only parts that are yours alone are
+the three account signups, because account creation and passwords are never
+an agent's job.
 
 ## Before you start
 
@@ -118,6 +123,46 @@ away. Three options, least to most permissive:
    a problem to fix, not a pattern to copy.
 
 The script ships option 1. Nothing to do unless you want to change it.
+
+## Step 7 — 🔒 give it its own e-mail address (~10 min, mostly yours)
+
+The employee writes as `assistant@preissworkshop.is`, never as you. What it
+may send alone and what it must draft for your approval is written in
+`docs/employee.md` → E-mail; read that section before turning this on.
+
+**Receiving already works.** Cloudflare Email Routing has been live on
+`preissworkshop.is` since 2026-09-06 (MX at `route1-3.mx.cloudflare.net`)
+and the catch-all forwards everything to `preissworkshop@gmail.com`. So mail
+to `assistant@preissworkshop.is` arrives today with nothing done. Two
+minutes of tidying makes it a named route rather than catch-all overflow:
+
+1. Cloudflare → `preissworkshop.is` → **Email → Email Routing → Routes**.
+2. Add `assistant@` → forward to `preissworkshop@gmail.com`. Your click:
+   the auto-mode classifier blocks agents from changing Cloudflare accounts.
+
+**Sending needs one key** — this is TODO-OWNER item "Connect outgoing
+e-mail (Resend, free)", already on your list for the CRM, and it turns on
+the employee's mail at the same time. Full steps in the website repo's
+`ADMIN-GUIDE.md` → *Connecting e-mail*. In short:
+
+1. Create a free account at resend.com (3,000 mails/month, no card).
+2. Verify `preissworkshop.is` there — it gives you DKIM and SPF records to
+   add in Cloudflare DNS.
+3. In the Pages project → **Settings → Variables and secrets**, set
+   `RESEND_API_KEY` (secret), `MAIL_FROM` =
+   `Preiss Workshop <assistant@preissworkshop.is>`, and `NOTIFY_TO` = your
+   own address.
+
+Nothing is lost while this is off: `src/api/mail.js` writes every message to
+`crm_outbox` in D1 **before** any provider sees it, so unsent mail sits
+visible in the admin instead of disappearing. That same outbox is the
+approval gate — a draft is a row, and a row is not a sent mail.
+
+**The upgrade, later:** an Email Worker that puts inbound mail on the client
+timeline in the admin instead of in a shared Gmail, so the whole history
+lives in one place and the employee reads only its own correspondence.
+That is phase 4 of `WORKSHOP-OS.md` in the website repo, and it is a build
+job for a session on main-pc once the two steps above are done.
 
 ## What the session does once running
 

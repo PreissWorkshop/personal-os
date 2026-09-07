@@ -10,7 +10,8 @@ scheduled tasks, zero API triggers existed on the account.**
 
 Checked against the official docs today, not from memory.
 
-- **WhatsApp: no official support anywhere in Anthropic's stack.** Claude Code
+- **WhatsApp: no official support anywhere in Anthropic's stack** - and, as of
+  this afternoon, **dropped** - see Cost below. Claude Code
   channels ship Telegram, Discord and iMessage; during the research preview
   `--channels` only accepts plugins from an Anthropic-maintained allowlist, so
   the community WhatsApp plugin needs the `--dangerously-load-development-channels`
@@ -49,6 +50,68 @@ Checked against the official docs today, not from memory.
   `scripts/employee-preflight.ps1`, `scripts/employee-session.ps1`,
   `scripts/install-employee-autostart.ps1`. Tenis is next at main-pc
   **Thursday 2026-09-10**; the sitting is run-and-verify, not build.
+
+## Cost — the question Tenis asked, and the decision
+
+He asked what the cheapest way is, and whether Telegram is cheaper and
+easier. It is, by a wide margin, and he added that he does not care which
+chat app it is because it works the same way. So **WhatsApp is dropped and
+Telegram is the channel.**
+
+| | Telegram | WhatsApp Cloud API |
+|---|---|---|
+| Per message | free, no per-message fee, no volume cap | charged per delivered template message, by category and country; Europe sits at the high end. Service replies inside the 24-hour window are free |
+| Account | a bot from BotFather, minutes | Meta Business account, a spare number, business verification that can take days |
+| Code to write and host | none, the plugin is official | a bridge we write, host and maintain |
+| Brain it needs | routines + a local session, both inside the existing subscription | a Managed Agent to be webhook-reachable: roughly $3-15/day of API usage |
+
+Dropping WhatsApp removes the only paid tier in the whole plan. What is left
+runs on the Claude subscription he already has, plus Cloudflare and Resend
+free tiers.
+
+**Total additional cost of the employee, chat and e-mail included: nothing.**
+Not a reduced bill - no new bill. Voice went the same way: WhatsApp voice
+would need a media server plus speech-to-text and text-to-speech, and voice
+notes into Telegram cover the case for free.
+
+## E-mail — the employee gets its own address
+
+Tenis asked for the employee to have its own address so it can deal with
+suppliers and clients on his behalf. It is `assistant@preissworkshop.is`,
+and it is close to free and close to instant, because most of it is already
+running:
+
+- **Inbound already works.** Cloudflare Email Routing has been live on
+  `preissworkshop.is` since 2026-09-06 - verified today by DNS lookup, MX at
+  `route1-3.mx.cloudflare.net`, SPF `include:_spf.mx.cloudflare.net` - with a
+  catch-all to `preissworkshop@gmail.com`. Mail to the new address arrives
+  today with nothing configured. A named route is two minutes of tidying.
+- **Outbound needs one key.** `src/api/mail.js` in the website repo is
+  already written against Resend's free tier (3,000/month) and is
+  **outbox-first**: every message becomes a `crm_outbox` row in D1 before any
+  provider sees it. That was built so a visitor's message is never lost while
+  mail is unconfigured, and it happens to be exactly the approval gate an
+  agent mailbox needs. A draft is a row; a row is not a sent mail. This is
+  TODO-OWNER item "Connect outgoing e-mail (Resend, free)", already on his
+  list for the CRM.
+- **Not built yet:** the Email Worker that files inbound mail onto the client
+  timeline instead of a shared Gmail. That is phase 4 of the website repo's
+  `WORKSHOP-OS.md`, and it is what makes the employee read only its own
+  correspondence rather than a mailbox it shares with him. Worth doing, after
+  the two steps above, on main-pc where it can be tested live.
+
+**The address is deliberately not his.** It signs as Preiss Workshop, never
+as Tenis personally. A supplier reading it is being told the truth, a mistake
+stays contained, and replies land where the employee can see them.
+
+**What it may send alone is narrow on purpose** - acknowledgements with a
+reference, a supplier asked for a price list or lead time, a chase with
+nothing new added. Anything carrying a commitment - prices, dates, accepting
+or declining an order, an unhappy client, a first approach to a stranger,
+money in either direction - is drafted to the outbox and waits. The full
+list is in `docs/employee.md` -> E-mail. Widen it once it has a track record
+he has actually read; that is how a new hire earns the client list, and the
+same logic applies here.
 
 ## A trap worth recording
 
@@ -98,8 +161,10 @@ Routine creation and the connector strip confirmed from the API responses.
 1. **Thursday at main-pc**: `docs/employee-setup-main-pc.md`, steps 1-6. Two
    items are his alone — creating the Telegram bot, and choosing the
    permission posture (the shipped default is safe).
-2. **Phase 2 go/no-go**: WhatsApp bridge + Managed Agent, roughly $3-15/day of
-   API usage on top of the subscription. Not started; nothing depends on it.
+2. ~~Phase 2 go/no-go~~ **Decided 2026-09-07: no WhatsApp, no Managed Agent,
+   no API bill.** Telegram is the channel. The Thursday sitting now also
+   turns on the employee's e-mail - three signups that are his alone
+   (Telegram bot, Resend account, the Cloudflare route).
 3. Open items from `migration-plan.md` are unchanged and still his.
 
 ## Safest next step
