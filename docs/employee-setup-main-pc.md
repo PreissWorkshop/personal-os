@@ -1,8 +1,9 @@
 # Employee phase 1 — main-pc setup
 
 Everything here was prepared 2026-09-07 from the laptop and is meant to be
-**run on main-pc**, first sitting 2026-09-10 (Thursday). Nothing in it needs
-a decision while you are at the keyboard except the two marked 🔒.
+**run on main-pc**, first sitting 2026-09-10 (Thursday). The steps marked 🔒
+are the ones only you can do - account signups and one judgement call. The
+rest is scripted.
 
 Goal: an always-on Claude Code session on main-pc, rooted in this repo,
 reachable from the phone by Telegram **and by its own e-mail address**, that
@@ -174,6 +175,12 @@ It reads `docs/employee.md` on start, so its behaviour lives in this repo,
 not in a prompt. It answers from the phone, keeps the tracker current, fires
 and reviews the cloud routines, files machine-bound work as GitHub issues,
 and pushes what it produces.
+
+With step 7 done it also handles correspondence: acknowledging requests,
+asking suppliers for prices and lead times, chasing replies - and drafting
+anything that carries a commitment into the outbox for you to release. It
+never writes as you, and it never invents a price, a date or a stock figure
+to fill a gap; it says it does not have the fact and asks.
 
 ## If something misbehaves
 
