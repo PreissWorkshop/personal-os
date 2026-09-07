@@ -190,7 +190,55 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   firewall rule (which showed 0 enabled rules - flagged, not a problem while
   Tailscale is the path).
 
+## Executed 2026-09-07 (from the laptop session)
+
+- ✅ **The employee exists, and it does not need a computer to be awake.**
+  `docs/employee.md` is now the single agent identity - first moves, what it
+  may do alone, what needs Tenis, hard rules, delegation, reporting - read by
+  every surface, so behaviour changes by editing that file rather than a
+  prompt. Three cloud routines are live on claude.ai/code/routines and run on
+  subscription usage with every machine off: **weekday standup** 06:30 Mon-Fri,
+  **website audit** 07:00 Wed, **week-in-review** 15:00 Fri (UTC = Iceland).
+  This closes step 4 of `docs/agent-system.md`. Before today the account had
+  zero routines, zero scheduled tasks and zero API triggers - every action
+  needed Tenis's prompt.
+- ⚠ **Routines silently inherit every claude.ai connector.** All three came
+  back from the API carrying Gmail, Google Calendar and Claude Code Remote,
+  unrequested; a routine may use every tool of an attached connector, writes
+  included, without asking, in an unattended run. That is mail-send authority
+  on a job needing only git. All three were stripped
+  (`clear_mcp_connections`), verified back as `mcp_connections: []`. **Check
+  this on every routine created from any surface.**
+- ✅ **Phase 1 prepared for main-pc, nothing left to design.**
+  `docs/employee-setup-main-pc.md` plus `scripts/employee-preflight.ps1`,
+  `scripts/employee-session.ps1`, `scripts/install-employee-autostart.ps1` -
+  Telegram channel into an always-on session rooted here, autostarted at
+  logon like the shop PC's remote-control task. Scripts parse-checked;
+  preflight executed on the laptop. Note for anyone writing more of them:
+  PowerShell 5.1 reads `.ps1` as ANSI, so a UTF-8 em-dash becomes a string
+  terminator error - keep scripts ASCII.
+- ❌ **HelmCNC support-report triage was deliberately NOT made a routine.**
+  The reports sit behind an admin endpoint whose token lives in the Signing
+  folder; a cloud sandbox has neither the token nor the network permission,
+  and this repo will never carry it. That job stays on main-pc or cnc-pc.
+- Assessment, findings and the WhatsApp/voice picture:
+  `docs/reports/2026-09-07-employee-agent.md`.
+
 ## Waiting on Tenis
+
+- 🔒 **Thursday 2026-09-10 at main-pc: bring the employee to the phone.**
+  Follow `docs/employee-setup-main-pc.md` steps 1-6 (~20 min). Two steps are
+  his alone: creating the Telegram bot with BotFather (account creation), and
+  choosing the permission posture - the shipped default keeps prompts and
+  approves from the phone, which is the recommended one. Everything else is
+  scripted.
+- 🔒 **Phase 2 go/no-go: WhatsApp + Managed Agent.** No official WhatsApp
+  support exists anywhere in the Claude stack, so it means Meta's Business
+  Cloud API plus a Cloudflare Worker bridge in front of a Managed Agent with
+  a memory store and a delegation roster - roughly $3-15/day of API usage on
+  top of the subscription, and business verification on Meta's side can take
+  days. Nothing depends on it; phases 0 and 1 stand alone. Voice calls are a
+  further step again (media server + speech-to-text/text-to-speech).
 
 - ✅ **RESOLVED 2026-08-31: the TickCount-wrap defect is fixed, and the suite is GREEN on the failing machine itself.** `Controllers/TickWindow.cs` (5c70d83) carries the wrap-safe predicates; every sentinel comparison converted (E-STOP router, both `_liftFenceTick` gates, `_lastMachMmTick` via saturating AgeMs, UI windows); a `tickwrap` suite section drives the incident's exact tick so ANY machine proves the wrap. Decisive run on cnc-pc at 38 d uptime, TickCount live-negative: **2181 passed / 0 failed**, all nine formerly-red SAFETY checks firing (fires=1/2/3 vs 0). En route the tickwrap section's first shop run exposed a reporter NRE that silently killed 2076 checks while printing an ordinary-looking red - fixed at the reporter (8ce66f1); lesson recorded in NOTES. `test_m0.ngc` recreated and committed at the repo root (e7993d7) - the share copy is unreachable - and ship-1091.cmd repointed. **1.0.91 is one console visit from customers: `git pull` in C:\HelmCNC.bak, then `ship-1091.cmd`** (release -> watched live M0 test -> promote, Tenis's typed words at the gate).
 - ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.
