@@ -1,9 +1,19 @@
 # Employee phase 1 — main-pc setup
 
-Everything here was prepared 2026-09-07 from the laptop and is meant to be
-**run on main-pc**, first sitting 2026-09-10 (Thursday). The steps marked 🔒
+Everything here was prepared 2026-09-07 from the laptop. The steps marked 🔒
 are the ones only you can do - account signups and one judgement call. The
 rest is scripted.
+
+**It runs on any dev machine, not only main-pc.** The laptop was brought up
+this way on 2026-09-08 (Bun installed, plugin installed, preflight green) so
+the channel could be proved without waiting for a main-pc sitting. main-pc is
+still where it *belongs*, because it is the machine that can stay on - step 5's
+autostart only earns its keep there. A laptop that closes at night gives you
+the employee while it is open, which is enough to test everything else.
+
+One bot can only be paired to one running session at a time. If you set the
+laptop up first, either stop it before starting main-pc, or make a second bot
+from BotFather for the second machine.
 
 Goal: an always-on Claude Code session on main-pc, rooted in this repo,
 reachable from the phone by Telegram **and by its own e-mail address**, that
