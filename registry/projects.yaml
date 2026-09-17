@@ -2,10 +2,12 @@
 # Rule: local paths are per-machine "canonical roots". Sessions and agents
 # scope to one root; never work a project from another project's root.
 
+# Tailnet (MagicDNS) names since 2026-09-17: cnc, main-pc, laptop, phone.
+# The old short name desktop-a60v7p2 no longer resolves - RDP is `mstsc /v:cnc`.
 machines:
-  cnc-pc:   "DESKTOP-A60V7P2 — shop PC at the CNC machine; HelmCNC only; keep lean"
-  main-pc:  "primary dev workstation (the RDP source); full C:\\Projects layout"
-  laptop:   "Samsung travel machine; clones on demand"
+  cnc-pc:   "DESKTOP-A60V7P2 (tailnet: cnc) — shop PC at the CNC machine; HelmCNC only; keep lean"
+  main-pc:  "PREISSWORKSHOP (tailnet: main-pc) — primary dev workstation and the always-on agent host: PreissRelay remote-control session + the employee; full C:\\Projects layout"
+  laptop:   "SAMSUNG-FLEX (tailnet: laptop) — travel machine; clones on demand; runs nothing always-on"
 
 projects:
   - id: personal-os

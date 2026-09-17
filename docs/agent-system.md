@@ -3,8 +3,8 @@
 ## The employee (2026-09)
 
 `docs/employee.md` is the agent identity: one set of rules every surface
-reads — cloud routines today, an always-on session on main-pc from
-2026-09-10, a Managed Agent later. Behaviour changes by editing that file
+reads — cloud routines today, an always-on session on main-pc next, a
+Managed Agent later. Behaviour changes by editing that file
 and pushing, never by editing one prompt in one place.
 
 **Live now — three cloud routines** (claude.ai/code/routines; they run with
@@ -23,9 +23,12 @@ them (`clear_mcp_connections`) unless the routine genuinely needs one, and
 check `mcp_connections` on the response. See
 `docs/reports/2026-09-07-employee-agent.md`.
 
-Phase 1 (Telegram + always-on session on main-pc + the employee's own
-mailbox) is scripted and waiting: `docs/employee-setup-main-pc.md`,
-`scripts/employee-*.ps1`.
+**main-pc is the always-on host (2026-09-17)** — the laptop runs nothing
+unattended. `scripts/main-pc-always-on.ps1`, run once at main-pc, registers
+`PreissRelay`: a logon task keeping `claude --remote-control main-pc` alive,
+so the laptop reaches main-pc by `SendMessage` the way it reaches the shop
+PC. Phase 1 (Telegram + the employee session + its own mailbox) follows on
+top: `docs/employee-setup-main-pc.md`, `scripts/employee-*.ps1`.
 
 **The employee has an address**, `assistant@preissworkshop.is` — never
 Tenis's own, and it signs as the workshop rather than as him. Outgoing mail
@@ -59,8 +62,9 @@ narrow; anything carrying a commitment waits for Tenis. The rules are in
    computer to be awake. Step 4's point stands: prove the dispatch loop
    before writing custom orchestration — the first standup fires 2026-09-08.
 5. ⏳ Reach it from the phone, and give it a mailbox: Telegram into an
-   always-on main-pc session plus `assistant@preissworkshop.is`, both free,
-   both Thursday 2026-09-10. **WhatsApp was assessed and dropped the same
+   always-on main-pc session plus `assistant@preissworkshop.is`, both free.
+   Not live as of 2026-09-17 - the 09-07 launch line could never have
+   started it (fixed); it waits on the one bootstrap command at main-pc. **WhatsApp was assessed and dropped the same
    day** — no official support in the Claude stack, per-message fees, Meta
    verification, and a bridge and Managed Agent to pay for, all to deliver
    the same chat box Telegram gives free.

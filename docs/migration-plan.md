@@ -214,7 +214,9 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   `scripts/employee-session.ps1`, `scripts/install-employee-autostart.ps1` -
   Telegram channel into an always-on session rooted here, autostarted at
   logon like the shop PC's remote-control task. Scripts parse-checked;
-  preflight executed on the laptop. Note for anyone writing more of them:
+  preflight executed on the laptop - but the session launch line itself was
+  never run, and could not have started (found and fixed 2026-09-17, below).
+  Note for anyone writing more of them:
   PowerShell 5.1 reads `.ps1` as ANSI, so a UTF-8 em-dash becomes a string
   terminator error - keep scripts ASCII.
 - ❌ **HelmCNC support-report triage was deliberately NOT made a routine.**
@@ -224,11 +226,51 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 - Assessment, findings and the WhatsApp/voice picture:
   `docs/reports/2026-09-07-employee-agent.md`.
 
+## Executed 2026-09-17 (from the laptop session)
+
+- ✅ **main-pc is the always-on host; the laptop runs nothing unattended.**
+  Tenis put main-pc on the tailnet (100.66.146.24, reached via DERP relay, no
+  direct path). Tailnet names are now `cnc`, `main-pc`, `laptop`, `phone`;
+  `desktop-a60v7p2` no longer resolves, so RDP to the shop is `mstsc /v:cnc`.
+- ✅ **Inventory of what ran continuously on the laptop** - less than it
+  looked. The three cloud routines need no machine and stay in the cloud
+  (standup fired 06:39 today, succeeded). No desktop scheduled tasks, no
+  session crons. Two machine-bound pieces, both dead: the `Claude Relay`
+  logon task (`claude --remote-control laptop-relay`) had failed at every
+  logon since the app updated past the hard-coded `claude-code\2.1.237` path
+  ("The system cannot find the path specified"); and the Telegram plugin
+  was enabled with no bot token, so it failed to connect in every session.
+  Both retired on the laptop (task disabled, plugin disabled - reversible).
+- ❌→✅ **`employee-session.ps1` could never have started the employee.**
+  `--channels` is variadic, so the brief was swallowed as a second channel
+  and the CLI exits: `--channels entries must be tagged`. Reproduced in print
+  mode, fixed with `--` before the prompt, fix verified (`PONG`, exit 0). The
+  line also lacked `--remote-control`, so the documented "approve prompts
+  from the phone" was impossible - it now starts as RC session `employee`.
+  It refuses to start without a bot token, and its `git pull` no longer
+  reads as failed under PowerShell 5.1's stderr handling.
+- ✅ **main-pc bootstrap scripted: `scripts/main-pc-always-on.ps1`.** One run
+  at main-pc registers `PreissRelay` (logon task, `relay-session.ps1` keeps
+  `claude --remote-control main-pc` alive and restarts it), installs Bun and
+  the Telegram plugin if missing, and reports sleep settings. claude.exe is
+  resolved at every launch by `scripts/resolve-claude.ps1` (PATH,
+  `~\.local\bin`, newest CLI inside the Claude app) - the laptop relay died of
+  a baked-in path. All six scripts parse clean and are pure ASCII; relay
+  dry-run, resolver fallback and preflight verified on the laptop. The
+  bootstrap itself is untested until main-pc runs it.
+- **Why it cannot be done from the laptop alone:** main-pc exposes no remote
+  shell over Tailscale - 22, 3389, 5985 and 5986 closed; only 135/139/445
+  (RPC/SMB) open, which would need Tenis's password and weakened remote UAC.
+  Not used.
+
 ## Waiting on Tenis
 
-- 🔒 **Thursday 2026-09-10 at main-pc: give the employee a phone and a
-  mailbox.** Follow `docs/employee-setup-main-pc.md` steps 1-7 (~30 min).
-  Steps 1-6 are the Telegram channel; step 7 gives it
+- 🔒 **At main-pc, one command** (normal PowerShell, ~5 min):
+  `cd C:\Projects\_system\personal-os; git pull; powershell -ExecutionPolicy Bypass -File scripts\main-pc-always-on.ps1`.
+  Answer a login/trust prompt in the relay window if one appears. After that
+  `main-pc` is in ListAgents and the rest runs from the laptop. Then give the
+  employee a phone and a mailbox: `docs/employee-setup-main-pc.md` steps 2-7.
+  Steps 2-6 are the Telegram channel; step 7 gives it
   `assistant@preissworkshop.is`. Three things are his alone, all account
   signups: the Telegram bot from BotFather, a free Resend account for
   outgoing mail (this is also TODO-OWNER's "Connect outgoing e-mail" item,

@@ -1,6 +1,7 @@
 # employee-session.ps1 - start the always-on employee session on main-pc.
-# Rooted in personal-os, Telegram channel enabled, permission prompts INTACT
-# (approve from the phone via Remote Control). Written 2026-09-07.
+# Rooted in personal-os, Telegram channel enabled, permission prompts INTACT:
+# approve them from the phone - it is Remote Control session "employee" in
+# claude.ai/code. Written 2026-09-07, launch line fixed 2026-09-17.
 # See docs/employee-setup-main-pc.md and docs/employee.md.
 
 $ErrorActionPreference = 'Stop'
@@ -11,13 +12,15 @@ if (-not (Test-Path (Join-Path $repo '.git'))) {
 }
 Set-Location $repo
 
-# Resolve claude.exe: PATH first, then the usual per-user install.
-$claude = (Get-Command claude -ErrorAction SilentlyContinue).Source
-if (-not $claude) {
-    $candidate = Join-Path $env:USERPROFILE '.local\bin\claude.exe'
-    if (Test-Path $candidate) { $claude = $candidate }
-}
+. (Join-Path $PSScriptRoot 'resolve-claude.ps1')
+$claude = Resolve-Claude
 if (-not $claude) { Write-Error "Claude Code not found. Run scripts\employee-preflight.ps1." }
+
+# No bot token, no channel: refuse rather than park a deaf session at logon.
+$envFile = Join-Path $env:USERPROFILE '.claude\channels\telegram\.env'
+if (-not (Test-Path $envFile)) {
+    Write-Error "No Telegram bot token on this machine ($envFile). Do docs/employee-setup-main-pc.md steps 2-3 first."
+}
 
 # Routines and channels both require the claude.ai login; an API key env var
 # silently outranks it, so clear it for this process only.
@@ -25,7 +28,12 @@ if ($env:ANTHROPIC_API_KEY)    { Remove-Item Env:\ANTHROPIC_API_KEY }
 if ($env:ANTHROPIC_AUTH_TOKEN) { Remove-Item Env:\ANTHROPIC_AUTH_TOKEN }
 
 # Start from current origin so the employee reads today's rules, not last week's.
-try { git pull --ff-only 2>&1 | Out-Null } catch { Write-Warning "git pull failed; continuing on the local tree." }
+# No 2>&1 here: under 'Stop', PowerShell 5.1 turns git's ordinary stderr
+# chatter into a terminating error and the pull reads as failed.
+$ErrorActionPreference = 'Continue'
+git pull --ff-only --quiet
+if ($LASTEXITCODE -ne 0) { Write-Warning "git pull failed; continuing on the local tree." }
+$ErrorActionPreference = 'Stop'
 
 $brief = @'
 You are the employee. Read docs/employee.md in this repo now, then
@@ -55,4 +63,8 @@ attention today.
 '@
 
 Write-Host "Starting the employee session in $repo ..." -ForegroundColor Green
-& $claude --channels plugin:telegram@claude-plugins-official $brief
+# `--channels` is variadic: without the `--` it swallows the brief as a second
+# channel and the CLI exits with "--channels entries must be tagged" - the
+# 2026-09-07 line never could have started. `--remote-control employee` is
+# what makes the phone approvals above possible. Order verified 2026-09-17.
+& $claude --remote-control employee --channels plugin:telegram@claude-plugins-official -- $brief

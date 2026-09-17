@@ -20,18 +20,11 @@ Write-Host ""
 Write-Host "Employee preflight - $(Get-Date -Format 'yyyy-MM-dd HH:mm') on $env:COMPUTERNAME"
 Write-Host ""
 
-# --- Claude Code ---
-$claudePath = (Get-Command claude -ErrorAction SilentlyContinue).Source
-$onPath = $null -ne $claudePath
-if (-not $claudePath) {
-    $candidate = Join-Path $env:USERPROFILE '.local\bin\claude.exe'
-    if (Test-Path $candidate) { $claudePath = $candidate }
-}
+# --- Claude Code (same resolver the session and relay launchers use) ---
+. (Join-Path $PSScriptRoot 'resolve-claude.ps1')
+$claudePath = Resolve-Claude
 Test-Item 'Claude Code' ($null -ne $claudePath) $(if ($claudePath) { $claudePath } else { 'not found' }) `
-    'install Claude Code, or add its folder to PATH so a scheduled task can launch it'
-if ($claudePath -and -not $onPath) {
-    Write-Host "  WARN  claude.exe is not on PATH - employee-session.ps1 resolves it, but add it to PATH anyway." -ForegroundColor Yellow
-}
+    'install Claude Code:  irm https://claude.ai/install.ps1 | iex'
 
 # --- Bun (the channel plugins are Bun scripts) ---
 $bunPath = (Get-Command bun -ErrorAction SilentlyContinue).Source

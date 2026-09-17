@@ -4,12 +4,11 @@ Everything here was prepared 2026-09-07 from the laptop. The steps marked 🔒
 are the ones only you can do - account signups and one judgement call. The
 rest is scripted.
 
-**It runs on any dev machine, not only main-pc.** The laptop was brought up
-this way on 2026-09-08 (Bun installed, plugin installed, preflight green) so
-the channel could be proved without waiting for a main-pc sitting. main-pc is
-still where it *belongs*, because it is the machine that can stay on - step 5's
-autostart only earns its keep there. A laptop that closes at night gives you
-the employee while it is open, which is enough to test everything else.
+**main-pc is the host (decided 2026-09-17).** It is the machine that can stay
+on, so every always-on piece lives there: the `PreissRelay` remote-control
+session and the employee. The laptop keeps none - its Telegram plugin is
+disabled and its old relay task retired. The scripts still run on any dev
+machine if main-pc is ever down.
 
 One bot can only be paired to one running session at a time. If you set the
 laptop up first, either stop it before starting main-pc, or make a second bot
@@ -25,13 +24,22 @@ Budget about 30 minutes for the lot. The only parts that are yours alone are
 the three account signups, because account creation and passwords are never
 an agent's job.
 
-## Before you start
+## Before you start - one command at main-pc (~5 min)
 
-Everything is on GitHub. On main-pc:
+main-pc has no remote shell (SSH, RDP and WinRM are closed over Tailscale),
+so this one step needs someone at its keyboard. In a normal PowerShell window:
 
 ```powershell
-cd C:\Projects\_system\personal-os; git pull
+cd C:\Projects\_system\personal-os; git pull; powershell -ExecutionPolicy Bypass -File scripts\main-pc-always-on.ps1
 ```
+
+It registers `PreissRelay`, a logon task that keeps
+`claude --remote-control main-pc` alive, and starts it; installs Bun and the
+Telegram plugin if missing; and reports whether the PC sleeps. If the relay
+window in the taskbar asks for a login or folder trust, answer it once. From
+then on main-pc appears as `main-pc` in ListAgents on the laptop and in
+claude.ai/code on the phone, and every step below that is not 🔒 can be
+driven from there.
 
 ## Step 1 — prerequisites (~5 min)
 
@@ -61,20 +69,14 @@ Account creation is yours, not the agent's.
 
 ## Step 3 — install and configure the channel (~5 min)
 
-In a normal Claude Code session on main-pc:
+The bootstrap above installs the plugin. If it reported a failure:
 
-```
-/plugin install telegram@claude-plugins-official
-```
-
-If it reports the marketplace is missing, add it and retry:
-
-```
-/plugin marketplace add anthropics/claude-plugins-official
+```powershell
+claude plugin install telegram@claude-plugins-official --scope user --yes
 ```
 
-Choose the **user** scope so it works from every project. If the summary
-says to, run `/reload-plugins`. Then, with the token from step 2:
+Then, in a Claude Code session on main-pc, with the token from step 2 (type
+it yourself - the token never goes through an agent):
 
 ```
 /telegram:configure <token>
@@ -91,10 +93,13 @@ Exit Claude Code and start the employee session:
 powershell -ExecutionPolicy Bypass -File C:\Projects\_system\personal-os\scripts\employee-session.ps1
 ```
 
+It starts as Remote Control session `employee`, so it can be reached, and its
+prompts approved, from claude.ai/code as well as from main-pc's own window.
 Then, from your phone:
 
 1. Message the bot anything. It replies with a pairing code.
-2. Back in the session on main-pc: `/telegram:access pair <code>`
+2. In the `employee` session (main-pc window or claude.ai/code):
+   `/telegram:access pair <code>`
 3. Lock it down so only you can reach it:
    `/telegram:access policy allowlist`
 
@@ -194,8 +199,16 @@ to fill a gap; it says it does not have the fact and asks.
 
 ## If something misbehaves
 
+- **main-pc is missing from ListAgents**: it is asleep, logged out (after a
+  reboot the logon task waits for a Windows login), or the relay died -
+  `Get-ScheduledTaskInfo PreissRelay`, and the `Claude relay (main-pc)` window
+  prints every start and exit.
 - **The bot does not reply**: the session is not running with `--channels`.
   The bot can only answer while the channel is active.
+- **The employee window closes at once**: no bot token on this machine
+  (`employee-session.ps1` refuses to start without one), or an old copy of
+  the script - before 2026-09-17 its launch line could never start (see the
+  comment above that line).
 - **The task did not start at logon**: `Get-ScheduledTask PreissEmployee`,
   then check `Get-ScheduledTaskInfo PreissEmployee` for the last result.
 - **Channels do not appear in `claude --help`**: expected. The flag works
