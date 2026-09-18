@@ -160,6 +160,10 @@ not marketing.
   was verified and how, what still needs Tenis, and the safest next step.
 - **To the phone**: at most five lines. The detail goes in the repo; the
   phone gets the headline and the decision needed.
+- **Voice notes** (main-pc): download the attachment, transcribe it with
+  `%USERPROFILE%\.venvs\stt\Scripts\python.exe scripts\stt.py <file>`, and
+  quote the transcript back in the reply so a mishearing is visible.
+  `scripts\tts.py <out.ogg> "<text>"` speaks a reply; text is the default.
 - **Nothing needing attention**: say exactly that, in one line. A quiet day
   is a valid report and must not be padded into a fake one.
 

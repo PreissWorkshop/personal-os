@@ -450,14 +450,25 @@ which says something about that mode's gating. Its findings:
   session himself: one sender approved, `dmPolicy: allowlist`, `allowFrom`
   1, `pending` empty; first brief delivered to the phone (message id 6).
   The rule stands for next time: access changes only from his own typing.
+- ✅ **Voice notes work both ways on main-pc, fully local.** Installed in
+  a user venv `%USERPROFILE%\.venvs\stt`: `faster-whisper` (model `small`,
+  ~460 MB in `~\.cache\huggingface`). `scripts/stt.py` transcribes an
+  inbound `.oga`; `scripts/tts.py` speaks a reply (Windows System.Speech →
+  Opus via PyAV, no ffmpeg) — round-trip verified, sample delivered. Text
+  stays the default reply. A restarted employee session must know this:
+  download the attachment, run `stt.py` on it. Never on cnc-pc.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
 ## Waiting on Tenis
 
-- 🔒 **HelmCNC 1.0.91/1.0.92: was each promote your go, and did Tom get
-  it?** Tags exist, `promote.ps1 -Go` skips the typed gate, and
-  `installer/news.items` has no entry for either. Open since 09-17.
+- 🔒 **HelmCNC 1.0.91/1.0.92: is Tom actually running it?** Tenis, by
+  voice note 09-18: he e-mailed Tom the update "a couple of weeks back" and
+  has not heard from him. So the ship was his go; installation on the
+  customer machine is unconfirmed, and `installer/news.items` still has no
+  entry for either version. The employee cannot read Tom's version (support
+  reports sit behind the Signing token). Offered 09-18: a chase mail to Tom
+  drafted for Tenis's approval — awaiting his word.
 - 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
   the one-line remote fix for main-pc's stale checkout — second 09-18
   sitting.
