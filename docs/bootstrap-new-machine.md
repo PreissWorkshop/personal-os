@@ -81,13 +81,32 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
        set KMotionRelease=C:\Projects\HelmCNC\kmotion-ref
        build.cmd ReleaseNew
 
-       %WINDIR%\Microsoft.NET\Framework4.0.30319\MSBuild.exe SelfTest\HelmSelfTest.csproj ^
+       %WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe SelfTest\HelmSelfTest.csproj ^
          /p:Configuration=Release /p:Platform=x86 ^
-         /p:CscToolPath=<repo>	oolsoslyn	asks
-et472 ^
-         /p:KMotionRelease=C:\Projects\HelmCNC\kmotion-ref ^
-         /p:HelmCncRef=..in\ReleaseNew /p:OutputPath=..in\ReleaseNew
+         "/p:CscToolPath=C:\Projects\HelmCNC\app\tools\roslyn\tasks\net472" ^
+         "/p:KMotionRelease=C:\Projects\HelmCNC\kmotion-ref" ^
+         "/p:HelmCncRef=..\bin\ReleaseNew" "/p:OutputPath=..\bin\ReleaseNew\"
        cd bin\ReleaseNew  &&  HelmSelfTest.exe offline
+
+   **Re-verified on main-pc 2026-09-18** @ 27d0286: `RESULT: 2179 passed, 0
+   failed` (47 s, 4.5 d uptime - a low-uptime green says nothing about the
+   TickCount wrap; the `tickwrap` section covers that on any machine). The
+   count differs by machine and date (laptop 2166 on 08-26, cnc-pc 2181 on
+   08-31); the 2-check gap to cnc-pc is not explained. Notes from that run:
+   - Roslyn: download the nupkg **as `.zip`** (PowerShell 5.1's
+     `Expand-Archive` refuses `.nupkg`) from
+     `https://api.nuget.org/v3-flatcontainer/microsoft.net.compilers.toolset/4.8.0/microsoft.net.compilers.toolset.4.8.0.nupkg`
+     and expand to `tools\roslyn`. The repo's tracked `Tools\` folder is the
+     same folder on Windows; git still ignores the additions.
+   - `KMotion_dotNet.dll` without running the installer:
+     `dist\HelmCNC-Setup-*.exe` is a .NET exe carrying the embedded resource
+     `HelmSetup.payload.zip` - reflection-only load it in PowerShell, open
+     the stream as a `ZipArchive`, copy the `KMotion_dotNet.dll` entry out.
+   - From a tool shell call `build.cmd` by absolute path. Where Visual
+     Studio Build Tools exist (main-pc), `build.cmd` uses their MSBuild;
+     Roslyn is then needed only for the framework-MSBuild suite call above.
+   - Setup cost ~94 MB. The tree stays clean: everything lands in ignored
+     paths.
 
    `HelmCncRef` and `OutputPath` are overridden together, as the csproj
    comment instructs — they aim the suite at the same output folder it

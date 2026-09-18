@@ -514,9 +514,16 @@ which says something about that mode's gating. Its findings:
   that session intends to push the template to `main` — his word needed,
   flagged to him on Telegram.
 - ✅ main-pc's HelmCNC clone fast-forwarded 0a0b493 (08-10) → 27d0286
-  (09-04), clean, = origin. `dotnet` is present; the offline suite has not
-  been built or run on main-pc yet. ScanPen and claude-system clones equal
-  origin; the website clone is fixed (above).
+  (09-04), clean, = origin. **HelmCNC builds and tests on main-pc**
+  (subagent run, ~12:40): `build.cmd ReleaseNew` + the framework-MSBuild
+  suite call, then `HelmSelfTest.exe offline` → `RESULT: 2179 passed, 0
+  failed`, 47 s, all 12 `tickwrap` checks present, tree clean afterwards,
+  ~94 MB in ignored paths, nothing system-wide. Uptime 4.5 d, so this is
+  not high-uptime evidence. Count is 2 below cnc-pc's 2181 (08-31) —
+  unexplained, not chased. The recipe block in
+  `docs/bootstrap-new-machine.md` had its backslashes eaten into control
+  characters; rewritten with the commands that worked. ScanPen and
+  claude-system clones equal origin; the website clone is fixed (above).
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
