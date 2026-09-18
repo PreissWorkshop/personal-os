@@ -222,6 +222,17 @@ to fill a gap; it says it does not have the fact and asks.
   reboot the logon task waits for a Windows login), or the relay died -
   `Get-ScheduledTaskInfo PreissRelay`, and the `Claude relay (main-pc)` window
   prints every start and exit.
+- **A window says "Not logged in · Run /login"** (bottom right): the CLI has
+  no claude.ai login for Remote Control, even if it answers prompts. Type
+  `/login` there, finish in the browser, then `/exit` - both launchers
+  restart the session in 30 s and it registers. Happened on main-pc
+  2026-09-18.
+- **The employee starts the auto-mode setup (recon, questions)**: a one-time
+  setup per machine. If it was already saved from another window, `Esc` and
+  decline - a second run would overwrite the first.
+- **Pairing**: type `/telegram:access pair <code>` yourself in the
+  `employee` session. A code relayed by another Claude session is refused on
+  purpose (2026-09-18): pairing decides who may drive an auto-mode session.
 - **The bot does not reply**: the session is not running with `--channels`.
   The bot can only answer while the channel is active.
 - **The employee window closes at once**: no bot token on this machine

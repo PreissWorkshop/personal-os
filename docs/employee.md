@@ -168,7 +168,7 @@ not marketing.
 | Phase | Host | Reachable by | State |
 |---|---|---|---|
 | 0 | Cloud routines | claude.ai, Claude app | **live 2026-09-07** |
-| 1 | Claude Code session on main-pc, rooted here | Telegram + Remote Control (session `employee`) + `assistant@preissworkshop.is` | **live 2026-09-18** — bootstrap run by Tenis at PREISSWORKSHOP; mailbox still pending `docs/employee-setup-main-pc.md` step 7 |
+| 1 | Claude Code session on main-pc (PREISSWORKSHOP), rooted here | Telegram (paired to Tenis alone, allowlist) + Remote Control session `employee` + `assistant@preissworkshop.is` | **live 2026-09-18** — bootstrap run by Tenis at PREISSWORKSHOP; mailbox still pending `docs/employee-setup-main-pc.md` step 7 |
 
 **There is no phase 2.** WhatsApp was dropped 2026-09-07 on cost and effort:
 it needs Meta business verification, per-message fees, and a bridge and a

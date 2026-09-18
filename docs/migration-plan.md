@@ -326,6 +326,33 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   C:\HelmCNC, C:\HelmCNC.bak, KMotion, backups, Signing. Oddity, noted not
   chased: C: free went 18.16 -> 18.19 GB although ~200 MB was removed.
   `cnc` had not yet appeared in ListAgents two minutes later; watch it.
+- ✅ **Phase 1 is LIVE on PREISSWORKSHOP (2026-09-18, late morning).** The
+  bootstrap ran there once the paste mix-up was sorted (the undo line was
+  pasted twice on main-pc; its guard refused both times, as designed). What
+  it took after that, all at the keyboard: the CLI had no claude.ai login
+  for Remote Control ("Not logged in" in the status bar although API calls
+  worked), so `/login` in the relay window, then `/exit` - the relay loop
+  brought a fresh session that registered as `main-pc`. The employee,
+  started before that login, sat on the auto-mode setup question nobody
+  saw; once approved it began a duplicate recon and had no Telegram server
+  process; `Esc`, `/exit` and the bootstrap paste restarted it (the launcher
+  now loops like the relay, b988cd1). It registered as `employee`, the bot
+  answered with a pairing code, and Tenis typed `/telegram:access pair` and
+  `policy allowlist` himself - the employee refused the code relayed from
+  the laptop session, correctly: pairing decides who may drive an auto-mode
+  session. Reported by the employee: one sender allowed, policy allowlist,
+  pending empty, first brief delivered to his phone.
+- ✅ **Auto-mode setup saved on main-pc, with provenance rules** (Tenis's
+  answers): pricing and supplier data -> him plus the quoted client, supplier
+  prices and margins never; client files -> that client and him only;
+  trading material (bots, API-keys file) -> no one, ever, no agent touches
+  the broker API; raw EXIF/GPS photos -> public only after stripping. The
+  recon found a trading-bots API-keys file on main-pc: same "never" bucket
+  as the Signing folder.
+- ⚠ **Open from today:** the shop PC's `cnc` relay never appeared in
+  ListAgents (its window may hold a first-run question; check at the shop),
+  and a peer probe of the idle row `Dispatch background conversation` went
+  unanswered. Sleep on AC is "never" on both PCs.
 
 ## Found 2026-09-18 (from the employee session - which is on cnc-pc)
 
@@ -441,6 +468,9 @@ which says something about that mode's gating. Its findings:
   catch-all already delivers (live since 09-06).
 - 🔒 **`gh auth login` on main-pc** — one interactive run, see the 09-18
   main-pc section above; unblocks the employee's issue-queue duty.
+- 🔒 **The shop PC's `cnc` relay** has not appeared in ListAgents since the
+  undo re-registered it; next time at the shop, open "Claude relay (cnc)"
+  from the taskbar and answer whatever it asks.
 - ⚠ **The employee's e-mail is deliberately gated.** Inbound already works -
   Email Routing has been live on preissworkshop.is since 09-06 with a
   catch-all, verified by DNS lookup 09-07, so mail to the new address arrives

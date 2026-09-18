@@ -61,10 +61,10 @@ narrow; anything carrying a commitment waits for Tenis. The rules are in
    master agent is `docs/employee.md`, read by three routines that need no
    computer to be awake. Step 4's point stands: prove the dispatch loop
    before writing custom orchestration — the first standup fires 2026-09-08.
-5. ⏳ Reach it from the phone, and give it a mailbox: Telegram into an
-   always-on main-pc session plus `assistant@preissworkshop.is`, both free.
-   Not live as of 2026-09-17 - the 09-07 launch line could never have
-   started it (fixed); it waits on the one bootstrap command at main-pc. **WhatsApp was assessed and dropped the same
+5. ✅ **Phone: done 2026-09-18.** Telegram into the always-on `employee`
+   session on main-pc (PREISSWORKSHOP), paired to Tenis alone, relay
+   `main-pc` beside it. ⏳ The mailbox `assistant@preissworkshop.is` is
+   still open (setup doc step 7). **WhatsApp was assessed and dropped the same
    day** — no official support in the Claude stack, per-message fees, Meta
    verification, and a bridge and Managed Agent to pay for, all to deliver
    the same chat box Telegram gives free.
