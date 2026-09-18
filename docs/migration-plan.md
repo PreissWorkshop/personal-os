@@ -557,6 +557,19 @@ which says something about that mode's gating. Its findings:
   its attachment (pre-existing outbox limit); `book()` does not itself
   refuse on an archived project. 🔒 Tenis: try it once per TODO-OWNER.md,
   review the Icelandic, then say merge.
+- ⏳ **The laptop disconnected 13:30; the employee took over the offer
+  system's code work.** Nothing lost: that session had confirmed
+  everything pushed (website main @ 31b71a7), GitHub agrees, all laptop
+  Remote Control sessions now read offline. In flight there, per Tenis's
+  screenshot: (1) client branding — dark site-header band + logo on the
+  quote page, job page and both client mails, print-safe: never pushed,
+  restarted 13:40 on main-pc as branch `feat/client-branding` (subagent;
+  works in the same clone, so `feat/measurement-appointments` must not be
+  touched meanwhile). (2) Q-2026-0008 repricing (hours −25 %, material
+  unchanged, VAT 24 %) plus a final test send — admin data, not code; the
+  employee has no admin login and does not look for one; it offered to
+  compute the lines from numbers Tenis sends, he types them in. His
+  internal cost structure stays out of every repo.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
