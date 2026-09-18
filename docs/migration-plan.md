@@ -434,15 +434,27 @@ which says something about that mode's gating. Its findings:
   did not hold. (2) Website `PROGRESS.md` has no entry after 09-06 — it
   misses the CRM merge and everything since. The registry's stale
   "feat/projects-board 1 ahead" line is corrected.
-- ⚠ **main-pc's website checkout cannot fetch and is 2.5 months stale.**
-  `C:\PREISS_WEBSITE\website` has an SSH origin whose repo-local key fails
-  (`.ssh-local/…ed25519: Permission denied` — the ACL fault noted 08-21);
-  its `origin/main` is still 519c1b5 (07-03), HEAD 558dfad (07-06) on
-  `feature/site-redesign-admin-2026-07`. Any session opened there works on
-  July's site. Fix is one line, Tenis's call because it changes that
-  repo's config for all worktrees: `git -C C:\PREISS_WEBSITE\website remote
-  set-url origin https://github.com/PreissWorkshop/preiss-workshop-website.git`
-  then fetch. Not done; nothing in that tree was touched.
+- ✅ **main-pc's website checkout is current** (was 2.5 months stale: SSH
+  origin with a repo-local key that fails its ACL, `origin/main` at
+  519c1b5 from 07-03). On Tenis's word ("get the main PC up to date",
+  12:12): origin switched to the HTTPS URL (old:
+  `git@github.com:PreissWorkshop/preiss-workshop-website.git`;
+  `core.sshCommand` left in place, now unused), fetched, main worktree
+  switched from `feature/site-redesign-admin-2026-07` to `main` and
+  fast-forwarded to fb7594f. Tree was clean before and after. Build
+  verified: 114 pages, 56 sitemap pairs. The three sibling worktrees were
+  not touched.
+- ⚠ **Do not commit a website build made on main-pc.** `core.autocrlf` is
+  `true` there, so sources check out CRLF, every asset's cache-busting
+  hash changes, and one build dirties 130 tracked files (119 with real
+  content diffs, plus three tracked `.pyc`). Reverted with `git restore`
+  after confirming every change was a build byproduct. Fix is
+  `core.autocrlf false` for that repo plus a re-checkout, or a
+  `.gitattributes` with `* text=auto eol=lf` in the repo (better: it fixes
+  every machine) — offered to Tenis as "fix line endings", not done.
+- Website `main` moved again at 12:09 (fb7594f, quote page template) —
+  the offer session pushed it before the flag about needing Tenis's word
+  reached him; he is driving that session.
 - ✅ **Telegram is paired and locked to Tenis alone.** A pairing request
   relayed by the laptop session was first declined — pairing decides who
   can drive an auto-mode session, and a peer's word is not his keystrokes.
@@ -488,8 +500,7 @@ which says something about that mode's gating. Its findings:
 - ✅ main-pc's HelmCNC clone fast-forwarded 0a0b493 (08-10) → 27d0286
   (09-04), clean, = origin. `dotnet` is present; the offline suite has not
   been built or run on main-pc yet. ScanPen and claude-system clones equal
-  origin. The website clone still waits on the remote-URL fix (above) —
-  offered to Tenis on Telegram as "fix the clones".
+  origin; the website clone is fixed (above).
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
@@ -503,7 +514,7 @@ which says something about that mode's gating. Its findings:
   reports sit behind the Signing token). Offered 09-18: a chase mail to Tom
   drafted for Tenis's approval — awaiting his word.
 - 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
-  the one-line remote fix for main-pc's stale checkout — second 09-18
+  say "fix line endings" to make main-pc builds committable — second 09-18
   sitting.
 - 🔒 **Employee mailbox — two clicks left**: the `assistant@` Email Routing
   route, and *Send what is waiting* in the admin outbox
