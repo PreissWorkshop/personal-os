@@ -111,12 +111,13 @@ place, and a supplier reading it is being told the truth - it is the
 workshop's office address, not a person being impersonated. It signs as
 Preiss Workshop, never as Tenis personally, and never claims to be him.
 
-**How it works** (all of it free, on what is already running):
+**How it works** (on what is already running; sending rides the Workers
+Paid plan Tenis bought 2026-09-18):
 
 | Direction | Path |
 |---|---|
 | In | Cloudflare Email Routing on `preissworkshop.is` - live since 2026-09-06, MX at `route1-3.mx.cloudflare.net` |
-| Out | Resend free tier (3,000/month) through `src/api/mail.js` in the website repo |
+| Out | Cloudflare Email Sending - the `preiss-mail` Worker, reached from `src/api/mail.js` in the website repo by the `MAIL` service binding; on since 2026-09-18, no API key anywhere (Resend is only the fallback when `MAIL` is unbound) |
 | Record | Every message is written to `crm_outbox` in D1 **before** the provider sees it |
 
 That outbox-first design is the approval gate, and it already exists - a

@@ -178,18 +178,19 @@ minutes, and it beats living on catch-all overflow:
 2. Add `assistant@` → forward to `preissworkshop@gmail.com`. Your click:
    the auto-mode classifier blocks agents from changing Cloudflare accounts.
 
-**Sending needs one key** — this is TODO-OWNER item "Connect outgoing
-e-mail (Resend, free)", already on your list for the CRM, and it turns on
-the employee's mail at the same time. Full steps in the website repo's
-`ADMIN-GUIDE.md` → *Connecting e-mail*. In short:
+**Sending is switched on — no Resend account needed (2026-09-18).** Tenis
+bought Workers Paid and onboarded `preissworkshop.is` for Cloudflare Email
+Sending; the `preiss-mail` Worker is deployed and bound to the Pages project
+as `MAIL` (website `main` e8b2547, runbook `workers/mail/README.md`). Resend
+remains only as the code's fallback when `MAIL` is not bound. Left for you:
 
-1. Create a free account at resend.com (3,000 mails/month, no card).
-2. Verify `preissworkshop.is` there — it gives you DKIM and SPF records to
-   add in Cloudflare DNS.
-3. In the Pages project → **Settings → Variables and secrets**, set
-   `RESEND_API_KEY` (secret), `MAIL_FROM` =
-   `Preiss Workshop <assistant@preissworkshop.is>`, and `NOTIFY_TO` = your
-   own address.
+1. Admin → Requests → Outbox → *Send what is waiting* — the seven test
+   mails queued since 09-07 are the end-to-end test of the new sender.
+2. Decide the From address the employee's mail carries. `[UNVERIFIED —
+   needs check]`: whether `MAIL_FROM` in the Pages project is
+   `Preiss Workshop <assistant@preissworkshop.is>`; check under **Settings →
+   Variables and secrets**. The new domain has no reputation yet — first
+   mails may land in Spam, so no empty test messages.
 
 Nothing is lost while this is off: `src/api/mail.js` writes every message to
 `crm_outbox` in D1 **before** any provider sees it, so unsent mail sits

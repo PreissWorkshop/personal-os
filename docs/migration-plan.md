@@ -379,19 +379,70 @@ which says something about that mode's gating. Its findings:
   No credential store was touched (hard rule). Needs one interactive
   `gh auth login` by Tenis at this machine — or typed into the employee
   session as `! gh auth login --hostname github.com --git-protocol https --web`.
-- ⏳ Week-in-review routine (never fired; due 15:00 today) is under watch:
-  a 15:21 in-session check compares remote refs and reports either the
-  routine's output or its third silent skip. Session-only timer — if this
-  session restarts before 15:21, re-check manually.
+- ⏳ Week-in-review routine (never fired; `next_run_at` 15:04 today) is
+  under watch: a 15:24 in-session check reads the routine's run list and
+  reports either its output or its third silent skip. Session-only timer,
+  re-armed 10:50 after the employee session restarted — if it restarts
+  again before then, re-check manually. Website audit still shows zero run
+  sessions (next 09-23 07:04). All three routines re-checked 10:45:
+  `mcp_connections: []`, enabled.
+
+## Second sitting 2026-09-18 ~10:45 (employee on main-pc, hostname verified)
+
+- ✅ **Outgoing mail is ON, and not through Resend.** Website `main` today
+  (e8b2547 → 6de2e2a): Tenis bought Workers Paid, `preissworkshop.is` is
+  onboarded for Cloudflare Email Sending, the `preiss-mail` Worker is
+  deployed and bound to Pages as `MAIL`; Gmail send-as
+  `tenis@preissworkshop.is` verified SPF/DKIM/DMARC PASS, DMARC `p=reject`.
+  The Resend signup this tracker was waiting on is obsolete;
+  `docs/employee.md` and setup step 7 rewritten to match. One owner step
+  left there: Admin → Outbox → *Send what is waiting* (seven test mails
+  since 09-07).
+- ⚠ **Standup 06:39 (succeeded) — two website findings not reported
+  before.** (1) 8 of the 9 commits that reached website `main` on 09-17
+  are authored "Claude" straight onto `main`, 06:47–07:31, no branch or PR;
+  `AGENT_WORKFLOW.md` says never work directly on main unless instructed.
+  Verified in a scratch clone. If Tenis was driving that session, this is
+  fine and the rule in that file should say so; if not, it is a gate that
+  did not hold. (2) Website `PROGRESS.md` has no entry after 09-06 — it
+  misses the CRM merge and everything since. The registry's stale
+  "feat/projects-board 1 ahead" line is corrected.
+- ⚠ **main-pc's website checkout cannot fetch and is 2.5 months stale.**
+  `C:\PREISS_WEBSITE\website` has an SSH origin whose repo-local key fails
+  (`.ssh-local/…ed25519: Permission denied` — the ACL fault noted 08-21);
+  its `origin/main` is still 519c1b5 (07-03), HEAD 558dfad (07-06) on
+  `feature/site-redesign-admin-2026-07`. Any session opened there works on
+  July's site. Fix is one line, Tenis's call because it changes that
+  repo's config for all worktrees: `git -C C:\PREISS_WEBSITE\website remote
+  set-url origin https://github.com/PreissWorkshop/preiss-workshop-website.git`
+  then fetch. Not done; nothing in that tree was touched.
+- ⚠ **A relayed Telegram pairing was declined.** The laptop session asked
+  this one to approve pairing code `5516b9` and lock the policy to
+  allowlist, saying it came from Tenis. Pairing decides who can drive an
+  auto-mode session, and a peer's word is not his keystrokes — declined,
+  `access.json` untouched. He types `/telegram:access pair <code>` then
+  `/telegram:access policy allowlist` into the `employee` session himself
+  (Remote Control or keyboard). Consequence: **until then the phone cannot
+  reach the employee over Telegram**, whatever the first sitting recorded.
+- PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
+  previous session made were pruned by fetch.
 
 ## Waiting on Tenis
 
-- 🔒 **Employee mailbox — the only setup steps left, all his account
-  signups**: `docs/employee-setup-main-pc.md` step 7 gives it
-  `assistant@preissworkshop.is`; a free Resend account for outgoing mail
-  (also TODO-OWNER's "Connect outgoing e-mail" item, so it turns on the
-  CRM's mail at the same time); and the Cloudflare Email Routing route.
-  Inbound catch-all already delivers (live since 09-06).
+- 🔒 **Telegram pairing for the employee** — type `/telegram:access pair
+  <code>` and `/telegram:access policy allowlist` into the `employee`
+  session yourself; see the second 09-18 sitting.
+- 🔒 **HelmCNC 1.0.91/1.0.92: was each promote your go, and did Tom get
+  it?** Tags exist, `promote.ps1 -Go` skips the typed gate, and
+  `installer/news.items` has no entry for either. Open since 09-17.
+- 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
+  the one-line remote fix for main-pc's stale checkout — second 09-18
+  sitting.
+- 🔒 **Employee mailbox — two clicks left**: the `assistant@` Email Routing
+  route, and *Send what is waiting* in the admin outbox
+  (`docs/employee-setup-main-pc.md` step 7). Sending itself is on
+  (Cloudflare Email Sending, 09-18); no Resend account needed. Inbound
+  catch-all already delivers (live since 09-06).
 - 🔒 **`gh auth login` on main-pc** — one interactive run, see the 09-18
   main-pc section above; unblocks the employee's issue-queue duty.
 - ⚠ **The employee's e-mail is deliberately gated.** Inbound already works -
