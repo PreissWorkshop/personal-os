@@ -682,13 +682,22 @@ First successful run of the routine (see corrections folded into the
   but wider than "git only" — the environment, not the connector list,
   grants it. Worth one look at the routine environment's GitHub scope.
 
+- ✅ **Q-2026-0008 is with the client (15:56).** Tenis rehearsed the
+  accept on the test copy, then instructed the send at the main-pc
+  terminal with the client's own request mail as the source for name,
+  e-mail and phone. Done through the admin API, in order: client record
+  #2 given the real e-mail and phone, quote returned to `draft`, recipient
+  and totals read back, then sent — the mail path answered `sent`.
+  Project V-2026-0005 was checked first and carries no test residue; it
+  is reused on acceptance. The admin session cookie was deleted
+  afterwards. Watch for: the accept/decline mail, or the view counter
+  rising above the ~27 test views. The new domain may land in the
+  client's Spam — Tenis was told to text him.
+
 ## Waiting on Tenis
 
-- 🔒 **Change the admin password** after today's quote work — it travelled
-  over Telegram (third 09-18 stretch).
-- 🔒 **Q-2026-0008: confirm the test mail, accept it once as a rehearsal,
-  then give the employee Völundur's real e-mail and the word to send** —
-  or send it himself from the admin.
+- 🔒 **Change the admin password now** — it travelled over Telegram
+  (third 09-18 stretch); the quote work it was for is finished.
 
 - 🔒 **HelmCNC 1.0.91/1.0.92: is Tom actually running it?** Tenis, by
   voice note 09-18: he e-mailed Tom the update "a couple of weeks back" and
