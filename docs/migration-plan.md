@@ -589,10 +589,20 @@ which says something about that mode's gating. Its findings:
   Tenis on Telegram. The try-out has to happen live after a merge (the
   booking is invisible to clients until times are offered) or after he
   binds D1 to the Preview environment.
-- ⏳ Integration branch `release/2026-09-18-client-flow` (line endings +
-  branding + booking, appointment mails adopting the brand band, the
-  TODO-OWNER try-out rewritten for live) is being assembled by a subagent
-  so the merge is one tap. 🔒 Tenis: "merge all" or not.
+- ✅ **One branch carries all three, ready to merge:** website
+  `release/2026-09-18-client-flow` @ febd933 on main 31b71a7 — line
+  endings + branding + booking; one conflict (`src/api/portal.js`, both
+  sides kept); appointment mails adopt the brand band; an open offer does
+  not print, a booked visit does; TODO-OWNER try-out rewritten for the
+  live admin. Observed by the subagent: `test_crm` 82 passed / 0 failed,
+  `test_quote` 8 / 0, Build OK 114 pages with `public/` byte-identical.
+  The employee checked the 390 px render. Static preview:
+  `https://release-2026-09-18-client-fl.preiss-workshop-website.pages.dev`.
+  Still unverified until the live try-out: the admin card in a browser,
+  `.ics` handling in Gmail/phone mail. 🔒 Tenis, link sent 14:00:
+  https://github.com/PreissWorkshop/preiss-workshop-website/compare/main...release/2026-09-18-client-flow
+  → create PR → merge, then the TODO-OWNER try-out. After the merge the
+  three source branches are dead and can be deleted (his OK).
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
@@ -608,8 +618,9 @@ which says something about that mode's gating. Its findings:
   employee's mailbox is not set up and Tom has only ever heard from Tenis.
   Open until Tom answers.
 - 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
-  merge website branch `chore/lf-endings-untrack-pyc` (one tap; the
-  employee is blocked from pushing `main`) — second 09-18 sitting.
+  merge website branch `release/2026-09-18-client-flow` (one tap; it
+  includes the line-endings fix; the employee is blocked from pushing
+  `main`), then try the booking live — second 09-18 sitting.
 - 🔒 **Employee mailbox — two clicks left**: the `assistant@` Email Routing
   route, and *Send what is waiting* in the admin outbox
   (`docs/employee-setup-main-pc.md` step 7). Sending itself is on
