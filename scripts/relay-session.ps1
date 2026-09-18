@@ -3,18 +3,26 @@
 # Launched at logon by the PreissRelay task - see scripts\main-pc-always-on.ps1.
 # If the session exits it comes back; close this window to stop it until the
 # next logon, or `Disable-ScheduledTask PreissRelay` to stop it for good.
-# Permission mode `auto` (Tenis 2026-09-18: "automate this so you can do
+# The session is named after the machine (machine-role.ps1). Permission mode
+# `auto` on the dev machines (Tenis 2026-09-18: "automate this so you can do
 # everything yourself"): dispatched work runs without prompts, the auto-mode
-# safety classifier still blocks risky actions. Never bypassPermissions.
-# Written 2026-09-17.
+# safety classifier still blocks risky actions. On the shop PC prompts stay.
+# Never bypassPermissions. Written 2026-09-17.
 
 param(
-    [string]$Name = 'main-pc',
+    [string]$Name,
     [switch]$DryRun
 )
 
 $ErrorActionPreference = 'Continue'
 . (Join-Path $PSScriptRoot 'resolve-claude.ps1')
+. (Join-Path $PSScriptRoot 'machine-role.ps1')
+if (-not $Name) { $Name = Get-MachineRole }
+
+# Auto mode on the dev machines (Tenis 2026-09-18). Not on the shop PC: a
+# machine wired to a live CNC keeps its permission prompts, approved from
+# claude.ai/code - the documented way of driving shop sessions.
+$modeArgs = if ((Get-MachineRole) -eq 'cnc') { @() } else { @('--permission-mode', 'auto') }
 
 # Start/exit lines also go to a log, so the bootstrap can show why a relay
 # is not answering without anyone opening this window. Claude's own output
@@ -42,11 +50,11 @@ while ($true) {
         Start-Sleep -Seconds 300
         continue
     }
-    Log "starting: $claude --remote-control $Name --permission-mode auto"
+    Log "starting: $claude --remote-control $Name $($modeArgs -join ' ')"
     if ($DryRun) { break }
 
     $started = Get-Date
-    & $claude --remote-control $Name --permission-mode auto
+    & $claude --remote-control $Name @modeArgs
     $code = $LASTEXITCODE
     $ran = ((Get-Date) - $started).TotalSeconds
 

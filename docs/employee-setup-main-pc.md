@@ -27,7 +27,11 @@ an agent's job.
 ## Before you start - one command at main-pc (~5 min)
 
 main-pc has no remote shell (SSH, RDP and WinRM are closed over Tailscale),
-so this one step needs someone at its keyboard. Win+R, paste, Enter:
+so this one step needs someone at its keyboard. **main-pc is the machine
+named PREISSWORKSHOP** - not the shop PC at the CNC (DESKTOP-A60V7P2, user
+Lenovo). The bootstrap refuses to run on the shop PC; it was run there once,
+2026-09-18, and `scripts\cnc-pc-undo-always-on.ps1` takes it back off.
+Win+R, paste, Enter:
 
 ```
 powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"

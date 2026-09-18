@@ -20,6 +20,11 @@ Write-Host ""
 Write-Host "Employee preflight - $(Get-Date -Format 'yyyy-MM-dd HH:mm') on $env:COMPUTERNAME"
 Write-Host ""
 
+# --- machine role: the employee never runs on the shop PC ---
+. (Join-Path $PSScriptRoot 'machine-role.ps1')
+Test-Item 'machine' ((Get-MachineRole) -ne 'cnc') "$env:COMPUTERNAME = $(Get-MachineRole)" `
+    'this is the shop PC (HelmCNC appliance) - the employee and the relay belong on main-pc (PREISSWORKSHOP)'
+
 # --- Claude Code (same resolver the session and relay launchers use) ---
 . (Join-Path $PSScriptRoot 'resolve-claude.ps1')
 $claudePath = Resolve-Claude

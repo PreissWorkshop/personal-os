@@ -22,12 +22,19 @@
 # Idempotent - safe to re-run. Written 2026-09-17, extended 2026-09-18.
 
 param(
-    [string]$RelayName = 'main-pc',
+    [string]$RelayName,
     [switch]$NoInstalls
 )
 
 $ErrorActionPreference = 'Continue'
 . (Join-Path $PSScriptRoot 'resolve-claude.ps1')
+. (Join-Path $PSScriptRoot 'machine-role.ps1')
+
+# Refuses on the shop PC (2026-09-18: it was run there, and registered the
+# CNC appliance as "main-pc"). The relay name follows the machine, so a run
+# on the wrong PC can never impersonate main-pc again.
+Assert-AgentHost 'The always-on host'
+if (-not $RelayName) { $RelayName = Get-MachineRole }
 $todo = @()
 
 function Say($status, $label, $detail) {

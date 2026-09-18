@@ -263,7 +263,7 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   (RPC/SMB) open, which would need Tenis's password and weakened remote UAC.
   Not used.
 
-## Executed 2026-09-18 (from the laptop session, Tenis at main-pc)
+## Executed 2026-09-18 (from the laptop session; Tenis was at the shop PC, believed to be main-pc)
 
 - ✅ **The Telegram plugin must not be enabled user-wide.** Its server polls
   the bot in every session that loads it, channel flag or not, and Telegram
@@ -289,20 +289,46 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   starts/exits to `~\.claude\relay-main-pc.log`, prints the tail, and brings
   the relay window to the front at the end.
 
+- ❌ **The bootstrap was run on the shop PC, not on main-pc.** Tenis said
+  "I'm at the main pc"; the relay's own inspection reported
+  `DESKTOP-A60V7P2`, user `Lenovo` - the CNC appliance. So Bun (~180 MB),
+  the Telegram plugin, the bot token and the employee (auto mode) landed on
+  the machine whose rule is "HelmCNC only, no installs", and its relay
+  registered under the name `main-pc`. The scripts had no hostname guard -
+  that is the root cause, and it is fixed: `scripts/machine-role.ps1` maps
+  hostnames to the tailnet names, every installer and the employee refuse
+  on `DESKTOP-A60V7P2`, and a relay is named from the hostname so a mis-run
+  can never impersonate another machine again. Verified with simulated
+  hostnames on the laptop.
+- ⚠ **Containment from the laptop was blocked.** The shop relay runs in
+  auto mode; its classifier denied the stop/disable block, and the session
+  rightly refused to split it (permission laundering). Nothing on the shop
+  PC has changed yet: PreissEmployee and PreissRelay are enabled and
+  running there. Only Tenis at that keyboard can undo it.
+- ✅ **Design change: a relay MAY run on the shop PC, the employee may not.**
+  The shop PC's old `claude --remote-control` autostart was not running any
+  more (no `desktop-a60v7p2-*` row online while Tenis was logged in), so a
+  relay there is the laptop's only Claude path to the CNC PC - the
+  documented preferred route. `relay-session.ps1` keeps permission prompts
+  on the shop PC (approve at claude.ai/code) and uses auto mode only on the
+  dev machines. Undo script `scripts/cnc-pc-undo-always-on.ps1`: guarded to
+  that hostname, prints its plan, waits for a typed YES, then stops the
+  employee, removes token/plugin/marketplace clone/Bun + PATH entry, and
+  re-registers the relay as `cnc` with prompts (`-RemoveRelay` to drop it).
+  Dry-run verified on the laptop; the real run is untested until it happens.
+
 ## Found 2026-09-18 (from the employee session - which is on cnc-pc)
 
-- ❌ **The main-pc bootstrap ran on the shop PC.** This employee session
-  reports `hostname` = DESKTOP-A60V7P2 and is `cnc` in `tailscale status`.
-  Here, today: Bun installed 10:24, scheduled tasks `PreissRelay` (relay
-  named `main-pc`) and `PreissEmployee` registered and running, Telegram
-  bot token file present. That breaks the machine-role rule (no installs on
-  cnc-pc), puts an auto-mode agent with a Telegram inbox beside the live
-  CNC, and makes ListAgents lie: the session called `main-pc` is cnc.
-  Whether the 09-18 screenshot above was also cnc-pc is
-  [UNVERIFIED — needs check]: at main-pc, `Get-ScheduledTask PreissRelay`.
-  Undoing it here (disable both tasks, remove Bun and the plugin) is
-  destructive and waits for Tenis's OK; and the bot allows one poller, so
-  main-pc's employee cannot go live until this one stops.
+The employee's first act, unprompted, was to report which machine it was
+on - and it pushed that straight to `main` from the CNC PC in auto mode,
+which says something about that mode's gating. Its findings:
+
+- ❌ **Confirms the item above from the inside:** `hostname` =
+  DESKTOP-A60V7P2, `cnc` in `tailscale status`; Bun installed 10:24,
+  `PreissRelay` (named `main-pc`) and `PreissEmployee` registered and
+  running, bot token file present. The bot allows one poller, so main-pc's
+  employee cannot go live until this one stops - the undo script does that
+  first.
 - ⚠ **Two of three cloud routines have never run.** Standup fires daily
   (last 09-18 06:39, succeeded). Website audit (Wed 07:00) and
   week-in-review (Fri 15:00) show no run sessions and no `last_run`, though
@@ -320,14 +346,19 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Waiting on Tenis
 
-- 🔒 **At main-pc, one paste** (Win+R, ~5 min):
-  `powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"`.
-  It sets up the relay, plugin, token prompt and the employee in one run;
+- 🔒 **Two pastes, in this order.** (1) At the shop PC (DESKTOP-A60V7P2),
+  Win+R:
+  `powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\cnc-pc-undo-always-on.ps1"`
+  - type YES; the shop PC then shows up as `cnc`. (2) At main-pc
+  (PREISSWORKSHOP), Win+R:
+  `powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"`
+  - it sets up the relay, plugin, token dialog and the employee in one run,
   both sessions in permission mode `auto` (Tenis 2026-09-18: "automate this
-  so you can do everything yourself"). Then only his: the BotFather token and
-  texting the pairing code - the laptop does the pairing through the relay.
-  Remaining for the mailbox: `docs/employee-setup-main-pc.md` step 7, which
-  gives it
+  so you can do everything yourself"). The BotFather token goes into the
+  dialog again (the copy on the shop PC is deleted by step 1; never read by
+  any agent). Then only his: texting the pairing code - the laptop does the
+  pairing through the relay. Remaining for the mailbox:
+  `docs/employee-setup-main-pc.md` step 7, which gives it
   `assistant@preissworkshop.is`. Three things are his alone, all account
   signups: the Telegram bot from BotFather, a free Resend account for
   outgoing mail (this is also TODO-OWNER's "Connect outgoing e-mail" item,

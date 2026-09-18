@@ -4,6 +4,8 @@
 # Remove with:  Unregister-ScheduledTask -TaskName PreissEmployee -Confirm:$false
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'machine-role.ps1')
+Assert-AgentHost 'The employee autostart'
 
 $taskName = 'PreissEmployee'
 $script   = 'C:\Projects\_system\personal-os\scripts\employee-session.ps1'

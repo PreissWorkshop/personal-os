@@ -5,6 +5,8 @@
 # See docs/employee-setup-main-pc.md and docs/employee.md.
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'machine-role.ps1')
+Assert-AgentHost 'The employee'
 $repo = 'C:\Projects\_system\personal-os'
 
 if (-not (Test-Path (Join-Path $repo '.git'))) {
