@@ -366,13 +366,14 @@ which says something about that mode's gating. Its findings:
   running, bot token file present. The bot allows one poller, so main-pc's
   employee cannot go live until this one stops - the undo script does that
   first.
-- ⚠ **Two of three cloud routines have never run.** Standup fires daily
-  (last 09-18 06:39, succeeded). Website audit (Wed 07:00) and
-  week-in-review (Fri 15:00) show no run sessions and no `last_run`, though
-  09-09, 09-16 and 09-11 were due; both read `enabled: true` with a future
-  `next_run_at`. Cause unknown - a fire skipped before a session exists
-  leaves no trace. Watch today's 15:00 week-in-review; if it stays empty,
-  press "Run now" on claude.ai/code/routines to see the refusal.
+- ⚠ **RESOLVED for week-in-review, still open for website audit.** The
+  15:00 week-in-review fired today and produced this report and its own
+  section below — the routine works, so today's earlier read (a fire
+  skipped before a session exists, leaving no trace) was the right theory
+  for a first-run gap, not evidence of a broken routine. Website audit
+  (Wed 07:00) is unverified from this session (no access to
+  claude.ai/code/routines' run list from here) — next due 09-23, worth one
+  check then.
 - ⚠ **1.0.91 and 1.0.92 are shipped; this tracker still said otherwise.**
   Verified in `C:\HelmCNC.bak`: tags `stable/v1.0.91` and `stable/v1.0.92`
   exist; master 27d0286 (09-04) gave `promote.ps1` a `-Go "<who, where,
@@ -392,27 +393,26 @@ which says something about that mode's gating. Its findings:
   phone). The 🔒 "one paste left at main-pc" item is CLOSED; only the
   account signups below remain of it. Phase 1 of `docs/employee.md` is no
   longer "scripted, not live" — it is running.
-- ✅ **Standup PRs #1 and #2 are both redundant against main — close, don't
-  merge.** Content-diff `main...pr1` is empty (the button-sweep correction
-  landed 09-07); PR #2's ship correction is condensed in the Found
-  2026-09-18 section, and its one missing detail is now folded in here:
+- ✅ **Both standup PRs are closed, neither merged.** Content-diff
+  `main...pr1` was empty (the button-sweep correction landed 09-07) — closed
+  same day. PR #2's ship correction was condensed into the Found 2026-09-18
+  section above, with its one missing detail folded in here:
   **1.0.92 carries a toolpath fix — view re-anchors to the new WCS mid-run,
   Tom's G54→G55 shift (helmcnc-app 030c80c), tagged at d33107f "Dev release
-  1.0.92", 2026-09-02.** Merging either PR would conflict with or duplicate
-  the tracker; whoever next has GitHub PR access should close both.
+  1.0.92", 2026-09-02.** Closed by the 09-18 week-in-review routine
+  (content-diff against `main` was a no-op by then).
 - ⚠ **gh is not authenticated on main-pc** — `gh` exits asking for login,
   while git push works via GCM. Until fixed the employee cannot file the
   machine-queue GitHub issues its standing duties require, nor close PRs.
   No credential store was touched (hard rule). Needs one interactive
   `gh auth login` by Tenis at this machine — or typed into the employee
   session as `! gh auth login --hostname github.com --git-protocol https --web`.
-- ⏳ Week-in-review routine (never fired; `next_run_at` 15:04 today) is
-  under watch: a 15:24 in-session check reads the routine's run list and
-  reports either its output or its third silent skip. Session-only timer,
-  re-armed 10:50 after the employee session restarted — if it restarts
-  again before then, re-check manually. Website audit still shows zero run
-  sessions (next 09-23 07:04). All three routines re-checked 10:45:
-  `mcp_connections: []`, enabled.
+- ✅ **Week-in-review routine fired for the first time, 09-18 15:00 UTC**
+  (this session, cloud sandbox, no machine). Produced
+  `docs/reports/2026-09-18-week-in-review.md` and the entries in this file
+  dated from that session. `mcp_connections: []` still true (checked by this
+  session's own tool list — no Gmail/Calendar/Remote Control attached).
+  Website audit remains unverified (next due 09-23).
 
 ## Second sitting 2026-09-18 ~10:45 (employee on main-pc, hostname verified)
 
@@ -612,8 +612,36 @@ which says something about that mode's gating. Its findings:
   Tenis. main-pc's clone is back on `main` @ 04b5564, clean. 🔒 Tenis: the live try-out (TODO-OWNER.md) —
   `.ics` behaviour on the phone, logo in the mails, the Icelandic. Phase
   2 (reminders) starts after his feedback.
-- PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
-  previous session made were pruned by fetch.
+- PR #1 was already closed by the time of writing (not via this session);
+  PR #2 was closed by the 09-18 week-in-review routine, below. Local
+  `origin/pr1`/`pr2` refs a previous session made were pruned by fetch.
+
+## Executed 2026-09-18 (from the week-in-review cloud routine, 15:00 UTC)
+
+First successful run of the routine (see corrections folded into the
+09-18 sections above) — full account in
+`docs/reports/2026-09-18-week-in-review.md`. Summary:
+
+- ✅ **The week's git history confirmed across all four repos**, all
+  branches, both shallow clones unshallowed first. HelmCNC and ScanPen: zero
+  commits in 7 days (last real work 09-04 and 08-16 respectively — both
+  outside the window, not a regression, just a quiet week for both). No
+  stray branches ahead of `master`/`main` carrying unmerged work in either.
+  personal-os and the website: both dominated by 09-17/09-18 activity
+  already narrated above.
+- ✅ **ScanPen suite run for real** (fresh `pip install`, nothing cached):
+  pytest 46/47, `selftest --full` 37/38 — same one failure both times
+  (`sweep-artifacts-verified`, `spot_recompute_max_deviation` 1.53794e-07 mm
+  vs the `< 1e-07 mm` gate), folded into the tolerance item below. Working
+  tree left clean (`results/capability_report.json` reverted).
+- ✅ **Website build run for real**: `python src/site/build.py` →
+  114 pages, 56 sitemap pairs, matching the number already on record.
+  Working tree left clean.
+- ✅ **PR #2 closed** via the GitHub API (content-diff against `main` was a
+  no-op) — see the corrected 09-18 entry above.
+- ❌ **Could not run**: HelmCNC's suite (no Windows/.NET in this sandbox)
+  and the website's Node test harness (`test_crm`/`test_quote` numbers
+  stay as the implementing session reported them, not re-verified here).
 
 ## Waiting on Tenis
 
@@ -626,15 +654,16 @@ which says something about that mode's gating. Its findings:
   text handed to Tenis on Telegram to send from his own mail — the
   employee's mailbox is not set up and Tom has only ever heard from Tenis.
   Open until Tom answers.
-- 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
-  merge website branch `release/2026-09-18-client-flow` (one tap; it
-  includes the line-endings fix; the employee is blocked from pushing
-  `main`), then try the booking live — second 09-18 sitting.
-- 🔒 **Employee mailbox — two clicks left**: the `assistant@` Email Routing
-  route, and *Send what is waiting* in the admin outbox
-  (`docs/employee-setup-main-pc.md` step 7). Sending itself is on
-  (Cloudflare Email Sending, 09-18); no Resend account needed. Inbound
-  catch-all already delivers (live since 09-06).
+- 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** Still
+  open — nothing since answers it. *The merge itself is done*
+  (`release/2026-09-18-client-flow` → `main` @ 04b5564, 09-18 14:05); what
+  remains is the live try-out (`.ics` in Gmail/phone mail, the admin card,
+  the Icelandic) per `TODO-OWNER.md`.
+- 🔒 **Employee mailbox — one click left**: the `assistant@` Email Routing
+  route (`docs/employee-setup-main-pc.md` step 7). *Send what is waiting*
+  is done — `TODO-OWNER.md` confirms 7 sent / 0 failed, 09-18 10:52. Sending
+  itself is on (Cloudflare Email Sending, 09-18); no Resend account needed.
+  Inbound catch-all already delivers (live since 09-06).
 - 🔒 **`gh auth login` on main-pc** — one interactive run, see the 09-18
   main-pc section above; unblocks the employee's issue-queue duty.
 - 🔒 **The shop PC's `cnc` relay** has not appeared in ListAgents since the
@@ -686,12 +715,17 @@ which says something about that mode's gating. Its findings:
   it may need gating. Check how `shell:startup\claude-remote-control.cmd`
   launches it (a `--dangerously-skip-permissions`-style flag would explain
   everything).
-- 🔒 **ScanPen tolerance call** — on the laptop, `sweep-artifacts-verified`
-  misses by floating-point dust: `spot_recompute_max_deviation` 1.857e-07 mm
-  against a `< 1e-07 mm` gate, suite otherwise 46/47 green (47/0 on main-pc
-  and cnc-pc). Cross-machine FP variance, not a regression — but the house
-  rule is that a missed threshold is reported, never loosened. Widen the gate
-  or pin package versions: Tenis's call.
+- 🔒 **ScanPen tolerance call, still open, third machine now confirms it.**
+  `sweep-artifacts-verified` misses by floating-point dust on every machine
+  tried so far, at a different value each time: laptop
+  `spot_recompute_max_deviation` 1.857e-07 mm, cloud sandbox (09-18
+  week-in-review, fresh `pip install`, `pytest -q`) 1.53794e-07 mm — both
+  against the `< 1e-07 mm` gate, both otherwise green (46/47 pytest; main-pc
+  and cnc-pc previously reported 47/0, not re-verified this session). Three
+  different values on three environments is stronger evidence for FP
+  variance, not a regression — but the house rule holds: a missed threshold
+  is reported, never loosened. Widen the gate or pin package versions:
+  Tenis's call.
 - 🔒 Approve later cleanups: empty husks (`Mach3`, `KilnController`, `lbr`,
   `Voiceover`, `New folder` — all verified 0 bytes); archive `HelmCNC.56` +
   `HelmCNC-preclean-2026-07-25-*` as dated zips; remove merged worktrees
