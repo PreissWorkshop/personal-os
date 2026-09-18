@@ -280,12 +280,14 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
 
 ## Waiting on Tenis
 
-- 🔒 **At main-pc, one command** (normal PowerShell, ~5 min):
-  `cd C:\Projects\_system\personal-os; git pull; powershell -ExecutionPolicy Bypass -File scripts\main-pc-always-on.ps1`.
-  Answer a login/trust prompt in the relay window if one appears. After that
-  `main-pc` is in ListAgents and the rest runs from the laptop. Then give the
-  employee a phone and a mailbox: `docs/employee-setup-main-pc.md` steps 2-7.
-  Steps 2-6 are the Telegram channel; step 7 gives it
+- 🔒 **At main-pc, one paste** (Win+R, ~5 min):
+  `powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"`.
+  It sets up the relay, plugin, token prompt and the employee in one run;
+  both sessions in permission mode `auto` (Tenis 2026-09-18: "automate this
+  so you can do everything yourself"). Then only his: the BotFather token and
+  texting the pairing code - the laptop does the pairing through the relay.
+  Remaining for the mailbox: `docs/employee-setup-main-pc.md` step 7, which
+  gives it
   `assistant@preissworkshop.is`. Three things are his alone, all account
   signups: the Telegram bot from BotFather, a free Resend account for
   outgoing mail (this is also TODO-OWNER's "Connect outgoing e-mail" item,

@@ -1,7 +1,7 @@
 # main-pc-always-on.ps1 - make this machine the always-on agent host.
-# Run once at main-pc, in a normal (not admin) PowerShell window:
+# Run once at main-pc: Win+R, paste, Enter:
 #
-#   cd C:\Projects\_system\personal-os; git pull; powershell -ExecutionPolicy Bypass -File scripts\main-pc-always-on.ps1
+#   powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"
 #
 # 1. Checks Claude Code: found, >= 2.1.234 (Remote Control on Windows), and a
 #    CLI login exists (file existence only - never read).
@@ -13,8 +13,11 @@
 #    Bun and the Telegram channel plugin, installed if missing - and the
 #    plugin kept disabled user-wide, so only the employee session polls.
 # 4. Reports whether this PC sleeps. An asleep host is an offline relay.
-# It does NOT start the employee: that needs the Telegram bot token first
-# (setup doc steps 2-5). Idempotent - safe to re-run. Written 2026-09-17.
+# 5. Asks for the Telegram bot token if there is none (hidden prompt; Enter
+#    skips), then registers PreissEmployee and starts the employee.
+# Both sessions run in permission mode auto (Tenis 2026-09-18). Everything
+# after this run is driven from the laptop through the relay.
+# Idempotent - safe to re-run. Written 2026-09-17, extended 2026-09-18.
 
 param(
     [string]$RelayName = 'main-pc',
@@ -154,6 +157,31 @@ foreach ($setting in @(@('STANDBYIDLE', 'sleep on AC', 'standby-timeout-ac'), @(
     }
 }
 
+# --- 5. The employee: token, autostart, start ---------------------------------
+$tokenFile = Join-Path $env:USERPROFILE '.claude\channels\telegram\.env'
+if (-not (Test-Path $tokenFile)) {
+    Write-Host ""
+    Write-Host "  Telegram bot token: on your phone, @BotFather -> /newbot, then paste the token here." -ForegroundColor Cyan
+    Write-Host "  Just Enter skips - the employee then waits until a token exists." -ForegroundColor Cyan
+    & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'employee-set-token.ps1')
+}
+if (Test-Path $tokenFile) {
+    Say 'OK' 'bot token' 'present'
+    & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'install-employee-autostart.ps1') | Out-Null
+    if (Get-ScheduledTask -TaskName 'PreissEmployee' -ErrorAction SilentlyContinue) {
+        Say 'DONE' 'PreissEmployee' 'registered: at logon -> employee-session.ps1'
+        $employee = Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" -ErrorAction SilentlyContinue |
+            Where-Object { $_.CommandLine -like '*employee-session.ps1*' } | Select-Object -First 1
+        if ($employee) { Say 'OK' 'employee' "already running (pid $($employee.ProcessId))" }
+        else { Start-ScheduledTask -TaskName 'PreissEmployee'; Say 'DONE' 'employee' "started - window in the taskbar, Remote Control name 'employee'" }
+    } else {
+        Say 'FAIL' 'PreissEmployee' 'not registered - see the output above'
+        $todo += 'PreissEmployee autostart failed to register'
+    }
+} else {
+    Say 'SKIP' 'employee' 'no bot token yet - re-run this script once you have one'
+}
+
 # --- Summary ------------------------------------------------------------------
 Write-Host ""
 Write-Host "The relay shows up as '$RelayName' - in ListAgents on the laptop, in claude.ai/code on the phone."
@@ -165,5 +193,5 @@ if ($todo.Count -gt 0) {
     $todo | ForEach-Object { Write-Host "  - $_" }
 }
 Write-Host ""
-Write-Host "Next, for the employee: docs\employee-setup-main-pc.md steps 2-5 (bot token, pair, autostart)."
+Write-Host "Last step is yours alone: message your bot from the phone and send Claude the 6-letter code it replies with."
 Write-Host ""

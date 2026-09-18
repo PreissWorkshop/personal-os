@@ -27,19 +27,21 @@ an agent's job.
 ## Before you start - one command at main-pc (~5 min)
 
 main-pc has no remote shell (SSH, RDP and WinRM are closed over Tailscale),
-so this one step needs someone at its keyboard. In a normal PowerShell window:
+so this one step needs someone at its keyboard. Win+R, paste, Enter:
 
-```powershell
-cd C:\Projects\_system\personal-os; git pull; powershell -ExecutionPolicy Bypass -File scripts\main-pc-always-on.ps1
+```
+powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"
 ```
 
 It registers `PreissRelay`, a logon task that keeps
 `claude --remote-control main-pc` alive, and starts it; installs Bun and the
-Telegram plugin if missing; and reports whether the PC sleeps. If the relay
-window in the taskbar asks for a login or folder trust, answer it once. From
-then on main-pc appears as `main-pc` in ListAgents on the laptop and in
-claude.ai/code on the phone, and every step below that is not 🔒 can be
-driven from there.
+Telegram plugin (disabled user-wide, see step 3); reports whether the PC
+sleeps; asks for the bot token (step 2 - Enter skips); and with a token,
+registers `PreissEmployee` and starts the employee. If a new window asks for
+a login or folder trust, answer it once. From then on main-pc is `main-pc`
+in ListAgents on the laptop and in claude.ai/code on the phone, and the
+laptop drives everything else. Steps 3-5 below are what the script does,
+kept as the manual fallback.
 
 ## Step 1 — prerequisites (~5 min)
 
@@ -140,7 +142,10 @@ away. Three options, least to most permissive:
    an open 🔒 item about the shop session appearing to run ungated — that is
    a problem to fix, not a pattern to copy.
 
-The script ships option 1. Nothing to do unless you want to change it.
+**Decided 2026-09-18: neither - permission mode `auto`.** Tenis: "automate
+this so you can do everything yourself". Both the relay and the employee
+start with `--permission-mode auto`: no prompts, and the auto-mode safety
+classifier still blocks risky actions. Option 3 stays forbidden.
 
 ## Step 7 — 🔒 give it its own e-mail address (~10 min, mostly yours)
 

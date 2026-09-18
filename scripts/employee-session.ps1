@@ -1,7 +1,7 @@
 # employee-session.ps1 - start the always-on employee session on main-pc.
-# Rooted in personal-os, Telegram channel enabled, permission prompts INTACT:
-# approve them from the phone - it is Remote Control session "employee" in
-# claude.ai/code. Written 2026-09-07, launch line fixed 2026-09-17.
+# Rooted in personal-os, Telegram channel enabled, permission mode auto; it is
+# Remote Control session "employee" in claude.ai/code.
+# Written 2026-09-07, launch line fixed 2026-09-17, auto mode 2026-09-18.
 # See docs/employee-setup-main-pc.md and docs/employee.md.
 
 $ErrorActionPreference = 'Stop'
@@ -71,5 +71,7 @@ Write-Host "Starting the employee session in $repo ..." -ForegroundColor Green
 # token, every session that loads it polls the bot, and Telegram allows one
 # poller per bot. `--settings` enables it for this session only - verified
 # 2026-09-18 that `--channels` alone does not load a disabled plugin.
+# Permission mode `auto` (Tenis 2026-09-18): unattended work runs without
+# prompts; the auto-mode classifier still blocks risky actions.
 $settings = Join-Path $PSScriptRoot 'employee-settings.json'
-& $claude --remote-control employee --settings $settings --channels plugin:telegram@claude-plugins-official -- $brief
+& $claude --remote-control employee --permission-mode auto --settings $settings --channels plugin:telegram@claude-plugins-official -- $brief

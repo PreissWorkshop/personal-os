@@ -16,6 +16,8 @@ $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
 try { $token = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr).Trim() }
 finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) }
 
+if (-not $token) { Write-Host 'Skipped - no token written.'; exit 0 }
+
 # BotFather tokens look like 123456789:AAH... - digits, colon, 30+ url-safe chars.
 if ($token -notmatch '^\d+:[A-Za-z0-9_-]{30,}$') {
     Write-Error 'That does not look like a BotFather token (digits, a colon, then a long code). Nothing written.'
