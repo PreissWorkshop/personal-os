@@ -485,6 +485,11 @@ which says something about that mode's gating. Its findings:
   Q-2026-0008 himself; OK the deletion of test project V-2026-0003; and
   that session intends to push the template to `main` — his word needed,
   flagged to him on Telegram.
+- ✅ main-pc's HelmCNC clone fast-forwarded 0a0b493 (08-10) → 27d0286
+  (09-04), clean, = origin. `dotnet` is present; the offline suite has not
+  been built or run on main-pc yet. ScanPen and claude-system clones equal
+  origin. The website clone still waits on the remote-URL fix (above) —
+  offered to Tenis on Telegram as "fix the clones".
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
