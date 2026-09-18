@@ -456,8 +456,12 @@ which says something about that mode's gating. Its findings:
   inbound `.oga`; `scripts/tts.py` speaks a reply with Kokoro neural TTS
   (`kokoro-onnx`, model files ~340 MB in `~\.cache\kokoro`, Opus via PyAV,
   no ffmpeg) — Tenis rejected the first, robotic Windows voice. Round-trip
-  verified; samples `am_michael` and `af_heart` delivered, his pick
-  pending. English only — the model has no Icelandic voice. Text
+  verified; Tenis picked `bm_george` (British male) at speed 1.2, now the
+  default. He also asked for a New Zealand accent and "the most natural
+  voice possible": Kokoro has US/British only and no Icelandic; the free
+  NZ route (`edge-tts`, sends reply text to Microsoft) was blocked by the
+  auto-mode classifier and not worked around; anything better is a paid
+  cloud voice — spending, so his explicit call. Text
   stays the default reply. A restarted employee session must know this:
   download the attachment, run `stt.py` on it. Never on cnc-pc.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a

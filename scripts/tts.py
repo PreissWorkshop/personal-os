@@ -10,7 +10,7 @@ import numpy as np
 from kokoro_onnx import Kokoro
 
 out_path, text = sys.argv[1], sys.argv[2]
-voice = sys.argv[3] if len(sys.argv) > 3 else "am_michael"
+voice = sys.argv[3] if len(sys.argv) > 3 else "bm_george"  # Tenis's pick, 2026-09-18
 speed = float(sys.argv[4]) if len(sys.argv) > 4 else 1.2
 
 models = os.path.join(os.path.expanduser("~"), ".cache", "kokoro")
