@@ -354,25 +354,46 @@ which says something about that mode's gating. Its findings:
   did the customer receive it (standup found no `installer/news.items`
   entry for either).
 
+## Executed 2026-09-18 (from the employee session on main-pc — first live run)
+
+- ✅ **The employee is LIVE on main-pc.** Tenis ran the one-paste bootstrap
+  at PREISSWORKSHOP ~09:24; verified from inside: hostname PREISSWORKSHOP,
+  user tenis, scheduled tasks `PreissRelay` and `PreissEmployee` both
+  Running, relay log healthy (clean exit 10:11, auto-restarted 30 s later as
+  RC session `main-pc`, permission mode auto), Telegram channel reachable
+  from the phone, tailnet resolving all four names (main-pc / cnc / laptop /
+  phone). The 🔒 "one paste left at main-pc" item is CLOSED; only the
+  account signups below remain of it. Phase 1 of `docs/employee.md` is no
+  longer "scripted, not live" — it is running.
+- ✅ **Standup PRs #1 and #2 are both redundant against main — close, don't
+  merge.** Content-diff `main...pr1` is empty (the button-sweep correction
+  landed 09-07); PR #2's ship correction is condensed in the Found
+  2026-09-18 section, and its one missing detail is now folded in here:
+  **1.0.92 carries a toolpath fix — view re-anchors to the new WCS mid-run,
+  Tom's G54→G55 shift (helmcnc-app 030c80c), tagged at d33107f "Dev release
+  1.0.92", 2026-09-02.** Merging either PR would conflict with or duplicate
+  the tracker; whoever next has GitHub PR access should close both.
+- ⚠ **gh is not authenticated on main-pc** — `gh` exits asking for login,
+  while git push works via GCM. Until fixed the employee cannot file the
+  machine-queue GitHub issues its standing duties require, nor close PRs.
+  No credential store was touched (hard rule). Needs one interactive
+  `gh auth login` by Tenis at this machine — or typed into the employee
+  session as `! gh auth login --hostname github.com --git-protocol https --web`.
+- ⏳ Week-in-review routine (never fired; due 15:00 today) is under watch:
+  a 15:21 in-session check compares remote refs and reports either the
+  routine's output or its third silent skip. Session-only timer — if this
+  session restarts before 15:21, re-check manually.
+
 ## Waiting on Tenis
 
-- 🔒 **One paste left, at main-pc (PREISSWORKSHOP)** - the shop-PC undo is
-  done. Win+R:
-  `powershell -NoExit -ExecutionPolicy Bypass -Command "cd C:\Projects\_system\personal-os; git pull; .\scripts\main-pc-always-on.ps1"`
-  - it sets up the relay, plugin, token dialog and the employee in one run,
-  both sessions in permission mode `auto` (Tenis 2026-09-18: "automate this
-  so you can do everything yourself"), and refuses on the shop PC. The
-  BotFather token goes into the dialog again (the shop copy is deleted;
-  never read by any agent). Then only his: texting the pairing code - the
-  laptop does the pairing through the relay. Remaining for the mailbox:
-  `docs/employee-setup-main-pc.md` step 7, which gives it
-  `assistant@preissworkshop.is`. Three things are his alone, all account
-  signups: the Telegram bot from BotFather, a free Resend account for
-  outgoing mail (this is also TODO-OWNER's "Connect outgoing e-mail" item,
-  so it turns on the CRM's mail at the same time), and the Cloudflare Email
-  Routing route. Plus one choice: the permission posture, where the shipped
-  default keeps prompts and approves from the phone. Everything else is
-  scripted.
+- 🔒 **Employee mailbox — the only setup steps left, all his account
+  signups**: `docs/employee-setup-main-pc.md` step 7 gives it
+  `assistant@preissworkshop.is`; a free Resend account for outgoing mail
+  (also TODO-OWNER's "Connect outgoing e-mail" item, so it turns on the
+  CRM's mail at the same time); and the Cloudflare Email Routing route.
+  Inbound catch-all already delivers (live since 09-06).
+- 🔒 **`gh auth login` on main-pc** — one interactive run, see the 09-18
+  main-pc section above; unblocks the employee's issue-queue duty.
 - ⚠ **The employee's e-mail is deliberately gated.** Inbound already works -
   Email Routing has been live on preissworkshop.is since 09-06 with a
   catch-all, verified by DNS lookup 09-07, so mail to the new address arrives
