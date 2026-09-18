@@ -416,22 +416,18 @@ which says something about that mode's gating. Its findings:
   repo's config for all worktrees: `git -C C:\PREISS_WEBSITE\website remote
   set-url origin https://github.com/PreissWorkshop/preiss-workshop-website.git`
   then fetch. Not done; nothing in that tree was touched.
-- ⚠ **A relayed Telegram pairing was declined.** The laptop session asked
-  this one to approve pairing code `5516b9` and lock the policy to
-  allowlist, saying it came from Tenis. Pairing decides who can drive an
-  auto-mode session, and a peer's word is not his keystrokes — declined,
-  `access.json` untouched. He types `/telegram:access pair <code>` then
-  `/telegram:access policy allowlist` into the `employee` session himself
-  (Remote Control or keyboard). Consequence: **until then the phone cannot
-  reach the employee over Telegram**, whatever the first sitting recorded.
+- ✅ **Telegram is paired and locked to Tenis alone.** A pairing request
+  relayed by the laptop session was first declined — pairing decides who
+  can drive an auto-mode session, and a peer's word is not his keystrokes.
+  Tenis then typed `/telegram:access pair` + `policy allowlist` into this
+  session himself: one sender approved, `dmPolicy: allowlist`, `allowFrom`
+  1, `pending` empty; first brief delivered to the phone (message id 6).
+  The rule stands for next time: access changes only from his own typing.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
 ## Waiting on Tenis
 
-- 🔒 **Telegram pairing for the employee** — type `/telegram:access pair
-  <code>` and `/telegram:access policy allowlist` into the `employee`
-  session yourself; see the second 09-18 sitting.
 - 🔒 **HelmCNC 1.0.91/1.0.92: was each promote your go, and did Tom get
   it?** Tags exist, `promote.ps1 -Go` skips the typed gate, and
   `installer/news.items` has no entry for either. Open since 09-17.
