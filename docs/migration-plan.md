@@ -569,7 +569,13 @@ which says something about that mode's gating. Its findings:
   unchanged, VAT 24 %) plus a final test send — admin data, not code; the
   employee has no admin login and does not look for one; it offered to
   compute the lines from numbers Tenis sends, he types them in. His
-  internal cost structure stays out of every repo.
+  internal cost structure stays out of every repo. 13:45: Tenis sent the
+  costing over Telegram and asked about a material/labour split and a
+  visible 25 % discount; the employee advised yes to both (visible
+  discount with a reason; two subtotals, not hours × rate; the VAT-refund
+  point marked unverified) and returned the client-facing lines plus a
+  margin warning. No figures are recorded here on purpose. 🔒 Tenis:
+  choose the discount %, enter the lines in the admin, send the quote.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
