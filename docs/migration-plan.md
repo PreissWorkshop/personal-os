@@ -576,6 +576,23 @@ which says something about that mode's gating. Its findings:
   point marked unverified) and returned the client-facing lines plus a
   margin warning. No figures are recorded here on purpose. 🔒 Tenis:
   choose the discount %, enter the lines in the admin, send the quote.
+- ✅ **Client branding built, not merged** (14:20): website branch
+  `feat/client-branding` @ 2242301 — `src/api/brand.js`, dark header band
+  + logo on the quote page, job page and all client mails, print rules;
+  tests 64 passed / 0 failed (61 baseline), as reported by the subagent;
+  the employee looked at the phone-width renders and sent them to Tenis.
+  The mail logo loads from production, so it 404s until merged.
+- ❌ **The employee's "try the booking on the preview" advice was wrong.**
+  Cloudflare previews of this project have no D1, login or mail bound —
+  verified 14:25: preview `/api/admin/ping` reports `db:false,
+  auth:false, mail:false`, `/api/p/<token>` answers 503. Corrected to
+  Tenis on Telegram. The try-out has to happen live after a merge (the
+  booking is invisible to clients until times are offered) or after he
+  binds D1 to the Preview environment.
+- ⏳ Integration branch `release/2026-09-18-client-flow` (line endings +
+  branding + booking, appointment mails adopting the brand band, the
+  TODO-OWNER try-out rewritten for live) is being assembled by a subagent
+  so the merge is one tap. 🔒 Tenis: "merge all" or not.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
