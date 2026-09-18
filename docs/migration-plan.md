@@ -539,8 +539,24 @@ which says something about that mode's gating. Its findings:
   map/ETA — amends WORKSHOP-OS's "no continuous tracking" decision
   (driver-initiated, one trip, self-ending), live traffic needs a paid
   map API, SMS does not exist: all three are 🔒 Tenis when phase 3
-  starts. Phase 1 is being implemented by a subagent (started ~13:25);
-  the employee reviews the diff before anything is shown to Tenis.
+  starts. **Phase 1 is built and on a preview (14:05), not merged:**
+  branch `feat/measurement-appointments` @ 4882e8d, 15 files, new module
+  `src/api/appointments.js` + table `wo_appointments` (in the backup
+  list), admin card "Measurement visit", client form POST
+  `/api/p/<token>/book` (page still script-free, CSP gained only
+  `form-action 'self'`), `.ics` PUBLISH/CANCEL. Tests 78 passed / 0
+  failed under Node (61 before, same runner) plus an end-to-end run
+  against in-memory SQLite — as reported by the implementing subagent;
+  the employee read the route and `book()` and found them sound. Preview
+  verified up and carrying the new card:
+  `https://feat-measurement-appointment.preiss-workshop-website.pages.dev`
+  (Cloudflare cuts the alias to 28 chars). NOT verified: the admin card
+  in a real browser, how Gmail/phone mail present the `.ics`, whether the
+  preview is bound to the live D1 and live mail sender (Tenis told to
+  treat it as live). Known: a booking mail re-sent from the outbox loses
+  its attachment (pre-existing outbox limit); `book()` does not itself
+  refuse on an archived project. 🔒 Tenis: try it once per TODO-OWNER.md,
+  review the Icelandic, then say merge.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
