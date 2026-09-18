@@ -530,8 +530,17 @@ which says something about that mode's gating. Its findings:
   entry in Tenis's calendar with address → reminders → an "on my way" view
   with live position, ETA and a late notice. Employee is doing it on
   main-pc, branch `feat/measurement-appointments`, never `main`; the
-  offer-system session (laptop) was told, to avoid file collisions. Plan
-  goes into the website repo; phase 1 = slots + booking + calendar.
+  offer-system session (laptop) confirmed it has nothing in flight and
+  does not touch `src/api/portal.js`. Plan: `APPOINTMENTS-PLAN.md` in the
+  website repo, three phases — (1) booking: owner offers times in the
+  admin, client picks on the script-free page by plain form POST, both
+  get a mail with an `.ics` (calendar with address, no Google link, no
+  key); (2) reminders via a key-protected cron endpoint; (3) "on my way"
+  map/ETA — amends WORKSHOP-OS's "no continuous tracking" decision
+  (driver-initiated, one trip, self-ending), live traffic needs a paid
+  map API, SMS does not exist: all three are 🔒 Tenis when phase 3
+  starts. Phase 1 is being implemented by a subagent (started ~13:25);
+  the employee reviews the diff before anything is shown to Tenis.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
