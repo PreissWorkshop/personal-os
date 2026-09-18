@@ -1,7 +1,9 @@
 # employee-session.ps1 - start the always-on employee session on main-pc.
 # Rooted in personal-os, Telegram channel enabled, permission mode auto; it is
-# Remote Control session "employee" in claude.ai/code.
-# Written 2026-09-07, launch line fixed 2026-09-17, auto mode 2026-09-18.
+# Remote Control session "employee" in claude.ai/code. It restarts itself
+# when the session exits (/exit in its window = fresh session in 30 s); to
+# stop it for good: Disable-ScheduledTask PreissEmployee, then close the window.
+# Written 2026-09-07, launch line fixed 2026-09-17, auto mode + loop 2026-09-18.
 # See docs/employee-setup-main-pc.md and docs/employee.md.
 
 $ErrorActionPreference = 'Stop'
@@ -34,14 +36,6 @@ if ((Test-Path $bunDir) -and -not (Get-Command bun -ErrorAction SilentlyContinue
 if ($env:ANTHROPIC_API_KEY)    { Remove-Item Env:\ANTHROPIC_API_KEY }
 if ($env:ANTHROPIC_AUTH_TOKEN) { Remove-Item Env:\ANTHROPIC_AUTH_TOKEN }
 
-# Start from current origin so the employee reads today's rules, not last week's.
-# No 2>&1 here: under 'Stop', PowerShell 5.1 turns git's ordinary stderr
-# chatter into a terminating error and the pull reads as failed.
-$ErrorActionPreference = 'Continue'
-git pull --ff-only --quiet
-if ($LASTEXITCODE -ne 0) { Write-Warning "git pull failed; continuing on the local tree." }
-$ErrorActionPreference = 'Stop'
-
 $brief = @'
 You are the employee. Read docs/employee.md in this repo now, then
 registry/projects.yaml and docs/migration-plan.md, and work by those rules
@@ -69,7 +63,6 @@ the last sitting, the open needs-Tenis items, and the single thing most worth hi
 attention today.
 '@
 
-Write-Host "Starting the employee session in $repo ..." -ForegroundColor Green
 # `--channels` is variadic: without the `--` it swallows the brief as a second
 # channel and the CLI exits with "--channels entries must be tagged" - the
 # 2026-09-07 line never could have started. `--remote-control employee` is
@@ -81,4 +74,32 @@ Write-Host "Starting the employee session in $repo ..." -ForegroundColor Green
 # Permission mode `auto` (Tenis 2026-09-18): unattended work runs without
 # prompts; the auto-mode classifier still blocks risky actions.
 $settings = Join-Path $PSScriptRoot 'employee-settings.json'
-& $claude --remote-control employee --permission-mode auto --settings $settings --channels plugin:telegram@claude-plugins-official -- $brief
+
+# Restart loop, same as relay-session.ps1: a session that exits (or that
+# started before a login existed, 2026-09-18) comes back by itself in 30 s.
+# Start/exit lines go to a log; Claude's own output is never logged.
+$log = Join-Path $env:USERPROFILE '.claude\employee.log'
+function Log($text) {
+    $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  $text"
+    Write-Host $line
+    try { Add-Content -Path $log -Value $line -Encoding ascii } catch { }
+}
+# 'Continue' from here: under 'Stop', PowerShell 5.1 turns git's ordinary
+# stderr chatter into a terminating error and the pull reads as failed.
+$ErrorActionPreference = 'Continue'
+while ($true) {
+    # Start from current origin so the employee reads today's rules, not last week's.
+    git pull --ff-only --quiet
+    if ($LASTEXITCODE -ne 0) { Log "git pull failed; continuing on the local tree." }
+
+    Log "starting: $claude --remote-control employee --permission-mode auto --settings $settings --channels plugin:telegram@claude-plugins-official"
+    $started = Get-Date
+    & $claude --remote-control employee --permission-mode auto --settings $settings --channels plugin:telegram@claude-plugins-official -- $brief
+    $code = $LASTEXITCODE
+    $ran = ((Get-Date) - $started).TotalSeconds
+
+    # A session that dies at once (logged out, broken plugin) must not spin.
+    $wait = if ($ran -lt 60) { 300 } else { 30 }
+    Log ("session ended after {0:N0} s (exit {1}); restarting in {2} s. Close this window to stop." -f $ran, $code, $wait)
+    Start-Sleep -Seconds $wait
+}
