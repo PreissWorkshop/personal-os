@@ -453,8 +453,11 @@ which says something about that mode's gating. Its findings:
 - ✅ **Voice notes work both ways on main-pc, fully local.** Installed in
   a user venv `%USERPROFILE%\.venvs\stt`: `faster-whisper` (model `small`,
   ~460 MB in `~\.cache\huggingface`). `scripts/stt.py` transcribes an
-  inbound `.oga`; `scripts/tts.py` speaks a reply (Windows System.Speech →
-  Opus via PyAV, no ffmpeg) — round-trip verified, sample delivered. Text
+  inbound `.oga`; `scripts/tts.py` speaks a reply with Kokoro neural TTS
+  (`kokoro-onnx`, model files ~340 MB in `~\.cache\kokoro`, Opus via PyAV,
+  no ffmpeg) — Tenis rejected the first, robotic Windows voice. Round-trip
+  verified; samples `am_michael` and `af_heart` delivered, his pick
+  pending. English only — the model has no Icelandic voice. Text
   stays the default reply. A restarted employee session must know this:
   download the attachment, run `stt.py` on it. Never on cnc-pc.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
