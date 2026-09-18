@@ -67,4 +67,9 @@ Write-Host "Starting the employee session in $repo ..." -ForegroundColor Green
 # channel and the CLI exits with "--channels entries must be tagged" - the
 # 2026-09-07 line never could have started. `--remote-control employee` is
 # what makes the phone approvals above possible. Order verified 2026-09-17.
-& $claude --remote-control employee --channels plugin:telegram@claude-plugins-official -- $brief
+# The plugin is DISABLED user-wide on purpose (main-pc-always-on.ps1): with a
+# token, every session that loads it polls the bot, and Telegram allows one
+# poller per bot. `--settings` enables it for this session only - verified
+# 2026-09-18 that `--channels` alone does not load a disabled plugin.
+$settings = Join-Path $PSScriptRoot 'employee-settings.json'
+& $claude --remote-control employee --settings $settings --channels plugin:telegram@claude-plugins-official -- $brief

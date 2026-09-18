@@ -69,21 +69,23 @@ Account creation is yours, not the agent's.
 
 ## Step 3 — install and configure the channel (~5 min)
 
-The bootstrap above installs the plugin. If it reported a failure:
+The bootstrap above installs the plugin **and keeps it disabled user-wide**.
+That is deliberate: with a token present, every session that loads the
+plugin polls the bot - the relay, desktop-app sessions, any `claude` you
+open - and Telegram allows exactly one poller per bot (409 Conflict,
+messages lost to whichever session won). `employee-session.ps1` enables it
+for the employee alone via `--settings scripts\employee-settings.json`. So
+`/telegram:configure` is not available in ordinary sessions; store the token
+with the script instead, at its hidden prompt:
 
 ```powershell
-claude plugin install telegram@claude-plugins-official --scope user --yes
+powershell -ExecutionPolicy Bypass -File scripts\employee-set-token.ps1
 ```
 
-Then, in a Claude Code session on main-pc, with the token from step 2 (type
-it yourself - the token never goes through an agent):
-
-```
-/telegram:configure <token>
-```
-
-That writes `~/.claude/channels/telegram/.env` — machine-local, never
-committed.
+It writes `~/.claude/channels/telegram/.env` - machine-local, never
+committed, never through an agent. Do not write that file in Notepad: the
+plugin splits it on LF only, so a Windows CRLF glues `\r` to the token and
+every Telegram call fails.
 
 ## Step 4 — first run and pairing (~5 min)
 

@@ -263,6 +263,21 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   (RPC/SMB) open, which would need Tenis's password and weakened remote UAC.
   Not used.
 
+## Executed 2026-09-18 (from the laptop session, Tenis at main-pc)
+
+- ✅ **The Telegram plugin must not be enabled user-wide.** Its server polls
+  the bot in every session that loads it, channel flag or not, and Telegram
+  allows one poller per bot - the relay or any desktop session would have
+  fought the employee for messages (409, lost DMs). Verified on the laptop:
+  `--channels` alone does NOT load a disabled plugin; `--settings
+  scripts/employee-settings.json` does. The bootstrap now disables it
+  user-wide, the employee enables it for itself, the preflight flags it.
+- ✅ **CRLF would corrupt the token.** The plugin splits `.env` on LF only,
+  so a Windows line ending leaves `\r` in the token. New
+  `scripts/employee-set-token.ps1` takes it at a hidden prompt and writes it
+  without a newline - also keeps the token out of every transcript, which
+  `/telegram:configure <token>` does not.
+
 ## Waiting on Tenis
 
 - 🔒 **At main-pc, one command** (normal PowerShell, ~5 min):

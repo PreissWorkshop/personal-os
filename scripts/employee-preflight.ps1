@@ -44,10 +44,17 @@ $pluginRoot = Join-Path $env:USERPROFILE '.claude\plugins\marketplaces\claude-pl
 Test-Item 'telegram plugin' (Test-Path $pluginRoot) $(if (Test-Path $pluginRoot) { 'installed' } else { 'not installed' }) `
     'claude plugin install telegram@claude-plugins-official --scope user --yes'
 
+# Enabled user-wide = every session polls the bot once a token exists, and
+# Telegram allows one poller per bot. Only employee-session.ps1 may load it.
+$userWide = $false
+try { $userWide = ((Get-Content (Join-Path $env:USERPROFILE '.claude\settings.json') -Raw | ConvertFrom-Json).enabledPlugins.'telegram@claude-plugins-official' -eq $true) } catch { }
+Test-Item 'plugin scope' (-not $userWide) $(if ($userWide) { 'ENABLED for every session - they would compete for the bot' } else { 'employee session only' }) `
+    'claude plugin disable telegram@claude-plugins-official --scope user'
+
 # --- the bot token: machine-local, never committed ---
 $envFile = Join-Path $env:USERPROFILE '.claude\channels\telegram\.env'
 Test-Item 'bot token' (Test-Path $envFile) $envFile `
-    'step 2-3 of docs/employee-setup-main-pc.md (BotFather, then /telegram:configure <token>)'
+    'step 2-3 of docs/employee-setup-main-pc.md (BotFather, then scripts\employee-set-token.ps1)'
 
 # --- project roots: per-machine, so accept any registered root ---
 Write-Host ""

@@ -10,7 +10,8 @@
 #    then on the laptop reaches this PC by SendMessage and the phone through
 #    claude.ai/code. It replaces the laptop's dead "Claude Relay" task.
 # 3. Employee prerequisites (docs/employee-setup-main-pc.md steps 1 and 3):
-#    Bun and the Telegram channel plugin, installed if missing.
+#    Bun and the Telegram channel plugin, installed if missing - and the
+#    plugin kept disabled user-wide, so only the employee session polls.
 # 4. Reports whether this PC sleeps. An asleep host is an offline relay.
 # It does NOT start the employee: that needs the Telegram bot token first
 # (setup doc steps 2-5). Idempotent - safe to re-run. Written 2026-09-17.
@@ -119,6 +120,20 @@ if ($NoInstalls) {
         }
         if ($LASTEXITCODE -eq 0) { Say 'DONE' 'Telegram plugin' 'installed' }
         else { Say 'FAIL' 'Telegram plugin' 'see the output above'; $todo += "install the plugin:  claude plugin install $plugin --scope user --yes" }
+    }
+
+    # Installed, but NOT enabled for every session: with a token, each session
+    # that loads it polls the bot - relay and desktop sessions too - and
+    # Telegram allows one poller per bot (409 Conflict, lost messages).
+    # employee-session.ps1 enables it for the employee alone via --settings.
+    $userSettings = Join-Path $env:USERPROFILE '.claude\settings.json'
+    $enabled = $false
+    try { $enabled = ((Get-Content $userSettings -Raw | ConvertFrom-Json).enabledPlugins.$plugin -eq $true) } catch { }
+    if ($enabled) {
+        & $claude plugin disable $plugin --scope user | Out-Null
+        Say 'DONE' 'Telegram plugin' 'disabled user-wide - only the employee session loads it'
+    } else {
+        Say 'OK' 'Telegram plugin' 'not enabled user-wide - only the employee session loads it'
     }
 }
 
