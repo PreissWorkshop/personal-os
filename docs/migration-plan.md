@@ -289,6 +289,35 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   starts/exits to `~\.claude\relay-main-pc.log`, prints the tail, and brings
   the relay window to the front at the end.
 
+## Found 2026-09-18 (from the employee session - which is on cnc-pc)
+
+- ❌ **The main-pc bootstrap ran on the shop PC.** This employee session
+  reports `hostname` = DESKTOP-A60V7P2 and is `cnc` in `tailscale status`.
+  Here, today: Bun installed 10:24, scheduled tasks `PreissRelay` (relay
+  named `main-pc`) and `PreissEmployee` registered and running, Telegram
+  bot token file present. That breaks the machine-role rule (no installs on
+  cnc-pc), puts an auto-mode agent with a Telegram inbox beside the live
+  CNC, and makes ListAgents lie: the session called `main-pc` is cnc.
+  Whether the 09-18 screenshot above was also cnc-pc is
+  [UNVERIFIED — needs check]: at main-pc, `Get-ScheduledTask PreissRelay`.
+  Undoing it here (disable both tasks, remove Bun and the plugin) is
+  destructive and waits for Tenis's OK; and the bot allows one poller, so
+  main-pc's employee cannot go live until this one stops.
+- ⚠ **Two of three cloud routines have never run.** Standup fires daily
+  (last 09-18 06:39, succeeded). Website audit (Wed 07:00) and
+  week-in-review (Fri 15:00) show no run sessions and no `last_run`, though
+  09-09, 09-16 and 09-11 were due; both read `enabled: true` with a future
+  `next_run_at`. Cause unknown - a fire skipped before a session exists
+  leaves no trace. Watch today's 15:00 week-in-review; if it stays empty,
+  press "Run now" on claude.ai/code/routines to see the refusal.
+- ⚠ **1.0.91 and 1.0.92 are shipped; this tracker still said otherwise.**
+  Verified in `C:\HelmCNC.bak`: tags `stable/v1.0.91` and `stable/v1.0.92`
+  exist; master 27d0286 (09-04) gave `promote.ps1` a `-Go "<who, where,
+  when>"` switch that skips the typed gate. Standup PR #2 carries the
+  correction and is unmerged. Open for Tenis: was each promote his go, and
+  did the customer receive it (standup found no `installer/news.items`
+  entry for either).
+
 ## Waiting on Tenis
 
 - 🔒 **At main-pc, one paste** (Win+R, ~5 min):
@@ -327,7 +356,7 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   the employee now costs nothing beyond the existing subscription. Voice went
   with it; voice notes into Telegram cover the case.
 
-- ✅ **RESOLVED 2026-08-31: the TickCount-wrap defect is fixed, and the suite is GREEN on the failing machine itself.** `Controllers/TickWindow.cs` (5c70d83) carries the wrap-safe predicates; every sentinel comparison converted (E-STOP router, both `_liftFenceTick` gates, `_lastMachMmTick` via saturating AgeMs, UI windows); a `tickwrap` suite section drives the incident's exact tick so ANY machine proves the wrap. Decisive run on cnc-pc at 38 d uptime, TickCount live-negative: **2181 passed / 0 failed**, all nine formerly-red SAFETY checks firing (fires=1/2/3 vs 0). En route the tickwrap section's first shop run exposed a reporter NRE that silently killed 2076 checks while printing an ordinary-looking red - fixed at the reporter (8ce66f1); lesson recorded in NOTES. `test_m0.ngc` recreated and committed at the repo root (e7993d7) - the share copy is unreachable - and ship-1091.cmd repointed. **1.0.91 is one console visit from customers: `git pull` in C:\HelmCNC.bak, then `ship-1091.cmd`** (release -> watched live M0 test -> promote, Tenis's typed words at the gate).
+- ✅ **RESOLVED 2026-08-31: the TickCount-wrap defect is fixed, and the suite is GREEN on the failing machine itself.** `Controllers/TickWindow.cs` (5c70d83) carries the wrap-safe predicates; every sentinel comparison converted (E-STOP router, both `_liftFenceTick` gates, `_lastMachMmTick` via saturating AgeMs, UI windows); a `tickwrap` suite section drives the incident's exact tick so ANY machine proves the wrap. Decisive run on cnc-pc at 38 d uptime, TickCount live-negative: **2181 passed / 0 failed**, all nine formerly-red SAFETY checks firing (fires=1/2/3 vs 0). En route the tickwrap section's first shop run exposed a reporter NRE that silently killed 2076 checks while printing an ordinary-looking red - fixed at the reporter (8ce66f1); lesson recorded in NOTES. `test_m0.ngc` recreated and committed at the repo root (e7993d7) - the share copy is unreachable - and ship-1091.cmd repointed. 1.0.91 and 1.0.92 have since been promoted to stable (see Found 2026-09-18).
 - ✅ **BitLocker on the shop PC: OFF — a reboot is access-safe.** Tenis ran `manage-bde -status C:` elevated 2026-08-28: C: fully decrypted, Protection Off, no key protectors. So a headless reboot cannot hit a recovery prompt, and with Tailscale + RDP both starting at boot, remote access survives one. This clears the last *access* risk of the reboot route. It does NOT make the reboot route free: it still means planting an auto-logon credential on a production-adjacent PC and rebooting it. Recommended path stays the staged console script — the 1.0.91 promote/release runs at the shop console anyway, so the decisive test runs for free the next time Tenis is there to ship. Reboot route remains available if he wants the answer sooner, his explicit call.
 - ✅ **RESOLVED (was open as of 2026-08-28, cleared by 2026-08-30): the
   button-sweep work is committed and pushed.** helmcnc-app 67a0596 lands
