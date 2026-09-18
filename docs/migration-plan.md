@@ -444,14 +444,21 @@ which says something about that mode's gating. Its findings:
   fast-forwarded to fb7594f. Tree was clean before and after. Build
   verified: 114 pages, 56 sitemap pairs. The three sibling worktrees were
   not touched.
-- ⚠ **Do not commit a website build made on main-pc.** `core.autocrlf` is
-  `true` there, so sources check out CRLF, every asset's cache-busting
-  hash changes, and one build dirties 130 tracked files (119 with real
-  content diffs, plus three tracked `.pyc`). Reverted with `git restore`
-  after confirming every change was a build byproduct. Fix is
-  `core.autocrlf false` for that repo plus a re-checkout, or a
-  `.gitattributes` with `* text=auto eol=lf` in the repo (better: it fixes
-  every machine) — offered to Tenis as "fix line endings", not done.
+- ✅ **Website builds on main-pc are committable — line endings fixed.**
+  The machine's global `core.autocrlf true` checked sources out CRLF, so
+  every asset's cache-busting hash changed and one build dirtied 130
+  tracked files. On Tenis's word ("fix the endings", 12:21): guard
+  confirmed a clean tree at fb7594f, then `core.autocrlf false` set
+  repo-locally and the files re-checked-out. Proof: rebuild → `public/`
+  byte-identical to the commit, 0 changes. Shared config, so the three
+  sibling worktrees get LF on their next checkout; their files were not
+  touched. Not done, needs a commit to website `main`: a `.gitattributes`
+  (`* text=auto eol=lf`) so a fresh clone on any Windows machine is safe,
+  and untracking the three `src/site/__pycache__/*.pyc` that change on
+  every build everywhere.
+- **Locking main-pc is safe** (asked 12:21): Win+L keeps the logon session,
+  so the employee and relay keep running. Sign-out, shutdown, or a reboot
+  with no login stops them.
 - Website `main` moved again at 12:09 (fb7594f, quote page template) —
   the offer session pushed it before the flag about needing Tenis's word
   reached him; he is driving that session.
@@ -514,8 +521,8 @@ which says something about that mode's gating. Its findings:
   reports sit behind the Signing token). Offered 09-18: a chase mail to Tom
   drafted for Tenis's approval — awaiting his word.
 - 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
-  say "fix line endings" to make main-pc builds committable — second 09-18
-  sitting.
+  OK a `.gitattributes` + untracking the `.pyc` files on website `main` —
+  second 09-18 sitting.
 - 🔒 **Employee mailbox — two clicks left**: the `assistant@` Email Routing
   route, and *Send what is waiting* in the admin outbox
   (`docs/employee-setup-main-pc.md` step 7). Sending itself is on

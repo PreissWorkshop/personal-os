@@ -61,8 +61,7 @@ projects:
       lands: feat/projects-board is merged; 09-17 brought 9 commits (a11y, copy,
       forms, admin), 09-18 Cloudflare Email Sending and the quote page (main @
       fb7594f). Verified 2026-09-18 against GitHub. main-pc's checkout is current
-      (HTTPS origin) but builds there must not be committed until its CRLF
-      setting is fixed (see migration-plan).
+      (HTTPS origin, repo-local core.autocrlf false - builds are byte-identical).
     repo: https://github.com/PreissWorkshop/preiss-workshop-website
     roots:
       main-pc: C:\PREISS_WEBSITE\website   # + worktrees preiss-workshop-{codex,design-polish,fable} beside it
