@@ -601,8 +601,17 @@ which says something about that mode's gating. Its findings:
   Still unverified until the live try-out: the admin card in a browser,
   `.ics` handling in Gmail/phone mail. 🔒 Tenis, link sent 14:00:
   https://github.com/PreissWorkshop/preiss-workshop-website/compare/main...release/2026-09-18-client-flow
-  → create PR → merge, then the TODO-OWNER try-out. After the merge the
-  three source branches are dead and can be deleted (his OK).
+  → create PR → merge, then the TODO-OWNER try-out.
+- ✅ **Merged by Tenis and live, 14:05:** website PR #2, `main` @ 04b5564
+  contains febd933. Verified on preissworkshop.is: home 200, the live
+  `admin/wo.js` carries `appointment-offer`, the mail logo PNG answers
+  200, `/api/admin/ping` reports db/auth/mail/github/turnstile all true.
+  Branches `chore/lf-endings-untrack-pyc`, `feat/client-branding`,
+  `feat/measurement-appointments`, `release/2026-09-18-client-flow` (and
+  the laptop's `feat/quote-page-polish`) are now dead — deletion is 🔒
+  Tenis. main-pc's clone is back on `main` @ 04b5564, clean. 🔒 Tenis: the live try-out (TODO-OWNER.md) —
+  `.ics` behaviour on the phone, logo in the mails, the Icelandic. Phase
+  2 (reminders) starts after his feedback.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 

@@ -59,8 +59,8 @@ projects:
     status: >
       active — the redesign, CRM and admin are ON main, and main is where work
       lands: feat/projects-board is merged; 09-17 brought 9 commits (a11y, copy,
-      forms, admin), 09-18 Cloudflare Email Sending and the quote page (main @
-      fb7594f). Verified 2026-09-18 against GitHub. main-pc's checkout is current
+      forms, admin), 09-18 Cloudflare Email Sending, the quote page, client
+      branding and measurement booking (main @ 04b5564, PR #2). Verified 2026-09-18 against GitHub. main-pc's checkout is current
       (HTTPS origin, repo-local core.autocrlf false - builds are byte-identical).
     repo: https://github.com/PreissWorkshop/preiss-workshop-website
     roots:
