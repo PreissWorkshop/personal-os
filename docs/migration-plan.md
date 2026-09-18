@@ -524,6 +524,14 @@ which says something about that mode's gating. Its findings:
   `docs/bootstrap-new-machine.md` had its backslashes eaten into control
   characters; rewritten with the commands that worked. ScanPen and
   claude-system clones equal origin; the website clone is fixed (above).
+- ⏳ **New website feature asked by voice 12:59: measurement appointments
+  on the client project page.** Accepted quote → Tenis offers free slots →
+  client picks one on the page and gives the address if it is missing →
+  entry in Tenis's calendar with address → reminders → an "on my way" view
+  with live position, ETA and a late notice. Employee is doing it on
+  main-pc, branch `feat/measurement-appointments`, never `main`; the
+  offer-system session (laptop) was told, to avoid file collisions. Plan
+  goes into the website repo; phase 1 = slots + booking + calendar.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
