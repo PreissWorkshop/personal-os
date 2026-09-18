@@ -476,6 +476,15 @@ which says something about that mode's gating. Its findings:
   main-pc relay is really connected, since its task reads Running but no
   `main-pc` row is listed. (3) Classifier blocks and the missing `gh`
   login still need him at claude.ai/code or a keyboard.
+- **Client offer system (website), as reported 12:10 by its own session —
+  not verified here:** mail live end to end (main @ 377defe); quotes
+  Q-2026-0007/0008 for Völundur built in the admin and test-sent to Tenis,
+  SPF/DKIM/DMARC pass; quote-page polish on `feat/quote-page-polish`,
+  local and unpushed, tests 61/61 pending a rerun. 🔒 Tenis: put
+  Völundur's real e-mail on the client record and press send on
+  Q-2026-0008 himself; OK the deletion of test project V-2026-0003; and
+  that session intends to push the template to `main` — his word needed,
+  flagged to him on Telegram.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
