@@ -10,6 +10,11 @@
   - Cloudflare API token; customer-reports admin token, endpoint, IP salt.
 - `C:\HelmCNC\Data\` — machine-local license/trial state. Never committed
   (helmcnc-app `.gitignore` backstops exist and stay).
+- `~\.claude\channels\telegram\.env` on main-pc — the Telegram bot token.
+- `~\.claude\frontdesk\.env` on main-pc — the same bot token, an Anthropic
+  API key, and the webhook token. Written only by
+  `scripts/frontdesk-set-key.ps1`, which locks the file to the one user.
+  Outside the repo, and the repo's `.gitignore` backstops `.env` anyway.
 
 ## Rules
 
@@ -25,5 +30,12 @@
    where relevant): `*private_key*.xml`, `*_signing_key*.xml`, `freemius.cfg`,
    `.env*`, machine `Data/`.
 5. Platform auth (GitHub, Cloudflare, Freemius) stays in the platform's own
-   store (Windows Credential Manager / GitHub Desktop). No plaintext tokens
-   outside the Signing folders.
+   store (Windows Credential Manager / GitHub Desktop). The **only**
+   plaintext tokens outside the Signing folders are the two agent-channel
+   `.env` files above, because neither Telegram nor the Anthropic API can
+   read from Credential Manager. They are machine-local, user-locked, and
+   listed in the inventory — not an exception to be widened. Adding a third
+   is a decision, not a convenience.
+6. An agent never writes, reads back or echoes those files' contents. They
+   are written by a masked dialog at the keyboard, and a token is never
+   pasted into a chat — including into the front desk's own chat.

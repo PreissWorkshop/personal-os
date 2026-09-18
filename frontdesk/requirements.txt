@@ -1,0 +1,7 @@
+# The front desk's only dependencies. Deliberately two.
+#   anthropic  the fast model, called directly for latency
+#   requests   Telegram
+# Voice (faster-whisper, kokoro-onnx, av) lives in its own venv at
+# %USERPROFILE%\.venvs\stt and is shared with scripts/stt.py and scripts/tts.py.
+anthropic>=0.40
+requests>=2.31

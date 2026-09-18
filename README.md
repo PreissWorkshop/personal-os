@@ -19,6 +19,7 @@ working environment that clones what it needs and pushes what it produces.
 
 ## Start here
 
+- [docs/frontdesk.md](docs/frontdesk.md) — the fast agent that holds the phone, and how to turn it on
 - [docs/architecture.md](docs/architecture.md) — the rules that keep this from becoming chaos again
 - [registry/projects.yaml](registry/projects.yaml) — every project, its repos and canonical roots
 - [docs/projects.md](docs/projects.md) — the projects in prose

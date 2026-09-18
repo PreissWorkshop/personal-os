@@ -1,10 +1,18 @@
 # employee-session.ps1 - start the always-on employee session on main-pc.
-# Rooted in personal-os, Telegram channel enabled, permission mode auto; it is
+# Rooted in personal-os, permission mode auto; it is
 # Remote Control session "employee" in claude.ai/code. It restarts itself
 # when the session exits (/exit in its window = fresh session in 30 s); to
 # stop it for good: Disable-ScheduledTask PreissEmployee, then close the window.
 # Written 2026-09-07, launch line fixed 2026-09-17, auto mode + loop 2026-09-18.
-# See docs/employee-setup-main-pc.md and docs/employee.md.
+# 2026-09-18: it gives up the phone. When the front desk is installed it owns
+# the Telegram bot (one poller per token, or 409 Conflict and lost messages),
+# and the employee runs as a pure worker reached through it. -KeepChannel
+# forces the old behaviour if the front desk is ever removed.
+# See docs/frontdesk.md, docs/employee-setup-main-pc.md and docs/employee.md.
+
+param(
+    [switch]$KeepChannel   # poll Telegram from here even if the front desk is installed
+)
 
 $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'machine-role.ps1')
@@ -20,10 +28,22 @@ Set-Location $repo
 $claude = Resolve-Claude
 if (-not $claude) { Write-Error "Claude Code not found. Run scripts\employee-preflight.ps1." }
 
-# No bot token, no channel: refuse rather than park a deaf session at logon.
+# --- who owns the phone ---------------------------------------------------
+# Telegram allows exactly one poller per bot token. If the front desk is
+# installed it is the poller, and the employee must not load the channel at
+# all: two pollers means 409 Conflict and messages lost to whichever won.
+$frontDesk = $false
+if (-not $KeepChannel) {
+    $task = Get-ScheduledTask -TaskName 'PreissFrontDesk' -ErrorAction SilentlyContinue
+    if ($task -and $task.State -ne 'Disabled') { $frontDesk = $true }
+}
+
 $envFile = Join-Path $env:USERPROFILE '.claude\channels\telegram\.env'
-if (-not (Test-Path $envFile)) {
-    Write-Error "No Telegram bot token on this machine ($envFile). Do docs/employee-setup-main-pc.md steps 2-3 first."
+if ($frontDesk) {
+    Write-Host "The front desk owns the Telegram bot; starting as a worker with no channel." -ForegroundColor Cyan
+} elseif (-not (Test-Path $envFile)) {
+    # No front desk and no token: refuse rather than park a deaf session at logon.
+    Write-Error "No Telegram bot token on this machine ($envFile), and no front desk installed. Do docs/employee-setup-main-pc.md steps 2-3, or install the front desk (docs/frontdesk.md)."
 }
 
 # The channel server runs on Bun, which may have been installed minutes ago
@@ -41,9 +61,7 @@ You are the employee. Read docs/employee.md in this repo now, then
 registry/projects.yaml and docs/migration-plan.md, and work by those rules
 for the rest of this session.
 
-You are reachable from Tenis's phone over the Telegram channel and will get
-messages while he is away from the keyboard. Answer in at most five lines;
-put detail in the repo, not the message.
+{reach}
 
 Standing duties between his messages:
 - Keep docs/migration-plan.md current. It is the living tracker.
@@ -75,6 +93,24 @@ attention today.
 # prompts; the auto-mode classifier still blocks risky actions.
 $settings = Join-Path $PSScriptRoot 'employee-settings.json'
 
+if ($frontDesk) {
+    $reach = @'
+Tenis reaches you through the front desk, not directly: it holds the phone,
+answers him in a second, and dispatches anything real to a session like this
+one. You will also be woken by jobs it dispatches. Answer in at most five
+lines; put detail in the repo, not the message.
+'@
+    $channelArgs = @()
+} else {
+    $reach = @'
+You are reachable from Tenis's phone over the Telegram channel and will get
+messages while he is away from the keyboard. Answer in at most five lines;
+put detail in the repo, not the message.
+'@
+    $channelArgs = @('--settings', $settings, '--channels', 'plugin:telegram@claude-plugins-official')
+}
+$brief = $brief.Replace('{reach}', $reach.Trim())
+
 # Restart loop, same as relay-session.ps1: a session that exits (or that
 # started before a login existed, 2026-09-18) comes back by itself in 30 s.
 # Start/exit lines go to a log; Claude's own output is never logged.
@@ -92,9 +128,9 @@ while ($true) {
     git pull --ff-only --quiet
     if ($LASTEXITCODE -ne 0) { Log "git pull failed; continuing on the local tree." }
 
-    Log "starting: $claude --remote-control employee --permission-mode auto --settings $settings --channels plugin:telegram@claude-plugins-official"
+    Log "starting: $claude --remote-control employee --permission-mode auto $($channelArgs -join ' ')"
     $started = Get-Date
-    & $claude --remote-control employee --permission-mode auto --settings $settings --channels plugin:telegram@claude-plugins-official -- $brief
+    & $claude --remote-control employee --permission-mode auto @channelArgs -- $brief
     $code = $LASTEXITCODE
     $ran = ((Get-Date) - $started).TotalSeconds
 

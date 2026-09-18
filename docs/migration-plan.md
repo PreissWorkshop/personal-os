@@ -682,6 +682,47 @@ First successful run of the routine (see corrections folded into the
   but wider than "git only" — the environment, not the connector list,
   grants it. Worth one look at the routine environment's GitHub scope.
 
+## Executed 2026-09-18 (front desk, from a cloud session)
+
+- ✅ **The front desk is built** — `frontdesk/` in this repo, plus
+  `scripts/frontdesk-*.ps1` and `docs/frontdesk.md`. Tenis, 2026-09-18: the
+  Telegram employee "doesn't give me any advantages... I might as well just
+  log on to my Claude app". Correct, and the cause was structural: phase 1
+  put the channel *inside* the worker, so one session queued the phone behind
+  its own work, never spoke first, and treated voice as manual. The front
+  desk inverts it — a Haiku-class process owns the bot, answers from a cached
+  ~5 KB digest of this repo, and dispatches real work to `claude -p` sessions
+  that read `docs/employee.md` as always.
+- ✅ **The employee gives up the phone.** `scripts/employee-session.ps1` now
+  detects the `PreissFrontDesk` task and starts without `--channels`
+  (`-KeepChannel` overrides). This retires the one-poller-per-bot hazard from
+  `docs/employee-setup-main-pc.md` step 3 rather than working around it.
+- ✅ **Proactive push exists for the first time**: reminders, finished-job
+  reports, a nudge on a job silent 20 minutes, a 06:45 brief, and a
+  token-guarded webhook on 8787 that already speaks the Surveillance NVR's
+  event shape. Speaking first is the one thing the Claude app cannot do and
+  was the whole of what was missing.
+- ✅ **Voice is automatic**: voice note in, transcript always quoted back,
+  spoken reply out when the question was spoken. English only — `tts.py`
+  passes `lang="en-us"` and `bm_george` is an English voice, so Icelandic
+  answers go as text rather than being mispronounced.
+- ✅ 66 offline checks pass (`frontdesk-session.ps1 -SelfTest`), including the
+  turn loop against a stubbed model. They make no network call.
+- ⏳ **Phone calls were assessed and phased, not built.** Telephony reverses
+  the 2026-09-07 WhatsApp/voice decision on the same arithmetic; the
+  voice-note loop covers the case. `[UNVERIFIED — needs check]` Icelandic
+  number availability and per-minute pricing anywhere — nothing was checked.
+- 🔒 **Four things are Tenis's**, in `docs/frontdesk.md` → Setup: get an
+  `sk-ant-` key from console.anthropic.com (the front desk calls the API
+  directly — that is what makes it fast, and it is not the claude.ai login);
+  run `frontdesk-set-key.ps1`; run `-SelfTest`; then
+  `install-frontdesk-autostart.ps1` and pair from the phone. Restart
+  `PreissEmployee` afterwards so it drops the channel.
+- 🔒 **Watch the real cost for a week.** The estimate is cents per day at a
+  few hundred short messages — well under the $3–15/day that got WhatsApp
+  rejected — but it is an estimate, not a quote. The console prints the
+  cache-read tokens after every turn.
+
 ## Waiting on Tenis
 
 - 🔒 **Change the admin password** after today's quote work — it travelled

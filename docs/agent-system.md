@@ -1,5 +1,26 @@
 # Agent system
 
+## Two tiers (2026-09-18)
+
+**The front desk answers; the employee works.** A fast agent
+(`frontdesk/`, Haiku-class, ~5 KB cached digest of this repo) owns the
+Telegram bot and replies in about a second; anything needing files, a repo, a
+build or a push is dispatched to a Claude Code session that reads
+`docs/employee.md` as always. The employee gave up the channel the same day -
+Telegram allows one poller per bot token, so `employee-session.ps1` detects
+the `PreissFrontDesk` task and starts without `--channels`.
+
+Why the split: phase 1 put the channel inside the worker, so the phone queued
+behind the work, nothing ever spoke first, and voice was manual. That is the
+whole of why Tenis said the Telegram employee gave him nothing the Claude app
+did not. The front desk also brings the piece no other surface has - it pushes
+without being asked: reminders, finished-job reports, a nudge on a silent job,
+a 06:45 brief, and a webhook the Surveillance NVR can already talk to.
+
+Design, limits and setup: `docs/frontdesk.md`. It has six tools, no shell and
+no file write, so a fast model on an open chat channel can talk and can ask a
+gated worker to act - it cannot act itself.
+
 ## The employee (2026-09)
 
 `docs/employee.md` is the agent identity: one set of rules every surface
@@ -68,7 +89,13 @@ narrow; anything carrying a commitment waits for Tenis. The rules are in
    day** — no official support in the Claude stack, per-message fees, Meta
    verification, and a bridge and Managed Agent to pay for, all to deliver
    the same chat box Telegram gives free.
-6. Business/media agents (marketing, sales, content, social) join only once
+6. ✅ **Front desk: built 2026-09-18.** The phone belongs to the fast tier,
+   the employee is a worker reached through it, and something in the
+   operation finally speaks first. Four steps are Tenis's
+   (`docs/frontdesk.md` → Setup). Phone calls were assessed and phased, not
+   built - telephony reverses the 09-07 voice decision on the same
+   arithmetic, and voice notes cover the case.
+7. Business/media agents (marketing, sales, content, social) join only once
    the engineering loop is boring and reliable.
 
 Anti-goal: turning any single tool into the whole operating system.

@@ -9,3 +9,7 @@
 secrets/
 *.pem
 *.key
+
+# Python bytecode (frontdesk/)
+__pycache__/
+*.pyc

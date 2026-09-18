@@ -14,6 +14,13 @@ One bot can only be paired to one running session at a time. If you set the
 laptop up first, either stop it before starting main-pc, or make a second bot
 from BotFather for the second machine.
 
+**Superseded in part, 2026-09-18.** The front desk now owns the bot and the
+employee runs without a channel, which removes the one-poller hazard rather
+than working around it: see `docs/frontdesk.md`. Steps 1-6 below are still how
+the employee itself gets set up, and step 7 (its mailbox) is untouched. If the
+front desk is installed, `employee-session.ps1` drops `--channels` by itself
+and steps 3-4's pairing belongs to the front desk instead.
+
 Goal: an always-on Claude Code session on main-pc, rooted in this repo,
 reachable from the phone by Telegram **and by its own e-mail address**, that
 reads `docs/employee.md` and runs the operation between sittings. Cloud
