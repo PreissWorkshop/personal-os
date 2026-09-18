@@ -16,6 +16,16 @@ param(
 $ErrorActionPreference = 'Continue'
 . (Join-Path $PSScriptRoot 'resolve-claude.ps1')
 
+# Start/exit lines also go to a log, so the bootstrap can show why a relay
+# is not answering without anyone opening this window. Claude's own output
+# is never logged.
+$log = Join-Path $env:USERPROFILE ".claude\relay-$Name.log"
+function Log($text) {
+    $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  $text"
+    Write-Host $line
+    try { Add-Content -Path $log -Value $line -Encoding ascii } catch { }
+}
+
 # Remote Control rides the claude.ai login; an API key env var silently outranks it.
 if ($env:ANTHROPIC_API_KEY)    { Remove-Item Env:\ANTHROPIC_API_KEY }
 if ($env:ANTHROPIC_AUTH_TOKEN) { Remove-Item Env:\ANTHROPIC_AUTH_TOKEN }
@@ -25,15 +35,14 @@ Set-Location $env:USERPROFILE
 try { $host.UI.RawUI.WindowTitle = "Claude relay ($Name)" } catch { }
 
 while ($true) {
-    $stamp = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
     $claude = Resolve-Claude
     if (-not $claude) {
-        Write-Warning "$stamp  claude.exe not found (PATH, ~\.local\bin, Claude app). Retrying in 5 minutes."
+        Log "claude.exe not found (PATH, ~\.local\bin, Claude app). Retrying in 5 minutes."
         if ($DryRun) { break }
         Start-Sleep -Seconds 300
         continue
     }
-    Write-Host "$stamp  starting: $claude --remote-control $Name --permission-mode auto"
+    Log "starting: $claude --remote-control $Name --permission-mode auto"
     if ($DryRun) { break }
 
     $started = Get-Date
@@ -43,6 +52,6 @@ while ($true) {
 
     # A session that dies at once (logged out, broken install) must not spin.
     $wait = if ($ran -lt 60) { 300 } else { 30 }
-    Write-Host ("{0}  session ended after {1:N0} s (exit {2}); restarting in {3} s. Close this window to stop." -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $ran, $code, $wait)
+    Log ("session ended after {0:N0} s (exit {1}); restarting in {2} s. Close this window to stop." -f $ran, $code, $wait)
     Start-Sleep -Seconds $wait
 }

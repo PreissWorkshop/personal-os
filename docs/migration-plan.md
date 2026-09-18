@@ -274,9 +274,20 @@ execution. Legend: ✅ done · ⏳ in progress · 🔒 needs Tenis.
   user-wide, the employee enables it for itself, the preflight flags it.
 - ✅ **CRLF would corrupt the token.** The plugin splits `.env` on LF only,
   so a Windows line ending leaves `\r` in the token. New
-  `scripts/employee-set-token.ps1` takes it at a hidden prompt and writes it
-  without a newline - also keeps the token out of every transcript, which
-  `/telegram:configure <token>` does not.
+  `scripts/employee-set-token.ps1` writes it without a newline - and keeps
+  the token out of every transcript, which `/telegram:configure <token>`
+  does not.
+- ✅ **First bootstrap run on main-pc, from Tenis's screenshot:** Bun
+  installed, Telegram plugin installed and disabled user-wide, sleep and
+  hibernate on AC both "never". The token prompt failed: Ctrl+V in the
+  console types one control character (0x16, a single `*`), which the
+  script rejected - the employee was skipped. Fixed: the token now goes into
+  a small dialog (masked box, Ctrl+V and a clipboard button). Unknown from
+  the screenshot whether the relay task registered; `main-pc` is not in
+  ListAgents, so the relay is not connected - most likely its minimized
+  window sits on a login or trust question. The bootstrap now logs relay
+  starts/exits to `~\.claude\relay-main-pc.log`, prints the tail, and brings
+  the relay window to the front at the end.
 
 ## Waiting on Tenis
 

@@ -78,11 +78,18 @@ open - and Telegram allows exactly one poller per bot (409 Conflict,
 messages lost to whichever session won). `employee-session.ps1` enables it
 for the employee alone via `--settings scripts\employee-settings.json`. So
 `/telegram:configure` is not available in ordinary sessions; store the token
-with the script instead, at its hidden prompt:
+with the script instead (the bootstrap runs it for you when no token exists):
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\employee-set-token.ps1
 ```
+
+It opens a small window with a masked box - Ctrl+V works there, and so does
+its "Paste from clipboard" button. Not a console prompt: in the black
+console window Ctrl+V does not paste, it types one invisible character
+(shown as a single `*`), which is how the first attempt on main-pc failed on
+2026-09-18. The console prompt remains only as the no-desktop fallback, and
+there you paste with a right-click.
 
 It writes `~/.claude/channels/telegram/.env` - machine-local, never
 committed, never through an agent. Do not write that file in Notepad: the

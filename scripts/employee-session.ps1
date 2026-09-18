@@ -22,6 +22,11 @@ if (-not (Test-Path $envFile)) {
     Write-Error "No Telegram bot token on this machine ($envFile). Do docs/employee-setup-main-pc.md steps 2-3 first."
 }
 
+# The channel server runs on Bun, which may have been installed minutes ago
+# by the bootstrap: make sure this process can see it.
+$bunDir = Join-Path $env:USERPROFILE '.bun\bin'
+if ((Test-Path $bunDir) -and -not (Get-Command bun -ErrorAction SilentlyContinue)) { $env:PATH = "$bunDir;$env:PATH" }
+
 # Routines and channels both require the claude.ai login; an API key env var
 # silently outranks it, so clear it for this process only.
 if ($env:ANTHROPIC_API_KEY)    { Remove-Item Env:\ANTHROPIC_API_KEY }

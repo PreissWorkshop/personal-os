@@ -9,6 +9,8 @@
 #    `claude --remote-control main-pc` session alive, and starts it now. From
 #    then on the laptop reaches this PC by SendMessage and the phone through
 #    claude.ai/code. It replaces the laptop's dead "Claude Relay" task.
+#    The relay window is brought to the front at the end, because a first
+#    run can wait on a login or folder-trust question in a minimized window.
 # 3. Employee prerequisites (docs/employee-setup-main-pc.md steps 1 and 3):
 #    Bun and the Telegram channel plugin, installed if missing - and the
 #    plugin kept disabled user-wide, so only the employee session polls.
@@ -82,13 +84,55 @@ try {
     $todo += 'PreissRelay was not registered - see the error above'
 }
 
-$relay = Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" -ErrorAction SilentlyContinue |
-    Where-Object { $_.CommandLine -like '*relay-session.ps1*' } | Select-Object -First 1
+function Get-RelayProcess {
+    Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" -ErrorAction SilentlyContinue |
+        Where-Object { $_.CommandLine -like '*relay-session.ps1*' } | Select-Object -First 1
+}
+$relay = Get-RelayProcess
 if ($relay) {
     Say 'OK' 'relay session' "already running (pid $($relay.ProcessId))"
 } else {
     Start-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
-    Say 'DONE' 'relay session' "started - minimized window 'Claude relay ($RelayName)' in the taskbar"
+    Start-Sleep -Seconds 4
+    $relay = Get-RelayProcess
+    if ($relay) { Say 'DONE' 'relay session' "started (pid $($relay.ProcessId))" }
+    else { Say 'FAIL' 'relay session' 'the task did not start a process - Get-ScheduledTaskInfo PreissRelay'; $todo += 'the relay did not start' }
+}
+
+# What the relay has been doing, without opening its window.
+$relayLog = Join-Path $env:USERPROFILE ".claude\relay-$RelayName.log"
+if (Test-Path $relayLog) {
+    Write-Host "  ...   relay log (last lines):"
+    Get-Content $relayLog -Tail 4 | ForEach-Object { Write-Host "        $_" -ForegroundColor DarkGray }
+}
+
+# Bring the relay window to the front. It starts minimized, and on a first
+# run it can sit on a login or folder-trust question nobody sees - which is
+# an offline relay with no error anywhere. Whatever it asks, answer it once.
+if ($relay) {
+    try {
+        if (-not ('PreissRelay.Win' -as [type])) {
+            Add-Type -Namespace PreissRelay -Name Win -MemberDefinition @'
+[DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+[DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr hWnd);
+'@
+        }
+        $hwnd = [IntPtr]::Zero
+        foreach ($i in 1..10) {
+            $hwnd = (Get-Process -Id $relay.ProcessId -ErrorAction Stop).MainWindowHandle
+            if ($hwnd -ne [IntPtr]::Zero) { break }
+            Start-Sleep -Milliseconds 500
+        }
+        if ($hwnd -ne [IntPtr]::Zero) {
+            [void][PreissRelay.Win]::ShowWindow($hwnd, 9)   # SW_RESTORE
+            [void][PreissRelay.Win]::SetForegroundWindow($hwnd)
+            Say 'DONE' 'relay window' 'brought to the front - if it asks for a login or folder trust, answer it, then minimize it'
+        } else {
+            Say 'CHECK' 'relay window' "no window yet - look for 'Claude relay ($RelayName)' in the taskbar"
+        }
+    } catch {
+        Say 'CHECK' 'relay window' "could not raise it ($($_.Exception.Message)) - open 'Claude relay ($RelayName)' from the taskbar"
+    }
 }
 
 # --- 3. Employee prerequisites ------------------------------------------------
@@ -161,8 +205,8 @@ foreach ($setting in @(@('STANDBYIDLE', 'sleep on AC', 'standby-timeout-ac'), @(
 $tokenFile = Join-Path $env:USERPROFILE '.claude\channels\telegram\.env'
 if (-not (Test-Path $tokenFile)) {
     Write-Host ""
-    Write-Host "  Telegram bot token: on your phone, @BotFather -> /newbot, then paste the token here." -ForegroundColor Cyan
-    Write-Host "  Just Enter skips - the employee then waits until a token exists." -ForegroundColor Cyan
+    Write-Host "  Telegram bot token: @BotFather -> /newbot gives it. A small window opens - paste it there (Ctrl+V works)." -ForegroundColor Cyan
+    Write-Host "  Skip leaves the employee waiting until a token exists." -ForegroundColor Cyan
     & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'employee-set-token.ps1')
 }
 if (Test-Path $tokenFile) {
