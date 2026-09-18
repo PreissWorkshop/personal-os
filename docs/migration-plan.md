@@ -452,10 +452,19 @@ which says something about that mode's gating. Its findings:
   repo-locally and the files re-checked-out. Proof: rebuild → `public/`
   byte-identical to the commit, 0 changes. Shared config, so the three
   sibling worktrees get LF on their next checkout; their files were not
-  touched. Not done, needs a commit to website `main`: a `.gitattributes`
-  (`* text=auto eol=lf`) so a fresh clone on any Windows machine is safe,
-  and untracking the three `src/site/__pycache__/*.pyc` that change on
-  every build everywhere.
+  touched. The repo-wide fix is committed and waiting: branch
+  `chore/lf-endings-untrack-pyc` (d9fccba, on top of main a4b59f5) adds
+  `.gitattributes` (`* text=auto eol=lf`; all blobs are already LF, so it
+  changes nothing committed) and untracks the three
+  `src/site/__pycache__/*.pyc`; rebuild on it leaves 0 changes. The push
+  to `main` itself was blocked by the auto-mode classifier as a production
+  deploy — correct, `main` is the live Cloudflare Pages site — so Tenis
+  merges it with one tap.
+- **Tenis, 12:24: "just do what needs to be done. I need you to be more
+  autonomous."** Applied as: reversible work is done first and reported
+  after, no "say the word" offers. The gates in `docs/employee.md` are
+  unchanged, and a blocked gate becomes a pushed branch plus a link, not a
+  question.
 - **Locking main-pc is safe** (asked 12:21): Win+L keeps the logon session,
   so the employee and relay keep running. Sign-out, shutdown, or a reboot
   with no login stops them.
@@ -521,8 +530,8 @@ which says something about that mode's gating. Its findings:
   reports sit behind the Signing token). Offered 09-18: a chase mail to Tom
   drafted for Tenis's approval — awaiting his word.
 - 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
-  OK a `.gitattributes` + untracking the `.pyc` files on website `main` —
-  second 09-18 sitting.
+  merge website branch `chore/lf-endings-untrack-pyc` (one tap; the
+  employee is blocked from pushing `main`) — second 09-18 sitting.
 - 🔒 **Employee mailbox — two clicks left**: the `assistant@` Email Routing
   route, and *Send what is waiting* in the admin outbox
   (`docs/employee-setup-main-pc.md` step 7). Sending itself is on
