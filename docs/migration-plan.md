@@ -527,8 +527,10 @@ which says something about that mode's gating. Its findings:
   has not heard from him. So the ship was his go; installation on the
   customer machine is unconfirmed, and `installer/news.items` still has no
   entry for either version. The employee cannot read Tom's version (support
-  reports sit behind the Signing token). Offered 09-18: a chase mail to Tom
-  drafted for Tenis's approval — awaiting his word.
+  reports sit behind the Signing token). 09-18 12:35: a no-commitment chase
+  text handed to Tenis on Telegram to send from his own mail — the
+  employee's mailbox is not set up and Tom has only ever heard from Tenis.
+  Open until Tom answers.
 - 🔒 **Website: were the 09-17 direct-to-main Claude commits yours?** And
   merge website branch `chore/lf-endings-untrack-pyc` (one tap; the
   employee is blocked from pushing `main`) — second 09-18 sitting.
