@@ -643,7 +643,52 @@ First successful run of the routine (see corrections folded into the
   and the website's Node test harness (`test_crm`/`test_quote` numbers
   stay as the implementing session reported them, not re-verified here).
 
+## Third stretch 2026-09-18 14:05–15:35 (employee on main-pc)
+
+- ❌ **The employee went silent for ~50 minutes, and that is its fault.**
+  Tenis asked at 14:04 for a final test of the updated quote; that needs
+  the live admin, the employee had no login, tried the Chrome skill, the
+  tool call was declined at the main-pc terminal, and it stopped and
+  waited without a word on Telegram until he asked "are you stuck?" at
+  14:33. His words: "never again hang like that without a warning!" Rule
+  now in the employee's memory: any block gets a Telegram line within a
+  minute, then work continues on whatever does not depend on it.
+- ✅ **Q-2026-0008 updated in the live admin and test-sent to Tenis only**
+  (15:27), on his explicit instruction. Material/labour split per room and
+  a visible discount equal to 25 % of labour; totals read back from the
+  live database and match the employee's arithmetic exactly. Quote set
+  back to `draft`, then sent with the recipient pinned to
+  `tenis@preissworkshop.com`; the client record still holds that
+  placeholder, so nothing can reach the client. Re-accepting reuses
+  project V-2026-0005. Figures are deliberately not recorded here. Open:
+  the page labels the discount only "Afsláttur", not "25 % af vinnu".
+- ⚠ **Tenis sent the live admin password over Telegram** so the employee
+  could do the above. It was used once, from an environment variable, to
+  obtain a session cookie kept in the session scratchpad; it is in no
+  file, repo or report — but it is in the Telegram chat history and in
+  this session's transcript. 🔒 Tenis: change `ADMIN_PASSWORD` in the
+  Pages project when today's quote work is done. Better for next time: a
+  separate long-lived admin credential for the employee, or Cloudflare
+  Access, so his own password never travels.
+- ✅ **Week-in-review routine fired for the first time** (15:06, run
+  succeeded): PR #3 → fast-forwarded into `main` by the employee after
+  reading the diff (b72a05b; tracker corrections, first
+  `docs/reports/2026-09-18-week-in-review.md`, ScanPen suite run for real
+  in the sandbox: pytest 46/47, selftest 37/38, the known FP-dust miss at a
+  third value). It also closed PR #2. Note for the connector audit: the
+  routine reads `mcp_connections: []` yet had working GitHub MCP tools
+  with write access (commented on and closed a PR, opened PR #3, sent a
+  push notification). That is within its prompt ("open a pull request")
+  but wider than "git only" — the environment, not the connector list,
+  grants it. Worth one look at the routine environment's GitHub scope.
+
 ## Waiting on Tenis
+
+- 🔒 **Change the admin password** after today's quote work — it travelled
+  over Telegram (third 09-18 stretch).
+- 🔒 **Q-2026-0008: confirm the test mail, accept it once as a rehearsal,
+  then give the employee Völundur's real e-mail and the word to send** —
+  or send it himself from the admin.
 
 - 🔒 **HelmCNC 1.0.91/1.0.92: is Tom actually running it?** Tenis, by
   voice note 09-18: he e-mailed Tom the update "a couple of weeks back" and
