@@ -464,6 +464,18 @@ which says something about that mode's gating. Its findings:
   cloud voice — spending, so his explicit call. Text
   stays the default reply. A restarted employee session must know this:
   download the attachment, run `stt.py` on it. Never on cnc-pc.
+- ⚠ **"Can I leave all the computers and run everything from the phone?"
+  — mostly, with three holes** (Tenis asked 11:59; checked then).
+  (1) main-pc has no auto-logon (`AutoAdminLogon` 0): `PreissEmployee` and
+  `PreissRelay` are logon tasks, so a Windows Update reboot ends the
+  employee until someone logs in. Sleep is off; leave it logged in.
+  (2) **No `cnc` relay is online** — ListAgents at 12:00 shows neither
+  `cnc` nor `main-pc` rows, only offline `desktop-a60v7p2-*` history, so
+  nothing at the shop PC can be reached from here until the relay is
+  started at its keyboard. `[UNVERIFIED — needs check]`: whether the
+  main-pc relay is really connected, since its task reads Running but no
+  `main-pc` row is listed. (3) Classifier blocks and the missing `gh`
+  login still need him at claude.ai/code or a keyboard.
 - PRs #1/#2 still open (no gh auth here); local `origin/pr1`/`pr2` refs a
   previous session made were pruned by fetch.
 
