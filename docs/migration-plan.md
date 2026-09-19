@@ -808,6 +808,10 @@ First successful run of the routine (see corrections folded into the
   money. Imou Life stays the free safety net meanwhile. (3) If the recorder
   should run on main-pc until then: type the camera password into
   `run.py discover` there, and pick a web password.
+  *11:10, Tenis: no Tailscale if possible.* Proposed instead: a Cloudflare
+  Tunnel beside the recorder, behind Cloudflare Access plus the recorder's
+  password (Surveillance- `docs/no-pc.md`). Waits for his yes, and needs
+  him once at main-pc for the camera password and the Cloudflare login.
 
 - 🔒 **Approve retiring the surveillance leftovers on cnc-pc** (09-19): the
   two checkouts, the `.venv`, the JDK and the Android SDK (~1.1 GB) - only
