@@ -18,6 +18,9 @@ gets installed or stored here without a reason tied to the machine.
 | `C:\HelmCNC-Signing` | SECRETS (see security.md) | Never in git; mirrored to `D:\` |
 | `C:\ScanPen` | ScanPen full-history archive (6.6 GB) | Frozen. Retire after laptop verified → frees ~6.6 GB |
 | `C:\Projects\_system\personal-os` | Thin clone of this repo | Keep current |
+| `C:\HelmCNC\GitHub\Surveillance-` | Surveillance checkout that ran the recorder, plus its gitignored state (141 MB) | A repo inside production again since 08-28. Frozen; retire on approval |
+| `C:\Surveillance` | Second Surveillance clone + the project's only `.venv` (273 MB) | Frozen; retire on approval |
+| `~\tools\jdk-17*`, `%LOCALAPPDATA%\Android\Sdk` | JDK (303 MB) + Android SDK (394 MB), installed 08-29 for the Surveillance app build | Against the no-installs rule; retire on approval |
 | `C:\Mach3`, `C:\KilnController`, `C:\lbr`, `C:\Voiceover`, `C:\New folder` | EMPTY husks (verified 0 bytes, 2026-08-16) | Delete on approval |
 | `D:\` (SanDisk USB stick, NTFS, 14 GB) | `HelmCNC-Signing` mirror + `ScanPen-backup-2026-08-16` | Backup medium; physically separate; can travel |
 | `OneDrive\HelmCNC-Backups` | Stale source bundle (2026-07-24) | Superseded by origin pushes |

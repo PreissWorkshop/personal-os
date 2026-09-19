@@ -733,7 +733,9 @@ First successful run of the routine (see corrections folded into the
   second needs a hand merge. Neither changes behaviour until merged.
 
 - ⏳ **Surveillance app: Tenis wants the phone to see the camera with every
-  PC off (09-19).** The app's code was NOT found: not in the registry, not
+  PC off (09-19).** *Same day, from the shop: the app is located and
+  registered - see the cnc-pc section below. The route question stands.*
+  The app's code was NOT found: not in the registry, not
   on main-pc's disk, not running here, no PreissWorkshop repo under the
   obvious names; the only trace is `surveillance/notify.py`, named by the
   front-desk branch. Read-only look at the LAN from main-pc: the camera is
@@ -748,12 +750,48 @@ First successful run of the routine (see corrections folded into the
   money, and is where the app's motion alerts would move to. Nothing was
   logged into and nothing was changed.
 
+## Executed 2026-09-19 (from the cnc-pc session, hostname verified)
+
+- ✅ **The surveillance app is located - it was on GitHub all along.** Repo
+  `PreissWorkshop/Surveillance-` (private; the trailing hyphen is why the
+  obvious names missed), one branch,
+  `claude/camera-motion-detection-app-vmzwgf`. Built 08-27 to 08-31 by
+  sessions on the shop PC. Verified here: both checkouts
+  (`C:\HelmCNC\GitHub\Surveillance-` and `C:\Surveillance`) clean, no stash,
+  no local-only branch or commit - nothing stranded. Registered in
+  `registry/projects.yaml` with main-pc root `C:\Projects\Surveillance\repo`;
+  bootstrap step 8 added (untested on main-pc). The repo's `HANDOFF.md` now
+  opens with a start-here section for main-pc (bd7c7b9): the gitignored
+  state that stays behind, and how each piece crosses over, is listed there
+  and deliberately not here.
+- ⚠ **The recorder runs nowhere.** On cnc-pc: no process, no listener, no
+  autostart task; its event index was last written 09-04.
+- ⚠ **The project left about 1.1 GB on the shop PC**, against the
+  no-installs rule: a checkout inside `C:\HelmCNC` (the 08-16 line
+  "production hosts no repos" stopped being true on 08-28), a second clone
+  with a 273 MB `.venv`, and a JDK plus an Android SDK (~700 MB). Listed in
+  `docs/filesystem.md`. Nothing was deleted - see below.
+- ⚠ **This repo is PUBLIC on GitHub** (anonymous API, 09-19:
+  `visibility=public`), and no file here says that is intended. The tracker
+  carries hostnames, LAN and tailnet addresses and open ports. Visibility is
+  an account setting - Tenis's call alone.
+
 ## Waiting on Tenis
 
-- 🔒 **Surveillance: where does the app live, and which route?** (09-19)
-  Machine and folder (or repo name) of the surveillance app, then vendor
-  app now, private box later, or both. The app is not in
-  `registry/projects.yaml` - it gets an entry once located.
+- 🔒 **Surveillance: which machine runs the recorder, and which route?**
+  (09-19) *Where the app lives is answered - see the cnc-pc section above.*
+  Open: host the recorder on main-pc (same LAN as the camera, always on) or
+  leave it off; then vendor app now, private box later, or both.
+
+- 🔒 **Approve retiring the surveillance leftovers on cnc-pc** (09-19): the
+  two checkouts, the `.venv`, the JDK and the Android SDK (~1.1 GB) - only
+  after main-pc has its own working clone plus whatever gitignored state
+  Tenis wants carried over (listed in the repo's `HANDOFF.md`).
+
+- 🔒 **Is this repo meant to be public?** (09-19) It is - see the cnc-pc
+  section above. Private costs nothing on GitHub and breaks no clone that is
+  signed in; the three cloud routines use this repo, so check their access
+  to a private one before flipping it.
 
 - 🔒 **Two branches need a yes or no** (09-19): the front desk
   (`docs/frontdesk.md` on its branch - costs API money, changes who answers

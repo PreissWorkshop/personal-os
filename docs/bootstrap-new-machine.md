@@ -131,5 +131,16 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
    The trailing hyphen is part of the repo name. Knowledge base + 14
    agents + 13 skills; open Claude Code at that root for quoting and
    workshop-operations work.
-8. **Open Claude Code at `C:\Projects\_system\personal-os`** and say what
+8. **Surveillance** (optional — shop camera recorder; main-pc):
+
+       git clone https://github.com/PreissWorkshop/Surveillance- C:\Projects\Surveillance\repo
+       cd C:\Projects\Surveillance\repo
+       python -m venv .venv
+       .venv\Scripts\pip install -r requirements.txt
+
+   The trailing hyphen is part of the repo name. Read `HANDOFF.md` first. No
+   camera is needed to develop: `python scripts\fake_camera.py` streams a
+   synthetic one. `config.yaml` (camera credentials) is never in git —
+   `run.py discover` writes a new one. Untested on main-pc as of 2026-09-19.
+9. **Open Claude Code at `C:\Projects\_system\personal-os`** and say what
    you're working on — the registry and docs do the rest.

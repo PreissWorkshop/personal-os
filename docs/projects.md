@@ -52,6 +52,17 @@ skills under `.claude/`. Repo: **PREISS_WORKSHOP_CLAUDE_SYSTEM-** (the
 trailing hyphen is part of the name; business facts inside — keep it
 private). Clone to any machine where quoting/workshop sessions should run.
 
+## Surveillance — active
+
+Local video recorder for the shop camera: it keeps a rolling buffer of the
+compressed stream, so motion clips start *before* the trigger — the feature
+the vendor cloud charges for — plus classification, live audio, PTZ and a
+small Android wrapper app. Python (FastAPI, PyAV, OpenCV). Repo:
+**Surveillance-** (private; the trailing hyphen is part of the name; one
+branch, `claude/camera-motion-detection-app-vmzwgf`). Built 08-27 to 08-31 in
+sessions on cnc-pc, where it never belonged; development moved to main-pc
+2026-09-19. The in-tree `HANDOFF.md` is the project's state.
+
 ## Ideas / dormant
 
 - **KilnController** — name reserved once (an empty 0-byte dir existed on
