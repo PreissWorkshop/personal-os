@@ -732,7 +732,28 @@ First successful run of the routine (see corrections folded into the
   reader). Both edit `docs/employee.md` and this file, so whichever merges
   second needs a hand merge. Neither changes behaviour until merged.
 
+- ⏳ **Surveillance app: Tenis wants the phone to see the camera with every
+  PC off (09-19).** The app's code was NOT found: not in the registry, not
+  on main-pc's disk, not running here, no PreissWorkshop repo under the
+  obvious names; the only trace is `surveillance/notify.py`, named by the
+  front-desk branch. Read-only look at the LAN from main-pc: the camera is
+  192.168.8.13, Dahua family by MAC, RTSP 554 and Dahua port 37777 open;
+  the router at 192.168.8.1 looks like a Huawei mobile-broadband box
+  `[UNVERIFIED - login page only]`, which cannot run Tailscale and is
+  probably behind carrier NAT, so port forwarding is out. Two routes that
+  need no PC: (1) the camera's own P2P cloud with the DMSS or Imou Life
+  phone app - free, works today, video relays through the vendor's
+  servers; (2) a small always-on box (Raspberry Pi class, about 5 W) on
+  the router running Tailscale plus go2rtc - private, costs hardware
+  money, and is where the app's motion alerts would move to. Nothing was
+  logged into and nothing was changed.
+
 ## Waiting on Tenis
+
+- 🔒 **Surveillance: where does the app live, and which route?** (09-19)
+  Machine and folder (or repo name) of the surveillance app, then vendor
+  app now, private box later, or both. The app is not in
+  `registry/projects.yaml` - it gets an entry once located.
 
 - 🔒 **Two branches need a yes or no** (09-19): the front desk
   (`docs/frontdesk.md` on its branch - costs API money, changes who answers
