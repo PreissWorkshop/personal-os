@@ -772,6 +772,17 @@ First successful run of the routine (see corrections folded into the
   `docs/no-pc.md`. Nothing on the camera or router was logged into or
   changed.
 
+- ⏸ **Surveillance paused by Tenis 09-19 ~11:30**, as it stands: setup
+  prepared, one double-click left (see Waiting on Tenis).
+- ⏳ **Website audit started 09-19 ~11:35, on his instruction, to run until
+  the 14:00 usage reset**: public site, admin and crew app. Branch
+  `audit/2026-09-19-site-admin-crew` off `main` @ a71a66c. Baseline
+  observed this session: build reproduces with no diff (114 pages, 56
+  sitemap pairs), `test_crm.html` 82/82 under a Node runner,
+  `test_quote.mjs` 8/8, admin Python tests 10/10, `audit_seo.py` 0
+  warnings. Five read-only auditors in parallel; fixes land on the branch
+  and go up as a pull request. Nothing merges to `main` without his word.
+
 ## Executed 2026-09-19 (from the cnc-pc session, hostname verified)
 
 - ✅ **The surveillance app is located - it was on GitHub all along.** Repo
