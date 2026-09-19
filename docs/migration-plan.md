@@ -720,7 +720,24 @@ First successful run of the routine (see corrections folded into the
 - Trade-off taken: if the policy holds, security updates wait for Tenis's
   click. The employee reminds him when one is pending.
 
+- **Routines since the last sitting: none ran.** 09-19 is a Saturday (standup
+  is Mon-Fri); the Friday week-in-review is already merged and seen.
+- ⏳ **Two cloud-session branches sit unmerged, no pull request on either**
+  (checked by `git ls-remote`; `gh` is still not logged in on main-pc):
+  `claude/quick-response-delegating-agent-2ox6b1` (09-18 15:55 - `frontdesk/`,
+  a fast Python process that would own the Telegram bot and hand work to
+  the employee; 27 files, needs an API key, so it spends money) and
+  `claude/icelandic-language-skill-77oinn` (09-19 08:16 - an Icelandic
+  writing skill plus report; rules marked [K] are unverified by a native
+  reader). Both edit `docs/employee.md` and this file, so whichever merges
+  second needs a hand merge. Neither changes behaviour until merged.
+
 ## Waiting on Tenis
+
+- 🔒 **Two branches need a yes or no** (09-19): the front desk
+  (`docs/frontdesk.md` on its branch - costs API money, changes who answers
+  the phone) and the Icelandic skill (safe to merge; the employee can do
+  it on his word).
 
 - 🔒 **Make a main-pc reboot harmless - pick one** (09-19). "Never reboots"
   cannot be guaranteed on Windows 11 Home; "comes back by itself" can.
