@@ -4,6 +4,8 @@
 Subcommands
   plan      read a private snapshot JSON and print the situation: income, burn,
             gap, runway, debt horizon, phase
+  quick     the same situation from a few numbers on the command line - the
+            ratio mode for when no snapshot exists yet
   debt      debt payoff - avalanche vs snowball vs minimums, indexation aware
   runway    months of cash at a given burn and income
   fi        FI number, years to FI, and the savings-rate table
@@ -19,6 +21,7 @@ fractions, because that is how people copy them off a bank statement.
 
 Examples
   python money_model.py plan --snapshot ~/.preiss/finance/finance-snapshot.json
+  python money_model.py quick --income 700000 --essential 450000 --cash 0 --debt-total 2100000 --rate 18
   python money_model.py debt --debts debts.json --budget 250000 --strategy compare
   python money_model.py runway --cash 900000 --burn 650000 --income 300000
   python money_model.py fi --spend 4800000 --assets 0 --savings 2400000
@@ -87,13 +90,20 @@ def simulate_debts(debts: list[dict], budget: float, strategy: str = "avalanche"
     rolls over to the next. Both strategies roll over - only the order differs.
     """
     ds = []
+    assumed = []
     for d in debts:
+        m = float(d.get("min_payment", 0) or 0)
+        if m <= 0:
+            # people rarely know their minimums; 3 % of the balance is a
+            # documented placeholder, printed as an assumption by the caller
+            m = max(1000.0, 0.03 * float(d["balance"]))
+            assumed.append(d["name"])
         ds.append({
             "name": d["name"],
             "balance": float(d["balance"]),
             "apr": pct(float(d.get("apr", 0))),
             "idx": pct(float(d.get("index_rate", 0))),
-            "min": float(d.get("min_payment", 0)),
+            "min": m,
         })
     mins_total = sum(d["min"] for d in ds)
     if strategy == "minimums":
@@ -165,6 +175,7 @@ def simulate_debts(debts: list[dict], budget: float, strategy: str = "avalanche"
         "series": series,
         "warnings": warnings,
         "budget": budget,
+        "assumed_minimums": assumed,
     }
 
 
@@ -189,7 +200,10 @@ def cmd_debt(a: argparse.Namespace) -> int:
     if not results:
         return 2
     print(f"Debts: {len(debts)}  total balance {money(sum(float(d['balance']) for d in debts), cur)}  "
-          f"minimums {money(sum(float(d.get('min_payment', 0)) for d in debts), cur)}/mo")
+          f"minimums {money(sum(float(d.get('min_payment', 0) or 0) for d in debts), cur)}/mo")
+    if results[0]["assumed_minimums"]:
+        print("ASSUMPTION: no minimum payment given for " + ", ".join(results[0]["assumed_minimums"])
+              + " - 3% of balance assumed; replace with the statement figure")
     rows = []
     for r in results:
         rows.append([r["strategy"], money(r["budget"], cur) + "/mo", fmt_months(r["months"]),
@@ -298,7 +312,9 @@ def freelance_rate(net_target: float, tax_pct: float, overhead: float, hours_per
 def cmd_rate(a: argparse.Namespace) -> int:
     cur = a.currency
     r = freelance_rate(a.net, a.tax, a.overhead, a.hours, a.weeks, a.utilization)
-    print(f"take-home target {money(a.net, cur)}/yr, effective tax {a.tax:g}%, overhead {money(a.overhead, cur)}/yr")
+    print(f"take-home target {money(a.net, cur)}/yr, effective tax {a.tax:g}%"
+          + (" (ASSUMPTION: default placeholder, not his real rate)" if a.tax == 35.0 else "")
+          + f", overhead {money(a.overhead, cur)}/yr")
     print(f"-> profit before tax {money(r['profit'], cur)}, revenue needed {money(r['revenue'], cur)}/yr "
           f"= {money(r['month'], cur)}/mo")
     print(f"billable hours: {a.hours:g} h/wk x {a.weeks:g} wk x {a.utilization:g}% = {r['billable_hours']:.0f} h/yr")
@@ -396,7 +412,8 @@ def phase(gap: float, cash: float, essential: float, debt_total: float) -> str:
     if buffer_months < 1:
         return "1 CASH - positive month, no buffer; every surplus króna builds one month of essentials"
     if debt_total > 0 and buffer_months < 3:
-        return "2 BUFFER+KILL - build 3 months of essentials, then avalanche the expensive debt"
+        return ("2 BUFFER+KILL - one month is banked; any debt above ~15% gets the surplus now, "
+                "the buffer grows to 3 months from windfalls or once nothing that expensive is left")
     if debt_total > 0:
         return "3 KILL DEBT - buffer done; surplus goes to the highest-rate debt, product work in fixed hours"
     return "4 COMPOUND - debt-free; invest the surplus, raise income with product/recurring revenue"
@@ -404,7 +421,29 @@ def phase(gap: float, cash: float, essential: float, debt_total: float) -> str:
 
 def cmd_plan(a: argparse.Namespace) -> int:
     snap = load_json(a.snapshot)
-    cur = snap.get("currency", a.currency)
+    return report_situation(snap, snap.get("currency", a.currency))
+
+
+def cmd_quick(a: argparse.Namespace) -> int:
+    """Ratio mode: a snapshot built from the command line, nothing stored."""
+    debts = []
+    if a.debt_total > 0:
+        debts = [{"name": "all debts (one line)", "balance": a.debt_total, "apr": a.rate,
+                  "min_payment": a.minimums if a.minimums > 0 else max(1000.0, 0.03 * a.debt_total)}]
+    snap = {
+        "as_of": "quick (nothing stored)", "currency": a.currency or "",
+        "monthly_income": {"income": a.income},
+        "monthly_burn": {"essential": a.essential, "full": a.full if a.full > 0 else a.essential},
+        "cash": a.cash, "debts": debts, "debt_budget": a.debt_budget,
+    }
+    if a.debt_total > 0 and a.minimums <= 0:
+        print("ASSUMPTION: minimum payments not given - 3% of the debt total assumed")
+    if a.debt_total > 0:
+        print(f"ASSUMPTION: all debt treated as one line at {a.rate:g}% - run `debt` with the real list for the order")
+    return report_situation(snap, snap["currency"])
+
+
+def report_situation(snap: dict, cur: str) -> int:
     income = snap.get("monthly_income", {})
     income_total = sum(float(v) for v in income.values()) if isinstance(income, dict) else float(income)
     burn = snap.get("monthly_burn", {})
@@ -517,6 +556,9 @@ def selftest() -> int:
     # indexation: a verdtryggt loan at 0% interest and 4% indexation still grows
     idx = simulate_debts([{"name": "ix", "balance": 1_000_000, "apr": 0, "index_rate": 4, "min_payment": 3_000}], 3_000, "minimums")
     check("indexation alone can outrun a small payment (warning raised)", idx["months"] is None and idx["warnings"])
+    # missing minimums are assumed at 3% and reported
+    am = simulate_debts([{"name": "x", "balance": 100_000, "apr": 20}], 5_000, "avalanche")
+    check("missing minimum -> 3% assumed and flagged", am["assumed_minimums"] == ["x"] and am["months"])
     # budget below minimums is refused
     try:
         simulate_debts(debts, 10, "avalanche")
@@ -568,6 +610,16 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("plan", help="read a private snapshot JSON and print the situation")
     s.add_argument("--snapshot", required=True, help="path to finance-snapshot.json (outside any repo)")
 
+    s = sub.add_parser("quick", help="the situation from a few numbers, no snapshot (ratio mode)")
+    s.add_argument("--income", type=float, required=True, help="monthly income to the owner, all sources")
+    s.add_argument("--essential", type=float, required=True, help="essential monthly burn")
+    s.add_argument("--full", type=float, default=0.0, help="full monthly burn (default: essential)")
+    s.add_argument("--cash", type=float, default=0.0)
+    s.add_argument("--debt-total", type=float, default=0.0)
+    s.add_argument("--rate", type=float, default=15.0, help="weighted debt rate percent (default 15)")
+    s.add_argument("--minimums", type=float, default=0.0, help="total minimum payments (default 3% of debt)")
+    s.add_argument("--debt-budget", type=float, default=0.0, help="monthly money for debts incl. minimums")
+
     s = sub.add_parser("debt", help="debt payoff strategies")
     s.add_argument("--debts", required=True, help="JSON file: list of debts or {\"debts\": [...]}")
     s.add_argument("--budget", type=float, default=0, help="total monthly money for all debts")
@@ -587,7 +639,7 @@ def main(argv: list[str] | None = None) -> int:
 
     s = sub.add_parser("rate", help="freelance rate from a take-home target")
     s.add_argument("--net", type=float, required=True, help="annual take-home wanted")
-    s.add_argument("--tax", type=float, default=38.0, help="effective tax+contributions percent on profit")
+    s.add_argument("--tax", type=float, default=35.0, help="effective tax+contributions percent on profit (35 is a placeholder - use the accountant's figure)")
     s.add_argument("--overhead", type=float, default=0.0, help="annual business costs")
     s.add_argument("--hours", type=float, default=40.0, help="working hours per week")
     s.add_argument("--weeks", type=float, default=46.0, help="working weeks per year")
@@ -608,7 +660,7 @@ def main(argv: list[str] | None = None) -> int:
     a = p.parse_args(argv)
     if a.cmd == "selftest":
         return selftest()
-    return {"plan": cmd_plan, "debt": cmd_debt, "runway": cmd_runway, "fi": cmd_fi,
+    return {"plan": cmd_plan, "quick": cmd_quick, "debt": cmd_debt, "runway": cmd_runway, "fi": cmd_fi,
             "rate": cmd_rate, "unit": cmd_unit, "score": cmd_score}[a.cmd](a)
 
 

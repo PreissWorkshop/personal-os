@@ -173,6 +173,22 @@ flat fee of the total amount the client pays ... freelancers keep 100%";
 Toptal "algorithmic interviews, live coding, and test projects" and a
 client deposit; Mercor "uses an AI interviewer" [S].
 
+## 9b. The destination's own taxes - not researched [G]
+
+This file covers the Icelandic side of leaving and the receiving country's
+visa and residency rules. It does **not** cover the destination's tax
+regime: Spain's special regime for inbound workers (the "Beckham" regime),
+Portugal's replacement for the old non-habitual-resident scheme (IFICI),
+the self-employed social-security contributions (Spain's autónomo quota,
+Portugal's Segurança Social), corporate residence tests for a one-person
+company managed from there, and VAT registration for services sold from
+the new country. None of it was searched this session (the search budget
+was spent on the eight streams). Treat every figure on those topics as
+[G] until a session with open internet adds a sourced section, and put
+them on the adviser's list: `iceland.md` §10 plus "what will my effective
+rate be in <country> as a self-employed person or as the owner of an ehf
+managed from there, and does the ehf become tax-resident there?".
+
 ## 10. The move, in order (all [I])
 
 1. Income first: a contract or retainer that is explicitly location-free,

@@ -151,7 +151,9 @@ anti-pattern for someone with debt.
   product is how one-off sales become the compounding rung [I].
 - Unit economics before scale: `unit` with real churn; LTV/CAC under 3 or
   payback over 12 months is a stop sign for a cash-poor business [I,
-  standard SaaS heuristics - see `case-studies.md` for survey figures].
+  standard SaaS heuristics]. Published churn benchmarks for small-business
+  SaaS were not obtained this session [G] - do not quote a churn figure
+  without a source; use the product's own trial data as soon as it exists.
 
 ## 5. Pricing
 

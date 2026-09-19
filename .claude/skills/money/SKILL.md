@@ -1,6 +1,6 @@
 ---
 name: money
-description: Finances, debt, cash flow, and building a profitable location-independent business from a position of debt and no capital - for Tenis Preiss (Preiss Workshop, Studio Esja, HelmCNC, ScanPen; C#/.NET, Python, Claude Code agent systems; Iceland). Use this skill whenever money is the constraint or the subject - debt, loans, interest, overdraft, indexed loans, budget, savings, runway, income, salary, day rate, how much to charge, pricing as a business decision, a new income idea, a side business, SaaS, an app or software product, freelancing or contracting, a remote job, going nomad, moving abroad, taxes, ehf or VAT, Stripe or payments, investing, financial independence, retiring early, or judging a course, guru, agency or "passive income" offer. Trigger even for a one-line question, even when he does not say "finance", and even when the question is about a project (HelmCNC, ScanPen, the website, the workshop, the employee) if the real question is whether it will make money or what to build next. Not for the arithmetic inside a single customer quote - the workshop-ops repo owns quoting.
+description: Personal finance and business-building skill for Tenis Preiss (Iceland; Preiss Workshop, Studio Esja, HelmCNC, ScanPen; C#/.NET, Python, Claude Code), who is paying off debt with no capital while building a location-independent business. ALWAYS load this skill before answering ANY question that touches his money, income or a business decision, however small, casual or "quick" - it holds the private-numbers workflow, the phase rules, Iceland-specific tax, loan and payment facts (ehf, VAT, verðtryggð loans, Stripe not serving Iceland) and the evidence labels that a general answer gets wrong. Triggers include: which debt to pay first (overdraft, credit card, car loan, indexed loan), budget, savings, runway, buffer; what to charge and how to invoice (day rate, hourly rate, retainer, a remote contract, from the ehf or as an individual); whether something will make money (a SaaS, an app on the Play Store or App Store, a plugin, a course, files, a product, HelmCNC pricing or promotion, the Studio Esja webshop, the surveillance app); remote jobs and contracts abroad; moving to Spain, Portugal or anywhere else and what happens with Skatturinn, the ehf and residency; payments and platforms (Stripe, Paddle, Lemon Squeezy, Freemius, Wise); investing, financial independence, how many years until he can stop working; and any course, guru, agency or "passive income" pitch. Use it even when the question looks simple enough to answer directly, even for one line, and even when he never says "money" or "finance". Not for the arithmetic inside a single customer quote - the workshop-ops repo owns quoting.
 ---
 
 # Money: from debt to a business that pays for freedom
@@ -32,12 +32,14 @@ verified.
   If it is missing, ask for the six numbers below or work in ratios and say
   so. Never invent a balance, a rate, a revenue figure, a case-study number
   or a tax rule. Never write his real figures into this repo or a report.
-- **Label every claim**: Verified (source opened, quote on the page) ·
-  Snippet (seen only in a search result - "reported, not confirmed") ·
-  Self-reported (a founder's own claim) · Inference · Assumption ·
-  Unverified. Founders' revenue numbers are marketing until proven
-  otherwise; say so. When a fact is not in `references/`, search, open the
-  source, label it, or say "I could not verify this".
+- **Label every claim**, with the same tags the references use: [V]
+  Verified (source opened, quote on the page) · [S] Snippet (seen only in
+  a search result - "reported, not confirmed") · [SR] Self-reported (a
+  founder's own claim) · [I] Inference · [A] Assumption · [G] Gap ("I
+  could not verify this") · [R] Recalled from memory, which is never
+  cited. Founders' revenue numbers are marketing until proven otherwise;
+  say so. When a fact is not in `references/`, search, open the source,
+  label it, or say "I could not verify this".
 - **Cash first, then buffer, then the expensive debt, then product.** The
   order is the phase model below. A product idea is welcome in every phase,
   but it gets the hours the phase allows, not the hours it wants.
@@ -70,12 +72,14 @@ open the link.
 ## Workflow
 
 1. **Load the situation.** Read the snapshot if it exists and run
-   `python scripts/money_model.py plan --snapshot <path>`. If it does not,
-   ask for: monthly income by source (last three months' average),
-   essential monthly burn, full monthly burn, cash today, each debt with
-   balance / rate / minimum / indexed-or-not, and committed work for the
-   next ninety days. Do not proceed on imagined numbers; with none at all,
-   answer in ratios (months of runway, share of income) and label it.
+   `python scripts/money_model.py plan --snapshot <path>` (`python3` on
+   Linux and macOS). If it does not, ask for: monthly income by source
+   (last three months' average), essential monthly burn, full monthly
+   burn, cash today, each debt with balance / rate / minimum /
+   indexed-or-not, and committed work for the next ninety days. With only
+   some of them, run `quick` on what he gave (it prints its assumptions)
+   and label the rest; with none at all, answer in ratios (months of
+   runway, share of income) and say so. Never proceed on imagined numbers.
 2. **Name the phase** (below) and say it. It sets what the answer may
    recommend.
 3. **Pick the reference for the question** (table below), read it, and use
@@ -90,6 +94,11 @@ open the link.
    action. Then the standard footer for any answer he will act on:
    Sources checked · Supporting evidence · Assumptions · Unverified points
    · Confidence (High / Medium / Low).
+6. **Keep it short.** He reads fast and decides fast: the decision in the
+   first ten lines, one table of numbers, the seven days, the footer -
+   about 500-900 words for a full answer, a few lines for a quick
+   question. The model, the case studies and the script runs go below the
+   decision or into a follow-up he asks for, never before it.
 
 Six numbers or nothing: income by source, essential burn, full burn, cash,
 debts (balance, rate, minimum, indexed?), committed work. Everything else
@@ -103,7 +112,7 @@ The script labels them; the meaning is here. Numbers are monthly.
 |---|---|---|---|
 | 0 Stabilise | income < full burn + minimums | Stop the bleed: collect receivables, cut, sell hours or a productized service this week, call creditors before missing a payment | 0 - every hour is for cash |
 | 1 Cash | positive month, cash < 1 month of essentials | Bank every surplus króna into one month of essentials; keep selling hours | Evenings only, capped |
-| 2 Buffer + kill | cash 1-3 months, debt remains | Reach 3 months of essentials, then avalanche the highest-rate debt with the whole surplus | Fixed block, e.g. one day a week |
+| 2 Buffer + kill | cash 1-3 months, debt remains | One month is banked. Any debt above ~15 % (a card, an overdraft) gets the whole surplus now - holding cash at 0 % against a 24 % balance is a loss; the buffer grows toward 3 months from windfalls, and fully once nothing that expensive is left | Fixed block, e.g. one day a week |
 | 3 Kill debt | buffer done, debt remains | Whole surplus to the highest-rate debt; product in a fixed weekly block funded by sold hours | 1-2 days a week |
 | 4 Compound | debt-free, buffer done | Invest the surplus; raise income through product and recurring revenue; the savings rate is the dial | As much as cash flow allows |
 
@@ -207,10 +216,11 @@ is in `references/maker-leverage.md`:
 | Command | Gives |
 |---|---|
 | `plan --snapshot <json>` | income, burn, gap, runway, debt horizon, phase |
+| `quick --income --essential --cash --debt-total --rate` | the same from a few numbers, no snapshot (ratio mode; prints its assumptions) |
 | `debt --debts <json> --budget N --strategy compare` | avalanche vs snowball vs minimums: months, interest, indexation, order |
 | `runway --cash --burn --income` | months of cash and the income that stops the bleed |
 | `fi --spend --assets --savings [--swr 3.5]` | FI number, years to FI, the savings-rate table |
-| `rate --net --tax --overhead` | the hourly and day rate that actually pays |
+| `rate --net --tax --overhead` | the hourly and day rate that actually pays (`--tax` default is a placeholder; use the accountant's effective rate) |
 | `unit --price --margin --churn --cac --target-mrr` | LTV, CAC payback, customers needed, replacements per month |
 | `score --options <json>` | ranked options on the nine criteria |
 

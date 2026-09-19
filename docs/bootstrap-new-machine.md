@@ -59,7 +59,13 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
        Copy-Item C:\Projects\_system\personal-os\.claude\skills\money\assets\finance-snapshot.template.json $HOME\.preiss\finance\finance-snapshot.json
 
    then fill in the real numbers there and nowhere else (personal-os is
-   public on GitHub).
+   public on GitHub). Because a skill description alone under-triggers on
+   casual money questions (measured 2026-09-19: 2-3 of 10 loaded it), add
+   one line to `~\.claude\CLAUDE.md` on the machine so every project root
+   gets it: "Any question about money, debt, rates, pricing as a business
+   decision, a new income idea, remote work, relocation or financial
+   independence: load the `money` skill first."
+
 4. **ScanPen**:
 
        mkdir C:\Projects\ScanPen

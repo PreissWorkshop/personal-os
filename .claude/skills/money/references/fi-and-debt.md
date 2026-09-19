@@ -113,10 +113,12 @@ reaching zero. `fi` takes assets, savings and spending directly.
 
 Rule for Tenis [I]: three accounts, in this order - a tax and VAT reserve
 (a priority debt the day it is due, §6), a spending-shock tier of roughly
-one month of essentials, then the income-shock buffer to three months of
-essentials (phase 2). Beyond three months the surplus goes to the
-expensive debt; the self-employed "9-12 months" is a phase-4 luxury while
-a 15 % balance exists.
+one month of essentials, then the expensive debt. Holding three months of
+cash at 0 % while a 24 % card runs costs about 2 % of the card balance a
+month; so once one month is banked, any balance above ~15 % gets the whole
+surplus, the buffer grows toward three months from windfalls, and reaches
+three months fully once nothing that expensive is left (phase 2). The
+self-employed "9-12 months" is a phase-4 luxury.
 
 ## 6. Which debt first, by consequence (regulator template)
 
