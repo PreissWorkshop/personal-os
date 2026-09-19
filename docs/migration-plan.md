@@ -776,8 +776,8 @@ First successful run of the routine (see corrections folded into the
   prepared, one double-click left (see Waiting on Tenis).
 - ✅ **Website audit 09-19, 13:10-13:35 UTC, on Tenis's instruction** (public
   site, admin, crew app, server). Branch `audit/2026-09-19-site-admin-crew`
-  off `main` @ a71a66c, pushed @ 0ee3bfb (13:41), **not merged, not live**.
-  Five read-only auditors in parallel, then fixes in 19 commits. Observed on
+  off `main` @ a71a66c, pushed @ a7ff5ed (13:43), **not merged, not live**.
+  Five read-only auditors in parallel, then fixes in 20 commits. Observed on
   the final state: build reproduces with no diff, `test_crm.html` 83/83,
   `test_quote.mjs` 8/8, admin Python tests OK, `audit_seo.py` 0 warnings,
   every script passes a syntax check, crew, admin and six public pages load
