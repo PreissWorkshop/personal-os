@@ -45,7 +45,7 @@ not re-verified this session, **[A]** house decision.
 | Gender unknown, shared inbox, generated mail | Góðan dag, | Never "Sæl/l" - a slash greeting is a mail-merge tell [A, V-excerpt] |
 | A couple or two named people | Sæl bæði, / Sæl Anna og Jón, | [K] |
 | A group, a company team | Sæl öll, / Góðan dag, | [K] |
-| Second and later replies in one thread | greeting optional; "Sæl," or none | Tenis does this [C] |
+| Second and later replies in one thread | greeting optional; "Sæl," or none | Tenis does this in English too ("ok, I'm on the way now") [E] |
 
 Comma after the greeting, then a blank line. "Sæll," alone (no name) is
 fine in a fast thread but a little cool in a first reply [C].
@@ -114,7 +114,7 @@ Studio Esja mail is signed by the person writing (Marta or Tenis) with
 ## 6. Sentence style
 
 - Short declaratives; verbs early; concrete nouns (hnotuspónn, 16 mm MDF,
-  RAL 1021, 2.008 mm). This is the brand guide's "precise people" test in
+  RAL 9016, 2.008 mm). This is the brand guide's "precise people" test in
   Icelandic.
 - Use the everyday craft words, not dictionary formalities: "filma"
   (verb), "kíkja á" (take a look), "mæla" (measure), "græja" (sort out,
@@ -140,7 +140,7 @@ Studio Esja mail is signed by the person writing (Marta or Tenis) with
 | Thousands separator is a period, decimals a comma | 1.234.500 kr. · 96,6 cm · 18,3% | [V - Ritreglur / Vísindavefur 75151] |
 | "kr." after the amount, space before it, period after it | 450.000 kr. | [V - abbreviation rule "kr."] [C] |
 | Millions in prose | 1,8–2,4 m.kr. or 1.800.000–2.400.000 kr. | [K]; Tenis's English "1.5-2 mil" becomes this [E] |
-| Never "750þ" in client text | 750.000 kr. | [A] - "750þ" is Tenis's shorthand [C]; fine on Telegram to him |
+| Never "750þ" in client text | 750.000 kr. | [A] - "850þ", "2'600'000,-" are Tenis's shorthand in English mail [E]; fine on Telegram to him |
 | VAT | með vsk. / án vsk. (lowercase, with period); VSK in table headers | [V - Skatturinn: "Verð með vsk."] [A] |
 | Standard VAT rate 24% - take the actual figure from the quote, never assume | Vsk. 24% | [K - widely known, not re-verified] |
 | Private clients: every amount "með vsk."; companies: label clearly, "án vsk." acceptable | | [E - he writes "með vsk" to households and often "+vsk" to companies] [A] |
