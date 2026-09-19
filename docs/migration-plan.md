@@ -694,7 +694,43 @@ First successful run of the routine (see corrections folded into the
   rising above the ~27 test views. The new domain may land in the
   client's Spam — Tenis was told to text him.
 
+## Fourth sitting 2026-09-19 ~09:40 (employee on main-pc, hostname verified)
+
+- ❌ **main-pc rebooted itself 09-18 22:10 and the employee was down for
+  11.5 hours.** Cause, from the System event log: Windows Update
+  (`MoUsoCoreWorker.exe`, then `TrustedInstaller.exe` twice) installing
+  security update KB5129195 - three planned restarts, 22:10-22:12. Not a
+  crash, not power. Active hours were 04:00-17:00 and no update policy of
+  any kind was set, so 22:10 was fair game. The PreissEmployee/PreissRelay
+  tasks fire at logon and there is no auto-logon, so nothing came back
+  until Tenis logged on at 09:37.
+- ✅ **Fix applied 09:40** with `scripts/no-auto-reboot.ps1` (elevated, Tenis
+  approved the UAC prompt; `-Undo` reverts): active hours 08:00-02:00 (18 h
+  is Windows' maximum), smart active hours off, restart notifications on,
+  plus policy keys AUOptions=2 (notify before download) and
+  NoAutoRebootWithLoggedOnUsers=1. Registry read-back matches.
+- ⚠ **`[UNVERIFIED - needs check]` whether Windows 11 Home honours the
+  policy keys.** The update agent still reports NotificationLevel 4 (fully
+  automatic) after the change; that API is unreliable on Windows 11, so
+  this proves nothing either way. Check: Settings > Windows Update >
+  Advanced options should show "some settings are managed by your
+  organisation", and the next Patch Tuesday (2026-10-13) should ask before
+  installing. What IS certain: a forced restart can now only land between
+  02:00 and 08:00.
+- Trade-off taken: if the policy holds, security updates wait for Tenis's
+  click. The employee reminds him when one is pending.
+
 ## Waiting on Tenis
+
+- 🔒 **Make a main-pc reboot harmless - pick one** (09-19). "Never reboots"
+  cannot be guaranteed on Windows 11 Home; "comes back by itself" can.
+  (a) Auto-logon with Sysinternals Autologon (password stored as an
+  encrypted LSA secret, typed by Tenis, never seen by the employee) - then
+  the two logon tasks restart the relay and the employee within minutes of
+  any reboot. Free; the cost is that someone at the keyboard after a
+  reboot is in without a password. (b) Windows 11 Pro upgrade - makes the
+  no-auto-restart policy officially enforceable; costs money. They
+  combine. Recommended: (a) now.
 
 - 🔒 **Change the admin password now** — it travelled over Telegram
   (third 09-18 stretch); the quote work it was for is finished.
