@@ -33,7 +33,8 @@ verified.
   so. Never invent a balance, a rate, a revenue figure, a case-study number
   or a tax rule. Never write his real figures into this repo or a report.
 - **Label every claim**, with the same tags the references use: [V]
-  Verified (source opened, quote on the page) · [S] Snippet (seen only in
+  Verified (source opened, quote on the page - say "verified <date> per
+  the reference" unless this session opened it) · [S] Snippet (seen only in
   a search result - "reported, not confirmed") · [SR] Self-reported (a
   founder's own claim) · [I] Inference · [A] Assumption · [G] Gap ("I
   could not verify this") · [R] Recalled from memory - usable only as a
