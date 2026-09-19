@@ -187,7 +187,11 @@ was spent on the eight streams). Treat every figure on those topics as
 [G] until a session with open internet adds a sourced section, and put
 them on the adviser's list: `iceland.md` §10 plus "what will my effective
 rate be in <country> as a self-employed person or as the owner of an ehf
-managed from there, and does the ehf become tax-resident there?".
+managed from there, and does the ehf become tax-resident there?". One
+pointer, recalled and unverified [R]: an inbound special regime that taxes
+a newcomer as a non-resident (Spain's is the well-known one) may not count
+as being "subject to taxation in another country" for Iceland's three-year
+rule - ask the adviser whether the two interact before choosing either.
 
 ## 10. The move, in order (all [I])
 

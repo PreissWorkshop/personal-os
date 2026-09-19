@@ -24,9 +24,9 @@ remote work that survives a relocation.
 | `references/remote-and-relocation.md` | Remote job market; employer-of-record vs contractor and permanent establishment; visa thresholds and EEA free movement; tax residency tie-breakers; cost of living; payments abroad; entity options (Estonia, US LLC, stay put); health and pensions; GitLab's async rules; the move in order |
 | `references/what-fails.md` | Base-rate table (CFDs, day trading, crypto, MLM, coaching schemes, Amazon sellers, startup survival, creators, app stores, BNPL); regulator cases; the red-flag checklist; how to answer a "course" question |
 | `references/sources.md` | The labels, what was verified on the page, the ordered upgrade pass, stream-to-file map, the blocked hosts |
-| `scripts/money_model.py` | Stdlib-only calculators: `plan` (snapshot → phase), `debt` (avalanche / snowball / minimums, indexation aware), `runway`, `fi`, `rate`, `unit`, `score`; `selftest` passes 32 checks |
+| `scripts/money_model.py` | Stdlib-only calculators: `plan` (snapshot → phase), `quick` (the same from a few numbers, no snapshot), `debt` (avalanche / snowball / minimums, indexation aware, minimums assumed and flagged when missing), `runway`, `fi`, `rate`, `unit`, `score`; `selftest` passes 33 checks |
 | `assets/` | `finance-snapshot.template.json` (zeros, to be copied outside the repo), `debts-example.json`, `options-example.json` (invented numbers) |
-| `evals/evals.json` | Four test prompts with eight assertions each |
+| `evals/evals.json`, `evals/trigger-evals.json` | Four test prompts with eight assertions each; twenty trigger queries (ten should load the skill, ten should not) |
 
 Wired in: `CLAUDE.md` (new "Money and business" section), `docs/employee.md`
 (new "Money" section: research and model, never spend or commit, never
@@ -115,10 +115,54 @@ and the Icelandic skill branch for the skill convention this one follows.
 
 Four prompts from `evals/evals.json` (invented figures), each run by a
 fresh subagent with the skill and by another without it, eight assertions
-per prompt. Results are recorded below once the runs finish; the session
-scratchpad holds the outputs and the static review page.
+per prompt, graded by a separate subagent per prompt with the
+skill-creator's grader instructions (burden of proof on the assertion, no
+partial credit). Both configurations ran after the research workers had
+exhausted the session's web-search budget, so both answered from
+references or memory - a comparison of discipline, not of research.
 
-[TEST RESULTS PENDING]
+| Prompt | With skill | Without | What the grader saw |
+|---|---|---|---|
+| 1 Debt, what to do this month | 8/8 | 4/8 | Skill: phase named, the six numbers requested, card first with tax/VAT ahead by consequence, every figure labelled, the payoff table pasted from the script (the grader re-simulated all nine rows, exact match). Baseline: sound week-by-week plan, but no phase, no labels, the formula only in its notes, and an arithmetic slip on the card's share of interest. |
+| 2 SaaS tool vs remote contract | 8/8 | 4/8 | Skill: contract first with a bounded product block; Storemapper, Wathan and Bannerbear correctly attributed; MicroConf base rate labelled; rubric and script outputs reproduced by the grader. Baseline: same call, but no named funded-product cases, no criteria, founder figures unlabelled; its Icelandic tax arithmetic was accurate. |
+| 3 Moving to Spain/Portugal, ehf, Stripe | 7/8 | 5/8 | Skill: Act 138/1994 EEA exemption quoted, Stripe and the merchant-of-record stack complete, every number labelled; it failed to state EEA free movement outright (an aside only). Baseline: covered Spain's and Portugal's own regimes from memory, which the references lack, but never mentioned the ehf residency rule, omitted Freemius, and put dozens of unlabelled rates behind one disclaimer (none found wrong). |
+| 4 The $1,997 AI-agency course | 8/8 | 6/8 | Skill: the FTC cases matched to the pitch line by line, a red-flag count, the price in billable hours, a zero-cost alternative for this week. Baseline: also a clear no with accurate cases and a 30-day test, but assumptions stated as fact and no assumptions/confidence footer. |
+
+Means: with the skill 97 % (31 of 32 assertions), without 59 % (19 of
+32); wall time about equal (411 s vs 435 s); the skill runs used roughly
+60 % more tokens (about 121k vs 76k) because they read the references.
+Outputs, gradings and a static review page (`money-skill-review.html`)
+are in the session scratchpad; the page was sent to Tenis.
+
+My own read of two full answers (prompts 1 and 4): the skill's answers
+are the ones he would act on - one decision, the numbers in a table, the
+seven days, the footer - and they are long. A brevity rule went into the
+skill afterwards. The baseline answers are competent general advice with
+invisible assumptions; the skill's value is discipline (no invented
+number, every claim labelled, cash first) more than knowledge, except
+where the references carry Iceland-specific facts the baseline lacked.
+
+**Trigger accuracy** (`claude -p` on the twenty trigger queries, one run
+each): the first description scored 12 of 20 - all ten negatives right,
+two of ten money questions loaded the skill. The rewritten, pushier
+description scored 13 of 20 (three positives). A bounded two-iteration
+optimisation loop (skill-creator `run_loop`, 40 % held out) found nothing
+better: held-out 8 of 8, training 8 of 12. Precision is 100 %, recall
+low: in a bare session Claude answers casual money questions directly.
+Mitigation, not a fix: `CLAUDE.md`'s Money section is always in context
+in this repo, and the bootstrap doc now adds a one-line rule to the
+machine-wide `~\.claude\CLAUDE.md` so every project root loads it.
+
+**Folded back from the runs** (second iteration, not re-run): `quick`
+ratio mode and assumed minimums in the calculator; the tax default marked
+as a placeholder; the buffer-versus-card rule (no cash held at 0 % against
+a 24 % card); the brevity rule; harmonised labels, the [R] pointer rule
+and "verified per the reference" wording; the churn-benchmark gap; the
+destination-tax gap with one recalled pointer on how Spain's inbound
+regime may interact with Iceland's three-year rule. The graders' critique
+of the assertions themselves (one depends on context absent from the
+prompt; one measures labelling, not invention; none covers the
+destination country's taxes) is the to-do list for the next iteration.
 
 ## Blocked or not done
 

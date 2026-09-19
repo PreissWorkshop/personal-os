@@ -819,8 +819,12 @@ First successful run of the routine (see corrections folded into the
   Iceland tax and legal, case studies and base rates, playbooks, maker
   leverage, software and AI money, remote work and relocation, what fails,
   sources), a stdlib calculator (`plan`, `debt`, `runway`, `fi`, `rate`,
-  `unit`, `score`; selftest 32/32), templates and four evals. Report:
-  `docs/reports/2026-09-19-money-skill.md`. Wired into `CLAUDE.md`,
+  `unit`, `score`; selftest 33/33), templates and four evals. Tested:
+  with-skill vs baseline subagents on the four prompts, graded
+  independently - 31/32 assertions with the skill, 19/32 without; trigger
+  accuracy on twenty queries is 100 % precise but loads on only 2-3 of 10
+  casual money questions in a bare session, hence the CLAUDE.md rule.
+  Report: `docs/reports/2026-09-19-money-skill.md`. Wired into `CLAUDE.md`,
   `docs/employee.md`, `docs/agent-system.md`, the bootstrap doc and
   `.gitignore`.
 - ⚠ **Evidence is snippet-level by construction.** The sandbox proxy refused
