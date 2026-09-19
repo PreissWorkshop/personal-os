@@ -104,7 +104,7 @@ signs as the workshop (style guide §1, §4).
     Sæll {Jón},
 
     Ég vil láta þig vita að verkið tefst um {viku}. {Efnið kom gallað frá
-    birgjanum og er pantað upp á nýtt.} Ný áætlun er {afhending
+    birginum og er pantað upp á nýtt.} Ný áætlun er {afhending
     föstudaginn 2. október}.
 
     Mér þykir þetta leitt. Ég læt þig vita um leið og eitthvað breytist.
