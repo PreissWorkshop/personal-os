@@ -774,14 +774,21 @@ First successful run of the routine (see corrections folded into the
 
 - ⏸ **Surveillance paused by Tenis 09-19 ~11:30**, as it stands: setup
   prepared, one double-click left (see Waiting on Tenis).
-- ⏳ **Website audit started 09-19 ~11:35, on his instruction, to run until
-  the 14:00 usage reset**: public site, admin and crew app. Branch
-  `audit/2026-09-19-site-admin-crew` off `main` @ a71a66c. Baseline
-  observed this session: build reproduces with no diff (114 pages, 56
-  sitemap pairs), `test_crm.html` 82/82 under a Node runner,
-  `test_quote.mjs` 8/8, admin Python tests 10/10, `audit_seo.py` 0
-  warnings. Five read-only auditors in parallel; fixes land on the branch
-  and go up as a pull request. Nothing merges to `main` without his word.
+- ✅ **Website audit 09-19, 13:10-13:35 UTC, on Tenis's instruction** (public
+  site, admin, crew app, server). Branch `audit/2026-09-19-site-admin-crew`
+  off `main` @ a71a66c, pushed @ 10d39bb, **not merged, not live**. Five
+  read-only auditors in parallel, then fixes in nine commits. Observed after:
+  `test_crm.html` 83/83, `test_quote.mjs` 8/8, `audit_seo.py` 0 warnings,
+  crew and admin pages load in headless Edge without script errors. Not
+  verified: anything against the live database, real mail or a real phone.
+  The account - fixed, needs-Tenis, ranked backlog - is in the website repo,
+  `AUDIT-2026-09-19.md`. Worst things found and fixed: a crew member could
+  read any job and any colleague's check-in selfie by typing an id; every
+  Workshop save that succeeded said "Save failed"; a quote's accept could
+  land twice; "valid until the 18th" died at 00:00 on the 18th; the
+  newsletter form could mail-bomb any address; two clients could book the
+  same measurement hour. No pull request opened: `gh` is not logged in on
+  main-pc - GitHub offers the button on the branch page.
 
 ## Executed 2026-09-19 (from the cnc-pc session, hostname verified)
 
@@ -810,6 +817,12 @@ First successful run of the routine (see corrections folded into the
   an account setting - Tenis's call alone.
 
 ## Waiting on Tenis
+
+- 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
+  (09-19). Merging deploys. Three things in it are his alone: set a random
+  `CREW_SECRET` in the Pages project (the crew cookie is signed with the
+  admin password today), the kennitala / VSK number for the footer, and the
+  quote terms that say "prices include 24% VAT" over ex-VAT lines.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is
