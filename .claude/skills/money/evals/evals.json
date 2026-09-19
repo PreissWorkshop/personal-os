@@ -5,25 +5,65 @@
       "id": 1,
       "prompt": "ok real talk. I have roughly 2.1M ISK of debt: a credit card at about 24%, an overdraft, and a car loan. The workshop brings in maybe 600-800k a month before I pay myself, HelmCNC sells a licence every few months, Studio Esja is tiny. No savings. I want to be debt free and start something online that can eventually let me live anywhere. What do I actually do first, this month?",
       "expected_output": "Asks for or reads the missing numbers (essential burn, minimums, balances, cash) rather than inventing them; states the phase (stabilise/cash/buffer) from those numbers; gives a 30-day ordered list that puts cash flow and the 24% card first; separates verified evidence from judgement; runs or offers scripts/money_model.py; no fabricated case-study numbers; no generic motivational filler.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Names the phase (stabilise/cash/buffer/kill/compound or an explicit equivalent stage) before recommending actions",
+        "Asks for or lists the missing numbers (essential burn, minimum payments, balances per debt, cash) instead of inventing them",
+        "Prioritises the 24% credit card first among the debts (avalanche) and flags tax/VAT obligations as priority-by-consequence",
+        "Gives an ordered this-month action list with at least one cash-collection or cash-generation action (receivables, invoicing, selling hours)",
+        "Every statistic or case-study figure carries an evidence label (verified/snippet/self-reported/inference) or is marked as not verifiable",
+        "Does not recommend any new loan, trading, crypto, paid course, or inventory purchase",
+        "Any debt-payoff or runway number shown is computed transparently (script output or explicit arithmetic), not asserted",
+        "Ends with an explicit sources / assumptions / unverified points / confidence section (or equivalent 'what could be wrong')"
+      ]
     },
     {
       "id": 2,
       "prompt": "Two options on the table. (a) Build a SaaS quoting + cutlist tool for small carpentry shops - I know the problem cold and could build it in a few months with Claude Code. (b) Take a remote C#/.NET contract 3 days a week that a friend can get me. I have zero savings and debt. Which one, and why? Give me the evidence, not vibes.",
       "expected_output": "Recommends cash first (the contract) with the product built in fixed hours, OR a clearly argued alternative, citing real case studies of consulting-funded products (labelled verified/self-reported) and the base rates for indie SaaS time-to-revenue; uses the scorer or the criteria explicitly; names the conditions under which the answer flips; ends with sources checked / assumptions / confidence.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Gives one clear recommendation rather than an unresolved 'it depends'",
+        "Cites at least two named real cases of a consulting-, job- or freelance-funded product (e.g. 37signals/Basecamp, Mailchimp, Tailwind/Wathan, Storemapper/Tringas, Bannerbear) with correct attribution",
+        "States a base rate for indie SaaS (time to revenue, or share of products under $1k MRR) with a named source and an evidence label",
+        "Names the conditions under which the recommendation flips",
+        "Compares the options on explicit criteria (cash within 60 days, capital needed, existing assets, recurring revenue, business customer, location independence) or a scoring rubric",
+        "Keeps a fixed, bounded product block alongside the contract (or argues explicitly why not) rather than abandoning either option",
+        "Labels founder revenue figures as self-reported or unaudited",
+        "Ends with an explicit sources / assumptions / unverified points / confidence section"
+      ]
     },
     {
       "id": 3,
       "prompt": "We're thinking about moving to Spain or Portugal next year and working remotely from there. What does that mean for my taxes, for the ehf, and where should the business be registered? And can I even use Stripe from Iceland?",
       "expected_output": "Explains tax residency (183 days, centre of vital interests, the risk of double residency), that an Icelandic citizen moves freely within the EEA, what happens to an ehf when the owner leaves (or says it is unverified), the Stripe-in-Iceland fact with its source, and merchant-of-record alternatives; clearly labels verified vs unverified; recommends a licensed tax adviser for the specific move; invents no thresholds.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "States that an Icelandic citizen needs no visa to live and work in Spain or Portugal (EEA free movement)",
+        "Mentions the Icelandic rule that a former resident stays fully tax-liable for three years after leaving unless they prove taxation elsewhere",
+        "Explains tax-residency tie-breakers (183 days or six months, permanent home, centre of vital interests) and the risk of dual residency",
+        "Addresses the ehf's management/board residency rule and the EEA-resident exemption, or explicitly marks it unverified",
+        "States that Stripe is not available to Iceland-registered businesses according to available sources, marks it as needing confirmation on stripe.com, and names merchant-of-record alternatives (Paddle, Lemon Squeezy, Freemius)",
+        "Recommends a licensed tax adviser and lists concrete questions for that meeting",
+        "Invents no numeric threshold or rate that lacks a source label",
+        "Distinguishes verified from unverified claims explicitly"
+      ]
     },
     {
       "id": 4,
       "prompt": "Someone I follow on Instagram sells a $1,997 course on starting an AI automation agency. He says his students make $10k/month within 90 days with no coding. I'm tempted because I already know AI tools. Worth it?",
       "expected_output": "Says no or not like this, with evidence: regulator cases against business-opportunity/coaching sellers with income claims, the base rates for such claims, what SMBs actually pay for; offers the zero-cost alternative (sell the automation work directly to a real business this month); no moralising; labels evidence vs judgement.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Gives a clear no / not-now recommendation with reasons, not a hedge",
+        "Cites at least one regulator case against a business-opportunity or coaching seller with unsubstantiated income claims (e.g. FTC v. Ecommerce Empire Builders, Automators AI, Digital Altitude, MOBE)",
+        "Matches concrete red flags to the pitch (unsubstantiated income number, 'no coding' or technology as a guarantee, paying before seeing data)",
+        "Offers a zero-cost alternative for this week or month that uses his existing AI skills (sell one automation to a business he already knows)",
+        "Puts the $1,997 in the context of his debt (interest or opportunity cost), quantified or explicitly reasoned",
+        "Labels evidence versus judgement and invents no statistics",
+        "Matter-of-fact tone with no moralising or lecturing",
+        "Ends with an explicit sources / assumptions / unverified points / confidence section"
+      ]
     }
   ]
 }

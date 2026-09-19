@@ -1,0 +1,22 @@
+[
+  {"query": "quick one - my overdraft is at 15% and the car loan at 9%, I have maybe 150k spare this month. which one gets it?", "should_trigger": true},
+  {"query": "Tom finally paid the HelmCNC invoice. Should I push the founder price to the KFLOP forum now or wait until 1.0.93 is out? Is it even worth the hours?", "should_trigger": true},
+  {"query": "a friend can get me a remote .NET contract, 3 days a week, through his company in Denmark. what should I ask per day and should I invoice from the ehf or as an individual?", "should_trigger": true},
+  {"query": "thinking about spain next year, working remote from valencia. what happens with skatturinn and the ehf if we go", "should_trigger": true},
+  {"query": "can i use stripe for the studio esja webshop or do i need something else from iceland", "should_trigger": true},
+  {"query": "How many years until I could stop working if I saved 40% of what I take home? Roughly, I know it depends.", "should_trigger": true},
+  {"query": "someone on instagram sells a 2000 dollar course on building an AI automation agency, students make 10k a month in 90 days apparently. thoughts", "should_trigger": true},
+  {"query": "I want to build a cutlist + quoting SaaS for small joinery shops. Give me the honest odds and what it would take to reach 5k a month with it.", "should_trigger": true},
+  {"query": "the workshop made about 700k last month before paying me and the credit card is still at 24%. i feel like nothing moves. what would you change first", "should_trigger": true},
+  {"query": "is it dumb to put the surveillance app on the play store for 4.99? or should I just open source it", "should_trigger": true},
+  {"query": "write the tilboð email to Anna for the kitchen film job, labour 620k and material 180-260k incl vsk, start mid october", "should_trigger": false},
+  {"query": "what glue do you recommend for laminating smoked oak veneer onto 16mm MDF for a wall panel, shop is at 40% humidity", "should_trigger": false},
+  {"query": "the HelmCNC self-test suite fails on the tickwrap section on main-pc but passes on cnc-pc, 2179 vs 2181 checks. dig into it", "should_trigger": false},
+  {"query": "add a line to the migration plan that the surveillance leftovers on cnc-pc are approved for deletion", "should_trigger": false},
+  {"query": "explain how the 4% rule was derived and why some people say it's too optimistic, just for my own understanding, no advice needed", "should_trigger": false},
+  {"query": "Studio Esja product text for the new grey yunomi cup, stoneware, hand-thrown, 250 ml, calm premium tone", "should_trigger": false},
+  {"query": "set the VAT rate in the website quote generator to 24% and make sure the .ics invite still works on the phone", "should_trigger": false},
+  {"query": "what does ScanPen's sweep-artifacts-verified check actually measure and why does the tolerance gate keep missing by 1e-7", "should_trigger": false},
+  {"query": "draft the reminder mail to the client who still hasn't paid the June invoice, polite, Icelandic", "should_trigger": false},
+  {"query": "convert the employee's weekly report into a short Telegram summary, five lines max", "should_trigger": false}
+]

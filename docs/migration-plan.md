@@ -809,7 +809,53 @@ First successful run of the routine (see corrections folded into the
   carries hostnames, LAN and tailnet addresses and open ports. Visibility is
   an account setting - Tenis's call alone.
 
+## Executed 2026-09-19 (from the cloud session - money skill)
+
+- ✅ **The money skill exists**: `.claude/skills/money` on branch
+  `claude/profitable-business-debt-situation-6d7hq3` - the finance and
+  business-building brain Tenis asked for: rules, a five-phase cash model,
+  the four-rung ladder (sold hours → productized service → product →
+  recurring), nine evidence-labelled reference files (FI and debt math,
+  Iceland tax and legal, case studies and base rates, playbooks, maker
+  leverage, software and AI money, remote work and relocation, what fails,
+  sources), a stdlib calculator (`plan`, `debt`, `runway`, `fi`, `rate`,
+  `unit`, `score`; selftest 32/32), templates and four evals. Report:
+  `docs/reports/2026-09-19-money-skill.md`. Wired into `CLAUDE.md`,
+  `docs/employee.md`, `docs/agent-system.md`, the bootstrap doc and
+  `.gitignore`.
+- ⚠ **Evidence is snippet-level by construction.** The sandbox proxy refused
+  nearly every website (all `.is` sites, regulators, vendors, founders'
+  blogs), so only HelmCNC's own site, Anthropic's pricing page, Apple's
+  small-business page and three vendor docs repos were read on the page.
+  Every other claim is labelled [S]/[SR] with its URL;
+  `references/sources.md` lists the ordered upgrade pass (~2 hours from
+  main-pc or the laptop).
+- ⚠ **Privacy design**: personal-os is public, so the skill carries no real
+  figure. Real numbers live only in a private snapshot outside every repo
+  (`~\.preiss\finance\finance-snapshot.json`, from the template in
+  `assets/`); `.gitignore` backstops it; the employee may model and
+  recommend but never spends, and reports quote the phase, never the
+  balances.
+- ⚠ **Merge collision**: like the Icelandic branch, this branch edits
+  `CLAUDE.md`, `docs/employee.md`, `docs/agent-system.md`,
+  `docs/bootstrap-new-machine.md` and this file. Whichever merges second
+  needs a hand merge of those five files (the bootstrap junction paragraph
+  becomes one block listing both skills).
+
 ## Waiting on Tenis
+
+- 🔒 **Money skill - three things** (09-19): (1) merge
+  `claude/profitable-business-debt-situation-6d7hq3` (safe; hand-merge
+  the five shared files if the Icelandic branch lands first); (2) copy
+  `.claude/skills/money/assets/finance-snapshot.template.json` to
+  `~\.preiss\finance\finance-snapshot.json` on main-pc, fill in the real
+  numbers there and nowhere else, run `python scripts\money_model.py plan
+  --snapshot ...` - the phase it prints is the starting point for every
+  money conversation; (3) run, or have the employee run from main-pc, the
+  upgrade pass in `references/sources.md` so the Iceland and Stripe facts
+  are verified on the page before they are acted on. Then book the
+  accountant meeting with the five questions in `references/iceland.md`
+  §10.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is
