@@ -151,6 +151,19 @@ gap. Every sent message is logged in the CRM against the client, so the
 history sits in one place. Nothing goes to a list; this is correspondence,
 not marketing.
 
+## Money
+
+Money questions — debt, cash flow, pricing as a business decision, a new
+income line, product or business plans, remote work, relocation, financial
+independence — go through `.claude/skills/money` (read its `SKILL.md`, run
+`scripts/money_model.py` on the private snapshot). The employee may
+research, model and recommend; it never spends, borrows, signs, or commits
+money, and it never writes Tenis's real figures into this repo or a report
+— this repo is public. Figures live in the private snapshot outside every
+repo; a report quotes the phase and the decision, not the balances. Every
+recommendation labels its evidence (verified / self-reported / inference /
+assumption) and ends with what could be wrong.
+
 ## Reporting
 
 - **Format**: dated, dense, factual. Lead with the answer or the blocker.

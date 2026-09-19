@@ -1,0 +1,38 @@
+{
+  "_readme": "Copy this file OUTSIDE every git repo (recommended: ~/.preiss/finance/finance-snapshot.json, i.e. C:\\Users\\<you>\\.preiss\\finance\\ on Windows). Fill in real numbers there. personal-os is PUBLIC on GitHub - real figures never go into it. Percent fields are percents (12.5 = 12.5 %). Amounts are monthly unless the key says otherwise.",
+  "as_of": "2026-01-01",
+  "currency": "ISK",
+  "monthly_income": {
+    "workshop_net_to_owner": 0,
+    "helmcnc_licences": 0,
+    "studio_esja": 0,
+    "freelance_or_salary": 0,
+    "other": 0
+  },
+  "monthly_burn": {
+    "essential": 0,
+    "full": 0
+  },
+  "cash": 0,
+  "debts": [
+    {
+      "name": "example credit card",
+      "balance": 0,
+      "apr": 0,
+      "min_payment": 0,
+      "index_rate": 0,
+      "secured": false,
+      "creditor": "",
+      "note": "index_rate is the CPI indexation of a verdtryggt loan; 0 for a non-indexed one"
+    }
+  ],
+  "debt_budget": 0,
+  "assets": [
+    {"name": "example: CNC machine", "value": 0, "liquid": false},
+    {"name": "example: pension (not touchable)", "value": 0, "liquid": false}
+  ],
+  "tax_reserve_rate": 0,
+  "receivables_outstanding": 0,
+  "committed_work_next_90_days": 0,
+  "notes": "what changed since the last snapshot, in one line"
+}

@@ -1,0 +1,20 @@
+{
+  "_readme": "Invented example for money_model.py score. Scores are 1-5, 5 = better for a debt-carrying solo builder with no capital. Replace with the real options under discussion.",
+  "criteria": {
+    "cash_within_60_days": 5,
+    "no_capital_needed": 4,
+    "uses_existing_assets": 4,
+    "recurring_revenue": 3,
+    "b2b_customer": 3,
+    "location_independent": 3,
+    "market_reachable_in_english": 2,
+    "defensible": 2,
+    "energy_and_fit": 2
+  },
+  "options": [
+    {"name": "Remote .NET/C# contract (3 days a week)", "scores": {"cash_within_60_days": 4, "no_capital_needed": 5, "uses_existing_assets": 4, "recurring_revenue": 3, "b2b_customer": 5, "location_independent": 5, "market_reachable_in_english": 5, "defensible": 2, "energy_and_fit": 3}, "note": "bridge income"},
+    {"name": "HelmCNC: sell to the KFLOP installed base", "scores": {"cash_within_60_days": 2, "no_capital_needed": 5, "uses_existing_assets": 5, "recurring_revenue": 3, "b2b_customer": 4, "location_independent": 5, "market_reachable_in_english": 5, "defensible": 4, "energy_and_fit": 4}, "note": "existing product"},
+    {"name": "Productized CAD/CAM + CNC setup service for small shops", "scores": {"cash_within_60_days": 4, "no_capital_needed": 5, "uses_existing_assets": 5, "recurring_revenue": 2, "b2b_customer": 5, "location_independent": 3, "market_reachable_in_english": 4, "defensible": 3, "energy_and_fit": 4}},
+    {"name": "Dropshipping store", "scores": {"cash_within_60_days": 1, "no_capital_needed": 2, "uses_existing_assets": 1, "recurring_revenue": 1, "b2b_customer": 1, "location_independent": 5, "market_reachable_in_english": 5, "defensible": 1, "energy_and_fit": 1}, "note": "here as the control"}
+  ]
+}

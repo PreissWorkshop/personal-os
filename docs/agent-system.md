@@ -48,6 +48,13 @@ narrow; anything carrying a commitment waits for Tenis. The rules are in
   (`HELMCNC_NOTES.md`).
 - **helm-reports** skill triages customer bug/feature reports from the
   HelmCNC SUPPORT screen.
+- **money** skill (`.claude/skills/money`, 2026-09-19) — the finance and
+  business-building brain: debt and cash-flow triage by phase, the path
+  from sold hours to product to financial independence, evidence-labelled
+  case studies and base rates, Iceland and relocation facts, stdlib
+  calculators. Any session touching money loads it; real figures stay in
+  the private snapshot outside every repo, never in this public one. The
+  bootstrap doc shows how to expose it user-wide.
 - **Codex CLI** — configured on cnc-pc (`~/.codex`) but not on PATH; intended
   role: second engineering/review worker, to be re-wired on main-pc.
 

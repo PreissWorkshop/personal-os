@@ -1,0 +1,238 @@
+---
+name: money
+description: Finances, debt, cash flow, and building a profitable location-independent business from a position of debt and no capital - for Tenis Preiss (Preiss Workshop, Studio Esja, HelmCNC, ScanPen; C#/.NET, Python, Claude Code agent systems; Iceland). Use this skill whenever money is the constraint or the subject - debt, loans, interest, overdraft, indexed loans, budget, savings, runway, income, salary, day rate, how much to charge, pricing as a business decision, a new income idea, a side business, SaaS, an app or software product, freelancing or contracting, a remote job, going nomad, moving abroad, taxes, ehf or VAT, Stripe or payments, investing, financial independence, retiring early, or judging a course, guru, agency or "passive income" offer. Trigger even for a one-line question, even when he does not say "finance", and even when the question is about a project (HelmCNC, ScanPen, the website, the workshop, the employee) if the real question is whether it will make money or what to build next. Not for the arithmetic inside a single customer quote - the workshop-ops repo owns quoting.
+---
+
+# Money: from debt to a business that pays for freedom
+
+The job of this skill is to turn every money question into a decision Tenis
+can act on this week, using real numbers, evidence that was actually
+checked, and the cheapest path that works. He is in debt, has no capital,
+and already owns things most people starting out do not: a running workshop
+with clients, a shipped CNC control product with paying customers, two
+brands, a website with a CRM, deep C#/.NET and Python skill, and a working
+agent system. The way out is built from those, not from a fresh idea that
+needs money he does not have.
+
+Two truths shape every answer. First, cash flow beats everything: nothing
+compounds while the month loses money, and a plan that ignores the next
+sixty days is a fantasy. Second, the evidence on what works for one person
+with skills and no money is consistent and boring: sell hours or a
+productized service first, build the product in fixed hours funded by
+those sales, prefer business customers and recurring revenue, get
+distribution before polish, and never gamble. The case studies and base
+rates behind that are in `references/`, each claim labelled by how it was
+verified.
+
+## Rules that do not bend
+
+- **Real numbers or no numbers.** The private snapshot
+  (`~/.preiss/finance/finance-snapshot.json`, never inside any repo -
+  personal-os is public) is the only source of balances, income and debts.
+  If it is missing, ask for the six numbers below or work in ratios and say
+  so. Never invent a balance, a rate, a revenue figure, a case-study number
+  or a tax rule. Never write his real figures into this repo or a report.
+- **Label every claim**: Verified (source opened, quote on the page) ·
+  Snippet (seen only in a search result - "reported, not confirmed") ·
+  Self-reported (a founder's own claim) · Inference · Assumption ·
+  Unverified. Founders' revenue numbers are marketing until proven
+  otherwise; say so. When a fact is not in `references/`, search, open the
+  source, label it, or say "I could not verify this".
+- **Cash first, then buffer, then the expensive debt, then product.** The
+  order is the phase model below. A product idea is welcome in every phase,
+  but it gets the hours the phase allows, not the hours it wants.
+- **No spending, borrowing, leverage or speculation** is ever recommended
+  as the path: no trading, no crypto, no new loan to "invest in the
+  business", no paid course or coaching before a paying customer exists,
+  no inventory. The base rates are in `references/what-fails.md`.
+- **Every hour has a price.** Unpaid hours on a product are a loan from the
+  future, tracked like one. `scripts/money_model.py rate` gives the number.
+- **Decisions are his.** The skill models, ranks, and says clearly what it
+  would do and why; it never spends, signs, applies, or commits money.
+  Tax, legal and immigration specifics are checked with a licensed adviser
+  before acting - the skill gets him to that meeting prepared.
+- **Brand-true.** Preiss Workshop stays precise and premium, Studio Esja
+  stays calm and artistic. Income ideas that cheapen either brand (discount
+  blasts, generic dropshipped goods under the name) are out.
+
+## Evidence state (read once)
+
+The references were built on 2026-09-19 from a cloud sandbox whose proxy
+refused nearly every website, so most claims are **Snippet**-level: the
+number appeared in a search result attributed to the source, and the page
+itself was not opened. Only HelmCNC's own site, Anthropic's pricing page,
+Apple's small-business page and three vendor docs repos were read on the
+page. `references/sources.md` carries the labels, the verified list and
+the ordered upgrade pass to run from main-pc. Until a claim is upgraded,
+quote it as reported and say that before acting on the number he should
+open the link.
+
+## Workflow
+
+1. **Load the situation.** Read the snapshot if it exists and run
+   `python scripts/money_model.py plan --snapshot <path>`. If it does not,
+   ask for: monthly income by source (last three months' average),
+   essential monthly burn, full monthly burn, cash today, each debt with
+   balance / rate / minimum / indexed-or-not, and committed work for the
+   next ninety days. Do not proceed on imagined numbers; with none at all,
+   answer in ratios (months of runway, share of income) and label it.
+2. **Name the phase** (below) and say it. It sets what the answer may
+   recommend.
+3. **Pick the reference for the question** (table below), read it, and use
+   only claims with their labels.
+4. **Run the numbers**, never estimate them in prose:
+   debt strategy (`debt`), runway (`runway`), the rate he must charge
+   (`rate`), the product's unit economics (`unit`), years to financial
+   independence (`fi`), and the ranking of options (`score`). Paste the
+   script's output; do not retype it into different figures.
+5. **Decide.** One recommendation, the conditions under which it flips,
+   and the next seven days as a numbered list with at least one cash
+   action. Then the standard footer for any answer he will act on:
+   Sources checked · Supporting evidence · Assumptions · Unverified points
+   · Confidence (High / Medium / Low).
+
+Six numbers or nothing: income by source, essential burn, full burn, cash,
+debts (balance, rate, minimum, indexed?), committed work. Everything else
+in this skill is a function of those.
+
+## The phases
+
+The script labels them; the meaning is here. Numbers are monthly.
+
+| Phase | Condition | What the month is for | Product hours |
+|---|---|---|---|
+| 0 Stabilise | income < full burn + minimums | Stop the bleed: collect receivables, cut, sell hours or a productized service this week, call creditors before missing a payment | 0 - every hour is for cash |
+| 1 Cash | positive month, cash < 1 month of essentials | Bank every surplus króna into one month of essentials; keep selling hours | Evenings only, capped |
+| 2 Buffer + kill | cash 1-3 months, debt remains | Reach 3 months of essentials, then avalanche the highest-rate debt with the whole surplus | Fixed block, e.g. one day a week |
+| 3 Kill debt | buffer done, debt remains | Whole surplus to the highest-rate debt; product in a fixed weekly block funded by sold hours | 1-2 days a week |
+| 4 Compound | debt-free, buffer done | Invest the surplus; raise income through product and recurring revenue; the savings rate is the dial | As much as cash flow allows |
+
+Why avalanche and not snowball: the math says highest rate first, and the
+behavioural evidence for snowball is about motivation, which a written plan
+and a monthly `plan` run replace. Icelandic indexed (verðtryggð) debt is
+compared on interest plus indexation, which the script does. Tax and VAT
+due are priority debts by consequence and come before the avalanche.
+Details and sources: `references/fi-and-debt.md`.
+
+## The ladder: how one person with no money builds income
+
+Every reported case of a solo builder going from nothing to a real business
+climbs the same ladder, and the ones who skipped a rung mostly failed:
+
+1. **Sold hours** - contracting, freelancing, a remote part-time job. The
+   fastest cash there is, the only rung reachable in 60 days, and the same
+   skills that build the product pay for it. Invoiced from his own
+   business, it is the door that survives a move abroad.
+2. **Productized service** - one fixed-scope, fixed-price deliverable sold
+   repeatedly (a KFLOP machine commissioning package, a shop's quote-ready
+   cutlist and CNC program, a one-workflow automation for a trade
+   business). Sells like a product, delivers like a service, needs no
+   capital.
+3. **Product** - software, files, a course or book - built in fixed hours
+   from what the service taught, sold to the same customers first.
+4. **Recurring revenue** - subscription, maintenance, licences with
+   renewals, retainers. This is the rung financial independence is built
+   on; one-off sales never compound.
+
+Case studies with their numbers and labels: `references/case-studies.md`.
+The playbook for each rung, and the first 30 days: `references/playbooks.md`.
+
+## Testing an idea in five questions
+
+Ask these before any modelling; a "no" on the first three ends the
+discussion in the current phase:
+
+1. Can it produce cash within 60 days without spending money? (Phase 0-2
+   ideas must.)
+2. Does it use what he already has - the workshop's clients, HelmCNC's
+   users, the machine, the code, the agent system, the brands?
+3. Is the customer a business that already pays for this kind of thing?
+4. Is it recurring, or can it become recurring?
+5. Can it be sold in English to the world, from anywhere, without him
+   physically present?
+
+Then the criteria the best-documented bootstrappers use (business
+customer, recurring, predictable acquisition, annual prepay, an
+aftermarket for an existing ecosystem) in `references/case-studies.md`,
+and `scripts/money_model.py score` with `assets/options-example.json` as
+the rubric template.
+
+## His assets, in order of nearness to money
+
+Judgement, not verified fact, except where marked; the evidence for each
+is in `references/maker-leverage.md`:
+
+1. **Skills for hire** - C#/.NET desktop and machine control, Python and
+   computer vision, agent systems with Claude Code. The bridge income in
+   phases 0-2, remote-capable. Label them by their highest-paid names
+   (machine-control engineer, computer-vision engineer), never ".NET
+   developer".
+2. **HelmCNC** - shipped and licensed (Verified from its own site: $239
+   perpetual, $129 founder price, six payments of $45, 24 months of updates
+   included then an optional $19 a year, 14-day trial, "Built on the
+   KMotion libraries with Dynomotion's permission"). The nearest product
+   business he owns; its ceiling is the KFLOP/Kogna installed base, and no
+   other paid front-end for that hardware was found. Sell more of what
+   exists before building anything new.
+3. **The workshop** - cash now, but tied to the building and to him. Its
+   value online is the knowledge inside it: quoting, cutlists, CNC setup,
+   film and signage processes, which small shops abroad pay for. The
+   founder pattern "built it for my own shop, then sold it to my trade" is
+   the strongest evidence in the maker research.
+4. **Studio Esja** - high margin, low volume, brand-sensitive. Online it is
+   content, drops and a waiting list, not a stocked shop; a channel, not a
+   scalable income.
+5. **ScanPen** - hardware-adjacent; the evidence says hardware is the
+   slowest and most capital-hungry path. Software-only or parked until
+   phase 4 or a paying pilot customer.
+
+## Which reference for which question
+
+| Question is about | Read |
+|---|---|
+| Debt order, buffer size, FI number, savings rate, years to FI, invest vs pay down, consolidation | `references/fi-and-debt.md` |
+| Real bootstrapped case studies and the base rates (how many make it, how long, exit multiples) | `references/case-studies.md` |
+| What to do first, the rungs, freelance platforms and rates, productized services, pricing, validation, first ten customers, AI work that sells, timelines | `references/playbooks.md` |
+| HelmCNC, the workshop, Studio Esja, ScanPen, CNC software prices, licensing platforms, marketplaces, vertical shop software | `references/maker-leverage.md` |
+| AI and software demand, platform fees, API and hosting costs, margins, distribution, what still commands a premium | `references/software-and-ai.md` |
+| Iceland: ehf vs sole trader, VAT, tax brackets, rates, indexed loans, debt help, leaving, payments from Iceland, questions for the accountant | `references/iceland.md` |
+| Remote jobs, contractor setups, nomad visas, tax residency, entities abroad, health and pensions, the move in order | `references/remote-and-relocation.md` |
+| Courses, gurus, dropshipping, trading, crypto, MLM, "passive income", app-store odds, the red-flag checklist | `references/what-fails.md` |
+| What was and was not verified, the labels, the upgrade pass | `references/sources.md` |
+
+## Scripts
+
+`scripts/money_model.py` (stdlib only, no network; `selftest` proves it):
+
+| Command | Gives |
+|---|---|
+| `plan --snapshot <json>` | income, burn, gap, runway, debt horizon, phase |
+| `debt --debts <json> --budget N --strategy compare` | avalanche vs snowball vs minimums: months, interest, indexation, order |
+| `runway --cash --burn --income` | months of cash and the income that stops the bleed |
+| `fi --spend --assets --savings [--swr 3.5]` | FI number, years to FI, the savings-rate table |
+| `rate --net --tax --overhead` | the hourly and day rate that actually pays |
+| `unit --price --margin --churn --cac --target-mrr` | LTV, CAC payback, customers needed, replacements per month |
+| `score --options <json>` | ranked options on the nine criteria |
+
+Percent inputs are percents (12.5 means 12.5 %). Templates:
+`assets/finance-snapshot.template.json` (copy it outside the repo),
+`assets/debts-example.json`, `assets/options-example.json` - invented
+numbers, not anyone's real ones.
+
+## Review list (run it every time)
+
+- The phase is named and the recommendation fits it.
+- No number in the answer was invented; script output is pasted, not
+  paraphrased into different figures.
+- Every case study or statistic carries its label and its source is in
+  `references/`, or the answer says "I could not verify this".
+- Founder revenue claims are marked Self-reported; snippet-level facts are
+  "reported", with the link to open before acting.
+- The answer ends with what could be wrong and what would flip it.
+- The next seven days are a numbered list with at least one cash action.
+- Nothing recommends spending, borrowing, trading, or a course before a
+  paying customer.
+- No real balance, income or debt figure is written into the repo or a
+  report; the phase and the decision are enough there.
+- Tax, legal and immigration specifics are marked for a licensed adviser.
+- Brand tone protected; nothing cheapens Preiss Workshop or Studio Esja.

@@ -9,3 +9,9 @@
 secrets/
 *.pem
 *.key
+
+# Private finance data - the money skill reads it from OUTSIDE every repo
+# (this repo is public). Only the zero-filled template may be committed.
+finance/
+*finance-snapshot*.json
+!**/finance-snapshot.template.json

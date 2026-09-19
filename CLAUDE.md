@@ -30,6 +30,17 @@ cross-project plans. Local session memory is cache; this repo is truth.
 - A session that changed this repo ends with a commit AND a push, and keeps
   `docs/migration-plan.md` current — it is the living tracker.
 
+## Money and business
+
+- Anything about money goes through `.claude/skills/money` — debt, cash
+  flow, pricing as a business decision, a new income line, a product or
+  business plan, remote work, relocation, financial independence. Read its
+  `SKILL.md` first; the numbers come from `scripts/money_model.py` run on
+  the private snapshot, which lives OUTSIDE every repo (this repo is
+  public — real balances, income and debts never appear here or in a
+  report). The skill never invents a number or a case study and labels
+  every claim by how it was verified.
+
 ## Writing style here
 
 Concise, factual, dated; overwrite stale statements rather than accumulating

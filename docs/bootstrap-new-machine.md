@@ -42,6 +42,24 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
        git clone https://github.com/PreissWorkshop/personal-os C:\Projects\_system\personal-os
 
    Read its README.md — it maps everything else.
+
+   Then expose the repo's skills to every project root on this machine
+   (Claude Code loads personal skills from `~\.claude\skills`); a junction
+   keeps each one in sync with the repo:
+
+       New-Item -ItemType Directory -Force $HOME\.claude\skills | Out-Null
+       New-Item -ItemType Junction -Path $HOME\.claude\skills\money -Target C:\Projects\_system\personal-os\.claude\skills\money
+
+   `[UNVERIFIED — needs check]` on Windows: written 2026-09-19 from a Linux
+   sandbox; confirm the skill list shows `money` in a session rooted in
+   another project. The money skill also wants its private snapshot,
+   OUTSIDE every repo:
+
+       New-Item -ItemType Directory -Force $HOME\.preiss\finance | Out-Null
+       Copy-Item C:\Projects\_system\personal-os\.claude\skills\money\assets\finance-snapshot.template.json $HOME\.preiss\finance\finance-snapshot.json
+
+   then fill in the real numbers there and nowhere else (personal-os is
+   public on GitHub).
 4. **ScanPen**:
 
        mkdir C:\Projects\ScanPen
