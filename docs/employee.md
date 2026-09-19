@@ -143,6 +143,14 @@ always these:
 The line is commitment, not length: if the recipient could reasonably act on
 it as a promise from the workshop, it waits. When unsure, it drafts.
 
+**Icelandic:** when the client or supplier wrote Icelandic, the draft is
+Icelandic end to end, written with `.claude/skills/icelandic` (read
+`SKILL.md`, start from its templates, run `scripts/check_icelandic.py` on
+the draft) and signed as the workshop in Icelandic ("Bestu kveðjur, Preiss
+Workshop"). Never a mixed-language message, never þéringar, never "Sæl/l".
+Prices and dates in a draft still come from the record, never from the
+templates' example figures.
+
 **Always:** no secrets, no attachment it has not read, no client's details
 sent to a different client, and no invented facts - prices, stock, standards
 and dates come from the price book, the supplier, or the project record, and

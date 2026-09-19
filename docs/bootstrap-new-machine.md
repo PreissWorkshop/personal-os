@@ -42,6 +42,17 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
        git clone https://github.com/PreissWorkshop/personal-os C:\Projects\_system\personal-os
 
    Read its README.md — it maps everything else.
+
+   Then expose the Icelandic skill to every project root on this machine
+   (Claude Code loads personal skills from `~\.claude\skills`); a junction
+   keeps it in sync with the repo:
+
+       New-Item -ItemType Directory -Force $HOME\.claude\skills | Out-Null
+       New-Item -ItemType Junction -Path $HOME\.claude\skills\icelandic -Target C:\Projects\_system\personal-os\.claude\skills\icelandic
+
+   `[UNVERIFIED — needs check]` on Windows: written 2026-09-19 from a Linux
+   sandbox; confirm `/skills` (or the skill list) shows `icelandic` in a
+   session rooted in another project.
 4. **ScanPen**:
 
        mkdir C:\Projects\ScanPen

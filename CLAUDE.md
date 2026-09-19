@@ -30,6 +30,15 @@ cross-project plans. Local session memory is cache; this repo is truth.
 - A session that changed this repo ends with a commit AND a push, and keeps
   `docs/migration-plan.md` current — it is the living tracker.
 
+## Icelandic
+
+- Any text an Icelandic-speaking client, supplier or partner will read —
+  mail, quote, CRM template, product text, caption, Telegram reply — is
+  written or reviewed with `.claude/skills/icelandic` (read its `SKILL.md`
+  first, run `scripts/check_icelandic.py` on the draft). One language per
+  message; the recipient's language decides. Tenis himself is addressed in
+  English unless he asks for Icelandic.
+
 ## Writing style here
 
 Concise, factual, dated; overwrite stale statements rather than accumulating

@@ -1,0 +1,23 @@
+{
+  "skill_name": "icelandic",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A client mailed me this (in Icelandic): \"Góðan dag, ég er með gamla eldhúsinnréttingu, 12 skápahurðir og 4 skúffur, og langar að fá verð í filmun í ljósgráum lit. Sjá myndir í viðhengi. Kveðja, Anna\". Draft my reply. Facts: labour 620.000 kr incl VAT, material 180.000-260.000 kr incl VAT depending on the film chosen, I can start mid October, I want to see the kitchen before a fixed price. Reply as me (Tenis).",
+      "expected_output": "A full Icelandic mail: 'Sæl Anna,' greeting, thanks, labour and material with Icelandic number format and 'með vsk.', the range with its reason, a proposed site visit before a fixed price, mid-October start, 'Bestu kveðjur, Tenis'. No English, no exclamation marks, nothing invented.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a short Icelandic email to Jón (a company client) telling him his fitted shelving unit is delayed: the veneer sheets arrived damaged, the supplier is sending new ones this week, delivery moves from Tuesday 22 September to Friday 2 October. From Tenis.",
+      "expected_output": "'Sæll Jón,' + what happened in one or two sentences, the new date written '2. október', a brief apology that owns it, promise to report any change, closing. Under 90 words. Lowercase weekday/month.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write an Icelandic product description for the Studio Esja web shop: a yunomi cup, stoneware, hand-thrown in Álafoss, matte grey-brown glaze with slight variation between pieces, about 250 ml, dishwasher safe. Calm premium tone, 4-6 sentences.",
+      "expected_output": "Calm, concrete Icelandic using steinleir, handrenndur, glerungur, brennsla; variation stated as part of the craft; capacity and care stated; no marketing adjectives, no exclamation marks, yunomi kept as is.",
+      "files": []
+    }
+  ]
+}

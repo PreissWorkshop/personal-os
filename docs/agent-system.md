@@ -48,6 +48,11 @@ narrow; anything carrying a commitment waits for Tenis. The rules are in
   (`HELMCNC_NOTES.md`).
 - **helm-reports** skill triages customer bug/feature reports from the
   HelmCNC SUPPORT screen.
+- **icelandic** skill (`.claude/skills/icelandic`, 2026-09-19) — modern
+  Icelandic in Tenis's voice for both brands: style guide, templates,
+  glossary, pitfalls, a checker script, built from his real sent mail. Any
+  session writing to an Icelandic client loads it; the bootstrap doc shows
+  how to expose it user-wide so it works from every project root.
 - **Codex CLI** — configured on cnc-pc (`~/.codex`) but not on PATH; intended
   role: second engineering/review worker, to be re-wired on main-pc.
 

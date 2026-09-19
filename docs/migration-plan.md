@@ -694,6 +694,41 @@ First successful run of the routine (see corrections folded into the
   rising above the ~27 test views. The new domain may land in the
   client's Spam — Tenis was told to text him.
 
+## Executed 2026-09-19 (cloud session, branch `claude/icelandic-language-skill-77oinn`)
+
+- ✅ **The Icelandic language skill exists: `.claude/skills/icelandic`.**
+  Built from the mailbox itself: five result pages of Tenis's sent mail
+  matching Icelandic keywords (about 250 threads, 2023-07 to 2026-09),
+  about 30 threads read in full, the inbound Icelandic of clients,
+  designers, suppliers and agencies, the 2019 Drive "Scripts" doc, and
+  the website's own quote and acceptance mails of 09-18. Contents:
+  `SKILL.md` (pushy trigger, workflow, six voice rules, formatting table,
+  review list), `references/` (style guide, corpus notes in Tenis's own
+  phrasing, 17 templates for both brands, glossary with gender, pitfalls,
+  a sources log that says exactly what was and was not verified),
+  `scripts/check_icelandic.py` (advisory checker: þéringar, "Sæl/l",
+  English number formats, ISO dates, English leftovers, exclamation
+  marks, amounts without vsk) and `evals/evals.json`. No client names,
+  addresses or quoted prices are in the repo — the auto-mode classifier
+  refused the first draft that carried them, and the figures were replaced
+  with invented ones. Report: `docs/reports/2026-09-19-icelandic-skill.md`.
+- ✅ **Wired in**: `CLAUDE.md` (Icelandic section), `docs/employee.md`
+  (E-mail: Icelandic drafts go through the skill and are signed as the
+  workshop in Icelandic), `docs/agent-system.md`, and a bootstrap step
+  that exposes the skill user-wide by junction so it loads from any
+  project root (`[UNVERIFIED — needs check]` on Windows).
+- ⚠ **Reference sites could not be opened** from the sandbox (egress
+  proxy blocks arnastofnun.is, malid.is, visindavefur.is, wikipedia and
+  both brand sites); rules are verified only through search-result
+  excerpts and are labelled [V]/[C]/[K]/[A] accordingly in the skill.
+- ⚠ **Website Icelandic reviewed from the generated mails** (the repo
+  attach was denied): findings and a proposed rewrite are in the skill's
+  `references/templates.md` → "Website and CRM templates". Main items:
+  the `Sæl/l Fullt Nafn,` greeting, the ISO date in the acceptance mail,
+  `vsk` without a period, and the bare `Afsláttur` label. 🔒 Tenis: apply
+  in the website repo (needs a salutation/gender field on the client
+  record or a -son/-dóttir rule).
+
 ## Waiting on Tenis
 
 - 🔒 **Change the admin password now** — it travelled over Telegram
