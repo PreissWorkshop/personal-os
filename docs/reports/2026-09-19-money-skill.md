@@ -164,6 +164,33 @@ of the assertions themselves (one depends on context absent from the
 prompt; one measures labelling, not invention; none covers the
 destination country's taxes) is the to-do list for the next iteration.
 
+## Second round, same day: what else would improve it
+
+Tenis asked how the skill could improve further and for a rating against
+two days earlier. Rating, my judgement with the test scores as the only
+measured part: two days ago (no skill) about 5/10 for his situation -
+competent general answers, invisible assumptions, nothing Icelandic, 19
+of 32 test assertions; now about 7.5/10 - 31 of 32, phase discipline,
+calculators, labelled evidence; held below 9 by unverified numbers,
+under-triggering, missing destination-country taxes and no live data.
+Built in the second round:
+
+| Improvement | What exists now |
+|---|---|
+| Verification made mechanical | `references/claims.json` (44 load-bearing claims with URL and quote) and `scripts/verify_claims.py`, which fetches each page and prints VERIFIED / NOT FOUND / BLOCKED. Tested here: the three controls (HelmCNC site, Anthropic pricing, Apple) verify; stripe.com reports BLOCKED, as expected from this sandbox. |
+| Trigger reliability | `.claude/hooks/money_trigger.py` plus `.claude/settings.json`: a prompt hook that injects a one-line "load the money skill" note when money or business words appear (English and Icelandic). Pipe-tested on five prompts (three positives, two negatives); not provable in-session because prompt hooks fire outside the turn - `[UNVERIFIED — needs check]` on the next session. The bootstrap doc gives the user-level version for other roots. |
+| Real numbers, continuously | A private decision log (`assets/decisions-template.md`, kept beside the snapshot): the skill reads the last three entries before answering and scores each on its review date. The employee gains a monthly money review (`docs/employee.md`): run `plan`, compare phases, score due decisions, report five lines with no figures. |
+| Calculator | `job` (one job's contribution and effective hourly against the target rate, VAT stripped) and `forecast` (month-by-month cash, names the first negative month); self-test 40/40. |
+| Sales assets | `references/templates.md`: contract pitch, productized offer one-pager, HelmCNC founder-price mail, KFLOP forum post, automation offer, warm-network note, bank call script, price rise, saying no - in his register, prices always from the scripts. |
+| Evals | Six prompts now (HelmCNC pricing and a below-budget kitchen job added); two assertions the graders called ambiguous were tightened. Not re-run. |
+
+Still needing open internet or him: the verification run itself; Spain's
+and Portugal's own tax regimes (one recalled pointer was added on how an
+inbound special regime may interact with Iceland's three-year rule); SMB
+churn benchmarks and what SMBs pay for AI; feeds from the website CRM
+(receivables, pipeline) and Freemius (HelmCNC sales) into the snapshot -
+those belong in the website and HelmCNC repos, one session each.
+
 ## Blocked or not done
 
 - No external page except the seven listed could be opened; the upgrade

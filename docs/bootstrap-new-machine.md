@@ -59,12 +59,28 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
        Copy-Item C:\Projects\_system\personal-os\.claude\skills\money\assets\finance-snapshot.template.json $HOME\.preiss\finance\finance-snapshot.json
 
    then fill in the real numbers there and nowhere else (personal-os is
-   public on GitHub). Because a skill description alone under-triggers on
-   casual money questions (measured 2026-09-19: 2-3 of 10 loaded it), add
-   one line to `~\.claude\CLAUDE.md` on the machine so every project root
-   gets it: "Any question about money, debt, rates, pricing as a business
-   decision, a new income idea, remote work, relocation or financial
-   independence: load the `money` skill first."
+   public on GitHub). Copy `assets\decisions-template.md` to the same
+   folder as `decisions.md` - the private decision log the skill reads.
+
+   Because a skill description alone under-triggers on casual money
+   questions (measured 2026-09-19: 2-3 of 10 loaded it), two backstops:
+   (a) one line in `~\.claude\CLAUDE.md` so every project root gets it:
+   "Any question about money, debt, rates, pricing as a business decision,
+   a new income idea, remote work, relocation or financial independence:
+   load the `money` skill first."; (b) the prompt hook. Inside personal-os
+   the repo's `.claude/settings.json` already runs
+   `.claude/hooks/money_trigger.py` on every prompt (it injects a one-line
+   reminder when money words appear). For other roots, add the same hook to
+   `~\.claude\settings.json` with an absolute path:
+
+       "hooks": {"UserPromptSubmit": [{"hooks": [{"type": "command",
+         "command": "python C:/Projects/_system/personal-os/.claude/hooks/money_trigger.py",
+         "timeout": 10}]}]}
+
+   `[UNVERIFIED — needs check]` on Windows: hooks run through Git Bash
+   when it is installed; confirm with `/hooks` that the hook is listed and
+   that a prompt such as "which loan first, the overdraft or the card?"
+   shows the reminder.
 
 4. **ScanPen**:
 

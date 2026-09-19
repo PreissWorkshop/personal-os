@@ -15,3 +15,7 @@ secrets/
 finance/
 *finance-snapshot*.json
 !**/finance-snapshot.template.json
+
+# Python bytecode
+__pycache__/
+*.pyc

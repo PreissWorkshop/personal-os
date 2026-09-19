@@ -12,6 +12,10 @@ Subcommands
   rate      freelance hourly / day rate from a target take-home income
   unit      subscription unit economics: LTV, CAC payback, customers needed
   score     rank business options with a weighted rubric
+  job       one job's contribution and effective hourly rate against the
+            target rate - the business view of a quote, not the quote itself
+  forecast  month-by-month cash for the next N months; names the first
+            month that goes negative
   selftest  run the built-in checks
 
 No third-party packages, no network, no personal data inside this file.
@@ -28,6 +32,8 @@ Examples
   python money_model.py rate --net 9000000 --tax 38 --overhead 1200000
   python money_model.py unit --price 29 --margin 85 --churn 4 --cac 120 --target-mrr 8000
   python money_model.py score --options options.json
+  python money_model.py job --price 1200000 --materials 420000 --hours 60 --vat 24 --target-hourly 14000
+  python money_model.py forecast --cash 300000 --income 700000,650000,900000 --burn 620000 --debt 150000 --months 12
 """
 
 from __future__ import annotations
@@ -500,6 +506,65 @@ def report_situation(snap: dict, cur: str) -> int:
     return 0
 
 
+# -------------------------------------------------------------------- job ---
+
+def job_economics(price: float, materials: float, hours: float, other: float = 0.0,
+                  vat_pct: float = 0.0, target_hourly: float = 0.0) -> dict:
+    """Contribution of one job. price is what the customer pays; if vat_pct > 0
+    the price includes VAT and the net is used (VAT is never income)."""
+    net = price / (1 + pct(vat_pct)) if vat_pct > 0 else price
+    contribution = net - materials - other
+    hourly = contribution / hours if hours > 0 else math.inf
+    margin = contribution / net if net > 0 else 0.0
+    shortfall = (target_hourly - hourly) * hours if target_hourly > 0 and hourly < target_hourly else 0.0
+    return {"net": net, "contribution": contribution, "hourly": hourly, "margin": margin,
+            "shortfall": shortfall, "break_even_hours": (contribution / target_hourly if target_hourly > 0 else math.inf)}
+
+
+def cmd_job(a: argparse.Namespace) -> int:
+    cur = a.currency
+    j = job_economics(a.price, a.materials, a.hours, a.other, a.vat, a.target_hourly)
+    print(f"price {money(a.price, cur)}" + (f" incl. {a.vat:g}% VAT -> net {money(j['net'], cur)}" if a.vat > 0 else "")
+          + f"; materials {money(a.materials, cur)}; other {money(a.other, cur)}; {a.hours:g} h")
+    print(f"contribution {money(j['contribution'], cur)} ({j['margin'] * 100:.0f}% of net) = {money(j['hourly'], cur)} per hour")
+    if a.target_hourly > 0:
+        if j["shortfall"] > 0:
+            print(f"BELOW the target rate of {money(a.target_hourly, cur)}/h by {money(j['shortfall'], cur)} on this job; "
+                  f"at the target it must take no more than {j['break_even_hours']:.0f} h, or the price rises, or the scope shrinks")
+        else:
+            print(f"above the target rate of {money(a.target_hourly, cur)}/h - take it if the month has the hours")
+    print("rule: cut scope before cutting the rate; a job below the rate is paid for by an unpaid hour elsewhere")
+    return 0
+
+
+# --------------------------------------------------------------- forecast ---
+
+def forecast(cash: float, incomes: list[float], burn: float, debt: float, months: int) -> list[dict]:
+    """Monthly cash path. incomes repeats its last value once exhausted."""
+    rows = []
+    for m in range(1, months + 1):
+        inc = incomes[min(m - 1, len(incomes) - 1)] if incomes else 0.0
+        cash = cash + inc - burn - debt
+        rows.append({"month": m, "income": inc, "cash": cash})
+    return rows
+
+
+def cmd_forecast(a: argparse.Namespace) -> int:
+    cur = a.currency
+    incomes = [float(x) for x in a.income.split(",") if x.strip()]
+    rows = forecast(a.cash, incomes, a.burn, a.debt, a.months)
+    print(table([[str(r["month"]), money(r["income"], cur), money(a.burn + a.debt, cur), money(r["cash"], cur)] for r in rows],
+                ["month", "income", "out (burn+debt)", "cash at end"]))
+    neg = next((r for r in rows if r["cash"] < 0), None)
+    low = min(rows, key=lambda r: r["cash"])
+    if neg:
+        print(f"\nCASH GOES NEGATIVE in month {neg['month']} - that is the deadline for new income or a cut; "
+              f"lowest point {money(low['cash'], cur)} in month {low['month']}")
+    else:
+        print(f"\ncash stays positive; lowest point {money(low['cash'], cur)} in month {low['month']}")
+    return 0
+
+
 # --------------------------------------------------------------- selftest ---
 
 def selftest() -> int:
@@ -589,6 +654,17 @@ def selftest() -> int:
     check("score: all-5 option scores 100 and ranks first", ranked[0]["name"] == "A" and abs(ranked[0]["score"] - 100) < 1e-9)
     check("score: all-1 option scores 20", abs(ranked[1]["score"] - 20) < 1e-9)
 
+    # job and forecast
+    j = job_economics(1_240_000, 400_000, 50, 40_000, 24, 12_000)
+    check("job: VAT stripped from the price", abs(j["net"] - 1_000_000) < 1e-6)
+    check("job: contribution = net - materials - other", abs(j["contribution"] - 560_000) < 1e-6)
+    check("job: hourly = contribution / hours", abs(j["hourly"] - 11_200) < 1e-6)
+    check("job: shortfall against the target rate", abs(j["shortfall"] - (12_000 - 11_200) * 50) < 1e-6)
+    fc = forecast(100_000, [500_000, 500_000, 800_000], 460_000, 100_000, 6)
+    first_neg = next((r["month"] for r in fc if r["cash"] < 0), None)
+    check("forecast: first negative month is 2", first_neg == 2, f"{[round(r['cash']) for r in fc]}")
+    check("forecast: last income repeats", fc[-1]["income"] == 800_000)
+
     # phases
     check("phase 0 when the month loses", phase(-1, 0, 100, 0).startswith("0"))
     check("phase 1 with no buffer", phase(10, 50, 100, 500).startswith("1"))
@@ -655,13 +731,29 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("score", help="rank business options")
     s.add_argument("--options", required=True, help="JSON: {criteria?: {...}, options: [{name, scores{}}]}")
 
+    s = sub.add_parser("job", help="one job's contribution and effective hourly rate")
+    s.add_argument("--price", type=float, required=True, help="what the customer pays (incl. VAT if --vat given)")
+    s.add_argument("--materials", type=float, default=0.0)
+    s.add_argument("--hours", type=float, required=True)
+    s.add_argument("--other", type=float, default=0.0, help="subcontractors, transport, consumables")
+    s.add_argument("--vat", type=float, default=0.0, help="VAT percent included in the price (24 in Iceland)")
+    s.add_argument("--target-hourly", type=float, default=0.0, help="the rate from `rate`")
+
+    s = sub.add_parser("forecast", help="month-by-month cash path")
+    s.add_argument("--cash", type=float, required=True)
+    s.add_argument("--income", required=True, help="monthly incomes, comma separated; the last value repeats")
+    s.add_argument("--burn", type=float, required=True, help="monthly burn excluding debt payments")
+    s.add_argument("--debt", type=float, default=0.0, help="monthly debt payments")
+    s.add_argument("--months", type=int, default=12)
+
     sub.add_parser("selftest", help="run built-in checks")
 
     a = p.parse_args(argv)
     if a.cmd == "selftest":
         return selftest()
     return {"plan": cmd_plan, "quick": cmd_quick, "debt": cmd_debt, "runway": cmd_runway, "fi": cmd_fi,
-            "rate": cmd_rate, "unit": cmd_unit, "score": cmd_score}[a.cmd](a)
+            "rate": cmd_rate, "unit": cmd_unit, "score": cmd_score, "job": cmd_job,
+            "forecast": cmd_forecast}[a.cmd](a)
 
 
 if __name__ == "__main__":

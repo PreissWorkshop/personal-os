@@ -12,7 +12,7 @@
         "Prioritises the 24% credit card first among the debts (avalanche) and flags tax/VAT obligations as priority-by-consequence",
         "Gives an ordered this-month action list with at least one cash-collection or cash-generation action (receivables, invoicing, selling hours)",
         "Every statistic or case-study figure carries an evidence label (verified/snippet/self-reported/inference) or is marked as not verifiable",
-        "Does not recommend any new loan, trading, crypto, paid course, or inventory purchase",
+        "Does not recommend a new consumer loan, trading, crypto, a paid course, or inventory; refinancing existing debt at a lower all-in rate is allowed only with the five conditions stated",
         "Any debt-payoff or runway number shown is computed transparently (script output or explicit arithmetic), not asserted",
         "Ends with an explicit sources / assumptions / unverified points / confidence section (or equivalent 'what could be wrong')"
       ]
@@ -59,9 +59,41 @@
         "Cites at least one regulator case against a business-opportunity or coaching seller with unsubstantiated income claims (e.g. FTC v. Ecommerce Empire Builders, Automators AI, Digital Altitude, MOBE)",
         "Matches concrete red flags to the pitch (unsubstantiated income number, 'no coding' or technology as a guarantee, paying before seeing data)",
         "Offers a zero-cost alternative for this week or month that uses his existing AI skills (sell one automation to a business he already knows)",
-        "Puts the $1,997 in the context of his debt (interest or opportunity cost), quantified or explicitly reasoned",
+        "Puts the $1,997 in the context of a debt-carrying, no-capital situation (interest or opportunity cost), quantified or explicitly reasoned",
         "Labels evidence versus judgement and invents no statistics",
         "Matter-of-fact tone with no moralising or lecturing",
+        "Ends with an explicit sources / assumptions / unverified points / confidence section"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "HelmCNC sales are slow, maybe one licence every couple of months. I'm thinking of raising the price to $299 and dropping the founder price entirely. Good idea? What would you do with the pricing?",
+      "expected_output": "Uses the verified HelmCNC price facts (perpetual $239, founder $129, six payments of $45, 24 months of updates then $19/yr, 14-day trial) and the CNC-control price landscape (Mach4 Hobby, UCCNC, PlanetCNC, CNC12 Pro, MASSO, free KMotionCNC) with labels; says distribution into the KFLOP/Kogna base is the constraint, not price; proposes an experiment (founder window, forum posts, trial-user mail, a maintenance line) with a measurable target; runs unit or score; ends with the footer.",
+      "files": [],
+      "expectations": [
+        "States HelmCNC's current price structure correctly and marks it verified per the reference",
+        "Names at least three competing CNC-control price points with their evidence label",
+        "Identifies that the free incumbent (KMotionCNC) and the installed-base ceiling, not the price level, are the binding constraints",
+        "Recommends a concrete, measurable pricing or promotion experiment rather than a bare price change",
+        "Considers the recurring line ($19/yr updates or a support tier) as part of the answer",
+        "Does not invent sales figures or an installed-base number; asks for or marks them as gaps",
+        "Gives flip conditions and a seven-day list with at least one outreach action",
+        "Ends with an explicit sources / assumptions / unverified points / confidence section"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "A client wants a fitted kitchen I quoted at 1.4M ISK but says they only have 1.1M. I need the cash badly this month. Take it?",
+      "expected_output": "Treats it as a business decision, not quote arithmetic: runs the job-margin check with the numbers he gives (or asks for materials and hours), compares the effective hourly with the target rate, names the phase, and recommends scope reduction or a firm no with the saying-no template rather than a rate cut; protects the brand; ends with the footer.",
+      "files": [],
+      "expectations": [
+        "Asks for or uses materials, hours and VAT to compute the job's contribution and effective hourly rate (script or explicit arithmetic)",
+        "Compares the effective hourly rate with a target rate rather than judging the price in isolation",
+        "Recommends reducing scope or declining rather than cutting the rate to the client's budget",
+        "Names the phase and acknowledges the cash pressure without letting it override the rate rule, or states explicitly the condition under which a below-rate job is acceptable",
+        "Protects the brand tone (premium, precise) in how the reply to the client is framed",
+        "Offers ready wording for the client (a scope-reduced option and a full-price option)",
+        "Does not invent the client's numbers beyond the two prices in the prompt",
         "Ends with an explicit sources / assumptions / unverified points / confidence section"
       ]
     }

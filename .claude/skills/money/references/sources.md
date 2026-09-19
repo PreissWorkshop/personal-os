@@ -36,9 +36,15 @@ Everything else in `references/` is [S], [SR], [I] or [G].
 
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
-Open each URL below, confirm the quote, change the label to [V] with the
-date in the reference file, and correct any number that differs. Order by
-how load-bearing the claim is:
+Mechanical first: `python scripts/verify_claims.py --report verify.md`
+fetches every claim in `references/claims.json` (44 load-bearing claims
+with their URLs and quotes, three of them controls that were verified on
+the page when the skill was built) and prints VERIFIED / NOT FOUND /
+BLOCKED per claim. NOT FOUND means the page answered but the quote is not
+on it - open the page, correct the reference, note the date. BLOCKED means
+try from another machine. Then, by hand, the items below that the script
+cannot settle (PDFs, wording, judgement), changing each label to [V] with
+the date. Order by how load-bearing the claim is:
 
 1. Stripe's supported-country list - stripe.com/global (`iceland.md` §9,
    `remote-and-relocation.md` §6). Decides the whole payments stack.

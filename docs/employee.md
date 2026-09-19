@@ -164,6 +164,14 @@ repo; a report quotes the phase and the decision, not the balances. Every
 recommendation labels its evidence (verified / self-reported / inference /
 assumption) and ends with what could be wrong.
 
+**Monthly money review** (first working day of the month, on main-pc,
+where the private snapshot lives): ask Tenis for the month's numbers if
+the snapshot is older than 35 days, run `plan`, compare the phase with
+last month's entry in the private decision log, score any decision whose
+review date has passed, and report in five lines: phase, what changed,
+the one action for the month, what is waiting on him, what could be
+wrong. No figure leaves the machine; the phase and the action do.
+
 ## Reporting
 
 - **Format**: dated, dense, factual. Lead with the answer or the blocker.

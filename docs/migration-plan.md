@@ -827,6 +827,17 @@ First successful run of the routine (see corrections folded into the
   Report: `docs/reports/2026-09-19-money-skill.md`. Wired into `CLAUDE.md`,
   `docs/employee.md`, `docs/agent-system.md`, the bootstrap doc and
   `.gitignore`.
+- ✅ **Second round the same day**, on his "how else could it improve":
+  a claims list plus `verify_claims.py` that makes the upgrade pass
+  mechanical (controls verify from the sandbox, everything else BLOCKED
+  here); a prompt hook (`.claude/hooks/money_trigger.py`,
+  `.claude/settings.json`) that injects a load-the-skill note on money
+  words - pipe-tested, `[UNVERIFIED — needs check]` live; a private
+  decision log the skill reads and scores; the employee's monthly money
+  review; `job` and `forecast` in the calculator; nine outreach and offer
+  templates; six eval prompts. Rating against two days ago, his question:
+  about 5/10 then, 7.5/10 now, 9 reachable after verification, the
+  snapshot and the CRM/Freemius feeds.
 - ⚠ **Evidence is snippet-level by construction.** The sandbox proxy refused
   nearly every website (all `.is` sites, regulators, vendors, founders'
   blogs), so only HelmCNC's own site, Anthropic's pricing page, Apple's

@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if command -v python3 >/dev/null 2>&1; then python3 .claude/hooks/money_trigger.py; else python .claude/hooks/money_trigger.py; fi",
+            "timeout": 10,
+            "statusMessage": "money-skill trigger check"
+          }
+        ]
+      }
+    ]
+  }
+}

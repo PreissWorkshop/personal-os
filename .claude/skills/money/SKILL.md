@@ -84,7 +84,9 @@ open the link.
    and label the rest; with none at all, answer in ratios (months of
    runway, share of income) and say so. Never proceed on imagined numbers.
 2. **Name the phase** (below) and say it. It sets what the answer may
-   recommend.
+   recommend. Read the last three entries of the private decision log
+   (`~/.preiss/finance/decisions.md`, template in `assets/`) so the answer
+   is consistent with what was already decided, and say so if it is not.
 3. **Pick the reference for the question** (table below), read it, and use
    only claims with their labels.
 4. **Run the numbers**, never estimate them in prose:
@@ -102,6 +104,10 @@ open the link.
    about 500-900 words for a full answer, a few lines for a quick
    question. The model, the case studies and the script runs go below the
    decision or into a follow-up he asks for, never before it.
+7. **Log it.** Append the decision to the private log in the template's
+   format (phase, question, decision, why, flips-if, numbers with labels,
+   review date). On a review date, score the entry: held, flipped, wrong -
+   and say what that changes.
 
 Six numbers or nothing: income by source, essential burn, full burn, cash,
 debts (balance, rate, minimum, indexed?), committed work. Everything else
@@ -210,7 +216,8 @@ is in `references/maker-leverage.md`:
 | Iceland: ehf vs sole trader, VAT, tax brackets, rates, indexed loans, debt help, leaving, payments from Iceland, questions for the accountant | `references/iceland.md` |
 | Remote jobs, contractor setups, nomad visas, tax residency, entities abroad, health and pensions, the move in order | `references/remote-and-relocation.md` |
 | Courses, gurus, dropshipping, trading, crypto, MLM, "passive income", app-store odds, the red-flag checklist | `references/what-fails.md` |
-| What was and was not verified, the labels, the upgrade pass | `references/sources.md` |
+| What was and was not verified, the labels, the upgrade pass | `references/sources.md`, `references/claims.json` |
+| The words: contract pitch, productized offer, HelmCNC founder mail, forum post, automation offer, warm-network note, bank call, price rise, saying no | `references/templates.md` |
 
 ## Scripts
 
@@ -226,11 +233,14 @@ is in `references/maker-leverage.md`:
 | `rate --net --tax --overhead` | the hourly and day rate that actually pays (`--tax` default is a placeholder; use the accountant's effective rate) |
 | `unit --price --margin --churn --cac --target-mrr` | LTV, CAC payback, customers needed, replacements per month |
 | `score --options <json>` | ranked options on the nine criteria |
+| `job --price --materials --hours --vat --target-hourly` | one job's contribution and effective hourly against the target rate (the business view of a quote) |
+| `forecast --cash --income a,b,c --burn --debt --months` | month-by-month cash; names the first month that goes negative |
+| `verify_claims.py [--only prefix] [--report out.md]` | the upgrade pass: fetches each claim in `references/claims.json` and reports VERIFIED / NOT FOUND / BLOCKED |
 
 Percent inputs are percents (12.5 means 12.5 %). Templates:
-`assets/finance-snapshot.template.json` (copy it outside the repo),
-`assets/debts-example.json`, `assets/options-example.json` - invented
-numbers, not anyone's real ones.
+`assets/finance-snapshot.template.json` and `assets/decisions-template.md`
+(copy both outside the repo), `assets/debts-example.json`,
+`assets/options-example.json` - invented numbers, not anyone's real ones.
 
 ## Review list (run it every time)
 
