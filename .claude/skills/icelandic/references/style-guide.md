@@ -188,6 +188,12 @@ are (yunomi, wabi-sabi) - do not translate or explain them at length.
 Never: "lúxus", "einstakt tækifæri", "takmarkað upplag!!!", sale-speak,
 or claims about durability or dishwasher safety that were not confirmed.
 
+Naming a piece: one Icelandic nature word that fits the glaze or form
+(Melur, Hraun, Mosi, Fjara, Sandur, Klaki, Þoka) or the plain form word
+(Yunomi, Skál). One word, lowercase-nature, never an adjective, never
+English, never a slogan. Marta decides names; the skill proposes at most
+two [A].
+
 ## 10. Reviewing someone else's Icelandic
 
 Read as the recipient first, grammarian second. Rank findings by what a

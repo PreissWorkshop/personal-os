@@ -190,7 +190,10 @@ signs as the workshop (style guide §1, §4).
 
 Pattern: form and material · how it was made and where · glaze and
 colour, one sensory observation · size or capacity · care. Four to six
-short sentences. Facts only from the product record.
+short sentences. Facts only from the product record. Name: one Icelandic
+nature word matching the glaze or form (Melur for a grey-brown matte,
+Hraun for dark and rough, Fjara for pale and sandy) or the form word;
+propose, do not decide.
 
     Yunomi-bolli úr ljósum steinleir.
     Handrenndur í Álafossi og brenndur við háan hita. Glerungurinn er
