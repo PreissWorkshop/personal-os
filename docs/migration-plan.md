@@ -760,6 +760,11 @@ First successful run of the routine (see corrections folded into the
   packages; not yet run on a phone.** The APK went to Tenis by Telegram. It
   is signed with a new main-pc key, so the phone's 1.0 must be uninstalled
   once first.
+- ✅ **1.1 is installed on Tenis's phone** (11:09, his screenshots): the
+  new error screen with the three buttons shows, Tailscale connected, all
+  tailnet nodes but the laptop online. The recorder answers nowhere, as
+  expected. The direct view itself is still untried - he was on 5G, and
+  it needs the shop wifi.
 - ⚠ **What 1.1 does not cover**: phone away from the shop AND every PC
   off. The router looks like a Huawei mobile-broadband box `[UNVERIFIED -
   login page only]` - no Tailscale on it, no port forwarding - so a device
