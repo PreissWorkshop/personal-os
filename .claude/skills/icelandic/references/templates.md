@@ -1,12 +1,14 @@
 # Templates - ready Icelandic for recurring situations
 
-Placeholders in `{braces}` must be replaced with real facts or the
-sentence removed. Prices, dates, lead times and care instructions come
-from the quote calculation, the project record or Tenis - never from
-this file; every figure below is invented. Names are generic (Jón = male
-client, Anna = female client). Gendered words are marked m/f: pick one.
-All templates are written as Tenis ("ég"); the employee writes "við" and
-signs as the workshop (style guide §1, §4).
+These render Tenis's English habits (corpus notes §1-3) into native-style
+Icelandic (corpus notes §4, style guide). Placeholders in `{braces}` must
+be replaced with real facts or the sentence removed. Prices, dates, lead
+times and care instructions come from the quote calculation, the project
+record or Tenis - never from this file; every figure below is invented.
+Names are generic (Jón = male client, Anna = female client). Gendered
+words are marked m/f: pick one. Written as Tenis ("ég"); the employee
+writes "við" and signs as the workshop (style guide §1, §4). Emoji only
+where marked, and only with people Tenis already knows.
 
 ## Preiss Workshop
 
@@ -17,8 +19,7 @@ signs as the workshop (style guide §1, §4).
     Takk fyrir að hafa samband.
 
     Ef þú sendir mér nokkrar myndir af {innréttingunni} og gróf mál, get ég
-    gefið þér verðhugmynd. Ef þú ert með ákveðinn lit eða áferð í huga er
-    gott að nefna það líka.
+    gefið þér verðhugmynd. Ertu með einhvern lit eða áferð í huga?
 
     Bestu kveðjur,
     Tenis
@@ -33,8 +34,9 @@ signs as the workshop (style guide §1, §4).
     {1,2–1,6} m.kr. með vsk., vinna og efni. Endanlegt verð ræðst af
     {útfærslu, efnisvali og lýsingu}. {Rafmagnsvinna er ekki innifalin.}
 
-    Best væri að ég kæmi á staðinn, mældi og færi yfir útfærsluna með þér
-    áður en ég gef fast verð. Hentar þér {miðvikudagur} eða {fimmtudagur}?
+    Ef það er innan þess ramma sem þú ert að hugsa, þá kem ég á staðinn,
+    mæli og fer yfir útfærsluna með þér áður en ég gef fast verð. Hentar
+    þér {miðvikudagur} eða {fimmtudagur}?
 
     Bestu kveðjur,
     Tenis
@@ -43,7 +45,7 @@ signs as the workshop (style guide §1, §4).
 
     Sæl {Anna},
 
-    Hér er tilboð í {filmun á eldhúsinnréttingunni}:
+    Hér er fast tilboð í {filmun á eldhúsinnréttingunni}:
 
     Vinna: {650.000} kr. með vsk.
     Efni: {300.000–420.000} kr. með vsk. ({eftir lit og áferð})
@@ -55,8 +57,8 @@ signs as the workshop (style guide §1, §4).
     Afgreiðslutími: um {þrjár} vikur frá samþykki. Tilboðið gildir til
     {2. október 2026}.
 
-    Þetta er fast verð fyrir verkið – upphæðin breytist ekki nema við
-    breytum útfærslunni.
+    Ég gef alltaf fast verð – upphæðin breytist ekki nema við breytum
+    útfærslunni.
 
     Láttu mig vita ef eitthvað er óljóst eða ef þú vilt skoða aðra útfærslu.
 
@@ -69,13 +71,12 @@ signs as the workshop (style guide §1, §4).
 
     Ég skil þig vel. Verðið miðast við {12 hurðir og 4 skúffur} og að allt
     sé unnið {á staðnum} með {vönduðu efni}. Þetta er ekki tímagjald heldur
-    fast verð fyrir allt verkið, þannig að upphæðin breytist ekki í lokin.
+    fast verð fyrir allt verkið, og þetta er mitt besta verð fyrir þau gæði
+    sem ég skila.
 
-    Til samanburðar myndi {ný sérsmíðuð innrétting með uppsetningu} kosta
-    {talsvert meira}.
-
-    Ef þú vilt get ég líka verðlagt einfaldari leið: {aðeins frontana á
-    hurðum og skúffum}. Það lækkar heildarkostnaðinn.
+    Ef þú vilt get ég verðlagt einfaldari leið: {aðeins frontana á hurðum
+    og skúffum}. Það lækkar heildarkostnaðinn. {Ef þú lætur gera hvort
+    tveggja í einu get ég gefið 10% afslátt.}
 
     Bestu kveðjur,
     Tenis
@@ -107,7 +108,8 @@ signs as the workshop (style guide §1, §4).
     birginum og er pantað upp á nýtt.} Ný áætlun er {afhending
     föstudaginn 2. október}.
 
-    Mér þykir þetta leitt. Ég læt þig vita um leið og eitthvað breytist.
+    Mér þykir þetta leitt – við gerum allt sem við getum. Ég læt þig vita
+    um leið og eitthvað breytist.
 
     Bestu kveðjur,
     Tenis
@@ -127,13 +129,13 @@ signs as the workshop (style guide §1, §4).
     Bestu kveðjur,
     Tenis
 
-### 9. Payment reminder (first, friendly)
+### 9. Payment reminder (first, friendly - emoji allowed with a known client)
 
     Sæll {Jón},
 
     Smá áminning: reikningur nr. {123} að upphæð {150.000} kr. var á
     gjalddaga {15. september} og er enn ógreiddur. Kannski hefur hann
-    farist fyrir – geturðu kíkt á þetta þegar þú hefur tök á?
+    farist fyrir – geturðu kíkt á þetta þegar þú hefur tök á? {🙏}
 
     Ef greiðslan er þegar farin af stað máttu líta fram hjá þessum pósti.
 
@@ -144,24 +146,25 @@ signs as the workshop (style guide §1, §4).
 
     Sæl {Anna},
 
-    Takk fyrir fyrirspurnina. Því miður tek ég ekki að mér
-    {bílamerkingar} eins og er – ég er með fókus á {innréttingum og
-    sérsmíði}. {Ég mæli með að þú heyrir í ...}
+    Takk fyrir fyrirspurnina. Því miður býð ég ekki upp á {bílamerkingar}
+    eins og er – ég er með fókus á {innréttingum og sérsmíði}. {Ég mæli með
+    að þú heyrir í skiltafyrirtæki.} {Ef þetta má bíða fram í {febrúar} máttu
+    endilega senda mér nánari upplýsingar.}
 
     Gangi þér vel með verkefnið.
 
     Bestu kveðjur,
     Tenis
 
-### 11. Follow-up on an unanswered offer
+### 11. Follow-up on an unanswered offer (his nudge)
 
     Sæll {Jón},
 
-    Ég vildi bara heyra hvort þú hefðir náð að skoða tilboðið sem ég sendi
-    {10. september}. Ef eitthvað er óljóst eða ef þú vilt breyta
-    útfærslunni fer ég yfir það með þér.
+    Eigum við að halda áfram með þetta? Það styttist í {október}. {;)}
 
-    Ég er með laust pláss {í byrjun október} ef þú vilt halda áfram.
+    Ef eitthvað er óljóst í tilboðinu sem ég sendi {10. september}, eða ef
+    þú vilt breyta útfærslunni, fer ég yfir það með þér. Ég er með laust
+    pláss {í byrjun október}.
 
     Bestu kveðjur,
     Tenis
@@ -184,9 +187,64 @@ signs as the workshop (style guide §1, §4).
     Sæll Jón, hillurnar eru tilbúnar. Hentar þér að ég komi með þær á
     fimmtudaginn milli 13 og 15? Kv, Tenis
 
+### 14. Check-in with a designer or partner (capacity available)
+
+    Sæl {Anna},
+
+    Hvernig gengur? Ertu komin á fullt aftur eftir sumarið? Nokkur verkefni
+    hjá mér fóru í bið, þannig að ég er með laust pláss á næstunni ef
+    eitthvað kemur upp.
+
+    Bestu kveðjur,
+    Tenis
+
+### 15. Site preparation before installation (exact, with the reason)
+
+    Sæll {Jón},
+
+    Tvennt sem þarf að vera klárt áður en við komum með {skiltið}:
+
+    1. Veggurinn á bak við {skiltið} þarf að vera málaður í réttum lit
+       (RAL {####}) og mjög mattur. Það verður flóðlýsing á veggnum, þannig
+       að hver einasta ójafna sést – biðjið málarana að vanda sig
+       sérstaklega.
+    2. Rafvirki þarf að koma rafmagni að {tengipunktinum} og tengja við
+       töflu. Teikning af staðsetningu fylgir.
+
+    {Gólfið þarf líka að vera vel rétt af – stálið felur ekki stórar
+    skekkjur.}
+
+    Bestu kveðjur,
+    Tenis
+
+### 16. Project start - kennitala and advance invoice
+
+    Sæll {Jón},
+
+    Flott, þá byrjum við. Sendu mér rétta kennitölu og ég sendi þér
+    reikning fyrir {efni og hönnun}; ég panta efnið um leið og hann er
+    greiddur.
+
+    Ég kem við {í vikunni} með sýnishorn af {litum og áferð} svo allt sé
+    á hreinu áður en smíðin hefst.
+
+    Bestu kveðjur,
+    Tenis
+
+### 17. Asking for a quick payment (known client, tight week)
+
+    Sæll {Jón},
+
+    Ég veit að það er mikið að gera hjá þér, en gætir þú greitt
+    reikninginn í dag ef ég sendi hann núna? {🙏} Það hjálpar mér mikið
+    þessa vikuna.
+
+    Bestu kveðjur,
+    Tenis
+
 ## Studio Esja
 
-### 14. Product description (web shop, label, Instagram)
+### 18. Product description (web shop, label, Instagram)
 
 Pattern: form and material · how it was made and where · glaze and
 colour, one sensory observation · size or capacity · care. Four to six
@@ -206,7 +264,7 @@ propose, do not decide.
     grófur í hendi. Hugsuð fyrir hversdaginn – {morgunmat, súpu, hnetur}.
     {Þolir uppþvottavél og örbylgjuofn.}
 
-### 15. Custom order inquiry
+### 19. Custom order inquiry
 
     Sæl {Anna},
 
@@ -223,7 +281,7 @@ propose, do not decide.
     {Marta}
     Studio Esja
 
-### 16. Course or workshop reply
+### 20. Course or workshop reply
 
     Sæl {Anna},
 
@@ -238,7 +296,7 @@ propose, do not decide.
     {Marta}
     Studio Esja
 
-### 17. Instagram caption pattern
+### 21. Instagram caption pattern
 
 One to three lines. What it is, what it is made of, one true detail,
 then availability. No hashtag walls, no "!!!", no "OMG".
@@ -249,10 +307,11 @@ then availability. No hashtag walls, no "!!!", no "OMG".
 ## Website and CRM templates - review of 2026-09-19
 
 Source: the quote mail and the acceptance mail the site generates
-(post@preissworkshop.is), read from the mailbox on 2026-09-19. Client
-name, quote number and amounts are omitted here on purpose. Overall:
-good, natural Icelandic - clearly written by someone who knows the
-language. Findings, ranked by what a client notices:
+(post@preissworkshop.is), read from the mailbox on 2026-09-19. They were
+written by Claude sessions before this skill existed, so they are a
+target for the skill, not a source. Client name, quote number and amounts
+are omitted here on purpose. Overall: good, natural Icelandic. Findings,
+ranked by what a client notices:
 
 1. **Greeting `Sæl/l {Fullt nafn},`** -> `Sæll {Jón},` / `Sæl {Anna},`;
    unknown gender -> `Góðan dag,`. The slash form is a mail-merge tell

@@ -1,126 +1,265 @@
-# Corpus notes - how Tenis and his clients actually write
+# Corpus notes - where the voice comes from, and how to render it in Icelandic
 
-Built 2026-09-19 from the `tenis@preissworkshop.com` mailbox via the Gmail
-connector: five result pages of sent mail matching Icelandic keywords
-(about 250 threads, 2023-07 to 2026-09, oldest page not exhausted),
-roughly 30 threads read in full, and the 2019 Drive document "Scripts".
-The website's quote and acceptance mails were read only to review them -
-Claude wrote them before this skill existed, so they are not evidence of
-real usage. Client names,
-addresses and figures are left out here; only Tenis's own phrasing and
-generic client phrasing are recorded. The studio@studioesja.com mailbox
-and the website repository were not accessible from this session.
+Rebuilt 2026-09-19 after Tenis's correction: the Icelandic mails in his
+sent folder were machine-written (ChatGPT), because he is not fluent in
+Icelandic. They are not his voice. His English is.
 
-## What Tenis does in Icelandic (keep)
+## Provenance - read this first
 
-**Opens with the substance.**
-- "Takk fyrir fyrirspurnina og myndirnar."
-- "Takk kærlega fyrir að hafa samband og fyrir upplýsingarnar, myndirnar
-  og stærðirnar."
-- "Sæl og takk fyrir að hafa samband."
-- "Gaman að heyra frá þér, og frábært að þú sért ánægð með vinnuna mína
-  frá áður!"
-- "Þetta er skemmtilegt verkefni og mjög góð hugmynd!"
+The mailbox (`tenis@preissworkshop.com`, Gmail connector, 2023-2026)
+holds three kinds of text, and the skill treats them differently:
 
-**Prices: split, plain, with vsk., often a range with the reason.**
-- "Verð fyrir vinnu er {X} kr. með vsk. Verð fyrir efni er {Y} kr.
-  með vsk fyrir 1 rúllu (50 m)."
-- "Efni er á bilinu {X}–{Y} kr. með VSK, eftir lit og áferð sem
-  valin er. Heildarverð verður því: • {X} kr. með VSK (miðað við
-  lægra efnisverð) • {Y} kr. með VSK (miðað við hærra efnisverð)"
-- "Verðið væri {X} kr. fyrir efni og {Y} kr. fyrir vinnu."
-- "Það myndi kosta um {X} kr. með vsk að framleiða þetta."
-- "Það myndu líklega vera um 10–15 m eftir af efninu sem þið gætuð geymt
-  fyrir framtíðarviðgerðir."
+| Text | What it is | How the skill uses it |
+|---|---|---|
+| Tenis's English mail - about 350 sent messages and 20 full threads | His own words | **The voice reference** [E]: tone, structure, what he says first, how he prices, how he handles problems |
+| Icelandic written to him by clients, designers, suppliers, banks, agencies (about 60 threads) | Native speakers writing naturally | **The Icelandic reference** [C]: greetings, closings, how jobs are described, what sounds normal |
+| Icelandic sent from his address | Machine-written | **A record only** [M]: clients have seen these terms, so drafts stay consistent with them; the wording is never imitated |
 
-**Rough estimates are labelled rough, and end with the site visit.**
-- "Miðað við upplýsingarnar þá væri mjög gróf áætlun fyrir tvær
-  vegghengdar skápaeiningar með opnum hillum og lýsingu um {X}–{Y} m +
-  vsk, eftir nákvæmri útfærslu, efni og lýsingu. Ef farið væri í alvöru
-  hnotuspón eða meiri sérsmíði/detail vinnu gæti þetta frekar farið í
-  {Y}–{Z} m + vsk. Þetta væri án rafmagnsvinnu, en með smíði og
-  uppsetningu. Best væri að koma á staðinn, mæla nákvæmlega og ræða
-  útfærsluna áður en fast verð er gefið."
+Rule: take the meaning and the structure from Tenis's English habits;
+take the Icelandic wording from native usage and the style guide; never
+copy the machine mails. Client names, company names and figures are left
+out below; typos in Tenis's lines are corrected because they are speed,
+not voice.
 
-**Value framing when the price is challenged - no discount, a reason and
-a simpler option.**
-- "Ég skil þig vel. Það er þó erfitt að bera þetta beint saman við IKEA,
-  þar sem hér er um allt aðra lausn að ræða. Þetta er ekki tímagjaldstilboð
-  heldur fast verð fyrir verkið, þannig að upphæðin breytist ekki í lokin.
-  Markmiðið er að gefa eldhúsinu alveg nýtt og ferskt útlit án þess að
-  fara í alveg nýja innréttingu. Til samanburðar myndi ný sérsmíðuð
-  innrétting frá okkur með uppsetningu kosta í kringum {X} m.kr. eða meira.
-  Þess vegna er þetta enn hagkvæmari leið til að breyta rýminu. Ef þú vilt
-  get ég líka skoðað einfaldari leið og verðlagt að gera aðeins frontana á
-  hurðum og skúffum, sem myndi lækka heildarkostnað."
-- In English to a designer, same spine: "yes — that is my best price for
-  the highest quality work I deliver."
+## 1. Tenis's voice, from his English
 
-**Asks for exactly what he needs.**
-- "Ef þú gætir sent mér nokkrar myndir og mál, get ég gefið þér
-  verðtilboð."
-- "Það væri mjög gott ef þið gætuð sent okkur myndir fyrst, svo við getum
-  metið umfangið og gefið ykkur nákvæmt verð."
-- "Hvaða lit ert þú að hugsa þér? Og ég geri ráð fyrir að þú viljir setja
-  upp nýjar höldur líka? Mig vantar bara að vita hvort ég þurfi að loka
-  gömlu holunum fyrir höldurnar og gera ný."
-- (2019 script) "Til þess að við getum gert þér nákvæmari tilboð, sendu
-  okkur þá mynd af hlutunum, heimilisfang og símanúmer."
+**Opens with the thing.** No warm-up paragraph, ever.
+- "Here is an idea for how we could design the reception desk."
+- "Here is a fixed offer for this project – {X} with VAT. The only thing
+  extra would be the electrician hours to connect the LED lights."
+- "Here come the offers. They are separated for the doors and the kitchen."
+- "Here is the price for {project} – Work {X} með vsk, Material {Y} með
+  vsk, Total {Z} með vsk. All the LEDs and electrical work is included."
+- "Here is a visual of the logo on the wall."
 
-**Scheduling is concrete and asks one question.**
-- "Miðvikudagur kl. 10:00 hentar mér mjög vel ef það hentar ykkur. Hvar
-  viljið þið hittast — á staðnum í [hverfi] eða hjá ykkur? Endilega sendið
-  teikningarnar fyrir fundinn ef það er mögulegt."
-- "Ég get heimsótt ykkur á milli 9–10. Getið þið sagt mér heimilisfangið?"
-- "Ég held ég komi á morgun, ef einhver verður við. Er það frídagur hjá
-  ykkur líka?"
-- "Sjáumst eftir smá."
-- "Ef það hentar ykkur, þá gæti verkið mögulega hafist í lok ágúst. Við
-  hlökkum til að heyra frá ykkur!"
-- "Ég get komið í þessu verkefni milli 25.–29. mars. Á ég að senda
-  reikninginn fyrir efni og panta það?"
+**Prices fast, split into work and material, with VAT, ranges with the
+reason.**
+- "The price for work would be fixed {X} með vsk. Material would be around
+  {Y–Z} með vsk depending on the colour you will choose. This would be for
+  50 m of material."
+- "The price would be {X} for work and around {Y} for material, so around
+  {Z} með vsk. I have 4 catalogs and a lot of different colours and
+  textures to choose from."
+- "I roughly estimated {X–Y} million ISK, including VAT, for the
+  furniture, production, and installation. Additionally we can build the
+  doors."
+- "The price would be somewhere between {X–Y}. If you are ready for that
+  then I can measure the site, discuss the details and give a more precise
+  offer."
+- "It would cost around {X–Y} with VAT. Tell me if we need to design
+  something cheaper, or if you have room in the budget to make something
+  even more unique."
 
-**Apologises briefly and moves on.**
-- "Afsakið seint svar, ég er í fríi..."
-- "Mér þykir leitt að þetta hafi tekið svona langan tíma hjá mér, en ég
-  gæti komið og klárað þetta verk fyrir þig í dag eða á morgun eða hvaða
-  dag sem þú vilt."
-- (2019 script) "Afsakaðu hvað við vorum lengi að svara en það er búið að
-  vera mjög mikið að gera hjá okkur."
+**Fixed price is a principle - defended with quality, not discounted.**
+- "I always give a fixed price."
+- "Ok, I will also nail down the fixed price when we have all the details."
+- "Everything else is included and the price will not change unless we
+  change the design very much."
+- "Hi, yes — that is my best price for the highest quality work I deliver."
+- When the budget is short, change the scope, not the rate: "It's
+  understandable. The original plan with a drywall finish would be a much
+  different kind of job, mostly done on site with many visits, and would
+  land at {X} with VAT if you want to go that way."
+- Bundling instead of discounting: "If you go ahead with both at the same
+  time I can give you 10% off."
 
-**Explains technique in one or two plain sentences.**
-- "Filman er viðkvæm fyrir hita og skurðum með hníf, en að öðru leyti er í
-  lagi að setja hana á borð."
-- "Hægt er að skera litla hluta af og tengja þá í 45 gráður til að klæða
-  kantana, og einnig er mögulegt að lengja það með framlengingum fyrir
-  borðið og lakka allt saman með glans lakki."
-- "Það er ekkert mál að filma þröskuldar líka."
+**Designs out loud, materials by name, and says what he would not do.**
+- "This would be natural steel, either oiled or treated with black oxide to
+  make it darker. Logo at the front with lights. Furniture with drawers and
+  the cabinet on the back wall could be black."
+- "It can always be as simple as in the picture you showed me, but I think
+  it is good to discuss the possibilities and determine how far you would
+  like to go with it."
+- "Vinyl straight on the wall looks bad. I would rather put a stencil on the
+  wall and paint it – first with the wall colour to seal the gaps, then
+  the colour over, then remove the stencil."
+- "Valchromat was a very good choice. Don't need to varnish it."
+- "I would not recommend film on the countertop. You will damage it with
+  hot pans."
+- "The most commonly used is a sandblast film. It has a light greyish look."
 
-**Small warmth, one line.**
-- "Ef það hentar þá get ég troðið þessu inn fyrir jól. 😉"
-- "Já, það er allt komið, og takk kærlega!"
-- "Takk kærlega!"
+**One concrete question at a time.**
+- "Do you have some colour in mind already?"
+- "How many doors are in the house?" · "Where is your house located,
+  approximately?"
+- "How much storage space is required as a minimum (height and depth) in
+  the drawers?"
+- "Does this need to be veneered oak, or can it also be glued oak panels,
+  límtré?"
+- "Should I make the cabinets behind the reception as well?"
 
-**Closings he uses:** "Kv, Tenis Preiss / s. 7711255", "Kkv, Tenis
-Preiss", "Bestu kveðjur, Tenis", "Með kveðju,", "Kveðja,", "kv, Tenis".
+**Site instructions are exact and say why.**
+- "The wall behind the sign needs to be painted in the correct colour –
+  RAL {####}, very matt finish – and make sure the painters finish it
+  perfectly. Tell them there will be floodlight on the wall and every
+  imperfection will be visible."
+- "Please make sure they pay attention to the level of the floor. Because
+  of the steel, we can't hide big flaws."
+- "Remember that you need to cut 15 mm off the bottom of the frames for
+  the doors with a drop-down threshold. And please don't put up the hinges
+  before I have wrapped everything."
+- "You would only need to ask the electrician to supply the power and
+  connect it to the mains."
 
-## What Tenis does that the drafts should smooth
+**Scheduling is short and practical.**
+- "I could come between 9:00 and 9:30 if that works?"
+- "Can I meet you tomorrow morning with some colour samples?"
+- "Just give me a call maybe a day before, as I'm often working outside
+  the shop."
+- "Please let me know in advance to make sure I'm there."
+- "I'm on the way now, will be there at 08:45." · "See you at 10."
 
-- **Mixed language.** Many replies to Icelandic inquiries are English with
-  Icelandic fragments: "Sæl, Yes I can assist with that", "The price would
-  be around 500þ með vsk. Work and material.", "Góðan dag, The price for
-  changing color ...". Understandable, and clients cope, but it costs the
-  "precise people" impression. Drafted mail: one language per message.
-- **"750þ", "1.5-2mil", "+vsk"** - workshop shorthand. In client text:
-  "750.000 kr. með vsk.", "1,5–2 m.kr.", "án vsk.".
-- **English signature under Icelandic text** (see style guide §4).
-- **Two-dot pauses ("..") and "hehe"-level informality** belong on Telegram
-  to Tenis, not in a first reply to a client.
-- **"Regards," above a Kv-line** - pick one closing.
-- **Accents slip** on a phone ("Gòðan dag", "Eg", "Flugumýri" for
-  Flugumýri) - the checker cannot catch these; proofread names and á/é/í/ó.
+**Problems: fast, honest, no drama, then what is being done.**
+- "We had an issue: I got the steel with very bad scratches, they are
+  laser-cutting new for me this morning. We will be four people working on
+  it today. I don't know exactly when we will arrive with the table, it
+  might be late in the evening – sorry about that. Doing all we can!"
+- "I made a mistake and was missing a few metres of film. I ordered it
+  last week and it was supposed to arrive this morning with DHL, but it
+  didn't make it onto the plane from the UK."
+- "It will be ready in 15 min! I'm sorry again for the delay!"
+- "I'm sorry, I broke one glass – the sticky film touched it and it went
+  down. I'll give you a discount for that. But please vacuum the kitchen
+  floor just in case."
 
-## How Icelandic clients write to the workshop
+**Late replies: one line, then the answer.**
+- "Sorry for the late reply." · "I'm sorry for the late reply, it's been
+  very busy." · "I'm sorry, I totally forgot to reply about this. If you
+  still need it, I would estimate it at around {X} with VAT."
+
+**Money and invoices: direct, polite, unembarrassed.**
+- "Let me have the correct kennitala and I will send you an invoice for
+  material and design."
+- "In the meantime I will send you an invoice for the material and order
+  everything."
+- "The deadline for the advance invoice was today, but I can change the
+  date if you need more time to pay it?"
+- "I know you are very busy now, so I'm sorry for the short notice, but
+  would you be able to pay the invoice today if I send it to you? 🙏"
+- "Hi, just a reminder about this. 😉"
+
+**Nudges and closes.**
+- "Should we just start then? :)" · "Should we move forward with this? May
+  is just around the corner. ;)" · "How do we proceed?"
+- "Looking forward to hearing from you!" · "Always welcome, if you decide
+  to do anything. :)" · "Let's stay in touch!"
+
+**Check-ins with designers and partners.**
+- "Hi {Name}, how are things going? Are you back in a busy work season
+  after the summer? A couple of projects were put on hold, so I've got some
+  room in my schedule if anything comes up."
+- "Nice that you have some big jobs lined up!"
+- "I'm well, thanks – and you? Season is picking up after the holidays?"
+
+**Declines: reason, alternative, door left open.**
+- "Unfortunately I am not offering car wrapping at the moment, as I'm
+  focusing more on renovations and furniture making right now, although I
+  might do it in the future again."
+- "I'm afraid I will not be able to assist you with this in the near
+  future because of the busy schedule. Maybe best to ask a sign company."
+- "I would love to assist you with this, although I would not be able to
+  until around February. If this can wait, you're welcome to send me more
+  information."
+
+**Warmth and humour, light and rare.**
+- "Hi hi," · "Nice to hear that the doors are looking great!" · "Steel is
+  beautiful and safe in the van, going to the workshop to assemble!" ·
+  "This PDF is completely empty! :)"
+- Emoji with people he knows: 🙏 😉 ;) :) - in follow-ups and thread
+  replies, never in an offer.
+
+**Closings he actually types:** "Best regards, Tenis Preiss / +354 771
+1255 / preissworkshop.is" (signature), "Kv, Tenis", "kkv, Tenis Preiss",
+"Have a nice weekend.", "Have a great day!"
+
+**Not voice, just speed - do not carry over:** typos, ".." pauses,
+"850þ" / "2'600'000,-" / "1.5 mil" price shorthand, "+vsk" glued to a
+number, double question marks, mixed-language lines.
+
+## 2. Rendering the voice in Icelandic
+
+| Tenis in English | Icelandic rendering |
+|---|---|
+| Hi {Name}, | Sæll {Jón}, / Sæl {Anna}, |
+| Hi hi, · Hi everyone, · Hello, (unknown) | Hæ hæ, · Sæl öll, · Góðan dag, |
+| Here is … / Here come the offers. | Hér er … / Hér koma tilboðin. |
+| The price for work would be fixed X með vsk. Material around Y–Z depending on the colour. | Vinna: X kr. með vsk. (fast verð). Efni: Y–Z kr. með vsk., eftir lit. |
+| I always give a fixed price. | Ég gef alltaf fast verð. |
+| The price will not change unless we change the design very much. | Verðið breytist ekki nema við breytum útfærslunni verulega. |
+| That is my best price for the highest quality work I deliver. | Þetta er mitt besta verð fyrir þau gæði sem ég skila. |
+| Tell me if we need to design something cheaper. | Láttu mig vita ef við þurfum að hanna eitthvað ódýrara. |
+| If you go ahead with both at the same time I can give you 10% off. | Ef þú lætur gera hvort tveggja í einu get ég gefið 10% afslátt. |
+| Do you have some colour in mind already? | Ertu með einhvern lit í huga? |
+| Where is your house located, approximately? | Hvar ertu staðsett(ur), svona um það bil? |
+| I could come between 9:00 and 9:30 if that works? | Ég gæti komið milli 9:00 og 9:30 ef það hentar? |
+| Just give me a call a day before. | Hringdu bara í mig deginum áður. |
+| I'm on the way now, will be there at 08:45. | Ég er á leiðinni, verð kominn kl. 08:45. |
+| We had an issue: … Doing all we can! | Það kom upp vandamál: … Við gerum allt sem við getum. |
+| Sorry for the late reply. | Afsakaðu seint svar. / Fyrirgefðu hvað ég svara seint. |
+| Let me have the correct kennitala and I will send you an invoice for material and design. | Sendu mér rétta kennitölu og ég sendi þér reikning fyrir efni og hönnun. |
+| Would you be able to pay the invoice today if I send it to you? 🙏 | Gætir þú greitt reikninginn í dag ef ég sendi hann núna? 🙏 |
+| Just a reminder about this. 😉 | Smá áminning um þetta. 😉 |
+| Should we just start then? :) | Eigum við þá bara að byrja? :) |
+| May is just around the corner. ;) | Það styttist í maí. ;) |
+| How do we proceed? | Hvernig höldum við áfram? / Hvað gerum við næst? |
+| Looking forward to hearing from you! | Hlakka til að heyra frá þér. |
+| How are things going? Are you back in a busy season after the summer? | Hvernig gengur? Ertu komin(n) á fullt aftur eftir sumarið? |
+| I've got some room in my schedule if anything comes up. | Ég er með laust pláss á næstunni ef eitthvað kemur upp. |
+| Unfortunately I am not offering X at the moment. | Því miður býð ég ekki upp á X eins og er. |
+| Best regards, / Kv, Tenis / Have a nice weekend. / Have a great day! | Bestu kveðjur, / Kv, Tenis / Góða helgi. / Eigðu góðan dag. |
+| with VAT · +vsk · 850þ · 1.5–2 mil | með vsk. · án vsk. · 850.000 kr. · 1,5–2 m.kr. |
+
+Two things change in translation. English "Looking forward…!" keeps its
+mark; Icelandic business mail drops most exclamation marks, so the warmth
+moves into the words. And Icelandic "þú" is already friendly, so "Hi"
+becomes "Sæll/Sæl", not "Hæ", unless the client wrote "Hæ" first.
+
+## 3. Worked examples, English to Icelandic
+
+**Fixed offer (his structure, rendered).**
+English: "Here is a fixed offer for this project – {X} with VAT. The only
+thing extra would be the electrician hours to connect the LED lights. All
+the material is included. I can start in the first week of {month}."
+
+    Sæl {Anna},
+
+    Hér er fast tilboð í verkið: {X} kr. með vsk. Allt efni er innifalið.
+    Það eina sem bætist við er vinna rafvirkja við að tengja LED-lýsinguna.
+
+    Ég get byrjað í fyrstu viku {október}.
+
+    Bestu kveðjur,
+    Tenis
+
+**Delay (his honesty, calmer register).**
+English: "We had an issue: the steel came with bad scratches, they are
+laser-cutting new this morning. Four of us on it today; we might arrive
+late in the evening, sorry about that. Doing all we can!"
+
+    Sæll {Jón},
+
+    Það kom upp vandamál: stálið kom rispað og er skorið upp á nýtt í
+    morgun. Við verðum fjögur í þessu í dag og komum með borðið í kvöld,
+    líklega seint. Mér þykir þetta leitt – við gerum allt sem við getum.
+
+    Kveðja,
+    Tenis
+
+**Check-in with a designer.**
+English: "How are things going? Are you back in a busy work season after
+the summer? A couple of projects were put on hold, so I've got some room
+in my schedule if anything comes up."
+
+    Sæl {Anna},
+
+    Hvernig gengur? Ertu komin á fullt aftur eftir sumarið? Nokkur verkefni
+    hjá mér fóru í bið, þannig að ég er með laust pláss á næstunni ef
+    eitthvað kemur upp.
+
+    Bestu kveðjur,
+    Tenis
+
+## 4. How Icelandic clients and suppliers write (native usage)
 
 Openers: "Góðan dag," "Góðan daginn," "Sæll," "Sæll Tenis," "Hæ Tenis,"
 "Hæhæ," "Sæll meistari" (a joking compliment from a repeat client).
@@ -154,38 +293,51 @@ Closings: "Bestu kveðjur," "Kær kveðja," "Kveðja," "Bkv," "Mbk," "Kv,"
 "Bestu þakkir," "Takk fyrir," "Með von um skjót svör."
 
 Suppliers and institutions: "Sæl/ Sæll" (a mail-merge form to avoid),
-"Kæri/a Studio Esja ehf." (same), "Með kveðju/ Best regards", "Ekki hika
+"Kæri/a {fyrirtæki} ehf." (same), "Með kveðju/ Best regards", "Ekki hika
 við að hafa samband ef einhverjar spurningar vakna. Eigðu góðan dag."
-(polite corporate boilerplate - correct Icelandic, not a craftsman's
-voice), "Góðan dag, Í viðhengi er ..." (standard invoice cover line),
-"Meðfylgjandi er umbeðið tilboð." (standard quote cover line), "Krafa
-hefur verið stofnuð í netbanka/heimabanka." (standard invoice phrase).
+(correct, corporate), "Góðan dag, Í viðhengi er ..." (invoice cover line),
+"Meðfylgjandi er umbeðið tilboð." (quote cover line), "Krafa hefur verið
+stofnuð í netbanka/heimabanka." (invoice phrase), "Endilega heyrðu í
+okkur" (a collection agency's friendly nudge).
 
-## Phrase bank by intent (Tenis-true, ready to reuse)
+## 5. Machine-written Icelandic already sent (record, not reference)
 
-- Thanks for contacting: Takk fyrir að hafa samband. / Takk fyrir
-  fyrirspurnina og myndirnar.
-- Need input: Ef þú sendir mér nokkrar myndir og gróf mál, get ég gefið
-  þér verðhugmynd. / Hvaða lit ert þú að hugsa þér?
-- Rough price: Gróf verðhugmynd væri um X kr. með vsk., vinna og efni. /
-  Endanlegt verð ræðst af útfærslu, efnisvali og lýsingu.
-- Fixed price: Þetta er fast verð fyrir verkið – upphæðin breytist ekki í
-  lokin.
+Clients have received mails from this address using: "Sæll/Sæl {nafn},",
+"Góðan dag {nafn},", "Takk fyrir fyrirspurnina og myndirnar", "Verð fyrir
+vinnu … / Verð fyrir efni … kr. með vsk", "fast verð fyrir verkið",
+"tímagjaldstilboð", "gróf áætlun", "eftir nákvæmri útfærslu, efni og
+lýsingu", "Best væri að koma á staðinn, mæla nákvæmlega og ræða
+útfærsluna", "Afgreiðslutími", "Bestu kveðjur," / "Kv, Tenis Preiss".
+Nobody objected and clients answered normally, so these terms are safe to
+keep using. The sentences around them are not a model of anything.
+
+## 6. Phrase bank - native-attested [C] or rendered from Tenis's English [E]
+
+- Thanks for contacting: Takk fyrir að hafa samband. [C] / Takk fyrir
+  fyrirspurnina og myndirnar. [E "Thanks for getting in touch"]
+- Need input: Ef þú sendir mér nokkrar myndir og gróf mál get ég gefið þér
+  verðhugmynd. [E "Pictures will be enough for an estimate price"] / Ertu
+  með einhvern lit í huga? [E]
+- Rough price: Gróf verðhugmynd væri um X kr. með vsk., vinna og efni. [E]
+  / Endanlegt verð ræðst af útfærslu, efnisvali og lýsingu. [E]
+- Fixed price: Þetta er fast verð fyrir verkið – upphæðin breytist ekki
+  nema við breytum útfærslunni. [E] / Ég gef alltaf fast verð. [E]
 - Site visit: Best væri að ég kæmi á staðinn, mældi og færi yfir
-  útfærsluna með þér áður en ég gef fast verð. / Hentar þér miðvikudagur
-  kl. 10:00?
-- Included / excluded: Innifalið: smíði, uppsetning og frágangur. Ekki
-  innifalið: rafmagnsvinna (löggiltur rafvirki).
-- Lead time: Afgreiðslutími er um þrjár vikur frá samþykki.
-- Simpler option: Ef þú vilt get ég líka verðlagt einfaldari leið: ...
-- Delay: Verkið tefst um viku. Ný áætlun er ... Ég læt þig vita um leið
-  og eitthvað breytist.
-- Done: Takk fyrir viðskiptin – það var gaman að vinna þetta verk.
-- Invoice: Reikningurinn er kominn sem krafa í heimabankann þinn,
-  gjalddagi ...
-- Reminder: Smá áminning: reikningur nr. ... er enn ógreiddur. Geturðu
-  kíkt á þetta þegar þú hefur tök á?
-- Polite no: Því miður tek ég ekki að mér ... eins og er.
-- Follow-up: Ég vildi bara heyra hvort þú hefðir náð að skoða tilboðið.
-- Close: Láttu mig vita ef eitthvað er óljóst. / Ekki hika við að hafa
-  samband ef þú hefur einhverjar spurningar.
+  útfærsluna með þér áður en ég gef fast verð. [E "I can measure the
+  site, discuss the details and give a more precise offer"]
+- Included / excluded: Innifalið: … Ekki innifalið: rafmagnsvinna
+  (löggiltur rafvirki). [E]
+- Lead time: Afgreiðslutími er um þrjár vikur frá samþykki. [M-term, E]
+- Simpler option: Ef þú vilt get ég líka verðlagt einfaldari leið: … [E]
+- Delay: Það kom upp vandamál: … Ný áætlun er … Ég læt þig vita um leið og
+  eitthvað breytist. [E]
+- Done: Takk fyrir viðskiptin. [C-standard] / Það var gaman að vinna þetta
+  verk. [E]
+- Invoice: Reikningurinn er kominn sem krafa í heimabankann þinn. [C]
+- Reminder: Smá áminning um þetta. 😉 [E] / Geturðu kíkt á þetta þegar þú
+  hefur tök á? [C "tök á"]
+- Polite no: Því miður býð ég ekki upp á … eins og er. [E]
+- Follow-up: Eigum við að halda áfram með þetta? [C "höldum áfram með
+  þetta"] / Það styttist í október. [E]
+- Close: Láttu mig vita ef eitthvað er óljóst. [C "Hafðu samband ef
+  eitthvað er óljóst"] / Hlakka til að heyra frá þér. [E]

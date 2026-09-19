@@ -9,8 +9,11 @@ The goal is simple to state and hard to do: a client in Iceland reads the
 text and hears a competent craftsman writing to them, not a translation and
 not a template. This skill exists because Icelandic business mail has its
 own conventions (greetings, closings, how prices are written, what counts as
-warm and what counts as cheap) and because Tenis has a recognisable voice
-that the corpus in `references/corpus-notes.md` captures.
+warm and what counts as cheap) and because Tenis has a recognisable voice.
+That voice is in his English mail; the Icelandic he sent earlier was
+machine-written and is not a reference. So: meaning and structure from his
+English habits, Icelandic wording from what native clients and suppliers
+write, both captured in `references/corpus-notes.md`.
 
 ## When Icelandic, when English
 
@@ -28,9 +31,13 @@ that the corpus in `references/corpus-notes.md` captures.
 
 1. **Load the voice.** Read `references/style-guide.md` (register, greetings,
    closings, numbers, quote structure). For the brand you are writing for,
-   read the matching section. For anything longer than two lines, skim
-   `references/corpus-notes.md` so the phrasing comes from Tenis's real
-   mail rather than from generic Icelandic.
+   read the matching section. For anything longer than two lines, read
+   `references/corpus-notes.md` §1-3: Tenis's English habits and how each
+   one is rendered in Icelandic. When Tenis hands over an English draft or
+   bullet points, translate the meaning and keep his structure (lead with
+   the thing, price split, included and excluded, one question, one line of
+   warmth) - never word for word, and never into the machine-Icelandic of
+   the old sent mails.
 2. **Pick the situation** in `references/templates.md` (first reply, rough
    price, fixed offer, price challenge, booking a visit, delay, done and
    invoiced, reminder, polite no, follow-up, testimonial request; Studio
@@ -59,9 +66,11 @@ that the corpus in `references/corpus-notes.md` captures.
    300.000–420.000 kr. með vsk., eftir lit og áferð." Ranges are honest;
    a fixed price is called a fixed price ("fast verð, upphæðin breytist ekki
    í lokin").
-4. **Warm, not gushing.** "Gaman að heyra frá þér" and "Þetta er skemmtilegt
-   verkefni" are Tenis; "Ég er svo spennt(ur)!!!" is not. One emoji at most,
-   only when the client used one, never in an offer.
+4. **Warm, not gushing.** "Nice to hear that the doors are looking great"
+   and "Should we just start then? :)" are Tenis; "Ég er svo spennt(ur)!!!"
+   is not. Icelandic drops most exclamation marks, so the warmth goes into
+   the words. One emoji at most (🙏 😉 ;) are his), only in follow-ups with
+   people he knows, never in a first reply or an offer.
 5. **Own the problem.** Delay or mistake: say what happened, the new date,
    and that you will report the next change. No excuses paragraph.
 6. **Brand-true.** Preiss Workshop: precise, calm, competent. Studio Esja:
@@ -109,11 +118,11 @@ acceptance mails (2026-09-19) is in `references/templates.md`, section
 
 - `references/style-guide.md` - register, greetings, closings, signature,
   numbers, quote structure, brand voices, emoji and mixing rules.
-- `references/corpus-notes.md` - how Tenis actually writes (his phrases),
-  how Icelandic clients write to him, phrase bank by intent, habits to keep
-  and habits to smooth.
-- `references/templates.md` - ready Icelandic drafts for every recurring
-  situation, both brands, plus the website template review.
+- `references/corpus-notes.md` - provenance; Tenis's voice from his English
+  mail; the English-to-Icelandic rendering table and worked examples; how
+  Icelandic clients and suppliers write; a phrase bank by intent.
+- `references/templates.md` - 21 ready Icelandic drafts for the recurring
+  situations, both brands, plus the website template review.
 - `references/glossary.md` - interiors, film, signage, CNC, business and
   ceramics vocabulary with gender and plural.
 - `references/pitfalls.md` - the errors that expose a translation.

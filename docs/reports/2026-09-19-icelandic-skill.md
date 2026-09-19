@@ -31,11 +31,17 @@ project root — unverified on Windows from here).
 
 - Gmail (connector, `tenis@preissworkshop.com`): five result pages of sent
   mail matching Icelandic keywords — about 250 threads from 2023-07 to
-  2026-09; older pages exist (2021–2023, mostly English replies) and were
-  not read. About 30 threads opened in full; 24 Icelandic messages of
-  Tenis's own extracted verbatim into a scratchpad corpus (not committed).
-  Inbound Icelandic from roughly 60 clients, designers, suppliers, banks
-  and agencies.
+  2026-09; older pages exist (2021–2023) and were not read. About 30
+  threads opened in full. Extracted to a scratchpad corpus (not
+  committed): about 350 of Tenis's English messages, and 24 Icelandic
+  messages sent from his address. Inbound Icelandic from roughly 60
+  clients, designers, suppliers, banks and agencies.
+- **Correction from Tenis, same day:** the Icelandic mails in his sent
+  folder were ChatGPT-written; he is not fluent in Icelandic. The skill
+  was rebuilt on that basis — his voice comes from his English, the
+  Icelandic wording from native clients and suppliers plus the reference
+  rules, and the old sent Icelandic is kept only as a record of terms
+  clients have already seen.
 - The website's generated quote and acceptance mails of 2026-09-18 — read
   for review only. Tenis's note: Claude wrote that Icelandic before any
   skill existed, so it is a target for the skill, not a source of it.
@@ -52,15 +58,20 @@ project root — unverified on Windows from here).
 
 ## What the corpus says (short)
 
-Tenis's Icelandic is short, direct and friendly: substance first, prices
-split into labour and material with "með vsk", ranges with their reason,
-a rough estimate labelled rough and closed with a site visit, value
-framing instead of discounts when challenged, one line of warmth. Clients
-write "Góðan dag / Sæll / Hæ", ask "Væri hægt að fá verðtilboð í ...",
-"Takið þið að ykkur ...", "Er þetta örugglega rétt verð?", and close with
-"Bestu kveðjur / Kær kveðja / Kv". Two habits worth smoothing in drafted
-mail: mixing English into Icelandic replies, and workshop shorthand
-("750þ", "+vsk") in client text. Detail in `references/corpus-notes.md`.
+Tenis's English is short, direct and friendly: "Here is ..." first, prices
+split into work and material with VAT, ranges with their reason, a fixed
+price as a principle defended with quality ("that is my best price for the
+highest quality work I deliver"), scope changed rather than the rate when
+a budget is short, exact site instructions with the reason, problems
+reported fast and without drama, one concrete question at a time, light
+emoji with people he knows. Icelandic clients write "Góðan dag / Sæll /
+Hæ", ask "Væri hægt að fá verðtilboð í ...", "Takið þið að ykkur ...",
+"Er þetta örugglega rétt verð?", and close with "Bestu kveðjur / Kær
+kveðja / Kv". The skill renders the first into the second: an
+English-to-Icelandic mapping table, worked examples and 21 templates.
+Not carried over: typos, ".." pauses, "850þ"-style shorthand and
+mixed-language lines - speed, not voice. Detail in
+`references/corpus-notes.md`.
 
 ## Website mail templates — review
 
@@ -119,8 +130,10 @@ not present); the comparison above is my own read.
 
 ## Supporting evidence
 
-- 24 Icelandic messages written by Tenis and the inbound Icelandic of
-  about 60 counterparties, quoted (anonymised) in the corpus notes.
+- About 350 English messages by Tenis (the voice) and the inbound
+  Icelandic of about 60 native counterparties (the language), quoted
+  anonymised in the corpus notes; the 24 machine-written Icelandic mails
+  sent from his address are recorded, not used.
 - Excerpt-verified rules: decimal comma and period thousands separator;
   "kr." with a period; lowercase months and weekdays; þéringar gone from
   everyday speech since the late 20th century; recommended closings;
@@ -145,7 +158,7 @@ not present); the comparison above is my own read.
   not confirmed.
 - Whether "24%" without a space is the Ritreglur rule (excerpt only).
 
-Confidence: **High** that the skill captures Tenis's register and the
-clients' expectations (it is built from their own mail). **Medium** on
+Confidence: **High** that the skill captures Tenis's register (his own
+English) and the clients' expectations (their own Icelandic). **Medium** on
 individual orthographic rules marked [K]; a native proofreader would
 settle them in minutes and the sources log says where.

@@ -26,17 +26,25 @@ be treated as professional judgement, not verified fact.
 | Ceramics terms glerungur (= leirgljái), leirmunir, jarðleir, steinleir, postulín, rakú, handgerð | is.wikipedia.org "Glerungur", Hönnunarsafn Íslands "Deiglumór", listavefurinn.is "Leirlist", Gallerí List excerpts |
 | Studio Esja brand statement (English): premium handmade ceramics shaped by Icelandic nature, generational skill, attention to detail; Japanese ceramic philosophy, wabi-sabi; mugs, bowls, yunomi cups, tableware, sculptural vessels, collector pieces; Álafoss, Mosfellsbær; founded 2025 by Marta Preisa | studioesja.com excerpts (pages/about, home) |
 
-## Corpus evidence [C]
+## Corpus evidence [E] [C] [M]
 
 The mailbox (Gmail connector, tenis@preissworkshop.com): five result
 pages of `in:sent` mail matching Icelandic keywords (about 250 threads,
-2023-07 to 2026-09), about 30 threads read in full, plus inbound Icelandic
-from clients, designers, suppliers, banks and agencies; the 2019 Drive
-doc "Scripts". The website's own quote and acceptance mails (2026-09-18)
-were read for review only - Claude wrote them before this skill existed,
-so nothing in the skill rests on them.
-Used for: greetings and closings in real use, price phrasing, "tilboð í",
-time format "kl. 10:00", how clients describe jobs, the Sæl/l finding.
+2023-07 to 2026-09), about 30 threads read in full. Three kinds of text,
+per Tenis's correction of 2026-09-19:
+
+- **[E] Tenis's English** (about 350 sent messages and snippets): the voice
+  reference - tone, structure, pricing habits, how problems are handled.
+- **[C] Native Icelandic** written to him by clients, designers, suppliers,
+  banks and agencies (about 60 threads): greetings and closings in real
+  use, "tilboð í", time format "kl. 10:00", how clients describe jobs.
+- **[M] Icelandic sent from his address**: machine-written (ChatGPT; Tenis
+  is not fluent in Icelandic). Recorded so drafts stay consistent with
+  terms clients have seen; never used as evidence of usage or voice.
+
+The 2019 Drive doc "Scripts" is [M] as well. The website's quote and
+acceptance mails (2026-09-18) were read for review only - Claude wrote
+them before this skill existed, so nothing in the skill rests on them.
 
 ## Linguistic knowledge, not re-verified this session [K]
 

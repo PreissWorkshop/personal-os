@@ -702,7 +702,11 @@ First successful run of the routine (see corrections folded into the
   about 30 threads read in full, the inbound Icelandic of clients,
   designers, suppliers and agencies, and the 2019 Drive "Scripts" doc.
   The website's own mails were reviewed, not learned from - Claude wrote
-  that Icelandic before any skill existed (Tenis's note). Contents:
+  that Icelandic before any skill existed (Tenis's note). Same day Tenis
+  added that the Icelandic in his sent folder was ChatGPT-written, so the
+  skill was rebuilt: voice from his English mail (about 350 messages),
+  Icelandic wording from native clients and suppliers, the old sent
+  Icelandic kept only as a record of terms clients have seen. Contents:
   `SKILL.md` (pushy trigger, workflow, six voice rules, formatting table,
   review list), `references/` (style guide, corpus notes in Tenis's own
   phrasing, 17 templates for both brands, glossary with gender, pitfalls,
