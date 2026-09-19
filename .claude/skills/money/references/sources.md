@@ -16,7 +16,7 @@ labels say so everywhere.
 | **[S]** Snippet | the claim appeared in a WebSearch result attributed to the URL; the page was not opened; the "quote" may be the search engine's paraphrase | "reported, not confirmed" - open the URL before quoting a number to anyone but Tenis, and before acting on it |
 | **[SR]** Self-reported | a founder's own revenue or ramp claim, via snippet | marketing until audited; never audited |
 | **[I]** Inference | reasoning or arithmetic from the above | say it is judgement |
-| **[R]** Recalled | background knowledge not seen this session | never cite |
+| **[R]** Recalled | background knowledge not seen this session | a pointer only ("this regime exists, ask the adviser"), never a figure, rate or rule to act on |
 | **[G]** Gap | looked for, not found | say "I could not verify this" |
 | **[A]** Assumption | stated input to a calculation | list it in the footer |
 

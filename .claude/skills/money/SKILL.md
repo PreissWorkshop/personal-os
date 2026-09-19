@@ -36,10 +36,12 @@ verified.
   Verified (source opened, quote on the page) · [S] Snippet (seen only in
   a search result - "reported, not confirmed") · [SR] Self-reported (a
   founder's own claim) · [I] Inference · [A] Assumption · [G] Gap ("I
-  could not verify this") · [R] Recalled from memory, which is never
-  cited. Founders' revenue numbers are marketing until proven otherwise;
-  say so. When a fact is not in `references/`, search, open the source,
-  label it, or say "I could not verify this".
+  could not verify this") · [R] Recalled from memory - usable only as a
+  pointer ("Spain has a special inbound-worker regime; ask the adviser"),
+  never as a figure, a rate or a rule to act on. Founders' revenue numbers
+  are marketing until proven otherwise; say so. When a fact is not in
+  `references/`, search, open the source, label it, or say "I could not
+  verify this" and give the [R] pointer so the gap is at least named.
 - **Cash first, then buffer, then the expensive debt, then product.** The
   order is the phase model below. A product idea is welcome in every phase,
   but it gets the hours the phase allows, not the hours it wants.
