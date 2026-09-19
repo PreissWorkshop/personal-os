@@ -800,18 +800,16 @@ First successful run of the routine (see corrections folded into the
 
 ## Waiting on Tenis
 
-- 🔒 **Surveillance - three things** (09-19): (1) try app 1.1 on the
-  phone: uninstall the old app, install the APK from Telegram, enter the
-  camera password, check picture and sound on shop wifi. (2) Decide the
-  always-on box (Raspberry Pi class, ~5-10 W, runs the recorder plus
-  Tailscale) - the only thing that meets "no PC" away from the shop; costs
-  money. Imou Life stays the free safety net meanwhile. (3) If the recorder
-  should run on main-pc until then: type the camera password into
-  `run.py discover` there, and pick a web password.
-  *11:10, Tenis: no Tailscale if possible.* Proposed instead: a Cloudflare
-  Tunnel beside the recorder, behind Cloudflare Access plus the recorder's
-  password (Surveillance- `docs/no-pc.md`). Waits for his yes, and needs
-  him once at main-pc for the camera password and the Cloudflare login.
+- 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
+  11:14 by voice: main-pc hosts the recorder for now. Everything is
+  prepared and pushed (Surveillance- 38919e2); the recorder is proven on
+  main-pc against the fake camera. Left for him: **Start Shop Camera
+  recorder** on the main-pc desktop, approve the Windows prompt, type the
+  camera password, choose a web password. Then on the phone: Try the
+  recorder again. Not yet run for real. Still open behind it: the direct
+  view tried on shop wifi; the always-on box (money); his wish for no
+  Tailscale, met by a Cloudflare Tunnel once the recorder runs
+  (Surveillance- `docs/no-pc.md`).
 
 - 🔒 **Approve retiring the surveillance leftovers on cnc-pc** (09-19): the
   two checkouts, the `.venv`, the JDK and the Android SDK (~1.1 GB) - only
