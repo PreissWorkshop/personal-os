@@ -99,11 +99,14 @@ projects:
 
   - id: surveillance
     name: Surveillance (shop camera recorder)
-    status: active — development moved OFF cnc-pc (2026-09-19); the recorder runs nowhere as of that day
+    status: >
+      active — development moved OFF cnc-pc (2026-09-19); the recorder runs
+      nowhere as of that day. Phone app 1.1 (plays the camera directly when the
+      recorder is off) is built on main-pc, not yet tried on the phone.
     repo: https://github.com/PreissWorkshop/Surveillance-   # private; trailing hyphen IS part of the name; one branch: claude/camera-motion-detection-app-vmzwgf
     roots:
       cnc-pc:  C:\HelmCNC\GitHub\Surveillance-   # frozen — the checkout that ran the recorder; second clone + the only .venv at C:\Surveillance; retire on approval
-      main-pc: C:\Projects\Surveillance\repo     # development root; not cloned yet as of 2026-09-19
+      main-pc: C:\Projects\Surveillance\repo     # development root; cloned 2026-09-19 with .venv (Python 3.11), Temurin 17 in ~\tools, Android build-tools 34
     data:
       local-state: >
         config.yaml (camera credentials), data/ (clips + event index, 141 MB)
@@ -115,6 +118,7 @@ projects:
       Local recorder for the shop camera: pre-motion clips, classification,
       live audio, PTZ, Android wrapper app. Python 3.9+ (FastAPI, PyAV,
       OpenCV), everything in a .venv. In-tree HANDOFF.md is the state of the
-      project — read it first; its working agreement is binding. Develops
+      project — read it first, then docs/no-pc.md; its working agreement is
+      binding. The camera's ONVIF lockout counter is real. Develops
       without the camera via scripts/fake_camera.py. Work lands on the one
       branch; there is no main.

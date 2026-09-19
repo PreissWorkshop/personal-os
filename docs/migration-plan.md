@@ -750,6 +750,23 @@ First successful run of the routine (see corrections folded into the
   money, and is where the app's motion alerts would move to. Nothing was
   logged into and nothing was changed.
 
+- ✅ **Surveillance is cloned and working on main-pc** (09-19 ~11:00), at
+  `C:\Projects\Surveillance\repo`: `.venv` built, recorder code imports.
+  Toolchain installed user-scope: Temurin 17 in `~\tools`, Android
+  build-tools 34.
+- ✅ **Phone app 1.1 built and pushed** (Surveillance- 459fe21): when the
+  recorder does not answer, the app plays the camera's own RTSP stream -
+  no PC involved. Password typed on the phone, kept there. **Compiles and
+  packages; not yet run on a phone.** The APK went to Tenis by Telegram. It
+  is signed with a new main-pc key, so the phone's 1.0 must be uninstalled
+  once first.
+- ⚠ **What 1.1 does not cover**: phone away from the shop AND every PC
+  off. The router looks like a Huawei mobile-broadband box `[UNVERIFIED -
+  login page only]` - no Tailscale on it, no port forwarding - so a device
+  inside the shop must stay on. Full account: Surveillance-
+  `docs/no-pc.md`. Nothing on the camera or router was logged into or
+  changed.
+
 ## Executed 2026-09-19 (from the cnc-pc session, hostname verified)
 
 - ✅ **The surveillance app is located - it was on GitHub all along.** Repo
@@ -778,10 +795,14 @@ First successful run of the routine (see corrections folded into the
 
 ## Waiting on Tenis
 
-- 🔒 **Surveillance: which machine runs the recorder, and which route?**
-  (09-19) *Where the app lives is answered - see the cnc-pc section above.*
-  Open: host the recorder on main-pc (same LAN as the camera, always on) or
-  leave it off; then vendor app now, private box later, or both.
+- 🔒 **Surveillance - three things** (09-19): (1) try app 1.1 on the
+  phone: uninstall the old app, install the APK from Telegram, enter the
+  camera password, check picture and sound on shop wifi. (2) Decide the
+  always-on box (Raspberry Pi class, ~5-10 W, runs the recorder plus
+  Tailscale) - the only thing that meets "no PC" away from the shop; costs
+  money. Imou Life stays the free safety net meanwhile. (3) If the recorder
+  should run on main-pc until then: type the camera password into
+  `run.py discover` there, and pick a web password.
 
 - 🔒 **Approve retiring the surveillance leftovers on cnc-pc** (09-19): the
   two checkouts, the `.venv`, the JDK and the Android SDK (~1.1 GB) - only
