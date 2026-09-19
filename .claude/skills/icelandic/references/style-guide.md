@@ -1,8 +1,9 @@
 # Style guide - modern Icelandic for Preiss Workshop and Studio Esja
 
 Written 2026-09-19 from Tenis's own sent mail (2023-2026), the Icelandic his
-clients and suppliers write to him, the website's CRM mail templates, and
-the reference sources logged in `sources.md`. Labels: **[V]** verified
+clients and suppliers write to him, and the reference sources logged in
+`sources.md`. The website's CRM mail templates were reviewed, not learned
+from: Claude wrote them before this skill existed (Tenis's note). Labels: **[V]** verified
 against a reference source (search-result excerpt; the pages themselves
 could not be opened from the sandbox), **[C]** corpus evidence (what real
 people wrote in this mailbox), **[K]** linguistic knowledge not re-verified
@@ -141,7 +142,7 @@ Studio Esja mail is signed by the person writing (Marta or Tenis) with
 | Never ISO dates in prose | 2026-09-18 -> 18. september 2026 | [A] |
 | Time | kl. 10:00 · kl. 9:30 · milli 9 og 10 | [C - what Tenis and clients write]; Ritreglur form not verified |
 | Units with a space; no thousands separator inside a 4-digit mm value | 2008 mm · 50 m · 16 mm | [K] |
-| Dimensions | 96,6 × 40 × 4 cm (× with spaces) | [C - website template] |
+| Dimensions | 96,6 × 40 × 4 cm (× with spaces) | [K] |
 | Ranges | 300.000–420.000 kr. · 9–10 (en dash, no spaces) | [C] |
 | Quotation marks | „sage green“ | [C - client mail] [K] |
 | Phone | s. 771 1255 · +354 771 1255 | [K] |

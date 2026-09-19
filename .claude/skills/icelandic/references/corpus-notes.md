@@ -3,8 +3,10 @@
 Built 2026-09-19 from the `tenis@preissworkshop.com` mailbox via the Gmail
 connector: five result pages of sent mail matching Icelandic keywords
 (about 250 threads, 2023-07 to 2026-09, oldest page not exhausted),
-roughly 30 threads read in full, the 2019 Drive document "Scripts", and
-the website's quote and acceptance mails of 2026-09-18. Client names,
+roughly 30 threads read in full, and the 2019 Drive document "Scripts".
+The website's quote and acceptance mails were read only to review them -
+Claude wrote them before this skill existed, so they are not evidence of
+real usage. Client names,
 addresses and figures are left out here; only Tenis's own phrasing and
 generic client phrasing are recorded. The studio@studioesja.com mailbox
 and the website repository were not accessible from this session.

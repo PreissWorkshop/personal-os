@@ -700,8 +700,9 @@ First successful run of the routine (see corrections folded into the
   Built from the mailbox itself: five result pages of Tenis's sent mail
   matching Icelandic keywords (about 250 threads, 2023-07 to 2026-09),
   about 30 threads read in full, the inbound Icelandic of clients,
-  designers, suppliers and agencies, the 2019 Drive "Scripts" doc, and
-  the website's own quote and acceptance mails of 09-18. Contents:
+  designers, suppliers and agencies, and the 2019 Drive "Scripts" doc.
+  The website's own mails were reviewed, not learned from - Claude wrote
+  that Icelandic before any skill existed (Tenis's note). Contents:
   `SKILL.md` (pushy trigger, workflow, six voice rules, formatting table,
   review list), `references/` (style guide, corpus notes in Tenis's own
   phrasing, 17 templates for both brands, glossary with gender, pitfalls,

@@ -31,8 +31,10 @@ be treated as professional judgement, not verified fact.
 The mailbox (Gmail connector, tenis@preissworkshop.com): five result
 pages of `in:sent` mail matching Icelandic keywords (about 250 threads,
 2023-07 to 2026-09), about 30 threads read in full, plus inbound Icelandic
-from clients, designers, suppliers, banks and agencies; the website's own
-quote and acceptance mails (2026-09-18); the 2019 Drive doc "Scripts".
+from clients, designers, suppliers, banks and agencies; the 2019 Drive
+doc "Scripts". The website's own quote and acceptance mails (2026-09-18)
+were read for review only - Claude wrote them before this skill existed,
+so nothing in the skill rests on them.
 Used for: greetings and closings in real use, price phrasing, "tilboð í",
 time format "kl. 10:00", how clients describe jobs, the Sæl/l finding.
 

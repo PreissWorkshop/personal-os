@@ -1,7 +1,8 @@
 # Pitfalls - what exposes a translation
 
 Each line: ✗ what not to write -> ✓ what to write, and why. Most of these
-come from real Icelandic mail in the corpus or from the website templates.
+come from real Icelandic mail in the corpus; a few are the review findings
+on the website templates (machine-written, so faults, not evidence).
 
 ## Address and greeting
 
