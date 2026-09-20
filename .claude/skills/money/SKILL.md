@@ -223,6 +223,7 @@ is in `references/maker-leverage.md`:
 | AI and software demand, platform fees, API and hosting costs, margins, distribution, what still commands a premium | `references/software-and-ai.md` |
 | Iceland: ehf vs sole trader, VAT, tax brackets, rates, indexed loans, debt help, leaving, payments from Iceland, questions for the accountant | `references/iceland.md` |
 | A company (ehf) that owes tax or trade debt: the director's personal exposure, penalty interest and surcharges, collection and closure, payment plans with Skatturinn, where a payment goes, insolvency duties, clawback and the business ban, stopping the company, and what a New Zealand visa asks about character | `references/iceland-company-debt.md` |
+| An interior film installation course: who already sells training, online and in-person prices, the vehicle-wrap comparables, countable demand on YouTube, tools | `references/interior-film-training.md` |
 | Remote jobs, contractor setups, nomad visas, tax residency, entities abroad, health and pensions, the move in order | `references/remote-and-relocation.md` |
 | Courses, gurus, dropshipping, trading, crypto, MLM, "passive income", app-store odds, the red-flag checklist | `references/what-fails.md` |
 | What was and was not verified, the labels, the upgrade pass | `references/sources.md`, `references/claims.json` |

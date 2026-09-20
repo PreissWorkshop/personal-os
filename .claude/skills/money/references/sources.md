@@ -104,6 +104,15 @@ page: which taxes a payment plan excludes, the maximum length of an ordinary
 plan (the procedural rules are not public), and whether a newer restructuring
 statute replaces Act 57/2020.
 
+### Round 5, 2026-09-20: interior film training (`interior-film-training.md`)
+
+Providers' own pages only (24 training providers, two vehicle-wrap
+platforms), read as raw page text by a research agent; the employee session
+checked the 25 quotations of the file against the saved texts. 11 `film-*`
+claims added. YouTube counts were read in the pages' embedded data and cannot
+be re-checked by the script; Udemy refused every fetch, so the absence of an
+independent English online course is a search result, not proof.
+
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
 Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and

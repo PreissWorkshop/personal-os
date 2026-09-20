@@ -1390,6 +1390,117 @@
         "has not been involved in bankruptcy or business failure within the five years preceding the date their application was made"
       ],
       "expect": "present"
+    },
+    {
+      "id": "film-ws-online-course",
+      "file": "interior-film-training.md",
+      "claim": "William Smith online architectural film course: GBP 120 a year, 28 lessons",
+      "url": "https://academy.williamsmith.co.uk/pages/architextural-application-training",
+      "quotes": [
+        "£120.00 / year"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-ws-bundle",
+      "file": "interior-film-training.md",
+      "claim": "William Smith three-course online bundle: GBP 180 a year",
+      "url": "https://academy.williamsmith.co.uk/collections",
+      "quotes": [
+        "£180 / year"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-twi-price",
+      "file": "interior-film-training.md",
+      "claim": "The Wrap Institute: USD 179 and 279 a year",
+      "url": "https://www.wrapinstitute.com/join",
+      "quotes": [
+        "$179",
+        "$279"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-ckwraps-price",
+      "file": "interior-film-training.md",
+      "claim": "CK Wraps online subscription: USD 96 a year",
+      "url": "https://ckwraps.com/register",
+      "quotes": [
+        "$96.00/year"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-epd-dinoc",
+      "file": "interior-film-training.md",
+      "claim": "EPD University 3M DI-NOC installer training: USD 1,300 per person",
+      "url": "https://epdwindowfilm.com/training/classes/3m-di-noc-architectural-finishes/",
+      "quotes": [
+        "Training Fee: $1,300.00/person"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-accent-dinoc",
+      "file": "interior-film-training.md",
+      "claim": "Accent Distributing 3M DI-NOC class: USD 1,599 per person",
+      "url": "https://accentdistributing.com/pages/3m-installer-training",
+      "quotes": [
+        "Cost: $1,599 per person"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-bodaq-training",
+      "file": "interior-film-training.md",
+      "claim": "Bodaq Training Center: 3 days, USD 1,390",
+      "url": "https://www.bodaqtrainingcenter.com/product/bodaq-introductory-training-hyattsville-md-dec-09-11/",
+      "quotes": [
+        "Investment: $1,390"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-nww-course",
+      "file": "interior-film-training.md",
+      "claim": "NWW UK interior architectural wrapping course: 3 days, GBP 1,995",
+      "url": "https://www.nwwuk.co.uk/vinyl-wrapping-training-course",
+      "quotes": [
+        "£1,995"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-soif-course",
+      "file": "interior-film-training.md",
+      "claim": "SOIF one-day intensive course: GBP 340",
+      "url": "https://samsungfilm.co.uk/training/",
+      "quotes": [
+        "MSRP: £340.00"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-wrapp-franchise",
+      "file": "interior-film-training.md",
+      "claim": "Wrapp kitchen-wrapping franchise: GBP 12,000 with two weeks of training",
+      "url": "https://www.wrapps.co.uk/partner",
+      "quotes": [
+        "Your WRAPP franchise will cost £12,000."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "film-folienportal-dinoc",
+      "file": "interior-film-training.md",
+      "claim": "FolienPortal24 DI-NOC certification training: from EUR 950, 3 days, max 5 people",
+      "url": "https://www.folienportal24.de/3m-di-noc-zertifizierungstraining-eafi",
+      "quotes": [
+        "ab 950,00 €"
+      ],
+      "expect": "present"
     }
   ]
 }
