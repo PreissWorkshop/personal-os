@@ -44,8 +44,8 @@ without an audience · 8 remote AI work as the bridge · 9 the limits ·
 |---|---|---|---|
 | Apple App Store, Small Business Program | "a reduced commission rate of 15% on paid apps and Apple In-App Purchases" for "developers who made up to 1 million USD in proceeds in the prior calendar year"; standard rate above (the page does not print it); EU alternative terms "a further reduced commission of 10%" | [V] | developer.apple.com small-business-program |
 | Microsoft Store | "keep 100% of the revenue for non-gaming apps" with your own commerce; "a competitive fee of 15% for apps and 12% for games" via Microsoft commerce; registration free for individuals since Sept 2025 | [V] (docs source repo); registration [S] | MicrosoftDocs windows-dev-docs; blogs.windows.com 2025-09-10 |
-| Gumroad | "Gumroad charges a 10% + $0.50 fee per transaction."; merchant of record since 2025-01-01; PayPal payout with 2 % fee where bank payout is unavailable; Iceland not confirmed | [S] third party - verify | gumroad.com help 66 (blocked); dodopayments.com; latuos.com |
-| Lemon Squeezy, Paddle | "identical headline rates of 5% + 50¢ with no monthly fee. Both platforms operate as merchants of record."; Lemon Squeezy adds international, PayPal and subscription surcharges | [S] | dodopayments.com comparison |
+| Gumroad | "Gumroad charges a 10% + $0.50 fee per transaction."; merchant of record since 2025-01-01; PayPal payout with 2 % fee where bank payout is unavailable; Iceland not confirmed | [V 2026-09-20] for 10 % (gumroad.com help 66); the $0.50 and the rest [S] | gumroad.com/help/article/66-gumroads-fees; dodopayments.com; latuos.com |
+| Lemon Squeezy, Paddle | "identical headline rates of 5% + 50¢ with no monthly fee. Both platforms operate as merchants of record."; Lemon Squeezy adds international, PayPal and subscription surcharges | [S]; Paddle's 5 % + 50¢ [V 2026-09-20] on paddle.com/pricing | dodopayments.com comparison; paddle.com/pricing |
 | Shopify App Store | "Developers keep 100% of their first $1,000,000 USD in gross app revenue earned from January 1, 2025, and 85% of earnings above that." (lifetime, not annual, since 2025); $19 one-time | [S] | shopify.dev (blocked) via betakit.com |
 | Atlassian Marketplace | revenue share only when "Paid via Atlassian"; direct sales "no revenue sharing with Atlassian"; share % not captured | [S]/[G] | developer.atlassian.com (blocked) |
 | GitHub Sponsors | "More than $100 million has been invested in open source maintainers and projects through GitHub Sponsors." since 2019 across >70,000 recipients | [S] | github.blog (blocked) via helpnetsecurity.com 2026-07-21 |
@@ -230,6 +230,8 @@ Direct outreach into that community (`playbooks.md` §7) beats any launch.
   SMB "AI use" is mostly ChatGPT, not paid vertical software yet (§4).
 
 ## 10. Sources
+
+Verification pass 2026-09-20 from main-pc (`scripts/verify_claims.py`): gumroad.com help article 66 and paddle.com/pricing fetched, figures found; log in `sources.md`.
 
 Opened [V]: platform.claude.com/docs/en/about-claude/pricing;
 developer.apple.com/app-store/small-business-program/;

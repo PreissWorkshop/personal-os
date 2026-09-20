@@ -1,477 +1,478 @@
 {
- "_readme": "Load-bearing claims of the money skill, for scripts/verify_claims.py. Each claim is verified when a fetched page contains any of its quotes (expect=present) or none of them (expect=absent). Quotes are short strings copied from the research snippets or the number as it is written on the page; numbers are tried in both Icelandic and English formats. Run from a machine with open internet; the sandbox that built this file could reach none of these hosts.",
- "claims": [
-  {
-   "id": "helmcnc-price",
-   "file": "maker-leverage.md",
-   "claim": "HelmCNC founder price $129, $239 after",
-   "url": "https://raw.githubusercontent.com/PreissWorkshop/HelmCNC/main/index.html",
-   "quotes": [
-    "$129 founder price",
-    "founder price"
-   ],
-   "expect": "present",
-   "control": true
-  },
-  {
-   "id": "anthropic-sonnet5",
-   "file": "software-and-ai.md",
-   "claim": "Claude Sonnet 5 costs $2 / $10 per MTok",
-   "url": "https://platform.claude.com/docs/en/about-claude/pricing",
-   "quotes": [
-    "$2 / MTok"
-   ],
-   "expect": "present",
-   "control": true
-  },
-  {
-   "id": "apple-sbp",
-   "file": "what-fails.md",
-   "claim": "Apple Small Business Program commission is 15%",
-   "url": "https://developer.apple.com/app-store/small-business-program/",
-   "quotes": [
-    "15%"
-   ],
-   "expect": "present",
-   "control": true
-  },
-  {
-   "id": "is-ehf-capital",
-   "file": "iceland.md",
-   "claim": "ehf minimum share capital ISK 500,000",
-   "url": "https://www.skatturinn.is/fyrirtaekjaskra/stofnun-felaga/einkahlutafelog/",
-   "quotes": [
-    "500.000",
-    "500,000"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-ehf-fee",
-   "file": "iceland.md",
-   "claim": "ehf registration fee ISK 140,500",
-   "url": "https://www.skatturinn.is/fyrirtaekjaskra/stofnun-felaga/einkahlutafelog/verklagsreglur/",
-   "quotes": [
-    "140.500",
-    "140,500"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-vat-threshold",
-   "file": "iceland.md",
-   "claim": "VAT registration threshold ISK 2,000,000 per 12 months",
-   "url": "https://www.skatturinn.is/english/companies/value-added-tax/",
-   "quotes": [
-    "2,000,000",
-    "2.000.000",
-    "2 million"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-vat-rates",
-   "file": "iceland.md",
-   "claim": "VAT standard rate 24%",
-   "url": "https://www.skatturinn.is/english/companies/value-added-tax/",
-   "quotes": [
-    "24%",
-    "24 %"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-tax-bracket1",
-   "file": "iceland.md",
-   "claim": "2026 bracket 1 is 31.49%",
-   "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/skattthrep/2026/",
-   "quotes": [
-    "31,49",
-    "31.49"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-tax-bracket1-limit",
-   "file": "iceland.md",
-   "claim": "2026 bracket 1 ends at ISK 498,122 per month",
-   "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/skattthrep/2026/",
-   "quotes": [
-    "498.122",
-    "498,122"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-tax-bracket3",
-   "file": "iceland.md",
-   "claim": "2026 top bracket is 46.29%",
-   "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/skattthrep/2026/",
-   "quotes": [
-    "46,29",
-    "46.29"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-personal-credit",
-   "file": "iceland.md",
-   "claim": "2026 personal tax credit ISK 72,492 per month",
-   "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/stadgreidsla/2026/",
-   "quotes": [
-    "72.492",
-    "72,492"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-tryggingagjald",
-   "file": "iceland.md",
-   "claim": "tryggingagjald 6.35% in 2026",
-   "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/tryggingagjald/",
-   "quotes": [
-    "6,35",
-    "6.35"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-capital-tax",
-   "file": "iceland.md",
-   "claim": "capital income tax 22%",
-   "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/fjarmagnstekjuskattur/",
-   "quotes": [
-    "22%",
-    "22 %"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-reiknad-D",
-   "file": "iceland.md",
-   "claim": "reiknað endurgjald class D from ISK 589,000 per month (2026)",
-   "url": "https://www.skatturinn.is/atvinnurekstur/stadgreidsla-og-reiknad-endurgjald/reiknad-endurgjald/2026/",
-   "quotes": [
-    "589.000",
-    "589,000"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-three-year-tail",
-   "file": "iceland.md",
-   "claim": "former residents stay fully tax-liable for three years unless taxed elsewhere",
-   "url": "https://www.skatturinn.is/english/individuals/tax-liability/",
-   "quotes": [
-    "three years",
-    "3 years"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-three-year-tail-pwc",
-   "file": "remote-and-relocation.md",
-   "claim": "PwC: three-year tail after leaving Iceland",
-   "url": "https://taxsummaries.pwc.com/iceland/individual/residence",
-   "quotes": [
-    "three years",
-    "3 years"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-ehf-residency",
-   "file": "iceland.md",
-   "claim": "Act 138/1994 director-residency rule exempts EEA residents",
-   "url": "https://www.althingi.is/lagas/nuna/1994138.html",
-   "quotes": [
-    "Evrópska efnahagssvæð",
-    "EES-samning"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-ums-free",
-   "file": "iceland.md",
-   "claim": "UMS assistance is free (Act 100/2010)",
-   "url": "https://www.althingi.is/lagas/nuna/2010100.html",
-   "quotes": [
-    "endurgjalds",
-    "gjaldfrjáls"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-limitation",
-   "file": "iceland.md",
-   "claim": "Act 150/2007: money loans prescribe after ten years",
-   "url": "https://www.althingi.is/lagas/nuna/2007150.html",
-   "quotes": [
-    "tíu árum",
-    "10 árum"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-policy-rate",
-   "file": "iceland.md",
-   "claim": "Central Bank key rate 8.00% after 19 Aug 2026",
-   "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/vefutsending-vegna-yfirlysingar-peningastefnunefndar-midvikudaginn-19-agust-2026",
-   "quotes": [
-    "8,0%",
-    "8,00%",
-    "8%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-cpi-july",
-   "file": "iceland.md",
-   "claim": "CPI 12-month inflation 5.3% in July 2026",
-   "url": "https://hagstofa.is/utgafur/frettasafn/verdlag/visitala-neysluverds-i-juli-2026/",
-   "quotes": [
-    "5,3%",
-    "5,3 %"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "is-arion-overdraft",
-   "file": "iceland.md",
-   "claim": "Arion overdraft and card revolving rate 15.25% after March 2026",
-   "url": "https://www.visir.is/g/20262858896d/bankarnir-byrjadir-ad-haekka-vexti",
-   "quotes": [
-    "15,25"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "stripe-no-iceland",
-   "file": "iceland.md",
-   "claim": "Iceland is not on Stripe's supported-country list",
-   "url": "https://stripe.com/global",
-   "quotes": [
-    "Iceland"
-   ],
-   "expect": "absent"
-  },
-  {
-   "id": "lemonsqueezy-iceland",
-   "file": "iceland.md",
-   "claim": "Lemon Squeezy lists Iceland for bank payouts",
-   "url": "https://docs.lemonsqueezy.com/help/getting-started/supported-countries",
-   "quotes": [
-    "Iceland"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "payoneer-iceland",
-   "file": "iceland.md",
-   "claim": "Payoneer supports Iceland",
-   "url": "https://payoneer.custhelp.com/app/answers/detail/a_id/45754/~/supported-countries",
-   "quotes": [
-    "Iceland"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "freemius-fee",
-   "file": "maker-leverage.md",
-   "claim": "Freemius charges 4.7% per transaction",
-   "url": "https://freemius.com/pricing/",
-   "quotes": [
-    "4.7%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "paddle-fee",
-   "file": "maker-leverage.md",
-   "claim": "Paddle charges 5% + 50¢",
-   "url": "https://www.paddle.com/pricing",
-   "quotes": [
-    "5% + 50¢",
-    "5% + $0.50",
-    "5% + 50c"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "gumroad-fee",
-   "file": "software-and-ai.md",
-   "claim": "Gumroad charges 10% + $0.50",
-   "url": "https://gumroad.com/help/article/66-gumroads-fees",
-   "quotes": [
-    "10%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "upwork-fee",
-   "file": "playbooks.md",
-   "claim": "Upwork freelancer fee is variable up to 15%",
-   "url": "https://www.upwork.com/resources/is-upwork-free",
-   "quotes": [
-    "15%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "upwork-csharp-median",
-   "file": "playbooks.md",
-   "claim": "Upwork C# developer median $50/hour",
-   "url": "https://www.upwork.com/hire/c-sharp-developers/cost/",
-   "quotes": [
-    "$50"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "microconf-28",
-   "file": "case-studies.md",
-   "claim": "MicroConf 2024: 28% of independent SaaS under $1,000 MRR",
-   "url": "https://microconf.com/state-of-indie-saas",
-   "quotes": [
-    "28%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "acquire-multiples",
-   "file": "case-studies.md",
-   "claim": "Acquire.com: small profitable SaaS sells for 3-5x net income",
-   "url": "https://blog.acquire.com/acquire-com-biannual-acquisition-multiples-report-jan-2026/",
-   "quotes": [
-    "5x"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "esma-cfd",
-   "file": "what-fails.md",
-   "claim": "ESMA: 74-89% of retail CFD accounts lose money",
-   "url": "https://www.esma.europa.eu/node/84933",
-   "quotes": [
-    "74-89%",
-    "74–89%",
-    "74-89 %"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "chague-97",
-   "file": "what-fails.md",
-   "claim": "97% of persistent Brazilian day traders lost money",
-   "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3423101",
-   "quotes": [
-    "97%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "bis-crypto",
-   "file": "what-fails.md",
-   "claim": "BIS: 73-81% of retail bitcoin buyers likely lost money",
-   "url": "https://www.bis.org/publ/bisbull69.htm",
-   "quotes": [
-    "81%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "ftc-eeb",
-   "file": "what-fails.md",
-   "claim": "FTC v. Ecommerce Empire Builders: $10,000 monthly claims unsubstantiated",
-   "url": "https://www.ftc.gov/news-events/news/press-releases/2025/05/ftc-action-ends-ecommerce-empire-builders-online-business-opportunity-scam",
-   "quotes": [
-    "$10,000"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "ftc-advocare",
-   "file": "what-fails.md",
-   "claim": "AdvoCare: 72.3% of distributors earned nothing",
-   "url": "https://www.ftc.gov/news-events/news/press-releases/2019/10/multi-level-marketer-advocare-will-pay-150-million-settle-ftc-charges-it-operated-illegal-pyramid",
-   "quotes": [
-    "72.3"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "bls-survival",
-   "file": "what-fails.md",
-   "claim": "BLS publishes 1-year survival rates for new establishments",
-   "url": "https://www.bls.gov/opub/ted/2024/1-year-survival-rates-for-new-business-establishments-by-year-and-location.htm",
-   "quotes": [
-    "survival rate"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "mmm-trinity",
-   "file": "fi-and-debt.md",
-   "claim": "MMM's table rests on the Trinity 4% withdrawal rate",
-   "url": "https://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/",
-   "quotes": [
-    "Trinity"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "morningstar-2026",
-   "file": "fi-and-debt.md",
-   "claim": "Morningstar 2026 safe withdrawal rate 3.9%",
-   "url": "https://www.morningstar.com/retirement/whats-safe-retirement-withdrawal-rate-2026",
-   "quotes": [
-    "3.9%"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "croatia-threshold",
-   "file": "remote-and-relocation.md",
-   "claim": "Croatia digital-nomad income threshold EUR 3,622.50 per month (2026)",
-   "url": "https://mup.gov.hr/aliens-281621/stay-of-digital-nomads/286833",
-   "quotes": [
-    "3.622,50",
-    "3,622.50",
-    "3622,50"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "estonia-threshold",
-   "file": "remote-and-relocation.md",
-   "claim": "Estonia digital-nomad visa income EUR 4,500 per month",
-   "url": "https://www.politsei.ee/en/instructions/digital-nomad-visa",
-   "quotes": [
-    "4500",
-    "4 500",
-    "4,500"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "eea-free-movement",
-   "file": "remote-and-relocation.md",
-   "claim": "EEA nationals may take up economic activity anywhere in the EU/EEA",
-   "url": "https://www.efta.int/eea/policy-areas/persons",
-   "quotes": [
-    "economic activity"
-   ],
-   "expect": "present"
-  },
-  {
-   "id": "gitlab-async",
-   "file": "remote-and-relocation.md",
-   "claim": "GitLab: mastering asynchronous workflows is vital",
-   "url": "https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/",
-   "quotes": [
-    "asynchronous"
-   ],
-   "expect": "present"
-  }
- ]
+  "_readme": "Load-bearing claims of the money skill, for scripts/verify_claims.py. Each claim is verified when a fetched page contains any of its quotes (expect=present) or none of them (expect=absent). Quotes are short strings copied from the research snippets or the number as it is written on the page; numbers are tried in both Icelandic and English formats. Run from a machine with open internet; the sandbox that built this file could reach none of these hosts.",
+  "claims": [
+    {
+      "id": "helmcnc-price",
+      "file": "maker-leverage.md",
+      "claim": "HelmCNC founder price $129, $239 after",
+      "url": "https://raw.githubusercontent.com/PreissWorkshop/HelmCNC/main/index.html",
+      "quotes": [
+        "$129 founder price",
+        "founder price"
+      ],
+      "expect": "present",
+      "control": true
+    },
+    {
+      "id": "anthropic-sonnet5",
+      "file": "software-and-ai.md",
+      "claim": "Claude Sonnet 5 costs $2 / $10 per MTok",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "quotes": [
+        "$2 / MTok"
+      ],
+      "expect": "present",
+      "control": true
+    },
+    {
+      "id": "apple-sbp",
+      "file": "what-fails.md",
+      "claim": "Apple Small Business Program commission is 15%",
+      "url": "https://developer.apple.com/app-store/small-business-program/",
+      "quotes": [
+        "15%"
+      ],
+      "expect": "present",
+      "control": true
+    },
+    {
+      "id": "is-ehf-capital",
+      "file": "iceland.md",
+      "claim": "ehf minimum share capital ISK 500,000",
+      "url": "https://www.skatturinn.is/fyrirtaekjaskra/stofnun-felaga/einkahlutafelog/",
+      "quotes": [
+        "500.000",
+        "500,000"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-ehf-fee",
+      "file": "iceland.md",
+      "claim": "ehf registration fee ISK 140,500",
+      "url": "https://www.skatturinn.is/fyrirtaekjaskra/stofnun-felaga/einkahlutafelog/verklagsreglur/",
+      "quotes": [
+        "140.500",
+        "140,500"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-vat-threshold",
+      "file": "iceland.md",
+      "claim": "VAT registration threshold ISK 2,000,000 per 12 months",
+      "url": "https://www.skatturinn.is/english/companies/value-added-tax/",
+      "quotes": [
+        "2,000,000",
+        "2.000.000",
+        "2 million"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-vat-rates",
+      "file": "iceland.md",
+      "claim": "VAT standard rate 24%",
+      "url": "https://www.skatturinn.is/english/companies/value-added-tax/",
+      "quotes": [
+        "24%",
+        "24 %"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-tax-bracket1",
+      "file": "iceland.md",
+      "claim": "2026 bracket 1 is 31.49%",
+      "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/skattthrep/2026/",
+      "quotes": [
+        "31,49",
+        "31.49"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-tax-bracket1-limit",
+      "file": "iceland.md",
+      "claim": "2026 bracket 1 ends at ISK 498,122 per month",
+      "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/skattthrep/2026/",
+      "quotes": [
+        "498.122",
+        "498,122"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-tax-bracket3",
+      "file": "iceland.md",
+      "claim": "2026 top bracket is 46.29%",
+      "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/skattthrep/2026/",
+      "quotes": [
+        "46,29",
+        "46.29"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-personal-credit",
+      "file": "iceland.md",
+      "claim": "2026 personal tax credit ISK 72,492 per month",
+      "url": "https://www.skatturinn.is/einstaklingar/stadgreidsla/stadgreidsla/2026/",
+      "quotes": [
+        "72.492",
+        "72,492"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-tryggingagjald",
+      "file": "iceland.md",
+      "claim": "tryggingagjald 6.35% in 2026",
+      "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/tryggingagjald/",
+      "quotes": [
+        "6,35",
+        "6.35"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-capital-tax",
+      "file": "iceland.md",
+      "claim": "capital income tax 22%",
+      "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/fjarmagnstekjuskattur/",
+      "quotes": [
+        "22%",
+        "22 %"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-reiknad-D",
+      "file": "iceland.md",
+      "claim": "reiknað endurgjald class D from ISK 589,000 per month (2026)",
+      "url": "https://www.skatturinn.is/atvinnurekstur/stadgreidsla-og-reiknad-endurgjald/reiknad-endurgjald/2026/",
+      "quotes": [
+        "589.000",
+        "589,000"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-three-year-tail",
+      "file": "iceland.md",
+      "claim": "former residents stay fully tax-liable for three years unless taxed elsewhere",
+      "url": "https://www.skatturinn.is/english/individuals/tax-liability/",
+      "quotes": [
+        "three years",
+        "3 years"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-three-year-tail-pwc",
+      "file": "remote-and-relocation.md",
+      "claim": "PwC: three-year tail after leaving Iceland",
+      "url": "https://taxsummaries.pwc.com/iceland/individual/residence",
+      "quotes": [
+        "three years",
+        "3 years"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-ehf-residency",
+      "file": "iceland.md",
+      "claim": "Act 138/1994 director-residency rule exempts EEA residents",
+      "url": "https://www.althingi.is/lagas/nuna/1994138.html",
+      "quotes": [
+        "Evrópska efnahagssvæð",
+        "EES-samning"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-ums-free",
+      "file": "iceland.md",
+      "claim": "UMS assistance is free (Act 100/2010)",
+      "url": "https://www.althingi.is/lagas/nuna/2010100.html",
+      "quotes": [
+        "endurgjalds",
+        "gjaldfrjáls"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-limitation",
+      "file": "iceland.md",
+      "claim": "Act 150/2007: money loans prescribe after ten years",
+      "url": "https://www.althingi.is/lagas/nuna/2007150.html",
+      "quotes": [
+        "tíu árum",
+        "10 árum"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-policy-rate",
+      "file": "iceland.md",
+      "claim": "Central Bank key rate 8.00% after 19 Aug 2026",
+      "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/vefutsending-vegna-yfirlysingar-peningastefnunefndar-midvikudaginn-19-agust-2026",
+      "quotes": [
+        "8,0%",
+        "8,00%",
+        "8%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-cpi-july",
+      "file": "iceland.md",
+      "claim": "CPI 12-month inflation 5.3% in July 2026",
+      "url": "https://hagstofa.is/utgafur/frettasafn/verdlag/visitala-neysluverds-i-juli-2026/",
+      "quotes": [
+        "5,3%",
+        "5,3 %"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-arion-overdraft",
+      "file": "iceland.md",
+      "claim": "Arion overdraft and card revolving rate 15.25% after March 2026",
+      "url": "https://www.visir.is/g/20262858896d/bankarnir-byrjadir-ad-haekka-vexti",
+      "quotes": [
+        "15,25"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "stripe-no-iceland",
+      "file": "iceland.md",
+      "claim": "Iceland is not on Stripe's supported-country list",
+      "url": "https://stripe.com/global",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "absent"
+    },
+    {
+      "id": "lemonsqueezy-iceland",
+      "file": "iceland.md",
+      "claim": "Lemon Squeezy lists Iceland for bank payouts",
+      "url": "https://docs.lemonsqueezy.com/help/getting-started/supported-countries",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "payoneer-iceland",
+      "file": "iceland.md",
+      "claim": "Payoneer supports Iceland",
+      "url": "https://payoneer.custhelp.com/app/answers/detail/a_id/45754/~/supported-countries",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "freemius-fee",
+      "file": "maker-leverage.md",
+      "claim": "Freemius charges 4.7% per transaction",
+      "url": "https://freemius.com/pricing/",
+      "quotes": [
+        "4.7%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "paddle-fee",
+      "file": "maker-leverage.md",
+      "claim": "Paddle charges 5% + 50¢",
+      "url": "https://www.paddle.com/pricing",
+      "quotes": [
+        "5% + 50¢",
+        "5% + $0.50",
+        "5% + 50c"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "gumroad-fee",
+      "file": "software-and-ai.md",
+      "claim": "Gumroad charges 10% + $0.50",
+      "url": "https://gumroad.com/help/article/66-gumroads-fees",
+      "quotes": [
+        "10%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "upwork-fee",
+      "file": "playbooks.md",
+      "claim": "Upwork freelancer fee is variable up to 15%",
+      "url": "https://www.upwork.com/resources/is-upwork-free",
+      "quotes": [
+        "15%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "upwork-csharp-median",
+      "file": "playbooks.md",
+      "claim": "Upwork C# developer median $50/hour",
+      "url": "https://www.upwork.com/hire/c-sharp-developers/cost/",
+      "quotes": [
+        "$50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "microconf-28",
+      "file": "case-studies.md",
+      "claim": "MicroConf 2024: 28% of independent SaaS under $1,000 MRR",
+      "url": "https://microconf.com/state-of-indie-saas",
+      "quotes": [
+        "28%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "acquire-multiples",
+      "file": "case-studies.md",
+      "claim": "Acquire.com: small profitable SaaS sells for 3-5x net income",
+      "url": "https://blog.acquire.com/acquire-com-biannual-acquisition-multiples-report-jan-2026/",
+      "quotes": [
+        "5x"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "esma-cfd",
+      "file": "what-fails.md",
+      "claim": "ESMA: 74-89% of retail CFD accounts lose money",
+      "url": "https://www.esma.europa.eu/node/84933",
+      "quotes": [
+        "74-89%",
+        "74–89%",
+        "74-89 %"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "chague-97",
+      "file": "what-fails.md",
+      "claim": "97% of persistent Brazilian day traders lost money",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3423101",
+      "quotes": [
+        "97%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "bis-crypto",
+      "file": "what-fails.md",
+      "claim": "BIS: 73-81% of retail bitcoin buyers likely lost money",
+      "url": "https://www.bis.org/publ/bisbull69.htm",
+      "quotes": [
+        "81%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ftc-eeb",
+      "file": "what-fails.md",
+      "claim": "FTC v. Ecommerce Empire Builders: $10,000 monthly claims unsubstantiated",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/05/ftc-action-ends-ecommerce-empire-builders-online-business-opportunity-scam",
+      "quotes": [
+        "$10,000"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ftc-advocare",
+      "file": "what-fails.md",
+      "claim": "AdvoCare: 72.3% of distributors earned nothing",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2019/10/multi-level-marketer-advocare-will-pay-150-million-settle-ftc-charges-it-operated-illegal-pyramid",
+      "quotes": [
+        "72.3"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "bls-survival",
+      "file": "what-fails.md",
+      "claim": "BLS publishes 1-year survival rates for new establishments",
+      "url": "https://www.bls.gov/opub/ted/2024/1-year-survival-rates-for-new-business-establishments-by-year-and-location.htm",
+      "quotes": [
+        "survival rate"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "mmm-trinity",
+      "file": "fi-and-debt.md",
+      "claim": "MMM's table rests on the Trinity 4% withdrawal rate",
+      "url": "https://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/",
+      "quotes": [
+        "Trinity"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "morningstar-2026",
+      "file": "fi-and-debt.md",
+      "claim": "Morningstar 2026 safe withdrawal rate 3.9%",
+      "url": "https://www.morningstar.com/retirement/whats-safe-retirement-withdrawal-rate-2026",
+      "quotes": [
+        "3.9%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "croatia-threshold",
+      "file": "remote-and-relocation.md",
+      "claim": "Croatia digital-nomad income threshold EUR 3,622.50 per month (2026)",
+      "url": "https://mup.gov.hr/aliens-281621/stay-of-digital-nomads/286833",
+      "quotes": [
+        "3.622,50",
+        "3,622.50",
+        "3622,50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "estonia-threshold",
+      "file": "remote-and-relocation.md",
+      "claim": "Estonia digital-nomad visa income EUR 4,500 per month (politsei.ee page gone 2026-09-20; programme page)",
+      "url": "https://www.e-resident.gov.ee/nomadvisa/",
+      "quotes": [
+        "4,500",
+        "4500",
+        "4 500"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "eea-free-movement",
+      "file": "remote-and-relocation.md",
+      "claim": "EEA nationals may take up economic activity anywhere in the EU/EEA",
+      "url": "https://www.efta.int/eea/policy-areas/persons",
+      "quotes": [
+        "economic activity"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "gitlab-async",
+      "file": "remote-and-relocation.md",
+      "claim": "GitLab's handbook had an asynchronous-communication page (source at its last revision, 2026-06-24; removed from all-remote 2026-08-19; the quoted sentences in the reference are unconfirmed)",
+      "url": "https://gitlab.com/gitlab-com/content-sites/handbook/-/raw/8660b734/content/handbook/company/culture/all-remote/asynchronous.md",
+      "quotes": [
+        "Asynchronous communication for remote work",
+        "asynchronous"
+      ],
+      "expect": "present"
+    }
+  ]
 }

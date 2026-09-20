@@ -32,9 +32,31 @@ labels say so everywhere.
 | Fly.io pricing structure and support tiers | superfly/docs repo about/pricing | 2026-09-19 |
 | Anthropic's official Claude Code plugin directory states no paid mechanism, revenue share or payouts | github.com/anthropics/claude-plugins-official README | 2026-09-19 |
 
-Everything else in `references/` is [S], [SR], [I] or [G].
+## Verification pass 2026-09-20 (main-pc, `scripts/verify_claims.py`)
+
+Run by the employee session on main-pc with open internet, as part of the
+first Windows run of `scripts/money-setup.ps1 -Verify`. Result: 30 of 44
+claims VERIFIED (the quote is in the page text; the three controls among
+them), 5 NOT FOUND (the page answered, the quote is not in its text),
+9 BLOCKED (7 × HTTP 403 to a script, 2 × HTTP 404 dead links). The report
+sits in `~\.preiss\finance\verify-2026-09-20.md` on main-pc (private folder).
+The reference lines were relabelled `[V 2026-09-20]` for exactly the figure the
+script found, nothing wider; a substring match is not a reading.
+
+| Result | Claims | What to do |
+|---|---|---|
+| VERIFIED (30) | Skatturinn: ehf capital, VAT threshold and 24 %, brackets 1 and 3, personal credit, tryggingagjald, reiknað endurgjald 589,000, the 3-year tail (also on PwC); Althingi: the EEA exemption in Act 138/1994, UMS free (Act 100/2010), the 10-year limitation (Act 150/2007); Hagstofa CPI July 5.3 %; Vísir Arion 15.25 %; stripe.com/global without "Iceland"; Lemon Squeezy and Payoneer list Iceland; Freemius 4.7 %; Paddle 5 % + 50¢; Gumroad 10 %; Upwork up to 15 %; ESMA 74-89 %; Morningstar 3.9 %; MMM names the Trinity study; Croatia EUR 3,622.50 on mup.gov.hr; the three controls | cite with the date; the Stripe absence needs a browser look (a script-rendered list would also read as absent) |
+| NOT FOUND (5) | is-ehf-fee (140,500 not on the verklagsreglur page), is-capital-tax (22 % not on the fjármagnstekjuskattur page), is-policy-rate (no rate on the 19 Aug webcast page), microconf-28 (28 % not on the report landing page), bis-crypto (81 % not on the abstract page) | open each page by eye - the figure may sit in a table image, a PDF or a neighbouring page; then correct the reference and the claim's URL or quote |
+| BLOCKED 403 (7) | upwork-csharp-median, acquire-multiples, chague-97 (SSRN), ftc-eeb, ftc-advocare, bls-survival, eea-free-movement (efta.int) | bot protection, not a dead page; open in a browser and relabel by hand |
+| BLOCKED 404 (2) | estonia-threshold (the politsei.ee page is gone; the programme's official page is e-resident.gov.ee/nomadvisa), gitlab-async (the asynchronous page is no longer in the all-remote section of the handbook) | `claims.json` updated; the reference lines say what changed |
+
+Everything not in the two tables above is [S], [SR], [I] or [G].
 
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
+
+Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and
+the labels were updated the same day. The hand part below stays open
+except where a reference line now reads `[V 2026-09-20]`.
 
 Mechanical first: `python scripts/verify_claims.py --report verify.md`
 fetches every claim in `references/claims.json` (44 load-bearing claims
@@ -82,16 +104,16 @@ the answer says so.
 
 ## Research streams behind the reference files
 
-| File | Stream | Findings | Verified |
+| File | Stream | Findings | Verified (09-19 + 09-20 passes) |
 |---|---|---|---|
-| `fi-and-debt.md` | 01 FI math and debt | ~22 | 0 |
-| `iceland.md` | 02 Iceland money, tax, legal | ~35 | 0 |
+| `fi-and-debt.md` | 01 FI math and debt | ~22 | 2 |
+| `iceland.md` | 02 Iceland money, tax, legal | ~35 | 18 |
 | `case-studies.md` | 03 indie software cases | 14 cases, base rates | 0 |
-| `playbooks.md` | 04 services to product | 32 | 0 |
-| `remote-and-relocation.md` | 05 remote and relocation | 56 | 0 |
-| `what-fails.md` | 06 what fails | 21 | 1 (Apple) |
-| `maker-leverage.md` | 07 maker leverage | 38 | 3 (HelmCNC pages) |
-| `software-and-ai.md` | 08 software and AI money | 62 | 6 |
+| `playbooks.md` | 04 services to product | 32 | 1 |
+| `remote-and-relocation.md` | 05 remote and relocation | 56 | 2 |
+| `what-fails.md` | 06 what fails | 21 | 2 |
+| `maker-leverage.md` | 07 maker leverage | 38 | 5 |
+| `software-and-ai.md` | 08 software and AI money | 62 | 7 |
 
 The raw stream files (with every snippet, URL and gap) were kept in the
 session scratchpad, not in the repo; the reference files carry what
@@ -125,3 +147,9 @@ kalzumeus.com, jonathanstark.com, momtestbook.com, stackingthebricks.com,
 37signals.com, mckinsey.com, medium.com, x.com, wikipedia.org,
 techcrunch.com, cnbc.com, news.ycombinator.com, handbook.gitlab.com,
 web.archive.org.
+
+From main-pc on 2026-09-20 (open internet) only these refused a scripted fetch:
+upwork.com/hire/*/cost, blog.acquire.com, papers.ssrn.com, ftc.gov,
+bls.gov, efta.int (HTTP 403 - bot protection, open in a browser);
+politsei.ee digital-nomad-visa and handbook.gitlab.com
+all-remote/asynchronous (HTTP 404 - pages moved or removed).

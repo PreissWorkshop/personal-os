@@ -36,12 +36,12 @@ Platform facts (2026, all [S]):
 
 | Platform | Freelancer fee | Notes | Source |
 |---|---|---|---|
-| Upwork | variable 0-15 % per contract since 1 May 2025, "typically around 10 %"; locked when the proposal is sent | client-side fees too; blended marketplace take 19.6 % of GSV in Q2 2026; GSV per active client a record $5,230 | upwork.com/resources/is-upwork-free; nasdaq.com Upwork Q2 2026 release |
+| Upwork | variable 0-15 % per contract since 1 May 2025, "typically around 10 %"; locked when the proposal is sent | client-side fees too; blended marketplace take 19.6 % of GSV in Q2 2026; GSV per active client a record $5,230 | upwork.com/resources/is-upwork-free [V 2026-09-20: "15%" on the page]; nasdaq.com Upwork Q2 2026 release |
 | Fiverr | flat 20 % from sellers; buyers pay 5.5 % + a small-order surcharge | | freelancecompare.com (help.fiverr.com blocked) |
 | Toptal | 0 % freelancer-side, but the client pays a blended $60-150+/h and "Toptal typically keeps 30-40% of what the client pays"; rates reviewed by Toptal | acceptance-rate marketing | thefrontendcompany.com; freelancemvp.com |
 | Contra | "does not charge freelancers any commission"; one snippet mentions a tiered per-payment fee on the free plan - verify | | contra.com/commission-free; memvers.com |
 
-Upwork's own "cost to hire" medians, USD/hour (2026, [S] from Upwork's pages):
+Upwork's own "cost to hire" medians, USD/hour (2026, [S] from Upwork's pages; upwork.com/hire/*/cost answered 403 to scripts on 2026-09-20 - open in a browser):
 
 | Skill | Median | Typical range |
 |---|---|---|

@@ -63,14 +63,18 @@ verified.
 ## Evidence state (read once)
 
 The references were built on 2026-09-19 from a cloud sandbox whose proxy
-refused nearly every website, so most claims are **Snippet**-level: the
-number appeared in a search result attributed to the source, and the page
-itself was not opened. Only HelmCNC's own site, Anthropic's pricing page,
-Apple's small-business page and three vendor docs repos were read on the
-page. `references/sources.md` carries the labels, the verified list and
-the ordered upgrade pass to run from main-pc. Until a claim is upgraded,
-quote it as reported and say that before acting on the number he should
-open the link.
+refused nearly every website, so every claim started **Snippet**-level. On
+2026-09-20 the mechanical pass (`scripts/verify_claims.py`) ran from main-pc
+with open internet: 30 of the 44 load-bearing claims now read
+`[V 2026-09-20]` - the Skatturinn 2026 rates and thresholds, the three
+Althingi acts, Hagstofa CPI, the platform fees and the Iceland payout
+lists, ESMA, Morningstar, the Croatia threshold - each for exactly the
+figure the script found on the page, nothing wider. Five claims were NOT
+FOUND on their page (the ehf fee, the 22 % capital tax, the 8 % policy
+rate, MicroConf's 28 %, BIS's 81 %) and nine were blocked to scripts or
+dead links; `references/sources.md` lists them with what to do next. A
+line that still reads [S] is quoted as reported, and before acting on that
+number he opens the link.
 
 ## Workflow
 

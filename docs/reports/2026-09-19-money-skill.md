@@ -230,6 +230,53 @@ the branch to `main`; then on main-pc `git pull`,
 `scripts\money-setup.ps1` from the main clone, which re-points the junction
 and the hook. The branch carries `main` as of a55ca34 and merges clean.
 
+## First run on main-pc (2026-09-20) and the repair
+
+**Outcome.** The `employee` session on main-pc ran the kickoff from Tenis's
+paste. `scripts\money-setup.ps1 -Verify` ran to the end with exit code 0
+from the worktree `C:\Projects\_system\personal-os-money`: junction,
+private folder (snapshot and decision log from the templates), the Money
+rule in `~\.claude\CLAUDE.md`, the prompt hook (fires on the sample loan
+question, silent on an unrelated prompt), selftest PASS, and the
+verification pass: **30 of 44 claims verified on the page, 5 not found,
+9 blocked** (7 × HTTP 403 to a script, 2 × HTTP 404 dead links). The labels
+in the reference files were upgraded the same day - `[V 2026-09-20]` for exactly
+the figure found, notes on every NOT FOUND and BLOCKED line, the log in
+`references/sources.md`, the two dead links repointed in `claims.json`.
+
+**One defect.** The script read `~\.claude\settings.json` without
+declaring UTF-8. Windows PowerShell 5.1 decoded the BOM-less file as
+Windows-1252 and the script wrote the misread text back as UTF-8: 23
+strings inside `autoMode` (every em dash and right arrow) are mojibake.
+Valid JSON, no other key changed, wording intact, exact original in
+`settings.json.bak-money`. Root cause and diagnosis by the employee; fix on
+the branch: `Get-Content -Raw -Encoding UTF8` on that read (the writes were
+already byte-order-mark-free).
+
+**Decision: restore the whole backup and re-run the fixed script**, not a
+hand edit of 23 strings. It leaves no hand-edited permission file behind,
+and the re-run is the test of the fix and of the script's idempotent path
+("ok" lines), which the first run never exercised.
+
+## Repair on main-pc
+
+Paste into the `employee` session:
+
+```
+Money-skill repair on main-pc: restore ~\.claude\settings.json from its backup, pull the fixed branch into the worktree, re-run the setup script without -Verify, confirm.
+
+1. Copy-Item C:\Users\tenis\.claude\settings.json.bak-money C:\Users\tenis\.claude\settings.json -Force
+   (byte-for-byte restore of the pre-hook original; the hook entry comes back in step 3)
+2. git -C C:\Projects\_system\personal-os-money pull
+3. powershell -ExecutionPolicy Bypass -File C:\Projects\_system\personal-os-money\scripts\money-setup.ps1
+4. Confirm and report: settings.json parses; compare the parsed JSON with the backup - every value outside the new UserPromptSubmit entry must be identical (the 23 autoMode strings included, em dashes and arrows intact); the hook entry is present exactly once; then every ok / done / STOP / WARN line and the selftest line.
+Rules as before: nothing committed, merged or pushed; the snapshot file stays unopened; no figures in the report.
+```
+
+Still open after that: the five NOT FOUND pages and the seven 403 pages by
+eye (list in `references/sources.md`), the Stripe absence in a browser,
+and the GitLab handbook quotes (see `remote-and-relocation.md` §7).
+
 ## Sources checked
 
 - HelmCNC public site and repo; platform.claude.com pricing;

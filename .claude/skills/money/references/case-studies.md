@@ -52,7 +52,7 @@ customer. Plan on 12-24 months of ramp with sold hours underneath.
 
 | Finding | Value | Label | Source |
 |---|---|---|---|
-| MicroConf State of Independent SaaS 2024 (469 respondents, end-2023) | "28% of independent SaaS businesses make under $1,000 MRR"; about half solo-founded, ~35 % two co-founders | [S] via lnks.work, incomewiki (microconf.com blocked) | microconf.com/state-of-indie-saas |
+| MicroConf State of Independent SaaS 2024 (469 respondents, end-2023) | "28% of independent SaaS businesses make under $1,000 MRR"; about half solo-founded, ~35 % two co-founders | [S] via lnks.work, incomewiki; microconf.com/state-of-indie-saas fetched 2026-09-20 from main-pc and "28%" is not on that page (report behind a form or in a PDF) - open it by hand | microconf.com/state-of-indie-saas |
 | Same survey, secondary claims | "The median time to $10K MRR for bootstrapped micro SaaS is 12-18 months"; part-time builders "2-3× longer"; "$10K MRR puts you in roughly the top 20%" | [S] low confidence (blog attributing to MicroConf) | brandbrain.app |
 | Secondary aggregations of self-published indie revenue | "The median micro SaaS earns $500/month MRR across 1,000+ products studied"; "70% of micro-SaaS products never break $1,000 a month"; "Roughly 3% of serious indie hackers currently make at least $10,000 per month" | [S] low confidence, survivorship and self-report bias both ways | saasranger.com; trustats.live; stealwhatworks.com |
 | Founder hit rates | Levels ~5 % (4 of 70+); Yongfook 0 of 7 before Bannerbear; Lou 27 prior projects | [SR] | as above |
@@ -70,7 +70,7 @@ founders who got there mostly did so on their third-plus attempt.
   exceptionally clean businesses."; "nearly all acquisitions closing on
   Acquire.com today come from profitable businesses"; multiples "dropping
   from a peak of ~17x down to around 5.5x net income" after the 2022 rate
-  rise (segment unclear) [S: blog.acquire.com].
+  rise (segment unclear) [S: blog.acquire.com - 403 to scripts, 2026-09-20].
 - FeedbackPanda "seven figures" on ~$660k ARR ≈ 1.5-3× ARR; Small Bets
   ~7-8× profit from a strategic buyer [I].
 - Exit math [I]: a $5-10k a month profit business is a $200-600k asset.

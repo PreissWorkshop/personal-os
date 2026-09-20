@@ -50,11 +50,11 @@ invoice, a scope - not a CV.
 
 | Country, scheme | Income threshold (2026, as reported) | Duration | Label | Source |
 |---|---|---|---|---|
-| **EEA (Icelandic citizen)** | none - free movement: "the same right as EU citizens to take up an economic activity anywhere in the EU/EEA"; beyond three months, residence is conditional on not being "an undue burden" and holding "comprehensive health insurance" | indefinite | [S], conclusion [I] | efta.int; government.is EEA pages; Wikipedia Citizens' Rights Directive |
+| **EEA (Icelandic citizen)** | none - free movement: "the same right as EU citizens to take up an economic activity anywhere in the EU/EEA"; beyond three months, residence is conditional on not being "an undue burden" and holding "comprehensive health insurance" | indefinite | [S] (efta.int 403 to scripts, 2026-09-20), conclusion [I] | efta.int; government.is EEA pages; Wikipedia Citizens' Rights Directive |
 | Spain, Startup Act teleworker visa (non-EU) | "EUR 2,849 per month (EUR 34,188 per year, 200% of Spain's minimum wage)"; "No more than 20% of your income can come from Spanish sources" | not captured | [S] | vissumlex.com; startupvisa.barcelona |
 | Portugal, D8 (non-EU) | "the minimum D8 Visa income requirement threshold €3,680 per month" (4 × €920); +50 % spouse, +30 % per child | not captured | [S] | globallawexperts.com; remoteworkeurope.eu |
-| Estonia, Digital Nomad Visa (non-EU) | "€4,500 gross monthly income over the prior six months" (raised from €3,504) | not captured | [S] | jobbatical.com |
-| Croatia | "EUR 3,622.50/month (or EUR 43,470 in savings for 12 months)"; "extended to 18 months ... cannot be renewed"; foreign income exempt from Croatian tax | 18 months | [S] | croatiaimmigrationadvisory.com |
+| Estonia, Digital Nomad Visa (non-EU) | "€4,500 gross monthly income over the prior six months" (raised from €3,504) | not captured | [S]; the politsei.ee page cited before is gone (404, 2026-09-20); the programme's official page is e-resident.gov.ee/nomadvisa, not yet opened | jobbatical.com; e-resident.gov.ee/nomadvisa |
+| Croatia | "EUR 3,622.50/month (or EUR 43,470 in savings for 12 months)"; "extended to 18 months ... cannot be renewed"; foreign income exempt from Croatian tax | 18 months | [V 2026-09-20] for EUR 3,622.50 (mup.gov.hr); rest [S] | mup.gov.hr/aliens-281621/stay-of-digital-nomads/286833; croatiaimmigrationadvisory.com |
 | Italy (non-EU) | "€28,000 (US$30,300) per year"; health cover ≥ €30,000 | 1 year, renewable | [S] | citizenremote.com |
 | Greece | "€3,500" net/month; consulate-only since Feb 2026 (Law 5275/2026) | 12 + 12 months | [S] | remoteworkeurope.eu |
 | Malaysia, DE Rantau | "US$24,000 annually" | 12 + 12 months | [S] | asialifestylemagazine.com |
@@ -72,7 +72,7 @@ income test; Japan and Estonia are the expensive ones.
 | Item | Value | Label | Source |
 |---|---|---|---|
 | Iceland, becoming resident | "If the stay in Iceland is six months or longer in a twelve-month period, the individual is considered to be a resident of Iceland" (unlimited liability from arrival) | [S] | skatturinn.is/english/individuals/tax-liability/ |
-| Iceland, leaving | "Former residents remain subject to unlimited tax liability for 3 years after leaving the country, unless they prove that they have become subject to taxation in another country." | [S] | KPMG TIES Iceland Jan 2025; PwC; Skatturinn |
+| Iceland, leaving | "Former residents remain subject to unlimited tax liability for 3 years after leaving the country, unless they prove that they have become subject to taxation in another country." | [V 2026-09-20] (taxsummaries.pwc.com fetched, "three years" on it) | KPMG TIES Iceland Jan 2025; PwC; Skatturinn |
 | OECD Model Art. 4(2) tie-breaker for dual residents | "four tests in strict sequence: permanent home, centre of vital interests, habitual abode, nationality"; "It is possible to have a permanent home in both countries, which pushes the analysis to the next step." | [S] | ggi.com; innovires.com; dlapiper.com 2021 |
 | Centre of vital interests | "family location, primary employment, business oversight, investment management activity, and community ties" | [S] | innovires.com |
 | A nomad visa does not settle tax | Croatia's exemption is a domestic carve-out; 183 days is the usual trigger elsewhere | [S] third party | affordwhere.com |
@@ -153,8 +153,12 @@ with filing risk. Not before phase 4, and then only with the adviser.
 
 ## 9. What remote employers and clients need from him
 
-GitLab's all-remote handbook [S: gitlab.com content-sites handbook;
-handbook.gitlab.com]: "mastering asynchronous workflows is vital to avoiding
+GitLab's all-remote handbook [S - unconfirmed: the asynchronous page was
+removed from the handbook's all-remote section on 2026-08-19, and the three
+sentences below are not in its source at the last revision (asynchronous.md
+at commit 8660b734, 2026-06-24) nor in the current all-remote index, checked
+2026-09-20; the wording may be the older about.gitlab.com page or a search
+paraphrase - treat as paraphrase until found]: "mastering asynchronous workflows is vital to avoiding
 dysfunction and enjoying outsized efficiencies and lifestyle flexibility";
 "requires a mental shift that can feel unusual or even uncomfortable for
 those who come from a colocated environment"; "effective asynchronous

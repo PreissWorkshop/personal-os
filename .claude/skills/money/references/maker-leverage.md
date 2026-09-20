@@ -60,10 +60,10 @@ What this means [I]:
 
 | Platform | Fee | Notes | Label | Source |
 |---|---|---|---|---|
-| Freemius | 4.7 % per transaction, "shrinking to 0.5 % as you grow"; on the product price only (not on VAT); no setup or monthly fee | merchant of record (global VAT/sales tax, licensing, subscriptions, disputes, portal, affiliates); payouts by wire, Wise, Payoneer, PayPal, $100 minimum; Iceland payout not confirmed in research, but HelmCNC already sells through it | [S] | freemius.com/pricing; freemius.com/blog/new-freemius-pricing-2025; freemius.com/help/.../our-pricing |
-| Paddle | 5 % + 50¢ all-in, no monthly fee; a third party claims 2-3 % FX on top | merchant of record | [S] | paddle.com/pricing |
-| Lemon Squeezy | 5 % + 50¢ | merchant of record; Iceland listed for bank payouts | [S] | lemonsqueezy.com; docs.lemonsqueezy.com |
-| Gumroad | 10 % + $0.50 per direct sale | third-party figure; gumroad.com blocked | [S] | veloxthemes.com, pocketsflow.com comparisons |
+| Freemius | 4.7 % per transaction, "shrinking to 0.5 % as you grow"; on the product price only (not on VAT); no setup or monthly fee | merchant of record (global VAT/sales tax, licensing, subscriptions, disputes, portal, affiliates); payouts by wire, Wise, Payoneer, PayPal, $100 minimum; Iceland payout not confirmed in research, but HelmCNC already sells through it | [V 2026-09-20] for 4.7 % (freemius.com/pricing); rest [S] | freemius.com/pricing; freemius.com/blog/new-freemius-pricing-2025; freemius.com/help/.../our-pricing |
+| Paddle | 5 % + 50¢ all-in, no monthly fee; a third party claims 2-3 % FX on top | merchant of record | [V 2026-09-20] for 5 % + 50¢; FX claim [S] | paddle.com/pricing |
+| Lemon Squeezy | 5 % + 50¢ | merchant of record; Iceland listed for bank payouts | [S] fee; Iceland payout [V 2026-09-20] | lemonsqueezy.com; docs.lemonsqueezy.com |
+| Gumroad | 10 % + $0.50 per direct sale | gumroad.com help article 66 fetched 2026-09-20, "10%" on it | [V 2026-09-20] for 10 %; the $0.50 [S] | gumroad.com/help/article/66-gumroads-fees; veloxthemes.com, pocketsflow.com |
 | Etsy | $0.20 listing + 6.5 % transaction + 3 % + $0.25 processing (about 11-14 % of a digital sale) | third-party summaries; etsy.com blocked | [S] | blog.marmalead.com; stowelabs.dev |
 | Creative Fabrica | designer keeps 75 % on self-referred sales, 50 % on marketplace-referred; subscription pool split 50/50 | | [S] | creativefabrica.com/open-store |
 
@@ -127,7 +127,7 @@ like it abroad.
 | Matt Cremona | online teaching + plans | "Teaching expert-level woodworking online is the core of his business."; sold DIY sawmill plans | [SR] interview | madeforprofit.com/episode57; startribune.com |
 | Cam Anderson, Blacktail Studio | YouTube ads/sponsors/affiliates, high-ticket furniture, own product line (N3 Nano finishes), Makerbook directory | "$15K/month" exists only as an interview title | [S] | wikipedia Cam_Anderson; UpFlip video |
 | Florian Gadsby (ceramics) | content-first, then 3-4 sell-out drops a year of ~250-450 pots, plus YouTube and a book | "I wish I could make enough to satisfy demand but I don't want to scale my business up, I like working by myself"; restocks sell out in minutes ("3 Minutes 53 Seconds: My Fastest Shop Sell-Out Yet") | [SR] | floriangadsby.com/shop/how-my-shop-works; ceramicartsnetwork.org |
-| Bourbon Moth | Patreon exists (graphtreon listing); no own-account numbers | [G] | - |
+| Bourbon Moth | Patreon exists (graphtreon listing); no own-account numbers | - | [G] | - |
 
 Read for Studio Esja [I]: the drop model sells out in minutes only because
 the audience is large and the maker's hands cap supply; it is a brand and

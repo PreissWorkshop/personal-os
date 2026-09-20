@@ -95,7 +95,7 @@ if ($NoHook) {
 } else {
     $settingsPath = Join-Path $claudeDir 'settings.json'
     $hookFile = (Join-Path $repo '.claude\hooks\money_trigger.py') -replace '\\', '/'
-    $json = if (Test-Path $settingsPath) { Get-Content $settingsPath -Raw } else { '{}' }
+    $json = if (Test-Path $settingsPath) { Get-Content $settingsPath -Raw -Encoding UTF8 } else { '{}' }
     if ($json -match [regex]::Escape($hookFile)) {
         Write-Host "  ok    $settingsPath already runs $hookFile"
     } elseif ($json -match 'money_trigger\.py') {

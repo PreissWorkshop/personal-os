@@ -848,24 +848,30 @@ First successful run of the routine (see corrections folded into the
   templates; six eval prompts. Rating against two days ago, his question:
   about 5/10 then, 7.5/10 now, 9 reachable after verification, the
   snapshot and the CRM/Freemius feeds.
-- ⏳ **2026-09-20, kickoff on main-pc.** Tenis is at the laptop with main-pc
-  on Tailscale; main-pc exposes no shell over it (22, 3389, 5985/5986 closed,
-  see `docs/employee-setup-main-pc.md`), so the kickoff goes through the
-  `employee` Remote Control session on main-pc - reachable from claude.ai/code
-  on the laptop or by Telegram. This cloud session cannot reach it (peer
-  messaging finds no such agent; a routine into that session was refused by
-  the permission classifier), so Tenis pastes the dispatch himself - the text
-  is in `docs/reports/2026-09-19-money-skill.md` → "Kickoff on main-pc". It
-  has the employee add a worktree for this branch
-  beside the main clone and run `scripts/money-setup.ps1 -Verify` from there
-  (new, untested on Windows): junction, private folder, CLAUDE.md rule, prompt
-  hook, selftest, and the source-verification pass from main-pc's open
-  internet - the single biggest quality step left. Re-run from the main clone
-  after the merge, the script re-points the junction and the hook and touches
-  nothing else. `~\.preiss\finance` is per machine and travels by USB or
-  cloud, never through git. This branch carries `main` as of a55ca34 (merged
-  09-20, one tracker conflict resolved) and merges clean; merging is his call.
-- ⚠ **Evidence is snippet-level by construction.** The sandbox proxy refused
+- ✅ **2026-09-20, first run on main-pc.** main-pc has no shell over
+  Tailscale, so the `employee` Remote Control session ran the kickoff from
+  Tenis's paste: worktree `C:\Projects\_system\personal-os-money` on this
+  branch, `scripts\money-setup.ps1 -Verify` to the end with exit 0 -
+  junction, private folder, CLAUDE.md rule, prompt hook (fires on the
+  sample loan question, silent otherwise), selftest PASS, and the
+  verification pass: 30 of 44 claims verified on the page, 5 not found,
+  9 blocked (7 × 403 to scripts, 2 × dead links). The reference labels were
+  upgraded the same day (`references/sources.md`).
+- ⏳ **One defect, one repair pending.** The script read
+  `~\.claude\settings.json` without declaring UTF-8; Windows PowerShell 5.1
+  decoded the BOM-less file as Windows-1252 and wrote it back as UTF-8, so
+  23 strings inside `autoMode` (every em dash and right arrow) are mojibake.
+  Valid JSON, wording intact, exact original in `settings.json.bak-money`.
+  Fixed on the branch (`-Encoding UTF8` on the read). Repair, on Tenis's
+  word to the employee: restore the backup, pull the branch into the
+  worktree, re-run the script without `-Verify`, confirm the file equals
+  the backup plus the hook entry (paste in the report). `~\.preiss\finance`
+  is per machine and travels by USB or cloud, never through git. This
+  branch carries `main` as of a55ca34 and merges clean; merging is his
+  call.
+- ⚠ **Evidence is snippet-level by construction** (updated 2026-09-20: 30 of 44
+  load-bearing claims are now verified on the page from main-pc, see the
+  report; the rest of this note describes the starting point).** The sandbox proxy refused
   nearly every website (all `.is` sites, regulators, vendors, founders'
   blogs), so only HelmCNC's own site, Anthropic's pricing page, Apple's
   small-business page and three vendor docs repos were read on the page.
@@ -886,23 +892,22 @@ First successful run of the routine (see corrections folded into the
 
 ## Waiting on Tenis
 
-- 🔒 **Money skill - kick off on main-pc, then merge** (09-19, updated
-  09-20): main-pc has no shell over Tailscale (`docs/employee-setup-main-pc.md`),
-  so the hands there are the `employee` Remote Control session - claude.ai/code
-  from the laptop, or Telegram. (1) Have it add a worktree for the branch at
-  `C:\Projects\_system\personal-os-money` and run
-  `scripts\money-setup.ps1 -Verify` from there (paste the dispatch from
-  `docs/reports/2026-09-19-money-skill.md` → "Kickoff on main-pc"); the script is
-  untested on Windows, so read its output line by line. (2) Fill
-  `~\.preiss\finance\finance-snapshot.json` on main-pc by hand, nowhere else,
-  and run `plan` - the phase it prints is the starting point for every money
-  conversation. (3) When the run is clean, merge the branch to `main` (it
-  carries main as of a55ca34, so it merges clean; if the Icelandic branch lands
-  first, hand-merge the five shared files), then on main-pc `git pull`,
-  `git worktree remove C:\Projects\_system\personal-os-money`, and re-run
-  `scripts\money-setup.ps1` from the main clone - it re-points the junction
-  and the hook. Then book the accountant meeting with the five questions in
-  `references/iceland.md` §10.
+- 🔒 **Money skill - repair, fill, merge** (09-19, updated 2026-09-20 evening):
+  (1) tell the `employee` session on main-pc (claude.ai/code or Telegram)
+  to restore `~\.claude\settings.json` from `settings.json.bak-money`,
+  pull the branch into the worktree, re-run `scripts\money-setup.ps1`
+  there without `-Verify`, and confirm the file equals the backup plus the
+  hook - the paste is in `docs/reports/2026-09-19-money-skill.md` →
+  "Repair on main-pc"; (2) fill `~\.preiss\finance\finance-snapshot.json`
+  on main-pc by hand, nowhere else, and run `plan` - the phase it prints
+  is the starting point for every money conversation; (3) merge the branch
+  to `main` (it carries main as of a55ca34 and merges clean; if the
+  Icelandic branch lands first, hand-merge the five shared files), then on
+  main-pc `git pull`, `git worktree remove C:\Projects\_system\personal-os-money`,
+  and re-run `scripts\money-setup.ps1` from the main clone - it re-points
+  the junction and the hook; (4) by eye, the five NOT FOUND pages and the
+  seven 403 pages listed in `references/sources.md`; (5) the accountant
+  meeting with the five questions in `references/iceland.md` §10.
 - 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
   (09-19). Merging deploys. Three things in it are his alone: set a random
   `CREW_SECRET` in the Pages project (the crew cookie is signed with the

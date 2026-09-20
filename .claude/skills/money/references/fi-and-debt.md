@@ -19,7 +19,7 @@ Contents: 1 the FI number · 2 savings rate and years · 3 debt order ·
 |---|---|---|---|
 | Bengen 1994, origin of the 4 % rule | "limiting annual withdrawals to 4%, adjusted for inflation, was effective in keeping the portfolio from depleting for the entire 30 years" - 50/50 stocks/bonds, US data from 1926, 30-year periods | [S] | Journal of Financial Planning Oct 1994 via robberger.com summary |
 | Trinity Study 1998 (Cooley, Hubbard, Walz) | "a 4% withdrawal rate on accounts with 50% and 75% stocks had success rates of 95% and 98%, respectively over 30-year horizons" | [S] | AAII Journal Feb 1998 via thepoorswiss.com / Wikipedia |
-| Morningstar, State of Retirement Income | safe starting rate 3.7 % (2025 edition), 3.9 % (2026 edition, released 2025-12-03): "applies to portfolios that hold between 30% and 50% in equities", 30-year horizon, 90 % success; flexible strategies up to 5.7 % | [S] | morningstar.com; fa-mag.com |
+| Morningstar, State of Retirement Income | safe starting rate 3.7 % (2025 edition), 3.9 % (2026 edition, released 2025-12-03): "applies to portfolios that hold between 30% and 50% in equities", 30-year horizon, 90 % success; flexible strategies up to 5.7 % | [V 2026-09-20] for 3.9 % (morningstar.com); rest [S] | morningstar.com; fa-mag.com |
 | Early Retirement Now, SWR series | "With a withdrawal rate in the 3.25-3.50% range, you would have survived even during the most catastrophic historical market conditions."; "All failures of the naive 4% Rule occurred when the Shiller CAPE Ratio was elevated." | [S] | earlyretirementnow.com series (2016-2026) |
 | Pfau 2010, international data | "a 4 percent real withdrawal rate is surprisingly risky ... it would have only provided 'safety' in 4 of the 17 countries" (1900-2008); "In Italy, the 4% rule failed 62.5% of the time" | [S] | SSRN 1699526; JFP Dec 2010 |
 | FI multiplier | spending ÷ withdrawal rate: 25× at 4 %, 25.6× at 3.9 %, 27× at 3.7 %, 28.6× at 3.5 %, 30.8× at 3.25 % | [I] | arithmetic |
@@ -39,7 +39,9 @@ and the Trinity-Study-based 4% safe withdrawal rate."; "save 10% → 51
 years; 25% → 32 years; 50% → 17 years; 75% → 7 years"; "Your time to
 reach retirement depends on only one factor: your savings rate, as a
 percentage of your take-home pay." [S: mrmoneymustache.com via
-enoughmoney.ai, totalbalance.blog]
+enoughmoney.ai, totalbalance.blog; the page itself was fetched 2026-09-20 from
+main-pc and names the Trinity study - the quoted sentences were not checked
+word for word]
 
 The full table, recomputed from the formula n = ln(1 + target·r/s) /
 ln(1+r) (reproduces MMM's four rows: 51.4 / 31.9 / 16.6 / 7.1) [I]:
