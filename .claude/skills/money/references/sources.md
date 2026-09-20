@@ -46,9 +46,9 @@ script found, nothing wider; a substring match is not a reading.
 | Result | Claims | What to do |
 |---|---|---|
 | VERIFIED (30) | Skatturinn: ehf capital, VAT threshold and 24 %, brackets 1 and 3, personal credit, tryggingagjald, reiknað endurgjald 589,000, the 3-year tail (also on PwC); Althingi: the EEA exemption in Act 138/1994, UMS free (Act 100/2010), the 10-year limitation (Act 150/2007); Hagstofa CPI July 5.3 %; Vísir Arion 15.25 %; stripe.com/global without "Iceland"; Lemon Squeezy and Payoneer list Iceland; Freemius 4.7 %; Paddle 5 % + 50¢; Gumroad 10 %; Upwork up to 15 %; ESMA 74-89 %; Morningstar 3.9 %; MMM names the Trinity study; Croatia EUR 3,622.50 on mup.gov.hr; the three controls | cite with the date; the Stripe absence needs a browser look (a script-rendered list would also read as absent) |
-| NOT FOUND (5) | is-ehf-fee (140,500 not on the verklagsreglur page), is-capital-tax (22 % not on the fjármagnstekjuskattur page), is-policy-rate (no rate on the 19 Aug webcast page), microconf-28 (28 % not on the report landing page), bis-crypto (81 % not on the abstract page) | open each page by eye - the figure may sit in a table image, a PDF or a neighbouring page; then correct the reference and the claim's URL or quote |
-| BLOCKED 403 (7) | upwork-csharp-median, acquire-multiples, chague-97 (SSRN), ftc-eeb, ftc-advocare, bls-survival, eea-free-movement (efta.int) | bot protection, not a dead page; open in a browser and relabel by hand |
-| BLOCKED 404 (2) | estonia-threshold (the politsei.ee page is gone; the programme's official page is e-resident.gov.ee/nomadvisa), gitlab-async (the asynchronous page is no longer in the all-remote section of the handbook) | `claims.json` updated; the reference lines say what changed |
+| NOT FOUND (5) | is-ehf-fee (140,500 not on the verklagsreglur page), is-capital-tax (22 % not on the fjármagnstekjuskattur page), is-policy-rate (no rate on the 19 Aug webcast page), microconf-28 (28 % not on the report landing page), bis-crypto (81 % not on the abstract page) | settled in round 2 below, except microconf-28 (report behind an e-mail form) |
+| BLOCKED 403 (7) | upwork-csharp-median, acquire-multiples, chague-97 (SSRN), ftc-eeb, ftc-advocare, bls-survival, eea-free-movement (efta.int) | settled in round 2 below, except upwork-csharp-median (bot challenge to every route) and eea-free-movement (a summarising tool\'s quotation only, kept [S]) |
+| BLOCKED 404 (2) | estonia-threshold (the politsei.ee page is gone; the programme's official page is e-resident.gov.ee/nomadvisa), gitlab-async (the asynchronous page is no longer in the all-remote section of the handbook) | both repointed; two of the three GitLab sentences found on the all-remote guide (round 2 below); the Estonia programme page still unopened |
 
 Everything not in the two tables above is [S], [SR], [I] or [G].
 
@@ -63,7 +63,7 @@ seen word for word.
 |---|---|
 | Found on a neighbouring page, `claims.json` re-pointed, script now VERIFIED | is-ehf-fee (the gjaldskrá), is-capital-tax (individuals' dividends page), is-policy-rate (the yfirlýsing itself), chague-97 (RePEc record of the working paper; SSRN still 403), bis-crypto (**BIS Working Paper 1049, not Bulletin 69**) |
 | Read on the claim's own page, [V]; the script still gets 403 because these sites refuse its honest bot user agent | ftc-eeb, ftc-advocare, bls-survival (read in a headless browser), acquire-multiples |
-| [V] through the fetch tool's quotation only; raw page not readable | eea-free-movement |
+| Quoted back by a summarising fetch tool only; raw page not readable - kept [S] on review (a tool's quotation is not the page text) | eea-free-movement |
 | Not openable, stays [S] | upwork-csharp-median (bot challenge to every route), microconf-28 (2024 report behind an e-mail form) |
 
 Corrections this round: the Acquire.com figures (median profit multiple 3.9x;
@@ -105,7 +105,8 @@ the date. Order by how load-bearing the claim is:
    eligibility (`maker-leverage.md` §2).
 7. MicroConf State of Independent SaaS (latest) and Acquire.com
    multiples report Jan 2026 (`case-studies.md` §3-4).
-8. ESMA CFD decision; Chague et al. 2020; BIS Bulletin 69; the four FTC
+8. ESMA CFD decision; Chague et al. 2020; BIS Working Paper 1049 (was
+   cited as Bulletin 69, which does not carry the figure); the four FTC
    cases; BLS BED survival (`what-fails.md`).
 9. Upwork fee page, rate pages and In-Demand Skills 2026
    (`playbooks.md` §1).
@@ -129,11 +130,11 @@ the answer says so.
 | File | Stream | Findings | Verified (09-19 + 09-20 passes) |
 |---|---|---|---|
 | `fi-and-debt.md` | 01 FI math and debt | ~22 | 2 |
-| `iceland.md` | 02 Iceland money, tax, legal | ~35 | 18 |
-| `case-studies.md` | 03 indie software cases | 14 cases, base rates | 0 |
+| `iceland.md` | 02 Iceland money, tax, legal | ~35 | 21 |
+| `case-studies.md` | 03 indie software cases | 14 cases, base rates | 1 |
 | `playbooks.md` | 04 services to product | 32 | 1 |
-| `remote-and-relocation.md` | 05 remote and relocation | 56 | 2 |
-| `what-fails.md` | 06 what fails | 21 | 2 |
+| `remote-and-relocation.md` | 05 remote and relocation | 56 | 3 |
+| `what-fails.md` | 06 what fails | 21 | 7 |
 | `maker-leverage.md` | 07 maker leverage | 38 | 5 |
 | `software-and-ai.md` | 08 software and AI money | 62 | 7 |
 

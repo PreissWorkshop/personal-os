@@ -64,17 +64,21 @@ verified.
 
 The references were built on 2026-09-19 from a cloud sandbox whose proxy
 refused nearly every website, so every claim started **Snippet**-level. On
-2026-09-20 the mechanical pass (`scripts/verify_claims.py`) ran from main-pc
-with open internet: 30 of the 44 load-bearing claims now read
-`[V 2026-09-20]` - the Skatturinn 2026 rates and thresholds, the three
-Althingi acts, Hagstofa CPI, the platform fees and the Iceland payout
-lists, ESMA, Morningstar, the Croatia threshold - each for exactly the
-figure the script found on the page, nothing wider. Five claims were NOT
-FOUND on their page (the ehf fee, the 22 % capital tax, the 8 % policy
-rate, MicroConf's 28 %, BIS's 81 %) and nine were blocked to scripts or
-dead links; `references/sources.md` lists them with what to do next. A
-line that still reads [S] is quoted as reported, and before acting on that
-number he opens the link.
+2026-09-20 two passes ran from main-pc with open internet - the script
+(`scripts/verify_claims.py`) and then the employee session by eye - and
+40 of the 44 load-bearing claims now read `[V 2026-09-20]`: the Skatturinn
+2026 rates, thresholds and fees, the three Althingi acts, the Central
+Bank's 8.00 %, Hagstofa CPI, the platform fees and Iceland payout lists,
+Stripe's list without Iceland, ESMA, BIS, the FTC cases, Morningstar,
+the Croatia threshold - each for exactly the wording found on the page,
+nothing wider. The by-eye pass also corrected four references that had
+been quoted wrongly (Acquire.com multiples, the BIS source, the Chague
+wording, an FTC sentence) - a reminder that a snippet is not a reading.
+Four claims remain [S]: Upwork's rate pages (bot challenge), MicroConf's
+28 % (report behind a form), the EEA free-movement sentence (seen only
+through a summarising tool), the Estonia threshold (programme page not yet
+opened). `references/sources.md` holds the log. A line that still reads [S]
+is quoted as reported, and before acting on that number he opens the link.
 
 ## Workflow
 

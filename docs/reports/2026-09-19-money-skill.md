@@ -296,14 +296,58 @@ Work in the worktree C:\Projects\_system\personal-os-money (branch claude/profit
 Once the employee pushes, the cloud session pulls before it touches the
 branch again; both work on the same branch, never on `main`.
 
+## Round 2 landed (2026-09-20, employee commit 788e7db)
+
+Ten of the twelve claims settled by eye, two stay [S] (Upwork's rate pages
+answer a bot challenge to every route; MicroConf's 2024 report sits behind
+an e-mail form). **Four references were wrong and are corrected in place,
+each saying what it said before**: Acquire.com (the page gives a median
+profit multiple of 3.9x; the "3-5x net income" and "17x to 5.5x net income"
+sentences were not on it - the 17x to 5.5x series is public SaaS *revenue*
+multiples); the BIS 73-81 % figure is in Working Paper 1049, not Bulletin
+69; Chague et al. say "at least 300 days" and 0.4 % above a bank teller;
+one FTC sentence about Ecommerce Empire Builders is not on the release. Two
+GitLab sentences had been quoted with words GitLab did not write. Stripe's
+country list is in the served HTML: 51 entries, Iceland absent, Denmark and
+Norway present. The script still reports 403 for four sites that refuse its
+honest bot user agent; that stays as it is.
+
+Review from the cloud session: the EEA free-movement sentence, seen only as
+a summarising tool's quotation, is kept [S] (a tool's quotation is not the
+page text); the stale "46 countries" in the Stripe line's opening and the
+Bulletin 69 mentions in the source lists were aligned. Tally: 40 of 44
+load-bearing claims now `[V 2026-09-20]`, the evidence paragraph in
+`SKILL.md` says so.
+
+## Round 3 on main-pc (the next paste)
+
+```
+Money skill, round 3 on main-pc: replace section 9b of remote-and-relocation.md (the destination's own taxes, currently [G]) with sourced facts for Spain and Portugal from the tax and social-security authorities themselves; push to the branch.
+
+Work in the worktree C:\Projects\_system\personal-os-money on branch claude/profitable-business-debt-situation-6d7hq3; git pull first.
+
+Scope, per country, six items, facts only, no advice:
+1. The inbound special regime: Spain's régimen especial para trabajadores desplazados (Ley 35/2006 art. 93, the "ley Beckham") and Portugal's IFICI (the regime that replaced NHR from 2024) - who qualifies (employee, self-employed, owner of a company), the rate, the years it lasts, the deadline to opt in, and whether a self-employed person or a one-person company's owner can use it at all.
+2. Ordinary personal income tax for a resident self-employed person: the 2026 brackets (Spain: state plus one region, say which - Madrid or Andalucía; Portugal: the IRS table) and Portugal's simplified regime for the self-employed (the coefficient it applies to services income).
+3. Self-employed social security: Spain's cuota de autónomos by tramo de rendimientos netos for 2026 and the reduced quota for new autónomos; Portugal's rate and base for trabalhadores independentes.
+4. Corporate residence: the test under which a foreign company managed from the country becomes tax-resident there (Spain: Ley 27/2014 art. 8, "sede de dirección efectiva"; Portugal: Código do IRC art. 2 - confirm the article numbers, they are recalled), quoted.
+5. VAT for services sold from the country to EU businesses, to EU consumers and to non-EU customers: registration duty and the reverse-charge / OSS rules as the authority states them.
+6. The interaction with Iceland's three-year rule: does the authority describe a special-regime taxpayer as resident or non-resident for treaty purposes? Quote what the page says and leave the conclusion to the adviser.
+
+Sources: agenciatributaria.gob.es, boe.es, seg-social.es; portaldasfinancas.gov.pt or info.portaldasfinancas.gov.pt, dre.pt, seg-social.pt. A Big-4 or law-firm summary may point you to the page but is not a source; if the authority's page cannot be opened, say so and leave the item [G]. Verbatim quotes in the original language, with the date; [V] only for wording seen in the page text; a summarising tool's quotation is [S]. Figures for 2026; if only 2025 is published, say so.
+
+Write: replace section 9b with one table per country (Item | Value | Label | Source) and a short list of questions for the adviser; keep the pointer about the three-year rule as a question, not a fact. Add every load-bearing figure to references/claims.json with ids es-* and pt-* (url, verbatim quote, expect present); run python .claude\skills\money\scripts\verify_claims.py --only es- and again with --only pt- and report the counts. Then check_references.py and money_model.py selftest clean; commit with the ids by outcome; git pull --rebase if the push is refused; push.
+
+Rules: no advice and no ranking of countries in the reference; nothing merged; main untouched; ~\.preiss\finance never opened; none of Tenis's figures anywhere. Cap: two hours - if it runs out, push what is done and list what is not.
+
+Report: the two tables as they landed, the commit hash, the verify counts, and anything that contradicts what the reference or the skill says elsewhere.
+```
+
 **Rounds after this one, in order** (each is one paste, one push, one
 report; same rules: primary sources, verbatim quotes, dated labels, no
 advice in the references, none of Tenis's figures):
 
-1. Destination-country tax for Spain and Portugal from the tax authorities
-   themselves (Agencia Tributaria, Portal das Finanças) plus the EEA
-   residence rules: replaces the [R] pointers in
-   `remote-and-relocation.md` §9b with dated [V]/[S] lines.
+1. Round 3 above (Spain and Portugal, §9b).
 2. What small businesses pay for AI automation, and SMB SaaS churn
    benchmarks: the two open gaps in `software-and-ai.md`.
 3. The skill evals from main-pc (`evals/evals.json`, with-skill vs

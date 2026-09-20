@@ -857,6 +857,13 @@ First successful run of the routine (see corrections folded into the
   verification pass: 30 of 44 claims verified on the page, 5 not found,
   9 blocked (7 × 403 to scripts, 2 × dead links). The reference labels were
   upgraded the same day (`references/sources.md`).
+- ✅ **2026-09-20, round 2 by eye (employee, 788e7db).** Ten of the twelve
+  claims the script could not settle were read on the page from main-pc;
+  two stay [S] (Upwork's rate pages, MicroConf's gated report). Four
+  references were wrong and are corrected in place (Acquire.com multiples,
+  the BIS source, the Chague wording, an FTC sentence), two GitLab quotes
+  trimmed to what GitLab wrote, Stripe's list confirmed in the served HTML.
+  The employee now pushes to this branch; the cloud session pulls first.
 - ⏳ **One defect, one repair pending.** The script read
   `~\.claude\settings.json` without declaring UTF-8; Windows PowerShell 5.1
   decoded the BOM-less file as Windows-1252 and wrote it back as UTF-8, so
@@ -869,9 +876,10 @@ First successful run of the routine (see corrections folded into the
   is per machine and travels by USB or cloud, never through git. This
   branch carries `main` as of a55ca34 and merges clean; merging is his
   call.
-- ⚠ **Evidence is snippet-level by construction** (updated 2026-09-20: 30 of 44
-  load-bearing claims are now verified on the page from main-pc, see the
-  report; the rest of this note describes the starting point).** The sandbox proxy refused
+- ⚠ **Evidence is snippet-level by construction** (updated 2026-09-20
+  evening: 40 of 44 load-bearing claims are now verified on the page from
+  main-pc, four references corrected on the way, see the report; the rest of
+  this note describes the starting point).** The sandbox proxy refused
   nearly every website (all `.is` sites, regulators, vendors, founders'
   blogs), so only HelmCNC's own site, Anthropic's pricing page, Apple's
   small-business page and three vendor docs repos were read on the page.
@@ -905,10 +913,10 @@ First successful run of the routine (see corrections folded into the
   Icelandic branch lands first, hand-merge the five shared files), then on
   main-pc `git pull`, `git worktree remove C:\Projects\_system\personal-os-money`,
   and re-run `scripts\money-setup.ps1` from the main clone - it re-points
-  the junction and the hook; (4) hand the employee the round-2 paste in the report ("Round 2 on
-  main-pc"): the twelve pages by eye, folded back and pushed to this
-  branch - the cloud session pulls before it edits again; the rounds after
-  that are queued in the same report; (5) the accountant meeting with the
+  the junction and the hook; (4) hand the employee the round-3 paste in the report ("Round 3 on
+  main-pc"): Spain and Portugal's own taxes for §9b of the relocation
+  reference, from the authorities' pages, pushed to this branch; the rounds
+  after that are queued in the same report; (5) the accountant meeting with the
   five questions in `references/iceland.md` §10.
 - 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
   (09-19). Merging deploys. Three things in it are his alone: set a random

@@ -185,11 +185,16 @@ and card rates are in `iceland.md` §5.
 ## 13. Sources
 
 Opened [V]: developer.apple.com/app-store/small-business-program/;
-esma.europa.eu/node/84933 (2026-09-20, from main-pc).
-Search-result only [S]: esma.europa.eu node/84933 and notice PDF
-esma35-43-1135; papers.ssrn.com 3423101; ideas.repec.org 2019wpecon47;
-onlinelibrary.wiley.com 10.1111/0022-1082.00226; bis.org bisbull69 and
-work1049; ftc.gov press releases 2025-05 (EEB), 2024-09 (AI crackdown),
+esma.europa.eu/node/84933 (2026-09-20, from main-pc); and, by eye on
+2026-09-20 from main-pc (round 2): bis.org work1049 (the 73-81 % source;
+bisbull69 does not carry the figure), ideas.repec.org fgv/eesptd/525
+(Chague), ftc.gov 2019-10 (AdvoCare) and 2025-05 (EEB), bls.gov TED
+2024-03-04.
+Search-result only [S]: esma.europa.eu notice PDF esma35-43-1135;
+papers.ssrn.com 3423101 (403); ideas.repec.org 2019wpecon47;
+onlinelibrary.wiley.com 10.1111/0022-1082.00226; bis.org bisbull69 (its
+PDF: "a majority of investors probably lost money", no 73 or 81); ftc.gov
+press releases 2024-09 (AI crackdown),
 2024-02 (Automators AI), 2018-07 (Digital Altitude), 2018-06 blog (MOBE),
 2019-10 (AdvoCare), 2022-05 (AdvoCare refunds), 2016-07 (Herbalife);
 cnbc.com 2025-03-18; truthinadvertising.org; consumer.ftc.gov Data Book
