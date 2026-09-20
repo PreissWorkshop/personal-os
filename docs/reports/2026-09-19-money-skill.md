@@ -277,6 +277,38 @@ Still open after that: the five NOT FOUND pages and the seven 403 pages by
 eye (list in `references/sources.md`), the Stripe absence in a browser,
 and the GitLab handbook quotes (see `remote-and-relocation.md` §7).
 
+## Round 2 on main-pc (the next paste, after the repair)
+
+```
+Money skill, round 2 on main-pc: verify by eye the twelve claims the script could not settle, fold the results into the references, push to the branch.
+
+Precondition: the settings.json repair is done and confirmed. If not, do that first and stop.
+
+Work in the worktree C:\Projects\_system\personal-os-money (branch claude/profitable-business-debt-situation-6d7hq3); run git pull there first, the cloud session has pushed since.
+
+1. Read .claude\skills\money\references\sources.md, section "Verification pass 2026-09-20": five NOT FOUND and seven BLOCKED-403 claims; their ids, URLs and quotes are in references\claims.json. Open each page with your own fetch tool, not the script. Where the figure lives on a neighbouring page (a gjaldskrá, the MPC statement itself, a PDF), use that page and record its URL.
+2. Fold back, one reference line per claim: found verbatim -> label [V <today's date>] for exactly the figure found, and fix the claim's url or quotes in claims.json until `python .claude\skills\money\scripts\verify_claims.py --only <id>` prints VERIFIED; the page states a different figure -> correct the line and say so in it ("was X, page says Y, <date>"); not found or not openable -> keep [S] with a one-clause note. Upgrade nothing you did not see word for word.
+3. Two more, same rules: (a) stripe.com/global - do other countries' names (Denmark, Norway) appear in what you fetch? If they do and Iceland does not, add that to the Stripe line in iceland.md section 9; if the list is script-rendered, say so. (b) The three GitLab sentences in remote-and-relocation.md section 7: search for them; cite a GitLab-owned page verbatim with the date if one carries them, else leave the "unconfirmed" note.
+4. Before committing: python .claude\skills\money\scripts\check_references.py and python .claude\skills\money\scripts\money_model.py selftest, both clean. Commit on the branch with the claim ids by outcome in the message; git pull --rebase if the push is refused; push. Do not merge, do not touch main, do not open ~\.preiss\finance\finance-snapshot.json, none of Tenis's figures anywhere.
+5. Report: one table (id, outcome, page used, verbatim quote or "not there"), the commit hash, and anything that contradicts what a reference said.
+```
+
+Once the employee pushes, the cloud session pulls before it touches the
+branch again; both work on the same branch, never on `main`.
+
+**Rounds after this one, in order** (each is one paste, one push, one
+report; same rules: primary sources, verbatim quotes, dated labels, no
+advice in the references, none of Tenis's figures):
+
+1. Destination-country tax for Spain and Portugal from the tax authorities
+   themselves (Agencia Tributaria, Portal das Finanças) plus the EEA
+   residence rules: replaces the [R] pointers in
+   `remote-and-relocation.md` §9b with dated [V]/[S] lines.
+2. What small businesses pay for AI automation, and SMB SaaS churn
+   benchmarks: the two open gaps in `software-and-ai.md`.
+3. The skill evals from main-pc (`evals/evals.json`, with-skill vs
+   baseline) once the snapshot is filled, reporting the scores only.
+
 ## Sources checked
 
 - HelmCNC public site and repo; platform.claude.com pricing;

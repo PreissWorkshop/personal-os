@@ -240,6 +240,7 @@ is in `references/maker-leverage.md`:
 | `job --price --materials --hours --vat --target-hourly` | one job's contribution and effective hourly against the target rate (the business view of a quote) |
 | `forecast --cash --income a,b,c --burn --debt --months` | month-by-month cash; names the first month that goes negative |
 | `verify_claims.py [--only prefix] [--report out.md]` | the upgrade pass: fetches each claim in `references/claims.json` and reports VERIFIED / NOT FOUND / BLOCKED |
+| `check_references.py` | before a commit: every table lines up, `claims.json` is well-formed, [V] labels carry dates |
 
 Percent inputs are percents (12.5 means 12.5 %). Templates:
 `assets/finance-snapshot.template.json` and `assets/decisions-template.md`

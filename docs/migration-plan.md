@@ -905,9 +905,11 @@ First successful run of the routine (see corrections folded into the
   Icelandic branch lands first, hand-merge the five shared files), then on
   main-pc `git pull`, `git worktree remove C:\Projects\_system\personal-os-money`,
   and re-run `scripts\money-setup.ps1` from the main clone - it re-points
-  the junction and the hook; (4) by eye, the five NOT FOUND pages and the
-  seven 403 pages listed in `references/sources.md`; (5) the accountant
-  meeting with the five questions in `references/iceland.md` §10.
+  the junction and the hook; (4) hand the employee the round-2 paste in the report ("Round 2 on
+  main-pc"): the twelve pages by eye, folded back and pushed to this
+  branch - the cloud session pulls before it edits again; the rounds after
+  that are queued in the same report; (5) the accountant meeting with the
+  five questions in `references/iceland.md` §10.
 - 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
   (09-19). Merging deploys. Three things in it are his alone: set a random
   `CREW_SECRET` in the Pages project (the crew cookie is signed with the
