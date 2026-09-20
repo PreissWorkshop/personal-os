@@ -1501,6 +1501,137 @@
         "ab 950,00 €"
       ],
       "expect": "present"
+    },
+    {
+      "id": "dub-yt-autodub-default",
+      "file": "video-production-and-dubbing.md",
+      "claim": "YouTube automatic dubbing is enabled by default for eligible creators",
+      "url": "https://support.google.com/youtube/answer/15569972?hl=en",
+      "quotes": [
+        "This feature is enabled by default for eligible creators."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-yt-own-track",
+      "file": "video-production-and-dubbing.md",
+      "claim": "YouTube multi-language audio needs access to Advanced features",
+      "url": "https://support.google.com/youtube/answer/13338784?hl=en",
+      "quotes": [
+        "Multi-language audio is currently available to creators with access to Advanced features."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-yt-own-voice-no-disclosure",
+      "file": "video-production-and-dubbing.md",
+      "claim": "YouTube: cloning one's own voice for dubs needs no disclosure",
+      "url": "https://support.google.com/youtube/answer/14328491?hl=en",
+      "quotes": [
+        "voice to create voice overs or dubs"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-elevenlabs-api-price",
+      "file": "video-production-and-dubbing.md",
+      "claim": "ElevenLabs API: dubbing v1 USD 0.33 a minute, v2 USD 2.20",
+      "url": "https://elevenlabs.io/pricing/api",
+      "quotes": [
+        "$0.33",
+        "$2.20"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-elevenlabs-watermark",
+      "file": "video-production-and-dubbing.md",
+      "claim": "ElevenLabs: free-tier dubs are watermarked, paid are not",
+      "url": "https://elevenlabs.io/docs/capabilities/dubbing",
+      "quotes": [
+        "Free-tier dubs are watermarked automatically; paid-tier dubs are not."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-heygen-api-price",
+      "file": "video-production-and-dubbing.md",
+      "claim": "HeyGen API: audio-only video translation USD 0.57 a minute",
+      "url": "https://help.heygen.com/en/articles/10060327-heygen-api-pricing-explained",
+      "quotes": [
+        "$0.57"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-heygen-free-noncommercial",
+      "file": "video-production-and-dubbing.md",
+      "claim": "HeyGen: free-plan output may not be monetised",
+      "url": "https://www.heygen.com/terms",
+      "quotes": [
+        "monetized, or used in connection with commercial activities"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-rask-price",
+      "file": "video-production-and-dubbing.md",
+      "claim": "Rask AI: USD 60 a month for 25 minutes",
+      "url": "https://www.rask.ai/pricing",
+      "quotes": [
+        "25 minutes per month included"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-capcut-no-automation",
+      "file": "video-production-and-dubbing.md",
+      "claim": "CapCut terms forbid automated scripts interacting with the service",
+      "url": "https://www.capcut.com/clause/terms-of-service",
+      "quotes": [
+        "use automated scripts or other technologies to collect information from or otherwise interact with the Services"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-ffmpeg-licence",
+      "file": "video-production-and-dubbing.md",
+      "claim": "FFmpeg is LGPL 2.1 or later",
+      "url": "https://ffmpeg.org/legal.html",
+      "quotes": [
+        "FFmpeg is licensed under the GNU Lesser General Public License (LGPL) version 2.1 or later."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-whisper-mit",
+      "file": "video-production-and-dubbing.md",
+      "claim": "Whisper code and weights are MIT-licensed",
+      "url": "https://github.com/openai/whisper",
+      "quotes": [
+        "released under the MIT License"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-auphonic-free",
+      "file": "video-production-and-dubbing.md",
+      "claim": "Auphonic: two free hours a month",
+      "url": "https://auphonic.com/pricing",
+      "quotes": [
+        "Auphonic is free for 2 hours of processed audio per month."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dub-w3techs-languages",
+      "file": "video-production-and-dubbing.md",
+      "claim": "W3Techs: share of websites by content language",
+      "url": "https://w3techs.com/technologies/overview/content_language",
+      "quotes": [
+        "Spanish"
+      ],
+      "expect": "present"
     }
   ]
 }
