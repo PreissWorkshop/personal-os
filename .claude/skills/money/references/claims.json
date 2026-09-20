@@ -1782,6 +1782,226 @@
         "Having your experience recognised can take anywhere from three months to a year"
       ],
       "expect": "present"
+    },
+    {
+      "id": "nzp-smc-three-pathways",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.10: the SMC has three pathways",
+      "url": "https://www.immigration.govt.nz/opsmanual/77812.htm",
+      "quotes": [
+        "Skilled Work Experience pathway (Column B)"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-smc-wage-threshold",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.10.5: SMC wage threshold NZD 35.00 from 9 March 2026",
+      "url": "https://www.immigration.govt.nz/opsmanual/77812.htm",
+      "quotes": [
+        "9 March 2026 onwards $35.00 $38.50 $42.00 $52.50 $70 $105.00"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-smc-age-55",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.10: aged 55 or younger",
+      "url": "https://www.immigration.govt.nz/opsmanual/77812.htm",
+      "quotes": [
+        "be aged 55 or younger at the time the residence application is made"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-swe-pathway",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.35: three years relevant experience plus two years in New Zealand",
+      "url": "https://www.immigration.govt.nz/opsmanual/90257.htm",
+      "quotes": [
+        "at least an additional 2 years of skilled work experience in New Zealand"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-swe-no-self-employment",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.35.5.1: work experience must not be self-employment",
+      "url": "https://www.immigration.govt.nz/opsmanual/90257.htm",
+      "quotes": [
+        "Work experience must not be self-employment."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-trades-after-qualification",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.40: experience counts only after the level 4 qualification",
+      "url": "https://www.immigration.govt.nz/opsmanual/90261.htm",
+      "quotes": [
+        "All work experience must be accrued after receiving their relevant level 4 (or above) trade qualification"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-trades-list-carpenter-joiner",
+      "file": "nz-pathways.md",
+      "claim": "INZ Appendix 23 lists 331211 Carpenter and Joiner",
+      "url": "https://www.immigration.govt.nz/opsmanual/90268.htm",
+      "quotes": [
+        "331211 Carpenter and Joiner (Skill Level 3)"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-points-income",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.25: income points at 1.5x, 2x, 3x the threshold",
+      "url": "https://www.immigration.govt.nz/opsmanual/80474.htm",
+      "quotes": [
+        "3 times the SMC wage threshold to qualify for 6 points"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-lbp-points",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR3.30: LBP carpentry licence is worth 4 points",
+      "url": "https://www.immigration.govt.nz/opsmanual/80475.htm",
+      "quotes": [
+        "Carpentry Licence 4"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-english-residence",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR2.10: IELTS 6.5 for the principal applicant",
+      "url": "https://www.immigration.govt.nz/opsmanual/77808.htm",
+      "quotes": [
+        "Overall score of 6.5 or more"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-english-exempt-countries",
+      "file": "nz-pathways.md",
+      "claim": "INZ SR2.10: exemption only for Canada, Ireland, UK, USA",
+      "url": "https://www.immigration.govt.nz/opsmanual/77808.htm",
+      "quotes": [
+        "citizenship of Canada, the Republic of Ireland, the United Kingdom or the United States of America"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-greenlist-building-associate",
+      "file": "nz-pathways.md",
+      "claim": "INZ Appendix 13: Building Associate at 1.5x median for 24 months",
+      "url": "https://www.immigration.govt.nz/opsmanual/77204.htm",
+      "quotes": [
+        "Construction Building Associate (312112)"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-aewv-skills",
+      "file": "nz-pathways.md",
+      "claim": "INZ WA4.10: two years of experience with third-party evidence, or level 4",
+      "url": "https://www.immigration.govt.nz/opsmanual/77195.htm",
+      "quotes": [
+        "can demonstrate two years or more of relevant work experience with sufficient evidence from a third party"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-aewv-english",
+      "file": "nz-pathways.md",
+      "claim": "INZ WA4.12: IELTS 4 for skill level 3, 4 or 5 roles",
+      "url": "https://www.immigration.govt.nz/opsmanual/82333.htm",
+      "quotes": [
+        "skill level 3, 4 or 5 must be declined if the applicant has not met the minimum standard of English"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-aewv-partner",
+      "file": "nz-pathways.md",
+      "claim": "INZ WF3.1: partner work visa needs a level 1-3 role at NZD 28.00 or more",
+      "url": "https://www.immigration.govt.nz/opsmanual/45667.htm",
+      "quotes": [
+        "paid at least $28.00 per hour"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-children-school-income",
+      "file": "nz-pathways.md",
+      "claim": "INZ U8.20: minimum income NZD 58,240 for dependent children's student visas",
+      "url": "https://www.immigration.govt.nz/opsmanual/46523.htm",
+      "quotes": [
+        "The minimum income threshold is NZ$58,240 gross per annum."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-dependent-child-21-24",
+      "file": "nz-pathways.md",
+      "claim": "INZ R2.1.30: dependent child aged 21 to 24 if single and financially reliant",
+      "url": "https://www.immigration.govt.nz/opsmanual/46504.htm",
+      "quotes": [
+        "aged 21 to 24, with no child(ren) of their own"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-age-at-application",
+      "file": "nz-pathways.md",
+      "claim": "INZ R5.6: age is assessed at the time the application is made",
+      "url": "https://www.immigration.govt.nz/opsmanual/30990.htm",
+      "quotes": [
+        "age at the time an application is made is the age at which the applicant will be assessed"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-investor-thresholds",
+      "file": "nz-pathways.md",
+      "claim": "INZ BN3: Active Investor Plus NZD 5 million or 10 million",
+      "url": "https://www.immigration.govt.nz/opsmanual/78330.htm",
+      "quotes": [
+        "$5 million if they are investing under the Growth Category"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-business-investor",
+      "file": "nz-pathways.md",
+      "claim": "INZ BD2.5: Business Investor needs a purchase of at least NZD 1 million",
+      "url": "https://www.immigration.govt.nz/opsmanual/88542.htm",
+      "quotes": [
+        "a credible purchase price of at least NZ$1 million"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-entrepreneur-closed",
+      "file": "nz-pathways.md",
+      "claim": "INZ BB2.1: Entrepreneur Work Visa closed after 25 August 2025",
+      "url": "https://www.immigration.govt.nz/opsmanual/48303.htm",
+      "quotes": [
+        "must be made on or before 25 August 2025"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nzp-health-whole-family",
+      "file": "nz-pathways.md",
+      "claim": "INZ A4.10: residence declined if any included person fails the health standard",
+      "url": "https://www.immigration.govt.nz/opsmanual/46506.htm",
+      "quotes": [
+        "must be declined if any person included in that application is assessed as not having an acceptable standard of health"
+      ],
+      "expect": "present"
     }
   ]
 }
