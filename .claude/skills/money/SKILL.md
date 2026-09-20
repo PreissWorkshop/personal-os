@@ -251,6 +251,7 @@ is in `references/maker-leverage.md`:
 | `unit --price --margin --churn --cac --target-mrr` | LTV, CAC payback, customers needed, replacements per month |
 | `score --options <json>` | ranked options on the nine criteria |
 | `job --price --materials --hours --vat --target-hourly` | one job's contribution and effective hourly against the target rate (the business view of a quote) |
+| `flip --price --sale --months [--stamp-pct --materials --sub-trades --hours --rate --vat --vat-refund --contingency --fixed-price --loan --loan-rate --holding --agent-pct --agent-vat --tax-pct --share-pct]` | a buy-renovate-resell deal: the whole cost stack, the investor's return on the cash at risk, the builder's effective hourly, the break-even sale price and a downside grid |
 | `forecast --cash --income a,b,c --burn --debt --months` | month-by-month cash; names the first month that goes negative |
 | `verify_claims.py [--only prefix] [--report out.md]` | the upgrade pass: fetches each claim in `references/claims.json` and reports VERIFIED / NOT FOUND / BLOCKED |
 | `check_references.py` | before a commit: every table lines up, `claims.json` is well-formed, [V] labels carry dates |

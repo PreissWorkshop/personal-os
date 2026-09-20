@@ -656,7 +656,7 @@ def cmd_flip(a: argparse.Namespace) -> int:
         print(f"on a fixed price a {a.contingency:g}% overrun costs the builder {money(f['builder_exposure'], cur)}, "
               f"dropping the rate to {money(f['builder_hourly_worst'], cur)} an hour")
 
-    print("\nIF IT GOES WORSE (investor's net after tax)")
+    print("\nIF IT GOES WORSE (investor's net after tax; materials and subcontractors over budget)")
     sale_steps = [0, -5, -10, -15]
     over_steps = [0, 20, 40]
     header = ["sale"] + [f"materials +{o}%" for o in over_steps]
