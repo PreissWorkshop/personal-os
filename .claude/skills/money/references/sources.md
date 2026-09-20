@@ -74,6 +74,22 @@ write; Stripe's list is in the served HTML (51 entries, Iceland absent,
 Denmark and Norway present). The script's user agent was left as it is: the
 four 403 claims above stay BLOCKED for the script by design, not by error.
 
+### Round 3, 2026-09-20: the destination's own taxes (`remote-and-relocation.md` §9b)
+
+Spain and Portugal, from the authorities' own pages only: boe.es,
+sede.agenciatributaria.gob.es, seg-social.es and portal.seg-social.gob.es;
+info.portaldasfinancas.gov.pt, diariodarepublica.pt, sisscontent.seg-social.pt.
+Two research agents fetched raw page text (no summarising fetch tool was used
+for any fact); the employee session then checked all 78 quotations of the new
+section against the saved page texts and read the load-bearing passages itself.
+56 claims added to `claims.json`: `es-*` 26 of 26 VERIFIED by the script;
+`pt-*` 23 of 30 VERIFIED, the other 7 NOT FOUND because they live in PDFs
+(the ISS guide, two AT documents) or in a script-rendered Diário da República
+page, which the script cannot read - they were read in the extracted text.
+Still [G] after this round: whether an ordinary autónomo, or the owner of a
+one-person foreign company, fits either regime; Spain's 80-euro quota for 2026;
+Portugal's 2026 social-security edition; a euro table of Spanish quotas.
+
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
 Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and

@@ -468,6 +468,568 @@
         "mastering asynchronous workflows is vital to avoiding dysfunction and enjoying outsized efficiencies"
       ],
       "expect": "present"
+    },
+    {
+      "id": "es-regime-years",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain art. 93 regime: year of the move plus the five following tax periods",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "durante el período impositivo en que se efectúe el cambio de residencia y durante los cinco períodos impositivos siguientes"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-prior-nonresidence",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain art. 93: not resident in Spain in the five prior tax periods",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "Que no hayan sido residentes en España durante los cinco períodos impositivos anteriores"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-rate",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain art. 93 regime scale: 24 % to EUR 600,000, 47 % above",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "Hasta 600.000 euros. 24 Desde 600.000,01 euros en adelante. 47"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-telework-employee",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain art. 93 telework limb is worded for employees (trabajadores por cuenta ajena)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "en el caso de trabajadores por cuenta ajena que cuenten con el visado para teletrabajo de carácter internacional"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-no-pe",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain art. 93.1.c): no income through a Spanish permanent establishment, except the entrepreneur and highly-qualified routes",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "Que no obtenga rentas que se calificarían como obtenidas mediante un establecimiento permanente situado en territorio español"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-admin-share",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: administrator route regardless of shareholding, except a patrimonial entity",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c02-irpf-cuestiones-generales/sujecion-irpf-aspectos-personales/regimen-fiscal-especial-aplicable-trabajadores-desplazados/regimen-aplicable-trabajadores-desplazados/ambito-aplicacion.html",
+      "quotes": [
+        "con independencia de su porcentaje de participación en el capital social de la misma, excepto en el supuesto de que la entidad tenga la consideración de entidad patrimonial"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-only-activities",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: the only economic activities allowed through a permanent establishment under the regime",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c02-irpf-cuestiones-generales/sujecion-irpf-aspectos-personales/regimen-fiscal-especial-aplicable-trabajadores-desplazados/regimen-aplicable-trabajadores-desplazados/ambito-aplicacion.html",
+      "quotes": [
+        "las únicas actividades económicas que podrán desarrollar los contribuyentes mediante establecimiento permanente acogidos a este régimen"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-regime-deadline",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain: opt in within six months of the activity start date in the Social Security registration (Reglamento IRPF art. 116)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820",
+      "quotes": [
+        "en el plazo máximo de seis meses desde la fecha de inicio de la actividad que conste en el alta en la Seguridad Social en España"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-irpf-state-scale",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain art. 63 state general scale, 9.50 % to 24.50 %",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "12.450,00 1.182,75 7.750,00 12,00",
+        "300.000,00 62.950,75 En adelante 24,50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-irpf-madrid-scale",
+      "file": "remote-and-relocation.md",
+      "claim": "Comunidad de Madrid autonomous scale, 8.50 % to 20.50 %",
+      "url": "https://www.boe.es/buscar/act.php?id=BOCM-m-2010-90068",
+      "quotes": [
+        "57.320,40 7.651,10 en adelante 20,50",
+        "13.362,22 8,50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-reta-tramo1",
+      "file": "remote-and-relocation.md",
+      "claim": "RETA 2026 general table, tramo 1 minimum base 950.98",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/CotizacionRecaudacionTrabajadores/10721/10724/1320/1322",
+      "quotes": [
+        "Tramo 1 >= 1.166,70 y <=1.300 950,98 1.300"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-reta-tramo12",
+      "file": "remote-and-relocation.md",
+      "claim": "RETA 2026 general table, tramo 12 bases 1,928.10 to 5,101.20",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/CotizacionRecaudacionTrabajadores/10721/10724/1320/1322",
+      "quotes": [
+        "Tramo 12 > 6.000 1.928,10 5.101,20"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-reta-rate",
+      "file": "remote-and-relocation.md",
+      "claim": "RETA common-contingencies rate 28.30 %",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/CotizacionRecaudacionTrabajadores/10721/10724/1320/1322",
+      "quotes": [
+        "el 28,30 por ciento"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-reta-total-rate",
+      "file": "remote-and-relocation.md",
+      "claim": "Importass guide: quota is 31.40 % of the contribution base",
+      "url": "https://portal.seg-social.gob.es/wps/portal/importass/importass/Colectivos/Trabajo+Autonomo/guia",
+      "quotes": [
+        "La cuota que deberás pagar es el 31,40% de la base de cotización"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-tarifa-plana",
+      "file": "remote-and-relocation.md",
+      "claim": "Spain tarifa plana: EUR 80 a month for the first 12 months",
+      "url": "https://portal.seg-social.gob.es/wps/portal/importass/importass/Colectivos/Trabajo+Autonomo/guia",
+      "quotes": [
+        "La tarifa plana consiste en el pago de una cuota de 80 € al mes durante los primeros 12 meses de alta"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-corp-residence",
+      "file": "remote-and-relocation.md",
+      "claim": "Ley 27/2014 art. 8.1: resident if incorporated under Spanish law, registered office or place of effective management in Spain",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328",
+      "quotes": [
+        "c) Que tengan su sede de dirección efectiva en territorio español"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-corp-effective-management",
+      "file": "remote-and-relocation.md",
+      "claim": "Ley 27/2014 art. 8.1: effective management is where direction and control of all activities lies",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328",
+      "quotes": [
+        "cuando en él radique la dirección y control del conjunto de sus actividades"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-vat-b2b",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: service to a business established in another country is not subject to Spanish VAT",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/iva/iva-operaciones-comercio-exterior/prestaciones-servicios.html",
+      "quotes": [
+        "la operación está no sujeta al IVA español"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-vat-349",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: intra-Community supply of services is reported on modelo 349",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/iva/iva-operaciones-comercio-exterior/prestaciones-servicios.html",
+      "quotes": [
+        "se trata de una prestación de servicios intracomunitaria que se informará en el modelo 349"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-vat-roi",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: ROI registration via modelo 036 box 582",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/iva/iva-operaciones-comercio-exterior/identificacion-realizar-operaciones-otros-empresarios-ue.html",
+      "quotes": [
+        "modelo 036: Marcando la casilla 582 de solicitud de alta"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-vat-no-franchise",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: the small-business franchise regime does not exist in Spanish law",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/iva/iva-operaciones-comercio-exterior/identificacion-realizar-operaciones-otros-empresarios-ue.html",
+      "quotes": [
+        "Este régimen, no existente en la normativa española"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-vat-10000",
+      "file": "remote-and-relocation.md",
+      "claim": "Ley 37/1992 art. 73: EUR 10,000 limit for B2C distance sales and telecom/electronic services",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740",
+      "quotes": [
+        "el límite referido será de 10.000 euros para el importe total, excluido el impuesto"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-vat-censo",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria: census registration before the activity starts",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/guia-practica-cumplimentacion-modelo-censal-036/capitulo-01-cuestiones-generales/plazos-presentacion/declaracion-alta/alta-censo-empresarios-profesionales-retenedores-036.html",
+      "quotes": [
+        "se deberá presentar con anterioridad al inicio de las correspondientes actividades empresariales o profesionales"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-treaty-not-resident",
+      "file": "remote-and-relocation.md",
+      "claim": "Agencia Tributaria non-resident manual: regime taxpayers are not considered residents for applying a double taxation treaty",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/manual-tributacion-no-residentes/regimenes-opcionales/regimen-especial-impatriados.html",
+      "quotes": [
+        "no tienen la consideración de residentes a efectos de la aplicación de un Convenio de Doble Imposición"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-treaty-irnr-wording",
+      "file": "remote-and-relocation.md",
+      "claim": "Ley 35/2006 art. 93.1: taxed by the non-resident income tax while keeping IRPF taxpayer status",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "quotes": [
+        "manteniendo la condición de contribuyentes por el Impuesto sobre la Renta de las Personas Físicas"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "es-treaty-certificate",
+      "file": "remote-and-relocation.md",
+      "claim": "Reglamento IRPF art. 120: general residence certificate; treaty certificates only where the Minister designates, under reciprocity",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820",
+      "quotes": [
+        "podrá señalar, a condición de reciprocidad, los supuestos en los que se emitirán certificados para acreditar la condición de residente en España"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-prior-nonresidence",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IFICI (EBF art. 58-A): not resident in any of the five previous years, and a listed activity",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/bf_rep/Pages/EBF58A.aspx",
+      "quotes": [
+        "não tenham sido residentes em território português em qualquer dos cinco anos anteriores"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-rate-years",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IFICI: special rate 20 % on category A and B income from the listed activities, 10 consecutive years",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/bf_rep/Pages/EBF58A.aspx",
+      "quotes": [
+        "à taxa especial de 20 % sobre os rendimentos líquidos das categorias A e B auferidos no âmbito das atividades referidas, durante um prazo de 10 anos consecutivos"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-export-50",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IFICI activity c) ii): companies exporting at least 50 % of turnover",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/bf_rep/Pages/EBF58A.aspx",
+      "quotes": [
+        "que exportem pelo menos 50 % do seu volume de negócios"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-startups",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IFICI activity f): jobs and board members in certified startups (Lei 21/2023)",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/bf_rep/Pages/EBF58A.aspx",
+      "quotes": [
+        "Postos de trabalho e membros de órgãos sociais em entidades certificadas como startups"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-resident-condition",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IFICI: the right in each year depends on being tax resident in Portugal in that year",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/bf_rep/Pages/EBF58A.aspx",
+      "quotes": [
+        "depende de o sujeito passivo ser considerado fiscalmente residente em território português, em qualquer momento desse ano"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-deadline",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IFICI: register by 15 January of the year after becoming resident (Portaria 352/2024/1 art. 2; page is script-rendered, so the script may not see it)",
+      "url": "https://diariodarepublica.pt/dr/detalhe/portaria/352-2024-901014291",
+      "quotes": [
+        "até 15 de janeiro do ano seguinte àquele em que se tornem residentes nesse território"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-deadline-folheto",
+      "file": "remote-and-relocation.md",
+      "claim": "AT leaflet (PDF, the script cannot read it): IFICI application by 15 January of the following year",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/apoio_contribuinte/Folhetos_informativos/Documents/incentivos_investigacao.pdf",
+      "quotes": [
+        "até ao dia 15 de janeiro do ano seguinte àquele em que se torne residente em território português"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-nhr-transitional",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal: old NHR open only to people resident by 31 December 2024 with one of the listed elements",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs16.aspx",
+      "quotes": [
+        "Se torne residente para efeitos fiscais até 31 de dezembro de 2024"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-irs-2026-low",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIRS art. 68, 2026 table: 8 342 to 12 587 at 15,70 %",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs68.aspx",
+      "quotes": [
+        "De mais de 8 342 até 12 587 15,70 13,579"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-irs-2026-mid",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIRS art. 68, 2026 table: 29 397 to 43 090 at 34,90 %",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs68.aspx",
+      "quotes": [
+        "De mais de 29 397 até 43 090 34,90 25,130"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-irs-2026-top",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIRS art. 68, 2026 table: above 86 634 at 48,00 %",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs68.aspx",
+      "quotes": [
+        "Superior a 86 634 48,00"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-simplified-075",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal simplified regime: coefficient 0,75 for the professional activities of the art. 151 table",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs31.aspx",
+      "quotes": [
+        "0,75 aos rendimentos das atividades profissionais especificamente previstas na tabela a que se refere o artigo 151.º"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-simplified-035",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal simplified regime: coefficient 0,35 for other services",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs31.aspx",
+      "quotes": [
+        "0,35 aos rendimentos de prestações de serviços não previstos nas alíneas anteriores"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-simplified-own-company",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal simplified regime: coefficient 1 for services to a company in which the taxpayer holds 5 % or more",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs31.aspx",
+      "quotes": [
+        "O sujeito passivo detenha, direta ou indiretamente, pelo menos 5 % das respetivas partes de capital ou direitos de voto"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-simplified-first-years",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal simplified regime: coefficients reduced by 50 % and 25 % in the first two periods",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs31.aspx",
+      "quotes": [
+        "são reduzidos em 50 % e 25 % no período de tributação do início da atividade e no período de tributação seguinte, respetivamente"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-simplified-ceiling",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal simplified regime ceiling EUR 200 000 of gross category B income",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs28.aspx",
+      "quotes": [
+        "um montante anual ilíquido de rendimentos desta categoria de (euro) 200 000"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ss-rate",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal self-employed social security 21,4 %; 25,2 % for empresários em nome individual (ISS guide PDF, 2025 edition; the script cannot read a PDF)",
+      "url": "https://sisscontent.seg-social.pt/documents/10152/14965/1009+Trabalhador+independente+-+novo+regime/87b6e00c-523d-4718-8a88-942ea804c18a",
+      "quotes": [
+        "respetivos cônjuges 25,2%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ss-base-70",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal self-employed: relevant income is 70 % of services in the three preceding months (ISS guide PDF)",
+      "url": "https://sisscontent.seg-social.pt/documents/10152/14965/1009+Trabalhador+independente+-+novo+regime/87b6e00c-523d-4718-8a88-942ea804c18a",
+      "quotes": [
+        "70% do valor total de prestação de serviços"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ss-first-12-months",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal self-employed: first enrolment takes effect on the first day of the 12th month after start (ISS guide PDF)",
+      "url": "https://sisscontent.seg-social.pt/documents/10152/14965/1009+Trabalhador+independente+-+novo+regime/87b6e00c-523d-4718-8a88-942ea804c18a",
+      "quotes": [
+        "só produz efeitos no primeiro dia do 12.º mês posterior ao do início de atividade"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ss-minimum",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal self-employed: minimum contribution EUR 20,00 (ISS guide PDF)",
+      "url": "https://sisscontent.seg-social.pt/documents/10152/14965/1009+Trabalhador+independente+-+novo+regime/87b6e00c-523d-4718-8a88-942ea804c18a",
+      "quotes": [
+        "sujeito ao pagamento da contribuição mínima (20,00€)"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-corp-residence",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIRC art. 2 n. 3: resident if seat or place of effective management in Portuguese territory",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/CIRC_2R/Pages/irc2.aspx",
+      "quotes": [
+        "consideram-se residentes as pessoas colectivas e outras entidades que tenham sede ou direcção efectiva em território português"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-irc-rate-2026",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal IRC rate 19 % for tax periods starting in 2026",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/CIRC_2R/Pages/irc87.aspx",
+      "quotes": [
+        "Nos períodos de tributação que se iniciem durante o ano de 2026, a taxa prevista nos n.os 1 e 5 do artigo 87.º do Código do IRC é de 19 %"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-b2c",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIVA art. 6 n. 6 b): B2C services taxable in Portugal when the supplier is established there",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/iva6.aspx",
+      "quotes": [
+        "Uma pessoa que não seja sujeito passivo, quando o prestador tenha no território nacional a sede da sua actividade"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-non-eu",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIVA art. 6 n. 11: listed services to a customer outside the Community are not taxable",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/iva6.aspx",
+      "quotes": [
+        "não são tributáveis as prestações de serviços adiante enumeradas, quando o adquirente for uma pessoa estabelecida ou domiciliada fora da Comunidade"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-10000",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIVA art. 6-A: EUR 10 000 threshold for telecom, broadcasting and electronic services to EU consumers",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/iva6a.aspx",
+      "quotes": [
+        "não seja superior, no ano civil anterior ou no ano civil em curso, a 10 000 €"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-recapitulativa",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIVA art. 29 n. 1 i): B2B services to other Member States go in the recapitulative statement",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/iva29.aspx",
+      "quotes": [
+        "Indicar na declaração recapitulativa a que se refere a alínea c) do n.º 1 do artigo 23.º do Regime do IVA nas Transacções Intracomunitárias"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-start",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIVA art. 31: start-of-activity declaration before the activity begins",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/iva31.aspx",
+      "quotes": [
+        "antes de iniciado o exercício da atividade, a respetiva declaração"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-art53",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIVA art. 53: small-business exemption up to EUR 15 000 of turnover in national territory",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/artigo-53-o-do-civa.aspx",
+      "quotes": [
+        "um volume de negócios anual em território nacional superior a 15 000 €"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-vat-art53-crossborder",
+      "file": "remote-and-relocation.md",
+      "claim": "AT Oficio-circulado 25062/2025 point 9 (PDF; the script cannot read it): art. 53 taxpayers may do cross-border operations except exports",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/legislacao/instrucoes_administrativas/Documents/Oficio_circulado_25062_2025.pdf",
+      "quotes": [
+        "não estão impedidos de efetuar operações"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "pt-ifici-exemption-method",
+      "file": "remote-and-relocation.md",
+      "claim": "Portugal CIRS art. 81 n. 4: exemption method for IFICI beneficiaries' foreign-source income",
+      "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs81.aspx",
+      "quotes": [
+        "obtenham, no estrangeiro, rendimentos das categorias A, B, E, F e G, aplica-se o método da isenção"
+      ],
+      "expect": "present"
     }
   ]
 }
