@@ -835,13 +835,13 @@ First successful run of the routine (see corrections folded into the
   law, tax residence and exit, rules for selling a course and advertising it.
   The log is `references/sources.md` rounds 2-6 on that branch.
 - ✅ **No personal figure is in any repo.** Plans, option scores and the
-  decision log are in `~\.preissinance` on main-pc only. The snapshot
+  decision log are in `~\.preiss\finance` on main-pc only. The snapshot
   there is still the unfilled template.
 
 ## Waiting on Tenis
 
 - 🔒 **Money skill - six numbers, then merge or not** (09-20). The snapshot
-  in `~\.preissinance` is his to fill by hand; until then every answer is
+  in `~\.preiss\finance` is his to fill by hand; until then every answer is
   in ratios. The branch is unmerged by instruction.
 
 - 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
