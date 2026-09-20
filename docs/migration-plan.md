@@ -819,7 +819,30 @@ First successful run of the routine (see corrections folded into the
   carries hostnames, LAN and tailnet addresses and open ports. Visibility is
   an account setting - Tenis's call alone.
 
+## Executed 2026-09-20 (employee on main-pc, hostname verified)
+
+- ✅ **The money skill is installed on main-pc and grew by nine references.**
+  Lives on branch `claude/profitable-business-debt-situation-6d7hq3`
+  (worktree `C:\Projects\_system\personal-os-money`, junction
+  `~\.claude\skills\money`), not merged; head c375b78. The setup script
+  first corrupted non-ASCII strings in `~\.claude\settings.json`; restored
+  from its own backup on Tenis's word, fixed upstream (88323b9), re-run
+  clean. New references, every quotation checked against saved page text and
+  re-checked by `verify_claims.py`: Spain and Portugal taxes (section 9b),
+  company debt in Iceland, interior film training, video production and
+  dubbing, trade qualification, New Zealand pathways, course platforms that
+  pay out to Iceland, the Icelandic business-customer market and collection
+  law, tax residence and exit, rules for selling a course and advertising it.
+  The log is `references/sources.md` rounds 2-6 on that branch.
+- ✅ **No personal figure is in any repo.** Plans, option scores and the
+  decision log are in `~\.preissinance` on main-pc only. The snapshot
+  there is still the unfilled template.
+
 ## Waiting on Tenis
+
+- 🔒 **Money skill - six numbers, then merge or not** (09-20). The snapshot
+  in `~\.preissinance` is his to fill by hand; until then every answer is
+  in ratios. The branch is unmerged by instruction.
 
 - 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
   (09-19). Merging deploys. Three things in it are his alone: set a random
