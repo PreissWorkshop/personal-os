@@ -2002,6 +2002,177 @@
         "must be declined if any person included in that application is assessed as not having an acceptable standard of health"
       ],
       "expect": "present"
+    },
+    {
+      "id": "plat-teachable-iceland",
+      "file": "course-platforms.md",
+      "claim": "Teachable's payment gateway lists Iceland",
+      "url": "https://support.teachable.com/en/articles/11682555-teachable-payments",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-teachable-price",
+      "file": "course-platforms.md",
+      "claim": "Teachable Starter USD 39 a month with a 7.5 % transaction fee",
+      "url": "https://teachable.com/pricing",
+      "quotes": [
+        "7.5% transaction fee"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-skool-iceland",
+      "file": "course-platforms.md",
+      "claim": "Skool payout countries include Iceland; Skool is merchant of record",
+      "url": "https://help.skool.com/article/86-subscriptions-faq",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-skool-price",
+      "file": "course-platforms.md",
+      "claim": "Skool: USD 9 a month with 10 % fee, or USD 99 with 2.9 %",
+      "url": "https://www.skool.com/pricing",
+      "quotes": [
+        "10% transaction fee",
+        "2.9% transaction fee"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-gumroad-fee",
+      "file": "course-platforms.md",
+      "claim": "Gumroad: 10 % + USD 0.50 per sale, merchant of record",
+      "url": "https://gumroad.com/pricing",
+      "quotes": [
+        "10% + $0.50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-lemonsqueezy-iceland",
+      "file": "course-platforms.md",
+      "claim": "Lemon Squeezy bank payouts list Iceland",
+      "url": "https://docs.lemonsqueezy.com/help/getting-started/supported-countries",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-lemonsqueezy-fee",
+      "file": "course-platforms.md",
+      "claim": "Lemon Squeezy: 5 % + 50 cents",
+      "url": "https://www.lemonsqueezy.com/pricing",
+      "quotes": [
+        "5% + 50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-paddle-fee",
+      "file": "course-platforms.md",
+      "claim": "Paddle: 5 % + 50 cents per checkout transaction",
+      "url": "https://www.paddle.com/pricing",
+      "quotes": [
+        "5% + 50"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-stripe-no-iceland",
+      "file": "course-platforms.md",
+      "claim": "Stripe's country list has no Iceland",
+      "url": "https://stripe.com/global",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "absent"
+    },
+    {
+      "id": "plat-thinkific-no-iceland",
+      "file": "course-platforms.md",
+      "claim": "Thinkific Payments supported countries have no Iceland",
+      "url": "https://support.thinkific.com/hc/en-us/articles/1500012376321-Thinkific-Payments-Supported-Countries-and-Transaction-Fees",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "absent"
+    },
+    {
+      "id": "plat-kajabi-europe",
+      "file": "course-platforms.md",
+      "claim": "Kajabi Payments Europe lists euro countries only",
+      "url": "https://help.kajabi.com/en/articles/12695462-getting-started-with-kajabi-payments-europe",
+      "quotes": [
+        "Currently supported countries"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-podia-paypal",
+      "file": "course-platforms.md",
+      "claim": "Podia: PayPal for one-time payments only",
+      "url": "https://help.podia.com/en/articles/11321953-connecting-paypal-to-your-podia-account",
+      "quotes": [
+        "PayPal can be used for one-time payments only."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-freemius-software-only",
+      "file": "course-platforms.md",
+      "claim": "Freemius sells software only",
+      "url": "https://freemius.com/help/documentation/selling-with-freemius/allowed-prohibited-products/",
+      "quotes": [
+        "Freemius is exclusively focused on serving makers selling software"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-youtube-memberships",
+      "file": "course-platforms.md",
+      "claim": "YouTube memberships threshold: 500 subscribers and 3,000 watch hours",
+      "url": "https://support.google.com/youtube/answer/13429240?hl=en",
+      "quotes": [
+        "Get 500 subscribers"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-youtube-iceland",
+      "file": "course-platforms.md",
+      "claim": "YouTube Partner Programme availability lists Iceland",
+      "url": "https://support.google.com/youtube/answer/7101720?hl=en",
+      "quotes": [
+        "Iceland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-cloudflare-stream",
+      "file": "course-platforms.md",
+      "claim": "Cloudflare Stream: USD 5 per 1,000 minutes stored, USD 1 per 1,000 delivered",
+      "url": "https://developers.cloudflare.com/stream/pricing/",
+      "quotes": [
+        "$1 per 1,000 minutes delivered"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "plat-eu-vat-b2c",
+      "file": "course-platforms.md",
+      "claim": "EU: B2C electronic services are taxed where the customer resides",
+      "url": "https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/place-taxation_en",
+      "quotes": [
+        "are taxed where the customer resides"
+      ],
+      "expect": "present"
     }
   ]
 }

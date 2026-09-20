@@ -227,6 +227,7 @@ is in `references/maker-leverage.md`:
 | Making the videos: AI dubbing prices and rights, YouTube's own dubbing and disclosure rules, editing tools an agent can drive, which languages first | `references/video-production-and-dubbing.md` |
 | Getting trade experience certified: Iceland's raunfærnimat and sveinspróf, the licensed-trade law (Act 42/1978), NZQA assessment, BCITO experience recognition, and how New Zealand visas count a trade certificate | `references/trade-qualification.md` |
 | New Zealand visas: the three Skilled Migrant pathways (one needs no qualification), the Green List, the employer work visa, English tests, the partner and children, the 17-year-old, investor thresholds, fees, the building licence | `references/nz-pathways.md` |
+| Where to sell a course or membership from Iceland: which platforms can pay an Icelandic seller, fees, merchant of record and VAT, video hosting, PayPal and Wise | `references/course-platforms.md` |
 | Remote jobs, contractor setups, nomad visas, tax residency, entities abroad, health and pensions, the move in order | `references/remote-and-relocation.md` |
 | Courses, gurus, dropshipping, trading, crypto, MLM, "passive income", app-store odds, the red-flag checklist | `references/what-fails.md` |
 | What was and was not verified, the labels, the upgrade pass | `references/sources.md`, `references/claims.json` |
