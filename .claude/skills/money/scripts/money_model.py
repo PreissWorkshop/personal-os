@@ -693,7 +693,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--cash", type=float, default=0.0)
     s.add_argument("--debt-total", type=float, default=0.0)
     s.add_argument("--rate", type=float, default=15.0, help="weighted debt rate percent (default 15)")
-    s.add_argument("--minimums", type=float, default=0.0, help="total minimum payments (default 3% of debt)")
+    s.add_argument("--minimums", type=float, default=0.0, help="total minimum payments (default 3%% of debt)")
     s.add_argument("--debt-budget", type=float, default=0.0, help="monthly money for debts incl. minimums")
 
     s = sub.add_parser("debt", help="debt payoff strategies")

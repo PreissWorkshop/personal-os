@@ -90,6 +90,20 @@ Still [G] after this round: whether an ordinary autónomo, or the owner of a
 one-person foreign company, fits either regime; Spain's 80-euro quota for 2026;
 Portugal's 2026 social-security edition; a euro table of Spanish quotas.
 
+### Round 4, 2026-09-20: company debt in Iceland (`iceland-company-debt.md`)
+
+A new reference, built from althingi.is (consolidated acts of 1 September
+2026), skatturinn.is, sedlabanki.is, island.is and, for the visa side,
+immigration.govt.nz and legislation.govt.nz. Three research agents read raw
+page text only; the employee session checked all 94 quotations of the file
+against the saved texts and read the load-bearing passages itself (the two
+penalty articles, the Landsréttur judgment, Act 150/2019 arts. 7, 12 and 15,
+Bankruptcy Act arts. 64, 112-113, 134 and 180-182, Penal Code arts. 53-54).
+36 claims added (`is-debt-*`, `nz-char-*`). Not settled by any authority
+page: which taxes a payment plan excludes, the maximum length of an ordinary
+plan (the procedural rules are not public), and whether a newer restructuring
+statute replaces Act 57/2020.
+
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
 Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and

@@ -1030,6 +1030,366 @@
         "obtenham, no estrangeiro, rendimentos das categorias A, B, E, F e G, aplica-se o método da isenção"
       ],
       "expect": "present"
+    },
+    {
+      "id": "is-debt-ehf-limited",
+      "file": "iceland-company-debt.md",
+      "claim": "ehf Act art. 1: no member is personally liable for the company's obligations",
+      "url": "https://www.althingi.is/lagas/nuna/1994138.html",
+      "quotes": [
+        "enginn félagsmanna ber persónulega ábyrgð á heildarskuldbindingum félagsins"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-vat-fine",
+      "file": "iceland-company-debt.md",
+      "claim": "VAT Act art. 40: fine up to ten times, never less than double",
+      "url": "https://www.althingi.is/lagas/nuna/1988050.html",
+      "quotes": [
+        "og aldrei lægri fésekt en nemur tvöfaldri þessari skattfjárhæð"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-vat-fine-exception",
+      "file": "iceland-company-debt.md",
+      "claim": "VAT Act art. 40: the double minimum does not apply where correctly declared VAT was unpaid and a substantial part has been paid",
+      "url": "https://www.althingi.is/lagas/nuna/1988050.html",
+      "quotes": [
+        "enda hafi verið staðin skil á verulegum hluta skattfjárhæðar eða málsbætur eru miklar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-withholding-fine",
+      "file": "iceland-company-debt.md",
+      "claim": "Withholding Act art. 30: fine never less than double for not paying over withheld tax",
+      "url": "https://www.althingi.is/lagas/nuna/1987045.html",
+      "quotes": [
+        "aldrei lægri fésekt en nemur tvöfaldri skattfjárhæðinni"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-penal-262",
+      "file": "iceland-company-debt.md",
+      "claim": "General Penal Code art. 262: up to six years for a major tax offence",
+      "url": "https://www.althingi.is/lagas/nuna/1940019.html",
+      "quotes": [
+        "fangelsi allt að 6 árum. Heimilt er að dæma fésekt að auki"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-vararefsing",
+      "file": "iceland-company-debt.md",
+      "claim": "General Penal Code art. 54: a fine carries default imprisonment of 2 days to 1 year",
+      "url": "https://www.althingi.is/lagas/nuna/1940019.html",
+      "quotes": [
+        "tímalengd vararefsingar, sem ekki skal vera styttri en 2 dagar og ekki lengri en 1 ár"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-landsrettur-813",
+      "file": "iceland-company-debt.md",
+      "claim": "Landsréttur 813/2018: a director personally fined ISK 14,250,000 for the company's unpaid VAT and withholding, with five months in default",
+      "url": "https://www.skatturinn.is/fagadilar/urskurdir-og-domar/landsrettardomar/2019/domur-landsrettar",
+      "quotes": [
+        "dæmdur til að greiða 14.250.000 króna sekt í ríkissjóð og skyldi fimm mánaða fangelsi koma í stað sektarinnar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-landsrettur-priority",
+      "file": "iceland-company-debt.md",
+      "claim": "Landsréttur 813/2018: the director had chosen to pay wages and suppliers first",
+      "url": "https://www.skatturinn.is/fagadilar/urskurdir-og-domar/landsrettardomar/2019/domur-landsrettar",
+      "quotes": [
+        "setja í forgang greiðslu launa og skulda við birgja þegar peninga skorti"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-penalty-interest-rule",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 7: overdue taxes bear penalty interest from the due date",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "af þeirri fjárhæð sem gjaldfallin er frá gjalddaga"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-penalty-interest-rate",
+      "file": "iceland-company-debt.md",
+      "claim": "Central Bank notice 08/2026: penalty interest 15,75 % for September 2026",
+      "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/tilkynning-um-drattarvexti-og-vexti-af-peningakrofum-nr-08-2026",
+      "quotes": [
+        "verða 15,75% fyrir tímabilið"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-vat-surcharge",
+      "file": "iceland-company-debt.md",
+      "claim": "VAT Act art. 27: surcharge 1 % a day up to 10 %",
+      "url": "https://www.althingi.is/lagas/nuna/1988050.html",
+      "quotes": [
+        "fyrir hvern byrjaðan dag eftir gjalddaga, þó ekki hærra en"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-no-reduction",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 7: interest and surcharge may not be reduced or waived unless a statute says so",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "Óheimilt er að lækka eða fella niður dráttarvexti og álag nema lög mæli fyrir á annan veg."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-plan-power",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 12: the collector may make a payment plan at the taxpayer's request",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "Innheimtumanni ríkissjóðs er heimilt að gera greiðsluáætlun við gjaldanda um skatta, gjöld og sektir að beiðni gjaldanda."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-plan-suspends",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 12: a valid plan postpones collection measures",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "Gild greiðsluáætlun frestar innheimtuaðgerðum vegna skatta, gjalda og sekta sem undir hana falla"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-plan-interest-runs",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 12: penalty interest keeps accruing during a plan",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "Lögboðnir dráttarvextir leggjast á skatta, gjöld og sektir þrátt fyrir að um þau hafi verið gerð greiðsluáætlun."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-plan-online-limit",
+      "file": "iceland-company-debt.md",
+      "claim": "Skatturinn: online plan only up to ISK 10,000,000 for companies",
+      "url": "https://www.skatturinn.is/innheimta/vanskil/greidsluaaetlanir/",
+      "quotes": [
+        "Fyrir fyrirtæki mega skuldirnar ekki vera hærri en 10.000.000"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-plan-returns-filed",
+      "file": "iceland-company-debt.md",
+      "claim": "Skatturinn: online plan requires returns filed on time and annual accounts filed",
+      "url": "https://www.skatturinn.is/innheimta/vanskil/greidsluaaetlanir/",
+      "quotes": [
+        "Fyrirtæki þurfa auk þess að vera búin að skila inn ársreikningum."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-plan-termination",
+      "file": "iceland-company-debt.md",
+      "claim": "Skatturinn: a plan ends automatically on non-payment of new tax assessments",
+      "url": "https://www.skatturinn.is/english/collection/payment-plans/",
+      "quotes": [
+        "Non-payment of new tax assessments"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-closure-half",
+      "file": "iceland-company-debt.md",
+      "claim": "Skatturinn: closure postponed by paying half and a plan of up to six months",
+      "url": "https://www.skatturinn.is/innheimta/vanskil/stodvun-atvinnurekstrar/",
+      "quotes": [
+        "ef gjaldandi greiðir helming skuldar og gerir greiðsluáætlun um eftirstöðvar til allt að sex mánaða"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-closure-notice",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 13: seven days' notice before a business is stopped",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "gefinn sjö daga frestur frá dagsetningu tilkynningar til að greiða kröfu eða gera greiðsluáætlun"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-composition-blocked",
+      "file": "iceland-company-debt.md",
+      "claim": "Act 150/2019 art. 15: no composition with the state while VAT, withholding tax or payroll levy is owed",
+      "url": "https://www.althingi.is/lagas/nuna/2019150.html",
+      "quotes": [
+        "Gjaldandi skuldi ekki virðisaukaskatt, staðgreiðslu opinberra gjalda, tryggingagjald eða vörugjald af ökutækjum."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-allocation-order",
+      "file": "iceland-company-debt.md",
+      "claim": "Rules 797/2016 art. 2: costs, then principal, surcharge, interest last",
+      "url": "https://island.is/stjornartidindi/nr/a7540954-69e3-4305-b07b-e76b6d81de88",
+      "quotes": [
+        "fyrst greiðist kostnaður, síðan höfuðstóll, álag og loks vextir"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-duty-to-file",
+      "file": "iceland-company-debt.md",
+      "claim": "Bankruptcy Act art. 64: a bookkeeping debtor must file when insolvent",
+      "url": "https://www.althingi.is/lagas/nuna/1991021.html",
+      "quotes": [
+        "Skuldara, sem er bókhaldsskyldur, er skylt að gefa bú sitt upp til gjaldþrotaskipta"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-general-claims",
+      "file": "iceland-company-debt.md",
+      "claim": "Bankruptcy Act art. 113: all other claims rank equally, pro rata",
+      "url": "https://www.althingi.is/lagas/nuna/1991021.html",
+      "quotes": [
+        "ganga allar aðrar kröfur á hendur þrotabúi að réttri tiltölu við fjárhæð hverrar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-clawback-related",
+      "file": "iceland-company-debt.md",
+      "claim": "Bankruptcy Act art. 134: payments to related parties voidable 6 to 24 months back",
+      "url": "https://www.althingi.is/lagas/nuna/1991021.html",
+      "quotes": [
+        "Krefjast má riftunar slíkrar greiðslu til nákominna sex til tuttugu og fjórum mánuðum fyrir frestdag"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-business-ban",
+      "file": "iceland-company-debt.md",
+      "claim": "Bankruptcy Act art. 182: the business ban lasts three years",
+      "url": "https://www.althingi.is/lagas/nuna/1991021.html",
+      "quotes": [
+        "Atvinnurekstrarbann skal vara í þrjú ár."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-accounts-fine",
+      "file": "iceland-company-debt.md",
+      "claim": "Annual Accounts Act art. 120: ISK 600,000 fine for late annual accounts",
+      "url": "https://www.althingi.is/lagas/nuna/2006003.html",
+      "quotes": [
+        "stjórnvaldssekt að fjárhæð 600.000 kr."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "is-debt-strike-off",
+      "file": "iceland-company-debt.md",
+      "claim": "ehf Act art. 83: strike-off does not change any personal liability",
+      "url": "https://www.althingi.is/lagas/nuna/1994138.html",
+      "quotes": [
+        "breytir það í engu persónulegri ábyrgð er stjórnar- eða félagsmenn kunna að vera í vegna skuldbindinga félagsins"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-residence-waiver",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ A5.25: no residence visa without a character waiver if a listed provision applies",
+      "url": "https://www.immigration.govt.nz/opsmanual/35058.htm",
+      "quotes": [
+        "A person will not be granted a residence class visa, unless granted a character waiver"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-dishonesty",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ A5.25.5: a conviction at any time for an offence involving dishonesty",
+      "url": "https://www.immigration.govt.nz/opsmanual/35058.htm",
+      "quotes": [
+        "at any time of any offence involving dishonesty"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-fine-in-default",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ A5.25.5 note: a fine-or-in-default term of imprisonment counts as a sentence of imprisonment",
+      "url": "https://www.immigration.govt.nz/opsmanual/35058.htm",
+      "quotes": [
+        "term of imprisonment"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-investigation",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ A5.35: residence deferred while charged or under investigation",
+      "url": "https://www.immigration.govt.nz/opsmanual/35060.htm",
+      "quotes": [
+        "or is under investigation for such an offence"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-work-visa",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ A5.45: temporary entry - any offence for which they have been imprisoned",
+      "url": "https://www.immigration.govt.nz/opsmanual/43627.htm",
+      "quotes": [
+        "or any offence for which they have been imprisoned"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-police-certificates",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ A5.5: police certificates for each country lived in 12 months or more in the last 10 years",
+      "url": "https://www.immigration.govt.nz/opsmanual/45181.htm",
+      "quotes": [
+        "each country in which the applicant has lived for 12 months or more"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-business-tax-compliance",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ BM2: business categories require all influenced businesses to have complied with taxation laws",
+      "url": "https://www.immigration.govt.nz/opsmanual/63832.htm",
+      "quotes": [
+        "all businesses they have influence over have complied with all relevant immigration, employment and taxation laws"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "nz-char-business-failure",
+      "file": "iceland-company-debt.md",
+      "claim": "INZ BD2.1: no bankruptcy or business failure in the five years before a Business Investor work visa application",
+      "url": "https://www.immigration.govt.nz/opsmanual/88541.htm",
+      "quotes": [
+        "has not been involved in bankruptcy or business failure within the five years preceding the date their application was made"
+      ],
+      "expect": "present"
     }
   ]
 }
