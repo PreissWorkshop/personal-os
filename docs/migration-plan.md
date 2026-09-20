@@ -852,9 +852,11 @@ First successful run of the routine (see corrections folded into the
   on Tailscale; main-pc exposes no shell over it (22, 3389, 5985/5986 closed,
   see `docs/employee-setup-main-pc.md`), so the kickoff goes through the
   `employee` Remote Control session on main-pc - reachable from claude.ai/code
-  on the laptop or by Telegram. The dispatch (paste-ready text in Tenis's
-  chat; also sent from this cloud session as a cross-session message, whose
-  delivery the tool does not confirm) has it add a worktree for this branch
+  on the laptop or by Telegram. This cloud session cannot reach it (peer
+  messaging finds no such agent; a routine into that session was refused by
+  the permission classifier), so Tenis pastes the dispatch himself - the text
+  is in `docs/reports/2026-09-19-money-skill.md` → "Kickoff on main-pc". It
+  has the employee add a worktree for this branch
   beside the main clone and run `scripts/money-setup.ps1 -Verify` from there
   (new, untested on Windows): junction, private folder, CLAUDE.md rule, prompt
   hook, selftest, and the source-verification pass from main-pc's open
@@ -889,8 +891,8 @@ First successful run of the routine (see corrections folded into the
   so the hands there are the `employee` Remote Control session - claude.ai/code
   from the laptop, or Telegram. (1) Have it add a worktree for the branch at
   `C:\Projects\_system\personal-os-money` and run
-  `scripts\money-setup.ps1 -Verify` from there (the exact dispatch went to it
-  from the cloud session on 09-20 and is in Tenis's chat); the script is
+  `scripts\money-setup.ps1 -Verify` from there (paste the dispatch from
+  `docs/reports/2026-09-19-money-skill.md` → "Kickoff on main-pc"); the script is
   untested on Windows, so read its output line by line. (2) Fill
   `~\.preiss\finance\finance-snapshot.json` on main-pc by hand, nowhere else,
   and run `plan` - the phase it prints is the starting point for every money

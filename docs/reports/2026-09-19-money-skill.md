@@ -205,6 +205,31 @@ those belong in the website and HelmCNC repos, one session each.
 - What SMBs actually pay for AI, by category and amount, was not found —
   the key missing input for a trades-vertical product thesis.
 
+## Kickoff on main-pc (added 2026-09-20)
+
+main-pc exposes no shell over Tailscale, and this cloud session can neither
+message the `employee` Remote Control session nor fire a routine into it.
+So the hands on main-pc are the `employee` session, driven by Tenis from
+claude.ai/code (laptop or phone) or by Telegram. Paste this into it:
+
+```
+Money-skill kickoff on main-pc: add a worktree for branch claude/profitable-business-debt-situation-6d7hq3, run scripts\money-setup.ps1 -Verify from it, and report the output.
+
+In C:\Projects\_system\personal-os, keeping this clone on main:
+1. git fetch origin claude/profitable-business-debt-situation-6d7hq3
+2. git worktree add C:\Projects\_system\personal-os-money claude/profitable-business-debt-situation-6d7hq3
+3. powershell -ExecutionPolicy Bypass -File C:\Projects\_system\personal-os-money\scripts\money-setup.ps1 -Verify
+4. Report the script's output in full: every ok / done / STOP / WARN line, the selftest line, and the VERIFIED / NOT FOUND / BLOCKED counts from the verification pass (its report lands in ~\.preiss\finance\verify-<date>.md; quote the counts, not the file). The script has never run on Windows: if it stops or errors, report the error verbatim and do not improvise a fix.
+
+Rules: do not merge, push or commit anything; do not touch main; do not open, fill or read ~\.preiss\finance\finance-snapshot.json (Tenis fills it by hand); no figures in any report. Expected side effects: a junction ~\.claude\skills\money, a Money rule appended to ~\.claude\CLAUDE.md, a UserPromptSubmit hook merged into ~\.claude\settings.json (backup: settings.json.bak-money).
+```
+
+After a clean run: fill the snapshot by hand on main-pc and run `plan`; merge
+the branch to `main`; then on main-pc `git pull`,
+`git worktree remove C:\Projects\_system\personal-os-money`, and re-run
+`scripts\money-setup.ps1` from the main clone, which re-points the junction
+and the hook. The branch carries `main` as of a55ca34 and merges clean.
+
 ## Sources checked
 
 - HelmCNC public site and repo; platform.claude.com pricing;
