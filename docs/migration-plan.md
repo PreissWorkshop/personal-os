@@ -774,14 +774,24 @@ First successful run of the routine (see corrections folded into the
 
 - ⏸ **Surveillance paused by Tenis 09-19 ~11:30**, as it stands: setup
   prepared, one double-click left (see Waiting on Tenis).
-- ⏳ **Website audit started 09-19 ~11:35, on his instruction, to run until
-  the 14:00 usage reset**: public site, admin and crew app. Branch
-  `audit/2026-09-19-site-admin-crew` off `main` @ a71a66c. Baseline
-  observed this session: build reproduces with no diff (114 pages, 56
-  sitemap pairs), `test_crm.html` 82/82 under a Node runner,
-  `test_quote.mjs` 8/8, admin Python tests 10/10, `audit_seo.py` 0
-  warnings. Five read-only auditors in parallel; fixes land on the branch
-  and go up as a pull request. Nothing merges to `main` without his word.
+- ✅ **Website audit 09-19, 13:10-13:35 UTC, on Tenis's instruction** (public
+  site, admin, crew app, server). Branch `audit/2026-09-19-site-admin-crew`
+  off `main` @ a71a66c, pushed @ a7ff5ed (13:43), **not merged, not live**.
+  Five read-only auditors in parallel, then fixes in 20 commits. Observed on
+  the final state: build reproduces with no diff, `test_crm.html` 83/83,
+  `test_quote.mjs` 8/8, admin Python tests OK, `audit_seo.py` 0 warnings,
+  every script passes a syntax check, crew, admin and six public pages load
+  in headless Edge without script errors. main-pc's checkout is back on
+  `main`, clean. Not
+  verified: anything against the live database, real mail or a real phone.
+  The account - fixed, needs-Tenis, ranked backlog - is in the website repo,
+  `AUDIT-2026-09-19.md`. Worst things found and fixed: a crew member could
+  read any job and any colleague's check-in selfie by typing an id; every
+  Workshop save that succeeded said "Save failed"; a quote's accept could
+  land twice; "valid until the 18th" died at 00:00 on the 18th; the
+  newsletter form could mail-bomb any address; two clients could book the
+  same measurement hour. No pull request opened: `gh` is not logged in on
+  main-pc - GitHub offers the button on the branch page.
 
 ## Executed 2026-09-19 (from the cnc-pc session, hostname verified)
 
@@ -868,18 +878,28 @@ First successful run of the routine (see corrections folded into the
 
 ## Waiting on Tenis
 
-- 🔒 **Money skill - three things** (09-19, updated 09-20): (1) on the
-  laptop, `git fetch && git checkout claude/profitable-business-debt-situation-6d7hq3`,
-  then `powershell -ExecutionPolicy Bypass -File scripts\money-setup.ps1 -Verify`
-  - junction, private folder, CLAUDE.md rule, prompt hook, selftest and
-  the verification pass in one run; read its output line by line, it is
-  untested on Windows; (2) fill `~\.preiss\finance\finance-snapshot.json`
-  there and nowhere else and run `plan` - the phase it prints is the
-  starting point for every money conversation; (3) merge the branch to
-  `main` when the laptop round is done (hand-merge the five shared files
-  if the Icelandic branch lands first), pull on main-pc and run the same
-  script there. Then book the accountant meeting with the five questions
-  in `references/iceland.md` §10.
+- 🔒 **Money skill - kick off on main-pc, then merge** (09-19, updated
+  09-20): main-pc has no shell over Tailscale (`docs/employee-setup-main-pc.md`),
+  so the hands there are the `employee` Remote Control session - claude.ai/code
+  from the laptop, or Telegram. (1) Have it add a worktree for the branch at
+  `C:\Projects\_system\personal-os-money` and run
+  `scripts\money-setup.ps1 -Verify` from there (the exact dispatch went to it
+  from the cloud session on 09-20 and is in Tenis's chat); the script is
+  untested on Windows, so read its output line by line. (2) Fill
+  `~\.preiss\finance\finance-snapshot.json` on main-pc by hand, nowhere else,
+  and run `plan` - the phase it prints is the starting point for every money
+  conversation. (3) When the run is clean, merge the branch to `main` (it
+  carries main as of a55ca34, so it merges clean; if the Icelandic branch lands
+  first, hand-merge the five shared files), then on main-pc `git pull`,
+  `git worktree remove C:\Projects\_system\personal-os-money`, and re-run
+  `scripts\money-setup.ps1` from the main clone - it re-points the junction
+  and the hook. Then book the accountant meeting with the five questions in
+  `references/iceland.md` §10.
+- 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
+  (09-19). Merging deploys. Three things in it are his alone: set a random
+  `CREW_SECRET` in the Pages project (the crew cookie is signed with the
+  admin password today), the kennitala / VSK number for the footer, and the
+  quote terms that say "prices include 24% VAT" over ex-VAT lines.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is
