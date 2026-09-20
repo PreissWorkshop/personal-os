@@ -41,7 +41,7 @@ Platform facts (2026, all [S]):
 | Toptal | 0 % freelancer-side, but the client pays a blended $60-150+/h and "Toptal typically keeps 30-40% of what the client pays"; rates reviewed by Toptal | acceptance-rate marketing | thefrontendcompany.com; freelancemvp.com |
 | Contra | "does not charge freelancers any commission"; one snippet mentions a tiered per-payment fee on the free plan - verify | | contra.com/commission-free; memvers.com |
 
-Upwork's own "cost to hire" medians, USD/hour (2026, [S] from Upwork's pages; upwork.com/hire/*/cost answered 403 to scripts on 2026-09-20 - open in a browser):
+Upwork's own "cost to hire" medians, USD/hour (2026, [S] from Upwork's pages; upwork.com/hire/*/cost answered 403 to scripts, to a headless browser and to the employee's fetch tool on 2026-09-20 (bot challenge) - not openable from main-pc without a person at a browser):
 
 | Skill | Median | Typical range |
 |---|---|---|

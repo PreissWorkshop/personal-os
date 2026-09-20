@@ -52,7 +52,7 @@ customer. Plan on 12-24 months of ramp with sold hours underneath.
 
 | Finding | Value | Label | Source |
 |---|---|---|---|
-| MicroConf State of Independent SaaS 2024 (469 respondents, end-2023) | "28% of independent SaaS businesses make under $1,000 MRR"; about half solo-founded, ~35 % two co-founders | [S] via lnks.work, incomewiki; microconf.com/state-of-indie-saas fetched 2026-09-20 from main-pc and "28%" is not on that page (report behind a form or in a PDF) - open it by hand | microconf.com/state-of-indie-saas |
+| MicroConf State of Independent SaaS 2024 (469 respondents, end-2023) | "28% of independent SaaS businesses make under $1,000 MRR"; about half solo-founded, ~35 % two co-founders | [S] via lnks.work, incomewiki; not openable: the 2024 report sits behind an e-mail form on microconf.com/state-of-indie-saas (only the 2021 report is linked there as a PDF), so "28%" was seen in secondary sources only, 2026-09-20 | microconf.com/state-of-indie-saas |
 | Same survey, secondary claims | "The median time to $10K MRR for bootstrapped micro SaaS is 12-18 months"; part-time builders "2-3× longer"; "$10K MRR puts you in roughly the top 20%" | [S] low confidence (blog attributing to MicroConf) | brandbrain.app |
 | Secondary aggregations of self-published indie revenue | "The median micro SaaS earns $500/month MRR across 1,000+ products studied"; "70% of micro-SaaS products never break $1,000 a month"; "Roughly 3% of serious indie hackers currently make at least $10,000 per month" | [S] low confidence, survivorship and self-report bias both ways | saasranger.com; trustats.live; stealwhatworks.com |
 | Founder hit rates | Levels ~5 % (4 of 70+); Yongfook 0 of 7 before Bannerbear; Lou 27 prior projects | [SR] | as above |
@@ -65,12 +65,15 @@ founders who got there mostly did so on their third-plus attempt.
 
 ## 4. Exits
 
-- Acquire.com, January 2026 report: "The standard range across deal sizes
-  sits between 3 and 5x net income, with outliers above that for
-  exceptionally clean businesses."; "nearly all acquisitions closing on
-  Acquire.com today come from profitable businesses"; multiples "dropping
-  from a peak of ~17x down to around 5.5x net income" after the 2022 rate
-  rise (segment unclear) [S: blog.acquire.com - 403 to scripts, 2026-09-20].
+- Acquire.com, January 2026 report [V 2026-09-20, read on the page in a
+  browser-style fetch; it answers 403 to the script]: "In both 2024 and 2025,
+  SaaS businesses sold at a median profit multiple of 3.9x"; "confirmed SaaS
+  profit multiples averaged in the low-to-mid 4x range". Corrected: was
+  "between 3 and 5x net income" and "from a peak of ~17x down to around 5.5x
+  net income"; the page says the 17x (2022) -> "around 7x in 2023 and 2024"
+  -> "roughly 5.5x by the end of 2025" series is **public SaaS revenue
+  multiples**, not net income, and neither old sentence, nor "nearly all
+  acquisitions ... come from profitable businesses", is on it, 2026-09-20.
 - FeedbackPanda "seven figures" on ~$660k ARR ≈ 1.5-3× ARR; Small Bets
   ~7-8× profit from a strategic buyer [I].
 - Exit math [I]: a $5-10k a month profit business is a $200-600k asset.

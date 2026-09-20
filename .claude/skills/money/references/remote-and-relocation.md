@@ -50,7 +50,7 @@ invoice, a scope - not a CV.
 
 | Country, scheme | Income threshold (2026, as reported) | Duration | Label | Source |
 |---|---|---|---|---|
-| **EEA (Icelandic citizen)** | none - free movement: "the same right as EU citizens to take up an economic activity anywhere in the EU/EEA"; beyond three months, residence is conditional on not being "an undue burden" and holding "comprehensive health insurance" | indefinite | [S] (efta.int 403 to scripts, 2026-09-20), conclusion [I] | efta.int; government.is EEA pages; Wikipedia Citizens' Rights Directive |
+| **EEA (Icelandic citizen)** | none - free movement: "the same right as EU citizens to take up an economic activity anywhere in the EU/EEA"; beyond three months, residence is conditional on not being "an undue burden" and holding "comprehensive health insurance" | indefinite | [V 2026-09-20] for the "take up an economic activity anywhere in the EU/EEA" sentence only, as quoted back by the employee's fetch tool - efta.int answers 403 to scripts and a bot challenge to a headless browser, so the raw page was not read; the three-month conditions stay [S], conclusion [I] | efta.int; government.is EEA pages; Wikipedia Citizens' Rights Directive |
 | Spain, Startup Act teleworker visa (non-EU) | "EUR 2,849 per month (EUR 34,188 per year, 200% of Spain's minimum wage)"; "No more than 20% of your income can come from Spanish sources" | not captured | [S] | vissumlex.com; startupvisa.barcelona |
 | Portugal, D8 (non-EU) | "the minimum D8 Visa income requirement threshold €3,680 per month" (4 × €920); +50 % spouse, +30 % per child | not captured | [S] | globallawexperts.com; remoteworkeurope.eu |
 | Estonia, Digital Nomad Visa (non-EU) | "€4,500 gross monthly income over the prior six months" (raised from €3,504) | not captured | [S]; the politsei.ee page cited before is gone (404, 2026-09-20); the programme's official page is e-resident.gov.ee/nomadvisa, not yet opened | jobbatical.com; e-resident.gov.ee/nomadvisa |
@@ -153,19 +153,23 @@ with filing risk. Not before phase 4, and then only with the adviser.
 
 ## 9. What remote employers and clients need from him
 
-GitLab's all-remote handbook [S - unconfirmed: the asynchronous page was
-removed from the handbook's all-remote section on 2026-08-19, and the three
-sentences below are not in its source at the last revision (asynchronous.md
-at commit 8660b734, 2026-06-24) nor in the current all-remote index, checked
-2026-09-20; the wording may be the older about.gitlab.com page or a search
-paraphrase - treat as paraphrase until found]: "mastering asynchronous workflows is vital to avoiding
-dysfunction and enjoying outsized efficiencies and lifestyle flexibility";
-"requires a mental shift that can feel unusual or even uncomfortable for
-those who come from a colocated environment"; "effective asynchronous
-communication requires enough context, clear language, appropriate
-resources, and a record that can be found later"; "people should be able
-to do their work without getting interrupted by chat"; "look it up in the
-handbook" before asking [S third-party: workinvirtual.com].
+GitLab's all-remote handbook. Two of the three sentences were found on a
+GitLab-owned page, handbook.gitlab.com/handbook/company/culture/all-remote/guide/,
+read 2026-09-20, and both differ from how they were quoted here [V 2026-09-20
+for the wording that follows]: "mastering asynchronous workflows is vital to
+avoiding dysfunction and enjoying outsized efficiencies." (was quoted with
+"and lifestyle flexibility" added; not on the page); "Embracing text
+communication and learning to use it effectively requires a mental shift.
+This can feel unusual or even uncomfortable for those who come from a
+colocated environment, where in-person meetings and vocalized communiques
+are the norm." (GitLab says this of text communication, not of asynchronous
+work; was quoted as one sentence about async). Also read 2026-09-20 on
+handbook.gitlab.com/handbook/communication/ [V]: "people should be able to
+do their work without getting interrupted by chat". Still [S - unconfirmed,
+third-party: workinvirtual.com; on none of the GitLab pages fetched
+2026-09-20]: "effective asynchronous communication requires enough context,
+clear language, appropriate resources, and a record that can be found
+later"; "look it up in the handbook" before asking.
 
 Read [I]: he already works this way - HELMCNC_NOTES, HANDOFF.md, the
 tracker, the employee's reports. The portfolio for a remote contract is

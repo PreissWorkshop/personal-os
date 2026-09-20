@@ -50,10 +50,9 @@
       "id": "is-ehf-fee",
       "file": "iceland.md",
       "claim": "ehf registration fee ISK 140,500",
-      "url": "https://www.skatturinn.is/fyrirtaekjaskra/stofnun-felaga/einkahlutafelog/verklagsreglur/",
+      "url": "https://www.skatturinn.is/fyrirtaekjaskra/gjaldskra/",
       "quotes": [
-        "140.500",
-        "140,500"
+        "140.500"
       ],
       "expect": "present"
     },
@@ -139,10 +138,9 @@
       "id": "is-capital-tax",
       "file": "iceland.md",
       "claim": "capital income tax 22%",
-      "url": "https://www.skatturinn.is/atvinnurekstur/skattar-og-gjold/fjarmagnstekjuskattur/",
+      "url": "https://www.skatturinn.is/einstaklingar/fjarmagnstekjur/ardur/",
       "quotes": [
-        "22%",
-        "22 %"
+        "22%"
       ],
       "expect": "present"
     },
@@ -216,11 +214,9 @@
       "id": "is-policy-rate",
       "file": "iceland.md",
       "claim": "Central Bank key rate 8.00% after 19 Aug 2026",
-      "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/vefutsending-vegna-yfirlysingar-peningastefnunefndar-midvikudaginn-19-agust-2026",
+      "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/yfirlysing-peningastefnunefndar-19-agust-2026",
       "quotes": [
-        "8,0%",
-        "8,00%",
-        "8%"
+        "8,00%"
       ],
       "expect": "present"
     },
@@ -340,10 +336,10 @@
     {
       "id": "acquire-multiples",
       "file": "case-studies.md",
-      "claim": "Acquire.com: small profitable SaaS sells for 3-5x net income",
+      "claim": "Acquire.com Jan 2026: SaaS businesses sold at a median profit multiple of 3.9x in 2024 and 2025 (was '3-5x net income', not on the page)",
       "url": "https://blog.acquire.com/acquire-com-biannual-acquisition-multiples-report-jan-2026/",
       "quotes": [
-        "5x"
+        "median profit multiple of 3.9x"
       ],
       "expect": "present"
     },
@@ -362,20 +358,20 @@
     {
       "id": "chague-97",
       "file": "what-fails.md",
-      "claim": "97% of persistent Brazilian day traders lost money",
-      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3423101",
+      "claim": "97% of Brazilian day traders who persisted for at least 300 days lost money (RePEc record of the FGV working-paper version; SSRN answers 403)",
+      "url": "https://ideas.repec.org/p/fgv/eesptd/525.html",
       "quotes": [
-        "97%"
+        "97% of them lost money"
       ],
       "expect": "present"
     },
     {
       "id": "bis-crypto",
       "file": "what-fails.md",
-      "claim": "BIS: 73-81% of retail bitcoin buyers likely lost money",
-      "url": "https://www.bis.org/publ/bisbull69.htm",
+      "claim": "BIS Working Paper 1049: an estimated 73-81% of retail investors have likely lost money (was attributed to Bulletin 69, which does not carry the figure)",
+      "url": "https://www.bis.org/publ/work1049.htm",
       "quotes": [
-        "81%"
+        "73-81%"
       ],
       "expect": "present"
     },
@@ -466,11 +462,10 @@
     {
       "id": "gitlab-async",
       "file": "remote-and-relocation.md",
-      "claim": "GitLab's handbook had an asynchronous-communication page (source at its last revision, 2026-06-24; removed from all-remote 2026-08-19; the quoted sentences in the reference are unconfirmed)",
-      "url": "https://gitlab.com/gitlab-com/content-sites/handbook/-/raw/8660b734/content/handbook/company/culture/all-remote/asynchronous.md",
+      "claim": "GitLab's all-remote guide: mastering asynchronous workflows is vital to avoiding dysfunction and enjoying outsized efficiencies",
+      "url": "https://handbook.gitlab.com/handbook/company/culture/all-remote/guide/",
       "quotes": [
-        "Asynchronous communication for remote work",
-        "asynchronous"
+        "mastering asynchronous workflows is vital to avoiding dysfunction and enjoying outsized efficiencies"
       ],
       "expect": "present"
     }

@@ -52,6 +52,28 @@ script found, nothing wider; a substring match is not a reading.
 
 Everything not in the two tables above is [S], [SR], [I] or [G].
 
+### Round 2, by eye, 2026-09-20 (employee session on main-pc)
+
+The twelve claims the script could not settle were opened by hand: a
+browser-style fetch read as raw page text, a headless browser where that was
+refused, and the session's fetch tool last. Labels changed only for wording
+seen word for word.
+
+| Outcome | Claims |
+|---|---|
+| Found on a neighbouring page, `claims.json` re-pointed, script now VERIFIED | is-ehf-fee (the gjaldskrá), is-capital-tax (individuals' dividends page), is-policy-rate (the yfirlýsing itself), chague-97 (RePEc record of the working paper; SSRN still 403), bis-crypto (**BIS Working Paper 1049, not Bulletin 69**) |
+| Read on the claim's own page, [V]; the script still gets 403 because these sites refuse its honest bot user agent | ftc-eeb, ftc-advocare, bls-survival (read in a headless browser), acquire-multiples |
+| [V] through the fetch tool's quotation only; raw page not readable | eea-free-movement |
+| Not openable, stays [S] | upwork-csharp-median (bot challenge to every route), microconf-28 (2024 report behind an e-mail form) |
+
+Corrections this round: the Acquire.com figures (median profit multiple 3.9x;
+the 17x to 5.5x series is public SaaS *revenue* multiples, not net income); the
+BIS 73-81 % source; the Chague wording; the FTC Ecommerce Empire Builders
+quote; two GitLab sentences that had been quoted with words GitLab did not
+write; Stripe's list is in the served HTML (51 entries, Iceland absent,
+Denmark and Norway present). The script's user agent was left as it is: the
+four 403 claims above stay BLOCKED for the script by design, not by error.
+
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
 Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and
