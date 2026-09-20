@@ -2556,6 +2556,206 @@
         "United Arab"
       ],
       "expect": "absent"
+    },
+    {
+      "id": "ads-ftc-bizopp-guide",
+      "file": "selling-rules-and-ads.md",
+      "claim": "FTC: opportunities where the seller provides customers are covered by the Business Opportunity Rule",
+      "url": "https://www.ftc.gov/business-guidance/resources/selling-work-home-or-other-business-opportunity-revised-rule-may-apply-you",
+      "quotes": [
+        "by providing the buyer with customers, accounts, or locations"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-ftc-results-not-typical",
+      "file": "selling-rules-and-ads.md",
+      "claim": "FTC: results-not-typical disclaimers do not change the interpretation",
+      "url": "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking",
+      "quotes": [
+        "change that interpretation"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-ftc-reviews-rule",
+      "file": "selling-rules-and-ads.md",
+      "claim": "FTC reviews rule: civil penalties for knowing violations",
+      "url": "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
+      "quotes": [
+        "The rule authorizes courts to impose civil penalties for knowing violations"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-ftc-mmo-press",
+      "file": "selling-rules-and-ads.md",
+      "claim": "FTC 2021 notice on money-making claims covered business coaching",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2021/10/ftc-puts-businesses-notice-false-money-making-claims-could-lead-big-penalties",
+      "quotes": [
+        "investment and business coaching"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-ftc-negative-option-2026",
+      "file": "selling-rules-and-ads.md",
+      "claim": "FTC March 2026: the 2024 negative option rule is vacated",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/03/ftc-seeks-public-comment-response-advance-notice-proposed-rulemaking-regarding-negative-option",
+      "quotes": [
+        "vacated 2024 Rule"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-eu-withdrawal-14-days",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Directive 2011/83/EU art. 9: 14-day withdrawal",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02011L0083-20220528",
+      "quotes": [
+        "the consumer shall have a period of 14 days to withdraw from a distance or off-premises contract"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-eu-digital-content-exception",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Directive 2011/83/EU art. 16(m): consent, acknowledgement, confirmation",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02011L0083-20220528",
+      "quotes": [
+        "the consumer has provided acknowledgement that he thereby loses his right of withdrawal"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-eu-fake-urgency",
+      "file": "selling-rules-and-ads.md",
+      "claim": "UCPD Annex I item 7: false limited-time statements",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02005L0029-20220528",
+      "quotes": [
+        "Falsely stating that a product will only be available for a very limited time"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-eu-fake-reviews",
+      "file": "selling-rules-and-ads.md",
+      "claim": "UCPD Annex I item 23c: false reviews",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02005L0029-20220528",
+      "quotes": [
+        "submit false consumer reviews or endorsements"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-eu-prior-price",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Directive 98/6/EC art. 6a: prior price is the lowest in 30 days",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:01998L0006-20220528",
+      "quotes": [
+        "not shorter than 30 days prior to the application of the price reduction"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-is-withdrawal",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Iceland Act 16/2016 art. 16: fourteen days",
+      "url": "https://www.althingi.is/lagas/nuna/2016016.html",
+      "quotes": [
+        "Neytandi hefur fjórtán daga frest til að falla frá samningi"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-is-old-act-repealed",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Iceland Act 57/2005 repealed by Act 44/2026",
+      "url": "https://www.althingi.is/lagas/nuna/2005057.html",
+      "quotes": [
+        "Felld úr gildi skv. l."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-is-marketing-act-proof",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Iceland Act 44/2026 art. 12: trader must prove factual claims",
+      "url": "https://www.althingi.is/lagas/nuna/2026044.html",
+      "quotes": [
+        "Atvinnurekandi skal geta fært sönnur á réttmæti fullyrðinga um staðreyndir."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-is-marketing-act-fines",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Iceland Act 44/2026 art. 33: fines up to 4 % of turnover or EUR 2 million",
+      "url": "https://www.althingi.is/lagas/nuna/2026044.html",
+      "quotes": [
+        "allt að 4% af heildarveltu síðasta rekstrarárs"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-is-email-consent",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Iceland Act 70/2022 art. 94: prior informed consent for e-mail marketing",
+      "url": "https://www.althingi.is/lagas/nuna/2022070.html",
+      "quotes": [
+        "er einungis heimil þegar endanotandi hefur veitt upplýst samþykki sitt fyrir fram"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-uk-cap-bizopp",
+      "file": "selling-rules-and-ads.md",
+      "claim": "CAP Code 20.7: no unrepresentative earnings figures",
+      "url": "https://www.asa.org.uk/type/non_broadcast/code_section/20.html",
+      "quotes": [
+        "must neither contain unrepresentative or overstated earnings figures"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-uk-cap-testimonials",
+      "file": "selling-rules-and-ads.md",
+      "claim": "CAP Code 3.47: documentary evidence for testimonials",
+      "url": "https://www.asa.org.uk/type/non_broadcast/code_section/03.html",
+      "quotes": [
+        "Marketers must hold documentary evidence that a testimonial or endorsement"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-google-unreliable-claims",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Google Ads: improbable results as likely outcome not allowed",
+      "url": "https://support.google.com/adspolicy/answer/15936857?hl=en",
+      "quotes": [
+        "as the likely outcome a user can expect is not allowed"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-tiktok-results",
+      "file": "selling-rules-and-ads.md",
+      "claim": "TikTok ads: no promised or exaggerated results",
+      "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-misleading-and-false-content?lang=en",
+      "quotes": [
+        "must not promise or exaggerate results"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "ads-eu-email-consent",
+      "file": "selling-rules-and-ads.md",
+      "claim": "Directive 2002/58/EC art. 13: prior consent for marketing e-mail",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219",
+      "quotes": [
+        "who have given their prior consent"
+      ],
+      "expect": "present"
     }
   ]
 }

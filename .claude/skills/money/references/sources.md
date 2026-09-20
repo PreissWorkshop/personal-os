@@ -113,6 +113,32 @@ claims added. YouTube counts were read in the pages' embedded data and cannot
 be re-checked by the script; Udemy refused every fetch, so the absence of an
 independent English online course is a search result, not proof.
 
+### Round 6, 2026-09-20: seven references for the course-and-installs strategy
+
+Seven research agents fetched raw page text (curl, headless Edge, PDF text)
+and returned URL-plus-quotation blocks; the employee session checked every
+quotation of each new file mechanically against the saved texts before
+writing it, then ran the script on the new claims.
+
+| File | Claims | Script result |
+|---|---|---|
+| `video-production-and-dubbing.md` | 13 `dub-*` | 13 verified |
+| `trade-qualification.md` | 15 `trade-*` | 15 verified |
+| `nz-pathways.md` | 22 `nzp-*` | 22 verified |
+| `course-platforms.md` | 17 `plat-*` | 17 verified (two are absence checks: Stripe and Thinkific list no Iceland) |
+| `iceland-b2b-market.md` | 19 `isb-*` | 19 verified |
+| `tax-residency-and-exit.md` | 19 `exit-*` | 19 verified (two absence checks on Skatturinn's treaty list, with Latvia's presence as the control) |
+| `selling-rules-and-ads.md` | 20 `ads-*` | 15 verified; the five ftc.gov pages refuse the script (HTTP 403) and were confirmed the same day by curl, quotation found on each |
+
+Not re-checkable by the script: Statistics Iceland's hotel tables (the API
+needs a POST query), the UAE decisions and the FTC notice (PDF), eCFR's
+versioner API (needs a compressed request), Meta's policy and help pages
+(rendered by script; read with headless Edge). Their quotations were checked
+against the saved texts only. Known gaps are marked [G] in the files: an
+Icelandic exit tax on an individual's shares was not found and Act 71/2026
+was not examined; UAE Cabinet Decision 85/2022 could not be opened; the
+regulation under Iceland's Marketing Act 44/2026 was not located.
+
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
 Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and
