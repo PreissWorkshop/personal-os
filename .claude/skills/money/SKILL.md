@@ -225,6 +225,7 @@ is in `references/maker-leverage.md`:
 | A company (ehf) that owes tax or trade debt: the director's personal exposure, penalty interest and surcharges, collection and closure, payment plans with Skatturinn, where a payment goes, insolvency duties, clawback and the business ban, stopping the company, and what a New Zealand visa asks about character | `references/iceland-company-debt.md` |
 | An interior film installation course: who already sells training, online and in-person prices, the vehicle-wrap comparables, countable demand on YouTube, tools | `references/interior-film-training.md` |
 | Making the videos: AI dubbing prices and rights, YouTube's own dubbing and disclosure rules, editing tools an agent can drive, which languages first | `references/video-production-and-dubbing.md` |
+| Getting trade experience certified: Iceland's raunfærnimat and sveinspróf, the licensed-trade law (Act 42/1978), NZQA assessment, BCITO experience recognition, and how New Zealand visas count a trade certificate | `references/trade-qualification.md` |
 | Remote jobs, contractor setups, nomad visas, tax residency, entities abroad, health and pensions, the move in order | `references/remote-and-relocation.md` |
 | Courses, gurus, dropshipping, trading, crypto, MLM, "passive income", app-store odds, the red-flag checklist | `references/what-fails.md` |
 | What was and was not verified, the labels, the upgrade pass | `references/sources.md`, `references/claims.json` |

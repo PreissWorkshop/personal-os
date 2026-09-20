@@ -1632,6 +1632,156 @@
         "Spanish"
       ],
       "expect": "present"
+    },
+    {
+      "id": "trade-raunfaernimat-eligibility",
+      "file": "trade-qualification.md",
+      "claim": "IÐAN raunfærnimat: age 23 and three years of confirmed experience",
+      "url": "https://www.idan.is/thjonusta/raunfaernimat/",
+      "quotes": [
+        "23 ára aldur og 3 ára staðfest starfsreynsla í viðkomandi grein"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-raunfaernimat-trades",
+      "file": "trade-qualification.md",
+      "claim": "IÐAN raunfærnimat building trades include húsasmíði",
+      "url": "https://www.idan.is/thjonusta/raunfaernimat/",
+      "quotes": [
+        "Bygginga- og mannvirkjagreinar: Húsasmíði"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-raunfaernimat-cost",
+      "file": "trade-qualification.md",
+      "claim": "IÐAN raunfærnimat: free without completed upper-secondary education",
+      "url": "https://www.idan.is/thjonusta/raunfaernimat/kostnadur-i-raunfaernimati/",
+      "quotes": [
+        "Þeir sem hafa ekki lokið námi úr framhaldsskóla greiða ekki fyrir raunfærnimat"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-sveinsprof-admission",
+      "file": "trade-qualification.md",
+      "claim": "Regulation 698/2009 art. 3: raunfærnimat as a basis for admission to the sveinspróf",
+      "url": "https://island.is/reglugerdir/nr/0698-2009",
+      "quotes": [
+        "eða sætt raunfærnimati skv. reglum menntamálaráðuneytis"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-sveinsprof-next",
+      "file": "trade-qualification.md",
+      "claim": "Next carpentry sveinspróf January 2027, deadline 1 November 2026",
+      "url": "https://www.idan.is/sveinsprof/sveinsprof-i-ibygginga-og-mannvirkagreinum/",
+      "quotes": [
+        "Næsta sveinspróf í húsasmíði verður haldið í janúar 2027"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-licensed-trades",
+      "file": "trade-qualification.md",
+      "claim": "Regulation 940/1999 lists húsasmíði and húsgagnasmíði as licensed trades",
+      "url": "https://www.reglugerd.is/reglugerdir/allar/nr/940-1999",
+      "quotes": [
+        "húsasmíði húsgagnabólstrun húsgagnasmíði"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-master-in-charge",
+      "file": "trade-qualification.md",
+      "claim": "Act 42/1978 art. 8: licensed trades always run under a master",
+      "url": "https://www.althingi.is/lagas/nuna/1978042.html",
+      "quotes": [
+        "skulu ávallt reknar undir forstöðu meistara"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-penalty",
+      "file": "trade-qualification.md",
+      "claim": "Act 42/1978 art. 15: fines for running a licensed trade without a master in charge",
+      "url": "https://www.althingi.is/lagas/nuna/1978042.html",
+      "quotes": [
+        "Ef maður rekur löggilta iðngrein, án þess að hafa meistara til forstöðu"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-sveinsbref-no-business",
+      "file": "trade-qualification.md",
+      "claim": "island.is: a sveinsbréf gives no right to run an independent business in the trade",
+      "url": "https://island.is/sveinsbref-i-loeggiltri-idngrein",
+      "quotes": [
+        "sveinsbréf veitir handhafa þess ekki rétt til að reka sjálfstæða atvinnustarfsemi"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-nzqa-fee",
+      "file": "trade-qualification.md",
+      "claim": "NZQA standard IQA: NZD 445",
+      "url": "https://www2.nzqa.govt.nz/international/recognise-overseas-qual/apply-iqa/fees/",
+      "quotes": [
+        "NZ$445"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-nzqa-no-experience",
+      "file": "trade-qualification.md",
+      "claim": "NZQA does not assess work experience",
+      "url": "https://www2.nzqa.govt.nz/international/recognise-overseas-qual/iqa/",
+      "quotes": [
+        "do not submit evidence of work experience with your IQA application"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-smc-no-points-l4",
+      "file": "trade-qualification.md",
+      "claim": "INZ SMC: no points for a non-degree qualification at level 7 or below",
+      "url": "https://www.immigration.govt.nz/visas/skilled-migrant-category-resident-visa/",
+      "quotes": [
+        "You cannot claim points for a non-degree qualification at level 7 or below"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-smc-experience-pathway",
+      "file": "trade-qualification.md",
+      "claim": "INZ SMC experience pathway: 5 years including 2 in New Zealand",
+      "url": "https://www.immigration.govt.nz/visas/skilled-migrant-category-resident-visa/",
+      "quotes": [
+        "at least 5 years of directly relevant work experience, including at least 2 years of skilled work experience in New Zealand"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-aewv-experience",
+      "file": "trade-qualification.md",
+      "claim": "INZ AEWV: two years of relevant experience or a level 4 qualification",
+      "url": "https://www.immigration.govt.nz/visas/accredited-employer-work-visa/",
+      "quotes": [
+        "2 years or more of relevant job experience, or a qualification at level 4 or higher"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "trade-bcito-recognition",
+      "file": "trade-qualification.md",
+      "claim": "BCITO recognises existing experience towards a New Zealand certificate",
+      "url": "https://bcito.org.nz/supervisors-and-managers/recognise-your-experience/",
+      "quotes": [
+        "Having your experience recognised can take anywhere from three months to a year"
+      ],
+      "expect": "present"
     }
   ]
 }
