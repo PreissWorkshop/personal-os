@@ -838,6 +838,15 @@ First successful run of the routine (see corrections folded into the
   templates; six eval prompts. Rating against two days ago, his question:
   about 5/10 then, 7.5/10 now, 9 reachable after verification, the
   snapshot and the CRM/Freemius feeds.
+- ⏳ **2026-09-20, laptop handoff.** Tenis is at the laptop and continues
+  the skill work there, pushing to this branch; main-pc pulls later.
+  `scripts/money-setup.ps1` (new, untested on Windows) does the machine
+  setup in one run and, with `-Verify`, runs the source-verification
+  pass from the laptop's open internet - the single biggest quality
+  step left. The private folder `~\.preiss\finance` is per machine and
+  travels by USB or cloud, never through git. Both skill branches (this
+  one and the Icelandic one) are docs-and-skills only; merging them to
+  `main` is what lets every machine pull the same thing - his call.
 - ⚠ **Evidence is snippet-level by construction.** The sandbox proxy refused
   nearly every website (all `.is` sites, regulators, vendors, founders'
   blogs), so only HelmCNC's own site, Anthropic's pricing page, Apple's
@@ -859,18 +868,18 @@ First successful run of the routine (see corrections folded into the
 
 ## Waiting on Tenis
 
-- 🔒 **Money skill - three things** (09-19): (1) merge
-  `claude/profitable-business-debt-situation-6d7hq3` (safe; hand-merge
-  the five shared files if the Icelandic branch lands first); (2) copy
-  `.claude/skills/money/assets/finance-snapshot.template.json` to
-  `~\.preiss\finance\finance-snapshot.json` on main-pc, fill in the real
-  numbers there and nowhere else, run `python scripts\money_model.py plan
-  --snapshot ...` - the phase it prints is the starting point for every
-  money conversation; (3) run, or have the employee run from main-pc, the
-  upgrade pass in `references/sources.md` so the Iceland and Stripe facts
-  are verified on the page before they are acted on. Then book the
-  accountant meeting with the five questions in `references/iceland.md`
-  §10.
+- 🔒 **Money skill - three things** (09-19, updated 09-20): (1) on the
+  laptop, `git fetch && git checkout claude/profitable-business-debt-situation-6d7hq3`,
+  then `powershell -ExecutionPolicy Bypass -File scripts\money-setup.ps1 -Verify`
+  - junction, private folder, CLAUDE.md rule, prompt hook, selftest and
+  the verification pass in one run; read its output line by line, it is
+  untested on Windows; (2) fill `~\.preiss\finance\finance-snapshot.json`
+  there and nowhere else and run `plan` - the phase it prints is the
+  starting point for every money conversation; (3) merge the branch to
+  `main` when the laptop round is done (hand-merge the five shared files
+  if the Icelandic branch lands first), pull on main-pc and run the same
+  script there. Then book the accountant meeting with the five questions
+  in `references/iceland.md` §10.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is

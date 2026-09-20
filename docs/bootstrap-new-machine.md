@@ -43,9 +43,18 @@ Target: the Samsung laptop (vacation) and main-pc. ~30–45 minutes.
 
    Read its README.md — it maps everything else.
 
-   Then expose the repo's skills to every project root on this machine
-   (Claude Code loads personal skills from `~\.claude\skills`); a junction
-   keeps each one in sync with the repo:
+   Then expose the repo's skills to every project root on this machine.
+   For the money skill, one script does everything below (junction,
+   private folder, CLAUDE.md rule, prompt hook, selftest, and with
+   `-Verify` the source-verification pass); it refuses to run on the shop
+   PC and never overwrites a filled-in file:
+
+       powershell -ExecutionPolicy Bypass -File scripts\money-setup.ps1 -Verify
+
+   `[UNVERIFIED — needs check]`: written 2026-09-20 from a Linux sandbox.
+   The manual steps, for reference or for the Icelandic skill: Claude Code
+   loads personal skills from `~\.claude\skills`, and a junction keeps
+   each one in sync with the repo:
 
        New-Item -ItemType Directory -Force $HOME\.claude\skills | Out-Null
        New-Item -ItemType Junction -Path $HOME\.claude\skills\money -Target C:\Projects\_system\personal-os\.claude\skills\money
