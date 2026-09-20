@@ -848,15 +848,21 @@ First successful run of the routine (see corrections folded into the
   templates; six eval prompts. Rating against two days ago, his question:
   about 5/10 then, 7.5/10 now, 9 reachable after verification, the
   snapshot and the CRM/Freemius feeds.
-- ⏳ **2026-09-20, laptop handoff.** Tenis is at the laptop and continues
-  the skill work there, pushing to this branch; main-pc pulls later.
-  `scripts/money-setup.ps1` (new, untested on Windows) does the machine
-  setup in one run and, with `-Verify`, runs the source-verification
-  pass from the laptop's open internet - the single biggest quality
-  step left. The private folder `~\.preiss\finance` is per machine and
-  travels by USB or cloud, never through git. Both skill branches (this
-  one and the Icelandic one) are docs-and-skills only; merging them to
-  `main` is what lets every machine pull the same thing - his call.
+- ⏳ **2026-09-20, kickoff on main-pc.** Tenis is at the laptop with main-pc
+  on Tailscale; main-pc exposes no shell over it (22, 3389, 5985/5986 closed,
+  see `docs/employee-setup-main-pc.md`), so the kickoff goes through the
+  `employee` Remote Control session on main-pc - reachable from claude.ai/code
+  on the laptop or by Telegram. The dispatch (paste-ready text in Tenis's
+  chat; also sent from this cloud session as a cross-session message, whose
+  delivery the tool does not confirm) has it add a worktree for this branch
+  beside the main clone and run `scripts/money-setup.ps1 -Verify` from there
+  (new, untested on Windows): junction, private folder, CLAUDE.md rule, prompt
+  hook, selftest, and the source-verification pass from main-pc's open
+  internet - the single biggest quality step left. Re-run from the main clone
+  after the merge, the script re-points the junction and the hook and touches
+  nothing else. `~\.preiss\finance` is per machine and travels by USB or
+  cloud, never through git. This branch carries `main` as of a55ca34 (merged
+  09-20, one tracker conflict resolved) and merges clean; merging is his call.
 - ⚠ **Evidence is snippet-level by construction.** The sandbox proxy refused
   nearly every website (all `.is` sites, regulators, vendors, founders'
   blogs), so only HelmCNC's own site, Anthropic's pricing page, Apple's

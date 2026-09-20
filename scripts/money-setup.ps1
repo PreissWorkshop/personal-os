@@ -40,7 +40,20 @@ $skillsDir = Join-Path $HOME '.claude\skills'
 New-Item -ItemType Directory -Force $skillsDir | Out-Null
 $link = Join-Path $skillsDir 'money'
 if (Test-Path $link) {
-    Write-Host "  ok    $link already exists (left as is)"
+    $item   = Get-Item $link -Force
+    $target = [string](@($item.Target)[0])
+    if ($item.LinkType -ne 'Junction') {
+        Write-Host "  STOP  $link is a real folder, not a junction - move it away and re-run"
+        exit 1
+    } elseif ($target.TrimEnd('\') -ieq $skill.TrimEnd('\')) {
+        Write-Host "  ok    junction $link -> $skill"
+    } else {
+        # The repo moved (first run from a worktree, clone relocated): re-point.
+        # rmdir on a junction removes the link only, never the target's files.
+        cmd /c rmdir "$link"
+        New-Item -ItemType Junction -Path $link -Target $skill | Out-Null
+        Write-Host "  done  junction re-pointed $link -> $skill (was $target)"
+    }
 } else {
     New-Item -ItemType Junction -Path $link -Target $skill | Out-Null
     Write-Host "  done  junction $link -> $skill"
@@ -83,8 +96,18 @@ if ($NoHook) {
     $settingsPath = Join-Path $claudeDir 'settings.json'
     $hookFile = (Join-Path $repo '.claude\hooks\money_trigger.py') -replace '\\', '/'
     $json = if (Test-Path $settingsPath) { Get-Content $settingsPath -Raw } else { '{}' }
-    if ($json -match 'money_trigger\.py') {
-        Write-Host "  ok    $settingsPath already runs money_trigger.py"
+    if ($json -match [regex]::Escape($hookFile)) {
+        Write-Host "  ok    $settingsPath already runs $hookFile"
+    } elseif ($json -match 'money_trigger\.py') {
+        # The repo moved: swap the quoted path, leave the rest of the file untouched.
+        $new = [regex]::Replace($json, '(?<=\\")[^"]*money_trigger\.py(?=\\")', $hookFile.Replace('$', '$$'))
+        if ($new -match [regex]::Escape($hookFile)) {
+            Copy-Item $settingsPath "$settingsPath.bak-money" -Force
+            [System.IO.File]::WriteAllText($settingsPath, $new, (New-Object System.Text.UTF8Encoding($false)))
+            Write-Host "  done  prompt hook re-pointed to $hookFile (previous copy: $settingsPath.bak-money)"
+        } else {
+            Write-Host "  WARN  $settingsPath runs money_trigger.py by a path this script cannot rewrite - set the hook command by hand to: python `"$hookFile`""
+        }
     } else {
         $settings = $json | ConvertFrom-Json
         if (-not $settings.PSObject.Properties['hooks']) {
@@ -102,7 +125,8 @@ if ($NoHook) {
             $settings.hooks | Add-Member -NotePropertyName UserPromptSubmit -NotePropertyValue @($entry)
         }
         if (Test-Path $settingsPath) { Copy-Item $settingsPath "$settingsPath.bak-money" -Force }
-        ConvertTo-Json -InputObject $settings -Depth 16 | Set-Content -Path $settingsPath -Encoding UTF8
+        # WriteAllText with UTF8Encoding($false): no byte-order mark, which a JSON parser may reject.
+        [System.IO.File]::WriteAllText($settingsPath, (ConvertTo-Json -InputObject $settings -Depth 16), (New-Object System.Text.UTF8Encoding($false)))
         Write-Host "  done  prompt hook added to $settingsPath (previous copy: $settingsPath.bak-money)"
         Write-Host "        check with /hooks in a Claude Code session; a prompt such as 'which loan first, the overdraft or the card?' should show the money-skill note"
     }
