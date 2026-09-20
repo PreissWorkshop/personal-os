@@ -2173,6 +2173,196 @@
         "are taxed where the customer resides"
       ],
       "expect": "present"
+    },
+    {
+      "id": "isb-islandshotel-rooms",
+      "file": "iceland-b2b-market.md",
+      "claim": "Islandshotel: 19 hotels with around 2,400 rooms",
+      "url": "https://www.islandshotel.is/about-us/about-islandshotel/",
+      "quotes": [
+        "19 hotels with around 2.400 hotel rooms"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-reitir-portfolio",
+      "file": "iceland-b2b-market.md",
+      "claim": "Reitir: about 480,000 m2 in about 150 properties",
+      "url": "https://www.reitir.is/",
+      "quotes": [
+        "Eignasafn Reita er um 480 þúsund fermetrar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-heimar-portfolio",
+      "file": "iceland-b2b-market.md",
+      "claim": "Heimar: about 425 tenants",
+      "url": "https://www.heimar.is/um-okkur/fyrirtaekid/um-heima/",
+      "quotes": [
+        "Fjöldi leigutaka er um 425"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-eik-units",
+      "file": "iceland-b2b-market.md",
+      "claim": "Eik: over 650 rental units",
+      "url": "https://www.eik.is/um-okkur/",
+      "quotes": [
+        "yfir 650 leigueiningum"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-alma-flats",
+      "file": "iceland-b2b-market.md",
+      "claim": "Alma: about 1,100 flats",
+      "url": "https://www.al.is/",
+      "quotes": [
+        "um 1100 íbúðir"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-procurement-thresholds",
+      "file": "iceland-b2b-market.md",
+      "claim": "Regulation 360/2022: domestic works threshold ISK 58,543,000",
+      "url": "https://island.is/reglugerdir/nr/0360-2022",
+      "quotes": [
+        "58.543.000 kr."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-procurement-compare",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 120/2016 art. 24: below thresholds, compare among as many firms as possible",
+      "url": "https://www.althingi.is/lagas/nuna/2016120.html",
+      "quotes": [
+        "gera samanburð meðal sem flestra fyrirtækja"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-competitor-honnun-skart",
+      "file": "iceland-b2b-market.md",
+      "claim": "Hönnun og Skart specialises in film on fittings",
+      "url": "https://www.honnunogskart.is/",
+      "quotes": [
+        "klæða filmur á innréttingar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-competitor-kaldur",
+      "file": "iceland-b2b-market.md",
+      "claim": "Kaldur sells interior films",
+      "url": "https://kaldur.is/innrettinga-filmur/",
+      "quotes": [
+        "vatnsheldar og eldfastar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-interest-from-due-date",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 38/2001 art. 5: penalty interest from the agreed due date",
+      "url": "https://www.althingi.is/lagas/nuna/2001038.html",
+      "quotes": [
+        "frá og með gjalddaga fram að greiðsludegi"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-b2b-60-days",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 8/2015 art. 3: payment terms generally no longer than 60 days",
+      "url": "https://www.althingi.is/lagas/nuna/2015008.html",
+      "quotes": [
+        "60 almanaksdaga"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-b2b-compensation",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 8/2015 art. 6: fixed collection compensation ISK 6,700",
+      "url": "https://www.althingi.is/lagas/nuna/2015008.html",
+      "quotes": [
+        "6.700 kr."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-collection-warning",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 95/2008 art. 7: one written warning, ten days",
+      "url": "https://www.althingi.is/lagas/nuna/2008095.html",
+      "quotes": [
+        "innan tíu daga frá sendingu viðvörunar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-collection-no-percent-fees",
+      "file": "iceland-b2b-market.md",
+      "claim": "Regulation 37/2009: percentage and default fees prohibited",
+      "url": "https://island.is/reglugerdir/nr/0037-2009",
+      "quotes": [
+        "Óheimilt er að leggja á prósentugjöld"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-endorsed-writ",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 91/1991 art. 113: an endorsed writ has the force of a judgment",
+      "url": "https://www.althingi.is/lagas/nuna/1991091.html",
+      "quotes": [
+        "hefur sama gildi og dómur"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-bankruptcy-challenge",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 21/1991 art. 65: three-week challenge",
+      "url": "https://www.althingi.is/lagas/nuna/1991021.html",
+      "quotes": [
+        "innan þriggja vikna orðið við áskorun lánardrottins"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-petitioner-costs",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 21/1991 art. 66: the petitioning creditor guarantees the costs",
+      "url": "https://www.althingi.is/lagas/nuna/1991021.html",
+      "quotes": [
+        "ábyrgist greiðslu kostnaðar af meðferð kröfu sinnar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-limitation-four-years",
+      "file": "iceland-b2b-market.md",
+      "claim": "Act 150/2007 art. 3: four-year general limitation",
+      "url": "https://www.althingi.is/lagas/nuna/2007150.html",
+      "quotes": [
+        "Almennur fyrningarfrestur kröfuréttinda er fjögur ár"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "isb-creditinfo-legal-entities",
+      "file": "iceland-b2b-market.md",
+      "claim": "Creditinfo: defaults of legal entities have no amount threshold",
+      "url": "https://www.creditinfo.is/vorur/vanskilaskra",
+      "quotes": [
+        "Vanskil lögaðila eru ekki bundin fjárhæðarmörkum"
+      ],
+      "expect": "present"
     }
   ]
 }

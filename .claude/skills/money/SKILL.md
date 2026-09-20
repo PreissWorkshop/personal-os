@@ -228,6 +228,7 @@ is in `references/maker-leverage.md`:
 | Getting trade experience certified: Iceland's raunfærnimat and sveinspróf, the licensed-trade law (Act 42/1978), NZQA assessment, BCITO experience recognition, and how New Zealand visas count a trade certificate | `references/trade-qualification.md` |
 | New Zealand visas: the three Skilled Migrant pathways (one needs no qualification), the Green List, the employer work visa, English tests, the partner and children, the 17-year-old, investor thresholds, fees, the building licence | `references/nz-pathways.md` |
 | Where to sell a course or membership from Iceland: which platforms can pay an Icelandic seller, fees, merchant of record and VAT, video hosting, PayPal and Wise | `references/course-platforms.md` |
+| Selling to Icelandic businesses: hotel and landlord market size, groups and published contacts, public procurement thresholds, interior-film competitors, late-payment interest, collection law, the bankruptcy challenge, the default register | `references/iceland-b2b-market.md` |
 | Remote jobs, contractor setups, nomad visas, tax residency, entities abroad, health and pensions, the move in order | `references/remote-and-relocation.md` |
 | Courses, gurus, dropshipping, trading, crypto, MLM, "passive income", app-store odds, the red-flag checklist | `references/what-fails.md` |
 | What was and was not verified, the labels, the upgrade pass | `references/sources.md`, `references/claims.json` |
