@@ -537,6 +537,147 @@ def cmd_job(a: argparse.Namespace) -> int:
     return 0
 
 
+# ------------------------------------------------------------------- flip ---
+
+def flip_economics(price: float, stamp_pct: float, fees_buy: float,
+                   materials: float, sub_trades: float, hours: float, rate: float,
+                   vat_pct: float, vat_refund_pct: float, contingency_pct: float,
+                   fixed_price: bool, months: int, loan: float, loan_rate: float,
+                   holding_monthly: float, sale: float, agent_pct: float,
+                   agent_vat_pct: float, agent_fixed: float,
+                   tax_pct: float, share_pct: float) -> dict:
+    """One buy-renovate-resell deal, from the investor's side and the builder's.
+
+    Every input is a number someone supplied; nothing here is a market fact.
+    Interest is simple interest on the loan for the whole hold, which is how a
+    short interest-only facility behaves; an amortising loan costs slightly less.
+    """
+    buy_costs = price * pct(stamp_pct) + fees_buy
+    labour = hours * rate
+    reno_base = materials + sub_trades + labour
+    contingency = reno_base * pct(contingency_pct)
+    # On a fixed price the overrun is the builder's, not the investor's.
+    reno_to_investor = reno_base if fixed_price else reno_base + contingency
+    builder_exposure = contingency if fixed_price else 0.0
+
+    refund_base = labour + sub_trades
+    vat_element = refund_base - refund_base / (1 + pct(vat_pct)) if vat_pct > 0 else 0.0
+    vat_refund = vat_element * pct(vat_refund_pct)
+
+    interest = loan * pct(loan_rate) * months / 12.0
+    holding = holding_monthly * months
+    total_in = price + buy_costs + reno_to_investor + interest + holding - vat_refund
+
+    commission = sale * pct(agent_pct) * (1 + pct(agent_vat_pct))
+    selling = commission + agent_fixed
+    net_sale = sale - selling
+
+    gross_gain = net_sale - total_in
+    tax = max(0.0, gross_gain) * pct(tax_pct)
+    net_gain = gross_gain - tax
+    builder_share = max(0.0, net_gain) * pct(share_pct)
+    investor_net = net_gain - builder_share
+
+    cash_in = max(0.0, total_in - loan)
+    roi = investor_net / cash_in if cash_in > 0 else math.inf
+    annualised = roi * 12.0 / months if months > 0 and cash_in > 0 else math.inf
+
+    # Sale price at which the investor's net is zero, holding costs as they are.
+    denom = (1 - pct(agent_pct) * (1 + pct(agent_vat_pct)))
+    break_even = (total_in + agent_fixed) / denom if denom > 0 else math.inf
+
+    builder_total = labour + builder_share
+    builder_hourly = builder_total / hours if hours > 0 else math.inf
+    builder_hourly_worst = labour / (hours * (1 + pct(contingency_pct))) if hours > 0 else math.inf
+    month_cost = loan * pct(loan_rate) / 12.0 + holding_monthly
+
+    return {"buy_costs": buy_costs, "labour": labour, "reno_base": reno_base,
+            "contingency": contingency, "reno_to_investor": reno_to_investor,
+            "builder_exposure": builder_exposure, "vat_refund": vat_refund,
+            "interest": interest, "holding": holding, "total_in": total_in,
+            "commission": commission, "selling": selling, "net_sale": net_sale,
+            "gross_gain": gross_gain, "tax": tax, "net_gain": net_gain,
+            "builder_share": builder_share, "investor_net": investor_net,
+            "cash_in": cash_in, "roi": roi, "annualised": annualised,
+            "break_even": break_even, "builder_total": builder_total,
+            "builder_hourly": builder_hourly, "builder_hourly_worst": builder_hourly_worst,
+            "month_cost": month_cost}
+
+
+def cmd_flip(a: argparse.Namespace) -> int:
+    cur = a.currency
+    f = flip_economics(a.price, a.stamp_pct, a.fees_buy, a.materials, a.sub_trades,
+                       a.hours, a.rate, a.vat, a.vat_refund, a.contingency,
+                       a.fixed_price, a.months, a.loan, a.loan_rate, a.holding,
+                       a.sale, a.agent_pct, a.agent_vat, a.agent_fixed,
+                       a.tax_pct, a.share_pct)
+
+    print("MONEY IN")
+    rows = [["purchase price", money(a.price, cur)],
+            [f"buying costs ({a.stamp_pct:g}% stamp duty + fees)", money(f["buy_costs"], cur)],
+            ["materials", money(a.materials, cur)],
+            ["subcontracted trades", money(a.sub_trades, cur)],
+            [f"builder's labour ({a.hours:g} h at {money(a.rate, cur)})", money(f["labour"], cur)]]
+    if a.fixed_price:
+        rows.append([f"contingency {a.contingency:g}% (builder carries it)", money(0, cur)])
+    else:
+        rows.append([f"contingency {a.contingency:g}% (investor carries it)", money(f["contingency"], cur)])
+    rows += [[f"VAT refund on labour ({a.vat_refund:g}% of the VAT)", "-" + money(f["vat_refund"], cur)],
+             [f"loan interest, {a.months} months at {a.loan_rate:g}%", money(f["interest"], cur)],
+             [f"holding costs, {a.months} months", money(f["holding"], cur)],
+             ["TOTAL INTO THE DEAL", money(f["total_in"], cur)]]
+    print(table(rows))
+
+    print("\nMONEY OUT")
+    print(table([["sale price", money(a.sale, cur)],
+                 [f"agent commission {a.agent_pct:g}% incl. {a.agent_vat:g}% VAT", "-" + money(f["commission"], cur)],
+                 ["other selling costs", "-" + money(a.agent_fixed, cur)],
+                 ["net from the sale", money(f["net_sale"], cur)]]))
+
+    print("\nRESULT")
+    print(table([["gain before tax", money(f["gross_gain"], cur)],
+                 [f"tax at {a.tax_pct:g}%", "-" + money(f["tax"], cur)],
+                 ["gain after tax", money(f["net_gain"], cur)],
+                 [f"builder's share {a.share_pct:g}% of the gain", money(f["builder_share"], cur)],
+                 ["investor keeps", money(f["investor_net"], cur)]]))
+
+    print(f"\ninvestor's own cash in the deal {money(f['cash_in'], cur)}"
+          + (f" (loan {money(a.loan, cur)})" if a.loan else " (no loan)"))
+    if f["cash_in"] > 0:
+        print(f"return on that cash {f['roi'] * 100:.1f}% over {a.months} months, "
+              f"{f['annualised'] * 100:.1f}% a year at the same pace")
+    print(f"break-even sale price {money(f['break_even'], cur)} - below this the investor loses money")
+    print(f"every extra month unsold costs {money(f['month_cost'], cur)}")
+
+    print(f"\nbuilder is paid {money(f['labour'], cur)} for the work"
+          + (f" plus {money(f['builder_share'], cur)} share = {money(f['builder_total'], cur)}" if a.share_pct else "")
+          + f", {money(f['builder_hourly'], cur)} an hour")
+    if a.fixed_price:
+        print(f"on a fixed price a {a.contingency:g}% overrun costs the builder {money(f['builder_exposure'], cur)}, "
+              f"dropping the rate to {money(f['builder_hourly_worst'], cur)} an hour")
+
+    print("\nIF IT GOES WORSE (investor's net after tax)")
+    sale_steps = [0, -5, -10, -15]
+    over_steps = [0, 20, 40]
+    header = ["sale"] + [f"materials +{o}%" for o in over_steps]
+    grid = []
+    for s_adj in sale_steps:
+        s_price = a.sale * (1 + pct(s_adj))
+        row = [f"{s_adj:+d}% = {money(s_price, cur)}" if s_adj else f"as planned {money(s_price, cur)}"]
+        for o in over_steps:
+            g = flip_economics(a.price, a.stamp_pct, a.fees_buy, a.materials * (1 + pct(o)),
+                               a.sub_trades * (1 + pct(o)), a.hours, a.rate, a.vat, a.vat_refund,
+                               a.contingency, a.fixed_price, a.months, a.loan, a.loan_rate,
+                               a.holding, s_price, a.agent_pct, a.agent_vat, a.agent_fixed,
+                               a.tax_pct, a.share_pct)
+            row.append(money(g["investor_net"], cur))
+        grid.append(row)
+    print(table(grid, header))
+    print("\nevery figure above is an input someone supplied, not a market fact;"
+          " label each one before it goes in front of anybody")
+    return 0
+
+
 # --------------------------------------------------------------- forecast ---
 
 def forecast(cash: float, incomes: list[float], burn: float, debt: float, months: int) -> list[dict]:
@@ -665,6 +806,30 @@ def selftest() -> int:
     check("forecast: first negative month is 2", first_neg == 2, f"{[round(r['cash']) for r in fc]}")
     check("forecast: last income repeats", fc[-1]["income"] == 800_000)
 
+    fl = flip_economics(price=50_000_000, stamp_pct=0.8, fees_buy=100_000,
+                        materials=5_000_000, sub_trades=2_000_000, hours=500, rate=10_000,
+                        vat_pct=24, vat_refund_pct=0, contingency_pct=10, fixed_price=False,
+                        months=6, loan=0, loan_rate=0, holding_monthly=0,
+                        sale=70_000_000, agent_pct=0, agent_vat_pct=0, agent_fixed=0,
+                        tax_pct=0, share_pct=0)
+    check("flip: buying costs = stamp + fees", abs(fl["buy_costs"] - (400_000 + 100_000)) < 1e-6)
+    check("flip: labour = hours x rate", abs(fl["labour"] - 5_000_000) < 1e-6)
+    check("flip: contingency on the whole renovation", abs(fl["contingency"] - 1_200_000) < 1e-6)
+    check("flip: total in adds up", abs(fl["total_in"] - (50_000_000 + 500_000 + 13_200_000)) < 1e-6)
+    check("flip: gain is net sale less total in", abs(fl["gross_gain"] - (70_000_000 - fl["total_in"])) < 1e-6)
+    flf = flip_economics(price=50_000_000, stamp_pct=0.8, fees_buy=100_000,
+                         materials=5_000_000, sub_trades=2_000_000, hours=500, rate=10_000,
+                         vat_pct=24, vat_refund_pct=60, contingency_pct=10, fixed_price=True,
+                         months=6, loan=0, loan_rate=0, holding_monthly=0,
+                         sale=70_000_000, agent_pct=0, agent_vat_pct=0, agent_fixed=0,
+                         tax_pct=0, share_pct=0)
+    check("flip: a fixed price keeps the overrun off the investor",
+          abs(flf["reno_to_investor"] - 12_000_000) < 1e-6 and abs(flf["builder_exposure"] - 1_200_000) < 1e-6)
+    check("flip: VAT refund is a share of the VAT inside the labour",
+          abs(flf["vat_refund"] - (7_000_000 - 7_000_000 / 1.24) * 0.6) < 1e-6)
+    check("flip: break-even with no selling costs equals total in",
+          abs(flf["break_even"] - flf["total_in"]) < 1e-6)
+
     # phases
     check("phase 0 when the month loses", phase(-1, 0, 100, 0).startswith("0"))
     check("phase 1 with no buffer", phase(10, 50, 100, 500).startswith("1"))
@@ -746,6 +911,29 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--debt", type=float, default=0.0, help="monthly debt payments")
     s.add_argument("--months", type=int, default=12)
 
+    s = sub.add_parser("flip", help="buy-renovate-resell: the full cost stack, both sides, and the downside")
+    s.add_argument("--price", type=float, required=True, help="purchase price")
+    s.add_argument("--sale", type=float, required=True, help="expected sale price")
+    s.add_argument("--months", type=int, required=True, help="months from purchase to sale proceeds")
+    s.add_argument("--stamp-pct", type=float, default=0.0, help="stamp duty percent on the deed")
+    s.add_argument("--fees-buy", type=float, default=0.0, help="registration, legal, survey")
+    s.add_argument("--materials", type=float, default=0.0)
+    s.add_argument("--sub-trades", type=float, default=0.0, help="plumber, electrician, others")
+    s.add_argument("--hours", type=float, default=0.0, help="the builder's own hours")
+    s.add_argument("--rate", type=float, default=0.0, help="the builder's charge-out rate per hour")
+    s.add_argument("--vat", type=float, default=0.0, help="VAT percent included in labour figures")
+    s.add_argument("--vat-refund", type=float, default=0.0, help="percent of the VAT on labour refunded")
+    s.add_argument("--contingency", type=float, default=0.0, help="percent overrun allowance on the renovation")
+    s.add_argument("--fixed-price", action="store_true", help="builder quoted a fixed price, so the overrun is the builder's")
+    s.add_argument("--loan", type=float, default=0.0)
+    s.add_argument("--loan-rate", type=float, default=0.0, help="annual percent")
+    s.add_argument("--holding", type=float, default=0.0, help="monthly property charges, insurance, utilities")
+    s.add_argument("--agent-pct", type=float, default=0.0, help="estate agent commission percent")
+    s.add_argument("--agent-vat", type=float, default=0.0, help="VAT percent added to the commission")
+    s.add_argument("--agent-fixed", type=float, default=0.0, help="marketing, documents, other selling costs")
+    s.add_argument("--tax-pct", type=float, default=0.0, help="tax percent on the gain")
+    s.add_argument("--share-pct", type=float, default=0.0, help="builder's share of the gain after tax")
+
     sub.add_parser("selftest", help="run built-in checks")
 
     a = p.parse_args(argv)
@@ -753,7 +941,7 @@ def main(argv: list[str] | None = None) -> int:
         return selftest()
     return {"plan": cmd_plan, "quick": cmd_quick, "debt": cmd_debt, "runway": cmd_runway, "fi": cmd_fi,
             "rate": cmd_rate, "unit": cmd_unit, "score": cmd_score, "job": cmd_job,
-            "forecast": cmd_forecast}[a.cmd](a)
+            "forecast": cmd_forecast, "flip": cmd_flip}[a.cmd](a)
 
 
 if __name__ == "__main__":
