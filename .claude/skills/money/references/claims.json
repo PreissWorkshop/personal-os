@@ -2363,6 +2363,199 @@
         "Vanskil lögaðila eru ekki bundin fjárhæðarmörkum"
       ],
       "expect": "present"
+    },
+    {
+      "id": "exit-is-three-year-tail",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 1: liability continues three years after departure",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "Skattskylda þessi gildir þó aðeins í þrjú ár frá næstu áramótum eftir brottflutningsdag."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-skatturinn-three-years",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Skatturinn: former residents liable for 3 years unless taxed elsewhere",
+      "url": "https://www.skatturinn.is/english/individuals/tax-liability/",
+      "quotes": [
+        "Former residents remain subject to unlimited tax liability for 3 years after leaving the country"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-shares-source-tax",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 3 no. 7: gains on Icelandic shares taxed for all",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "þar með talinn söluhagnað, af íslenskum hlutabréfum"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-nonresident-dividend",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Skatturinn: 22 % final withholding on dividends to non-residents",
+      "url": "https://www.skatturinn.is/english/individuals/non-resident/",
+      "quotes": [
+        "final withholding tax at a rate of 22%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-liquidation-dividend",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 11: liquidation proceeds above cost are a dividend",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "úthlutun við félagsslit sem er umfram kaupverð bréfanna"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-effective-management",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 2: effective management in Iceland makes a company resident",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "raunveruleg framkvæmdastjórn hans er hér á landi"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-binding-opinion-6-10",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Binding opinion 6/10: foreign company resident in Iceland if managed here",
+      "url": "https://www.skatturinn.is/fagadilar/bindandi-alit/nr/440",
+      "quotes": [
+        "bendir það sterklega til þess að raunveruleg framkvæmdastjórn félagsins verði á Íslandi"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-cfc",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 57 a: CFC profit taxed regardless of distribution",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "í hlutfalli við eignarhluta sinn án tillits til úthlutunar"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-cfc-two-thirds",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 57 a: low-tax means below two thirds",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "er lægri en tveir þriðju hlutar af þeim tekjuskatti"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-is-deferral-ends",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Act 90/2003 art. 51: deferral ends when assets leave the EEA",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "fellur frestun á greiðslu eftirstöðva skattskuldar niður"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-treaty-latvia-listed",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Skatturinn's treaty list includes Latvia",
+      "url": "https://www.skatturinn.is/einstaklingar/skattskylda/tviskottunarsamningar/",
+      "quotes": [
+        "Lettland"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-treaty-use",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Skatturinn: tax is paid in Iceland until an exemption is approved",
+      "url": "https://www.skatturinn.is/english/individuals/double-taxation-conventions/",
+      "quotes": [
+        "Until there is an approved exemption with registered number one has to pay taxes in Iceland."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-nz-transitional",
+      "file": "tax-residency-and-exit.md",
+      "claim": "IRD: transitional residents exempt on most overseas income for about 4 years",
+      "url": "https://www.ird.govt.nz/roles/nz-tax-residents/exemption",
+      "quotes": [
+        "The exemption lasts for about 4 years"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-nz-personal-services",
+      "file": "tax-residency-and-exit.md",
+      "claim": "IRD: overseas employment and personal services income not exempt",
+      "url": "https://www.ird.govt.nz/roles/nz-tax-residents/exemption",
+      "quotes": [
+        "providing personal services is not exempt"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-nz-company-residence",
+      "file": "tax-residency-and-exit.md",
+      "claim": "IRD: a company is NZ resident if it meets any one test",
+      "url": "https://www.ird.govt.nz/international-tax/business/tax-residency-status-for-companies",
+      "quotes": [
+        "A company is resident in New Zealand if it meets any of the criteria"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-uae-no-personal-tax",
+      "file": "tax-residency-and-exit.md",
+      "claim": "UAE portal: no income tax on individuals",
+      "url": "https://u.ae/en/information-and-services/finance-and-investment/taxation",
+      "quotes": [
+        "The UAE does not levy income tax on individuals."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-lv-residence",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Latvia: 183 days; citizenship only for government employees abroad",
+      "url": "https://likumi.lv/ta/en/en/id/33946-on-taxes-and-fees",
+      "quotes": [
+        "this person is a Latvian citizen who is employed in a foreign country"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "exit-treaty-no-new-zealand",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Skatturinn's treaty list has no New Zealand",
+      "url": "https://www.skatturinn.is/einstaklingar/skattskylda/tviskottunarsamningar/",
+      "quotes": [
+        "Nýja-Sjáland",
+        "Nýja Sjáland",
+        "New Zealand"
+      ],
+      "expect": "absent"
+    },
+    {
+      "id": "exit-treaty-no-uae",
+      "file": "tax-residency-and-exit.md",
+      "claim": "Skatturinn's treaty list has no United Arab Emirates",
+      "url": "https://www.skatturinn.is/einstaklingar/skattskylda/tviskottunarsamningar/",
+      "quotes": [
+        "furstadæm",
+        "United Arab"
+      ],
+      "expect": "absent"
     }
   ]
 }
