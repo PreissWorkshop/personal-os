@@ -678,6 +678,136 @@ def cmd_flip(a: argparse.Namespace) -> int:
     return 0
 
 
+# -------------------------------------------------------------- portfolio ---
+
+def unit_letting(price: float, reno: float, stamp_pct: float, ltv: float,
+                 rate_pct: float, indexed: bool, inflation_pct: float,
+                 rent: float, vacancy_pct: float, mgmt_pct: float,
+                 maint_pct: float, tax_pct_of_value: float,
+                 other_monthly: float, income_tax_pct: float) -> dict:
+    """One let flat, per year. `rent` is the monthly asking rent.
+
+    An indexed (verdtryggt) loan charges a low cash rate but adds inflation to
+    the principal, so its cash cost and its true cost are different numbers and
+    both are returned. Nothing here is a market fact; every input is supplied.
+    """
+    equity = price * (1 - ltv) + reno + price * pct(stamp_pct)
+    loan = price * ltv
+
+    gross = rent * 12
+    lost = gross * pct(vacancy_pct)
+    collected = gross - lost
+
+    mgmt = collected * pct(mgmt_pct)
+    maint = collected * pct(maint_pct)
+    prop_tax = price * pct(tax_pct_of_value)
+    running = mgmt + maint + prop_tax + other_monthly * 12
+
+    interest_cash = loan * pct(rate_pct)
+    indexation = loan * pct(inflation_pct) if indexed else 0.0
+
+    operating = collected - running
+    taxable = max(0.0, operating - interest_cash)
+    tax = taxable * pct(income_tax_pct)
+
+    cash_flow = operating - interest_cash - tax
+    true_flow = cash_flow - indexation
+
+    return {"equity": equity, "loan": loan, "collected": collected,
+            "running": running, "operating": operating,
+            "interest_cash": interest_cash, "indexation": indexation,
+            "tax": tax, "cash_flow": cash_flow, "true_flow": true_flow,
+            "gross_yield": gross / (price + reno) if price + reno else 0.0,
+            "net_yield": operating / (price + reno) if price + reno else 0.0,
+            "cash_on_cash": cash_flow / equity if equity else 0.0,
+            "mgmt": mgmt, "maint": maint, "prop_tax": prop_tax}
+
+
+def portfolio_path(u: dict, price: float, reno: float, stamp_pct: float,
+                   ltv: float, years: int, contribution: float,
+                   rent_growth_pct: float, value_growth_pct: float,
+                   start_cash: float, start_units: int) -> list[dict]:
+    """Buy another flat whenever the pot covers a deposit, and see what grows.
+
+    The pot each year is last year's pot, plus what the owner puts in from
+    elsewhere, plus the portfolio's own cash flow. Deposits and rents are both
+    grown, so a rising market makes the next flat dearer as well as the last
+    one more valuable.
+    """
+    rows = []
+    units, pot = start_units, start_cash
+    unit_cost = price * (1 - ltv) + reno + price * pct(stamp_pct)
+    flow_per_unit = u["cash_flow"]
+    value, debt = price * start_units, price * ltv * start_units
+
+    for y in range(1, years + 1):
+        g_rent = (1 + pct(rent_growth_pct)) ** (y - 1)
+        g_val = (1 + pct(value_growth_pct)) ** (y - 1)
+        pot += contribution + flow_per_unit * g_rent * units
+        bought = 0
+        while pot >= unit_cost * g_val:
+            pot -= unit_cost * g_val
+            units += 1
+            bought += 1
+        value = price * g_val * units
+        debt = price * ltv * units
+        rows.append({"year": y, "units": units, "bought": bought,
+                     "cash_flow": flow_per_unit * g_rent * units,
+                     "pot": pot, "value": value, "debt": debt,
+                     "equity": value - debt,
+                     "manager_fee": u["mgmt"] * g_rent * units})
+    return rows
+
+
+def cmd_portfolio(a: argparse.Namespace) -> int:
+    cur = a.currency
+    u = unit_letting(a.price, a.reno, a.stamp_pct, a.ltv / 100, a.rate,
+                     a.indexed, a.inflation, a.rent, a.vacancy, a.mgmt_pct,
+                     a.maint_pct, a.property_tax, a.other_monthly, a.income_tax)
+
+    print("ONE FLAT, PER YEAR")
+    print(table([
+        ["rent collected after voids", money(u["collected"], cur)],
+        [f"management at {a.mgmt_pct:g}%", "-" + money(u["mgmt"], cur)],
+        [f"maintenance at {a.maint_pct:g}%", "-" + money(u["maint"], cur)],
+        ["property charges", "-" + money(u["prop_tax"], cur)],
+        ["insurance, building fund, other", "-" + money(a.other_monthly * 12, cur)],
+        ["operating surplus", money(u["operating"], cur)],
+        [f"loan interest at {a.rate:g}%" + (" (indexed)" if a.indexed else ""),
+         "-" + money(u["interest_cash"], cur)],
+        [f"tax at {a.income_tax:g}%", "-" + money(u["tax"], cur)],
+        ["CASH IN HAND", money(u["cash_flow"], cur)]]))
+    if a.indexed:
+        print(f"  plus {money(u['indexation'], cur)} of indexation added to the loan, "
+              f"so the real result is {money(u['true_flow'], cur)}")
+
+    print(f"\ngross yield {u['gross_yield'] * 100:.1f}%, "
+          f"net yield {u['net_yield'] * 100:.1f}%, "
+          f"return on the {money(u['equity'], cur)} she puts in "
+          f"{u['cash_on_cash'] * 100:.1f}%")
+    if u["cash_flow"] < 0:
+        print("  this flat does not pay for itself: the rent does not cover the borrowing")
+        print(f"  she would feed it {money(-u['cash_flow'] / 12, cur)} a month")
+
+    rows = portfolio_path(u, a.price, a.reno, a.stamp_pct, a.ltv / 100, a.years,
+                          a.contribution, a.rent_growth, a.value_growth,
+                          a.start_cash, a.start_units)
+    print(f"\nTHE PATH, putting in {money(a.contribution, cur)} a year from elsewhere")
+    print(table([[str(r["year"]), str(r["units"]), str(r["bought"]) if r["bought"] else "",
+                  money(r["cash_flow"], cur), money(r["equity"], cur),
+                  money(r["manager_fee"], cur)] for r in rows],
+                ["year", "flats", "bought", "cash flow", "her equity", "manager is paid"]))
+
+    last = rows[-1]
+    print(f"\nafter {a.years} years she owns {last['units']} flats worth "
+          f"{money(last['value'], cur)} against {money(last['debt'], cur)} of debt")
+    print(f"the person running them is paid {money(last['manager_fee'], cur)} in that year, "
+          f"{money(last['manager_fee'] / 12, cur)} a month")
+    print("\nevery figure here is an input someone supplied; rent, vacancy and growth "
+          "decide the answer and none of them is promised")
+    return 0
+
+
 # --------------------------------------------------------------- forecast ---
 
 def forecast(cash: float, incomes: list[float], burn: float, debt: float, months: int) -> list[dict]:
@@ -830,6 +960,31 @@ def selftest() -> int:
     check("flip: break-even with no selling costs equals total in",
           abs(flf["break_even"] - flf["total_in"]) < 1e-6)
 
+    ul = unit_letting(price=50_000_000, reno=0, stamp_pct=0, ltv=0.0, rate_pct=0,
+                      indexed=False, inflation_pct=0, rent=250_000, vacancy_pct=0,
+                      mgmt_pct=0, maint_pct=0, tax_pct_of_value=0, other_monthly=0,
+                      income_tax_pct=0)
+    check("portfolio: gross yield = rent x 12 / cost", abs(ul["gross_yield"] - 0.06) < 1e-9)
+    check("portfolio: with no costs or loan, cash flow is the rent", abs(ul["cash_flow"] - 3_000_000) < 1e-6)
+    ul2 = unit_letting(price=50_000_000, reno=0, stamp_pct=0, ltv=0.8, rate_pct=10.5,
+                       indexed=False, inflation_pct=0, rent=250_000, vacancy_pct=0,
+                       mgmt_pct=0, maint_pct=0, tax_pct_of_value=0, other_monthly=0,
+                       income_tax_pct=0)
+    check("portfolio: borrowing at 10.5% against a 6% yield loses money",
+          ul2["cash_flow"] < 0 and abs(ul2["cash_flow"] - (3_000_000 - 4_200_000)) < 1e-6)
+    ul3 = unit_letting(price=50_000_000, reno=0, stamp_pct=0, ltv=0.8, rate_pct=4.94,
+                       indexed=True, inflation_pct=5.6, rent=250_000, vacancy_pct=0,
+                       mgmt_pct=0, maint_pct=0, tax_pct_of_value=0, other_monthly=0,
+                       income_tax_pct=0)
+    check("portfolio: an indexed loan flatters the cash and charges the principal",
+          ul3["cash_flow"] > 0 and ul3["true_flow"] < ul3["cash_flow"])
+    slow = portfolio_path(ul, 50_000_000, 0, 0, 0.0, 5, 0, 0, 0, 0, 1)
+    check("portfolio: rent alone does not buy the next flat in five years",
+          slow[-1]["units"] == 1 and slow[-1]["pot"] > 0)
+    fast = portfolio_path(ul, 50_000_000, 0, 0, 0.0, 5, 10_000_000, 0, 0, 0, 1)
+    check("portfolio: money put in from elsewhere is what buys the next flat",
+          fast[-1]["units"] > 1)
+
     # phases
     check("phase 0 when the month loses", phase(-1, 0, 100, 0).startswith("0"))
     check("phase 1 with no buffer", phase(10, 50, 100, 500).startswith("1"))
@@ -934,6 +1089,28 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--tax-pct", type=float, default=0.0, help="tax percent on the gain")
     s.add_argument("--share-pct", type=float, default=0.0, help="builder's share of the gain after tax")
 
+    s = sub.add_parser("portfolio", help="buy-to-let: one flat's economics and a portfolio built one flat at a time")
+    s.add_argument("--price", type=float, required=True, help="purchase price of one flat")
+    s.add_argument("--rent", type=float, required=True, help="monthly rent")
+    s.add_argument("--reno", type=float, default=0.0, help="what it costs to make it lettable")
+    s.add_argument("--stamp-pct", type=float, default=0.8)
+    s.add_argument("--ltv", type=float, default=0.0, help="percent borrowed against the flat")
+    s.add_argument("--rate", type=float, default=0.0, help="annual loan rate percent")
+    s.add_argument("--indexed", action="store_true", help="an indexed loan: inflation is added to the principal")
+    s.add_argument("--inflation", type=float, default=0.0, help="annual inflation percent, for an indexed loan")
+    s.add_argument("--vacancy", type=float, default=0.0, help="percent of the year unlet")
+    s.add_argument("--mgmt-pct", type=float, default=0.0, help="management fee, percent of rent collected")
+    s.add_argument("--maint-pct", type=float, default=0.0, help="maintenance, percent of rent collected")
+    s.add_argument("--property-tax", type=float, default=0.0, help="annual property charges, percent of value")
+    s.add_argument("--other-monthly", type=float, default=0.0, help="insurance, building fund, anything monthly")
+    s.add_argument("--income-tax", type=float, default=0.0, help="tax percent on the letting profit")
+    s.add_argument("--years", type=int, default=10)
+    s.add_argument("--contribution", type=float, default=0.0, help="cash put in each year from elsewhere")
+    s.add_argument("--rent-growth", type=float, default=0.0, help="annual percent")
+    s.add_argument("--value-growth", type=float, default=0.0, help="annual percent")
+    s.add_argument("--start-cash", type=float, default=0.0)
+    s.add_argument("--start-units", type=int, default=1)
+
     sub.add_parser("selftest", help="run built-in checks")
 
     a = p.parse_args(argv)
@@ -941,7 +1118,7 @@ def main(argv: list[str] | None = None) -> int:
         return selftest()
     return {"plan": cmd_plan, "quick": cmd_quick, "debt": cmd_debt, "runway": cmd_runway, "fi": cmd_fi,
             "rate": cmd_rate, "unit": cmd_unit, "score": cmd_score, "job": cmd_job,
-            "forecast": cmd_forecast, "flip": cmd_flip}[a.cmd](a)
+            "forecast": cmd_forecast, "flip": cmd_flip, "portfolio": cmd_portfolio}[a.cmd](a)
 
 
 if __name__ == "__main__":
