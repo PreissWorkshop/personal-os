@@ -838,7 +838,53 @@ First successful run of the routine (see corrections folded into the
   decision log are in `~\.preiss\finance` on main-pc only. The snapshot
   there is still the unfilled template.
 
+## Executed 2026-09-21 (employee on main-pc, hostname verified)
+
+- ✅ **The money skill answered the property question, and the answer was no.**
+  Five researchers on Icelandic letting law, real rents, tourist demand, running
+  costs and distressed property; every quotation machine-checked before use. Two
+  new references on the skill branch (head dae18d1): `iceland-letting.md` (18
+  claims, 16 verified live) and `iceland-distressed-property.md` (18 of 18).
+  Round 7 is logged in `references/sources.md`. Findings that matter: the
+  favourable tax treatment on letting stops at two flats; a cash-bought flat
+  returns less after tax than an instant-access savings account in all 27
+  postcodes with enough data; short-term letting of an ordinary Reykjavík flat
+  is barred by the city's own land-use table, not merely capped.
+- ✅ **Three tools, all on the skill branch.** `money_model.py portfolio`
+  (buy-to-let and a portfolio built one flat at a time), `iceland_comps.py`
+  (recorded sale prices from the public register), `iceland_distressed.py`
+  (forced sales and estates from the Legal Gazette and the sheriffs' open
+  auction interface). The last one is the durable answer to "where are the
+  derelict buildings": they surface four weeks before they can be bought.
+- ✅ **Two private artifacts** for Tenis to present: a flip model with a
+  walk-away price per property, and the landlord verdict. Links are in the
+  session, not here.
+- ⚠ **The website audit branch is still unmerged and now diverging.** Twenty
+  commits on `audit/2026-09-19-site-admin-crew`; `origin/main` has moved twice
+  since (head 5deaf27). A dry-run merge shows only two source files genuinely
+  conflict, `src/site/common.py` and `src/tools/test_crm.html`, both additions
+  in different places; everything else that clashes is generated `public/` and
+  resolves by rebuilding. Merging is Tenis's call and was not done.
+- ⚠ **The public quote form is switched off.** `/api/quote` on the live site
+  answers `enabled: false`. The feature and its audit fixes exist; it is a
+  setting, not a job. Site otherwise healthy: both languages under 0.35s, HSTS
+  with preload, frame-ancestors none, admin and crew APIs correctly 401.
+- ⚠ **Cloudflare is not authenticated on main-pc**, so no traffic, quote or
+  subscriber numbers could be read. `wrangler login` in the website folder
+  unblocks that.
+
 ## Waiting on Tenis
+
+- 🔒 **Website: merge the audit branch, and decide on the quote form**
+  (09-21). Twenty commits of fixes are parked and main is drifting. Two files to
+  reconcile by hand. Separately, the public quote endpoint is disabled.
+
+- 🔒 **Property: nothing near home is worth an offer this month** (09-21).
+  The forced-sale tool found 55 capital-region properties with hearings ahead,
+  but the ones fitting a large renovation are in Hafnarfjörður, not Mosfellsbær.
+  The building Tenis knows of on his own street will not appear in any feed; the
+  route to it is a neglect complaint to the building official, and it is his
+  landlord who has standing, not him.
 
 - 🔒 **Money skill - six numbers, then merge or not** (09-20). The snapshot
   in `~\.preiss\finance` is his to fill by hand; until then every answer is
