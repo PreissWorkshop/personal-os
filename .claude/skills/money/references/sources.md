@@ -139,6 +139,35 @@ Icelandic exit tax on an individual's shares was not found and Act 71/2026
 was not examined; UAE Cabinet Decision 85/2022 could not be opened; the
 regulation under Iceland's Marketing Act 44/2026 was not located.
 
+### Round 7, 2026-09-21: is being a landlord worth it, and where cheap property hides
+
+Five research agents, then the employee session checked every quotation against
+the saved page text before writing, as in round 6.
+
+| File | Claims | Script result |
+|---|---|---|
+| `iceland-letting.md` | 18 `let-*` | 16 verified, 2 blocked by HMS rate-limiting |
+| `iceland-distressed-property.md` | 18 `dist-*` | 18 verified |
+
+Two things were computed rather than quoted, from the two public registers put
+side by side for the first time. Rental yield by postcode for a standard flat,
+which came out at 2.56% to 4.78% after costs and tax and beat an instant-access
+savings account in none of 27 postcodes. And repeat sales: of 6,252 capital-region
+flats resold within two years since 2006, the median beat the market by 1.0% and
+44% fell behind it, which is the base rate for flipping.
+
+Three tools came out of this round and live in `scripts/`: `portfolio` in
+money_model.py, `iceland_comps.py` for recorded sale prices, and
+`iceland_distressed.py` for forced sales and estates.
+
+Sources that decayed during the work, worth knowing before trusting an old note:
+HMS stopped recording registered tenancy agreements at the end of 2023, so the
+rental register is a closed historical file and 2023 rents have to be carried
+forward on the published index; Skatturinn's rental income page is now
+script-rendered, so those claims are repointed at the statute; and the property
+listing endpoint used in round 6 is dead, replaced by a different portal's
+public interface. The sale register, by contrast, is still refreshed daily.
+
 ## The upgrade pass (do this from main-pc or the laptop, ~2 hours)
 
 Status 2026-09-20: the mechanical part ran on main-pc (30 / 5 / 9 above) and

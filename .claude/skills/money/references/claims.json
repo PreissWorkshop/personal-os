@@ -2936,6 +2936,186 @@
         "Kaupskrá"
       ],
       "expect": "present"
+    },
+    {
+      "id": "dist-gazette-compulsory",
+      "file": "iceland-distressed-property.md",
+      "claim": "Forced sales must be published in the Legal Gazette under Act 15/2005",
+      "url": "https://www.logbirtingablad.is/",
+      "quotes": [
+        "nauðungarsölur"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-gazette-restricted",
+      "file": "iceland-distressed-property.md",
+      "claim": "The Gazette states its content may not be copied or distributed",
+      "url": "https://www.logbirtingablad.is/",
+      "quotes": [
+        "Afritun eða dreifing þessa efnis er óheimil."
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-four-week-notice",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 20: the notice runs at least four weeks before the sitting",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "minnst fjórum vikum áður en beiðnin verður tekin fyrir"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-three-day-notice",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 26: the first auction is advertised at least three days ahead",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "minnst þriggja daga fyrirvara"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-second-at-property",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 36: the continuation auction is held at the property itself",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "skal fram haldið á eigninni sjálfri"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-within-four-weeks",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 35: the continuation auction falls within four weeks",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "innan fjögurra vikna"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-sold-as-it-stands",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 28: the property is sold as it stands when the auction ends",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "seld svo farin sem hún er þegar uppboði lýkur"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-proof-of-funds",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 32: the sheriff may demand proof a bidder can pay",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "leiði þegar að því rök að hann geti staðið við það"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-charges-fall-away",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 56: charges fall away on the deed issuing",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "falla niður öll veðbönd"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-debtor-may-stay",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 28: a debtor whose home is sold may stay up to twelve months",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "allt að tólf mánuði frá samþykki boðs"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-one-year-longstop",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 27: petitions lapse if the auction has not begun within a year",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "Hafi uppboð ekki byrjað"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-trustee-may-force",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 7: a trustee may use the machinery to realise estate property",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "koma eign þrotabús í verð"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-municipal-lien-ground",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 90/1991 art. 6: a municipal statutory lien is a ground for forced sale",
+      "url": "https://www.althingi.is/lagas/nuna/1991090.html",
+      "quotes": [
+        "lögveðrétt í eigninni fyrir kröfu ríkisins"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-anyone-may-attend",
+      "file": "iceland-distressed-property.md",
+      "claim": "Anyone may attend a continuation auction",
+      "url": "https://island.is/naudungarsoelur",
+      "quotes": [
+        "Öllum er heimilt að mæta við framhald uppboðs"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-take-over-charges",
+      "file": "iceland-distressed-property.md",
+      "claim": "Bidders commonly agree to take over the existing charges instead of paying cash",
+      "url": "https://island.is/naudungarsoelur",
+      "quotes": [
+        "taka yfir áhvílandi veðskuldir"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-state-fee",
+      "file": "iceland-distressed-property.md",
+      "claim": "The state forced-sale fee on real property is 56,000 krónur",
+      "url": "https://island.is/naudungarsoelur",
+      "quotes": [
+        "56.000 krónur"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-neglect-power",
+      "file": "iceland-distressed-property.md",
+      "claim": "Act 160/2010 art. 56: the building official may act on a defective building",
+      "url": "https://www.althingi.is/lagas/nuna/2010160.html",
+      "quotes": [
+        "frágangi, umhverfi eða viðhaldi húss"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "dist-banks-dont-publish",
+      "file": "iceland-distressed-property.md",
+      "claim": "Landsbankinn does not publish residential property it holds",
+      "url": "https://www.landsbankinn.is/bankinn/um-bankann/eignir-til-solu",
+      "quotes": [
+        "ekki birt sérstaklega á vef bankans"
+      ],
+      "expect": "present"
     }
   ]
 }
