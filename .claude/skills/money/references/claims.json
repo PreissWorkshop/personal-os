@@ -2756,6 +2756,186 @@
         "who have given their prior consent"
       ],
       "expect": "present"
+    },
+    {
+      "id": "let-two-flat-ceiling",
+      "file": "iceland-letting.md",
+      "claim": "Letting is business activity unless the let flats number two or fewer",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "ekki fleiri en tvær"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-gross-no-deduction",
+      "file": "iceland-letting.md",
+      "claim": "Rent is capital income under Act 90/2003; that it is charged on the gross with no deduction is Skatturinn's guidance, whose page is no longer machine-readable",
+      "url": "https://www.althingi.is/lagas/nuna/2003090.html",
+      "quotes": [
+        "vextir, arður, leigutekjur, söluhagnaður"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-exemption-25",
+      "file": "iceland-letting.md",
+      "claim": "Act 103/2025 substituted 25% for 50% as the rental exemption, in force 1 January 2026",
+      "url": "https://www.althingi.is/altext/stjt/2025.103.html",
+      "quotes": [
+        "kemur: 25%"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-heimagisting-90",
+      "file": "iceland-letting.md",
+      "claim": "Home letting is capped at 90 nights a year across both properties",
+      "url": "https://www.althingi.is/lagas/nuna/2007085.html",
+      "quotes": [
+        "yfir 90 daga á hverju almanaksári"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-heimagisting-individuals",
+      "file": "iceland-letting.md",
+      "claim": "Only individuals may register home letting",
+      "url": "https://island.is/heimagisting",
+      "quotes": [
+        "Aðeins einstaklingar geta skráð heimagistingu"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-heimagisting-property-clock",
+      "file": "iceland-letting.md",
+      "claim": "The night count attaches to the property, not the person",
+      "url": "https://island.is/heimagisting",
+      "quotes": [
+        "miðast við fastanúmer"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-licence-commercial-premises",
+      "file": "iceland-letting.md",
+      "claim": "Licensed accommodation inside a town must be in approved commercial premises",
+      "url": "https://www.althingi.is/lagas/nuna/2007085.html",
+      "quotes": [
+        "skal vera í samþykktu atvinnuhúsnæði"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-licence-lapses",
+      "file": "iceland-letting.md",
+      "claim": "A licence may be cancelled after twelve months of no activity",
+      "url": "https://island.is/reglugerdir/nr/1277-2016",
+      "quotes": [
+        "samfellt 12 mánuði"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-commercial-tax-rate",
+      "file": "iceland-letting.md",
+      "claim": "Reykjavik charges 1.60 % on commercial against 0.18 % on residential",
+      "url": "https://reykjavik.is/fasteignagjold",
+      "quotes": [
+        "1,60% af fasteignamati"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-envelope-shared",
+      "file": "iceland-letting.md",
+      "claim": "The whole external envelope including the roof is common property",
+      "url": "https://www.althingi.is/lagas/nuna/1994026.html",
+      "quotes": [
+        "þak, útveggir og gaflar, í sameign allra eigenda"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-all-owners-consent",
+      "file": "iceland-letting.md",
+      "claim": "A substantial change of use needs the consent of all owners",
+      "url": "https://www.althingi.is/lagas/nuna/1994026.html",
+      "quotes": [
+        "háðar samþykki allra eigenda hússins"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-repairs-at-all-cost",
+      "file": "iceland-letting.md",
+      "claim": "An owner may repair the common property at everyone's cost where others will not act",
+      "url": "https://www.althingi.is/lagas/nuna/1994026.html",
+      "quotes": [
+        "nauðsynlegar viðgerðir á sameign á kostnað allra"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-registration-compulsory",
+      "file": "iceland-letting.md",
+      "claim": "A residential lease must be registered in the HMS register",
+      "url": "https://www.althingi.is/lagas/nuna/1994036.html",
+      "quotes": [
+        "skal skrá leigusamning"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-deposit-cap",
+      "file": "iceland-letting.md",
+      "claim": "A deposit may not exceed three months' rent",
+      "url": "https://www.althingi.is/lagas/nuna/1994036.html",
+      "quotes": [
+        "þriggja mánaða húsaleigu"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-intermediary-licence",
+      "file": "iceland-letting.md",
+      "claim": "Letting intermediation requires a licence; the title is leigumidlari",
+      "url": "https://www.althingi.is/lagas/nuna/1994036.html",
+      "quotes": [
+        "Starfsheiti þess sem rekur leigumiðlun er leigumiðlari"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-no-licence-prohibited",
+      "file": "iceland-letting.md",
+      "claim": "Operating letting intermediation without a licence is entirely prohibited",
+      "url": "https://island.is/reglugerdir/nr/0675-1994",
+      "quotes": [
+        "með öllu óheimilt að stunda leigumiðlun án leyfis"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-register-closed",
+      "file": "iceland-letting.md",
+      "claim": "HMS stopped recording registered tenancy agreements after 2023",
+      "url": "https://www.hms.is/grunngogntilnidurhals/leiguskra-thinglystra-leigusamninga-ibudarhusnaedis",
+      "quotes": [
+        "ekki uppfærð eftir 31.12.2023"
+      ],
+      "expect": "present"
+    },
+    {
+      "id": "let-sale-register-live",
+      "file": "iceland-letting.md",
+      "claim": "The property sale register is still published and downloadable",
+      "url": "https://www.hms.is/grunngogntilnidurhals/kaupskra-fasteigna",
+      "quotes": [
+        "Kaupskrá"
+      ],
+      "expect": "present"
     }
   ]
 }
