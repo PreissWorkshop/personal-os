@@ -859,25 +859,33 @@ First successful run of the routine (see corrections folded into the
 - ✅ **Two private artifacts** for Tenis to present: a flip model with a
   walk-away price per property, and the landlord verdict. Links are in the
   session, not here.
-- ⚠ **The website audit branch is still unmerged and now diverging.** Twenty
-  commits on `audit/2026-09-19-site-admin-crew`; `origin/main` has moved twice
-  since (head 5deaf27). A dry-run merge shows only two source files genuinely
-  conflict, `src/site/common.py` and `src/tools/test_crm.html`, both additions
-  in different places; everything else that clashes is generated `public/` and
-  resolves by rebuilding. Merging is Tenis's call and was not done.
-- ⚠ **The public quote form is switched off.** `/api/quote` on the live site
-  answers `enabled: false`. The feature and its audit fixes exist; it is a
-  setting, not a job. Site otherwise healthy: both languages under 0.35s, HSTS
-  with preload, frame-ancestors none, admin and crew APIs correctly 401.
+- ✅ **The website audit is merged and live** (21-09, on Tenis's word).
+  `audit/2026-09-19-site-admin-crew` into `main` at eca8035, 182 files. Git
+  resolved it without conflict; the dry run had overstated it because it counts
+  generated `public/` as clashing. Both sides survived: the cache-busting helper
+  from main and the site fixes from the branch. `public/` was regenerated rather
+  than merged. All four suites pass on the merged tree (quote 8, CRM 83,
+  admin-nav 9, API harness all passed) and the SEO audit is clean at 112
+  indexable pages, 0 warnings. Deployed inside a minute; the new
+  `object-src 'none'` is live, pages answer in about 0.25s, admin and crew APIs
+  still 401.
+- ⚠ **The quote form needs two environment variables, and only Tenis can set
+  them.** It is not a code flag: `/api/quote` reports enabled only when
+  RESEND_API_KEY, QUOTE_FROM, QUOTE_TO, TURNSTILE_SECRET_KEY and
+  TURNSTILE_SITE_KEY are all present. The live `/api/request` returns a Turnstile
+  sitekey and `/api/subscribe` reports mail working, so the keys and Resend are
+  already configured. The two missing are **QUOTE_FROM** and **QUOTE_TO**, both
+  plain e-mail addresses and neither a secret. Add them in the Cloudflare Pages
+  project and the form turns itself on.
 - ⚠ **Cloudflare is not authenticated on main-pc**, so no traffic, quote or
   subscriber numbers could be read. `wrangler login` in the website folder
   unblocks that.
 
 ## Waiting on Tenis
 
-- 🔒 **Website: merge the audit branch, and decide on the quote form**
-  (09-21). Twenty commits of fixes are parked and main is drifting. Two files to
-  reconcile by hand. Separately, the public quote endpoint is disabled.
+- 🔒 **Website: set QUOTE_FROM and QUOTE_TO in Cloudflare Pages** (09-21).
+  The only thing still keeping the public quote form switched off. Neither is a
+  secret. The audit branch is merged and live.
 
 - 🔒 **Property: nothing near home is worth an offer this month** (09-21).
   The forced-sale tool found 55 capital-region properties with hearings ahead,
