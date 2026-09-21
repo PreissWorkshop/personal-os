@@ -168,6 +168,49 @@ def parse_issue(text):
     return out
 
 
+
+ESTATE_KINDS = {"þrotabús": "bankruptcy", "dánarbús": "deceased estate",
+                "félagsslit": "company wound up"}
+
+
+def parse_estates(text):
+    """Estate notices: bankruptcies, liquidations and deceased estates.
+
+    This is where a property held by someone who died or went under becomes
+    sellable, and it never reaches an estate agent until a trustee lists it.
+    The counterparty is the court-appointed trustee (skiptastjori), who has a
+    duty to turn the assets into money; that is an ordinary commercial
+    conversation. Approaching a bereaved family directly is a different thing
+    and is nobody's decision but yours.
+
+    The notices name private individuals. Those names are not captured here.
+    """
+    out = []
+    for m in re.finditer(r"Innköllun\s+(\w+)\s*[-–]\s*(.+)", text):
+        word = m.group(1).lower()
+        kind = next((v for k, v in ESTATE_KINDS.items() if k in word), None)
+        if not kind:
+            continue
+        body = text[m.end():m.end() + 1800]
+        addr = ""
+        ma = re.search(r"kt\.\s*[\d-]+,?\s*\n\s*(.+)", body)   # address follows the id number
+        if ma:
+            addr = _clean(ma.group(1))
+        trustee = ""
+        mt = re.search(r"sendar\s+skiptastjóra\s+(.{5,70}?)(?:\.|\n)", body)
+        if mt:
+            trustee = _clean(mt.group(1))
+        meet = None
+        mm = re.search(
+            r"Skiptafundur:?\s*\n.*?(\d{1,2})\.\s*([a-záðéíóúýþæö]+)\s+(\d{4})",
+            body, re.S | re.I)
+        if mm and mm.group(2).lower() in MONTHS:
+            meet = dt.date(int(mm.group(3)), MONTHS[mm.group(2).lower()],
+                           int(mm.group(1)))
+        out.append({"kind": kind, "address": addr, "trustee": trustee,
+                    "meeting": meet})
+    return out
+
 def live_auctions():
     q = json.dumps({"query": "query{getSyslumennAuctions{office location "
                              "auctionType lotName lotId lotType auctionDate "
@@ -197,6 +240,8 @@ def main(argv=None):
     p.add_argument("--year", type=int, default=dt.date.today().year)
     p.add_argument("--cache", default=os.path.join(os.path.expanduser("~"),
                                                    ".cache", "lbl"))
+    p.add_argument("--estates", action="store_true",
+                   help="also list bankruptcy, liquidation and deceased-estate notices")
     p.add_argument("--live-only", action="store_true",
                    help="skip the Gazette, just show the sheriffs' live list")
     p.add_argument("--all", action="store_true",
@@ -235,7 +280,7 @@ def main(argv=None):
         return 1
     print(f"   newest issue is {newest}\n")
 
-    found = []
+    found, estates = [], []
     for i in range(newest, max(0, newest - a.issues), -1):
         path = os.path.join(d, f"lbl-{i}-{a.year}.pdf")
         if not os.path.exists(path):
@@ -243,7 +288,10 @@ def main(argv=None):
                 fetch(GAZETTE.format(year=a.year, n=i), path)
             except Exception:                       # noqa: BLE001
                 continue
-        found.extend(parse_issue(pdf_text(path)))
+        body = pdf_text(path)
+        found.extend(parse_issue(body))
+        if a.estates:
+            estates.extend(parse_estates(body))
 
     def wanted(e):
         if not a.near and not a.muni:
@@ -267,6 +315,27 @@ def main(argv=None):
                   f"{e['petitioner'][:34]}")
         print("\n   debtors' names are in the notices but are deliberately not shown;")
         print("   the Gazette restricts redistribution of its content")
+    if a.estates:
+        seen, erows = set(), []
+        for e in estates:
+            if not e["address"] or e["address"] in seen:
+                continue
+            if (a.near or a.muni) and not any(
+                    x.lower() in e["address"].lower() for x in a.near + a.muni):
+                continue
+            seen.add(e["address"])
+            erows.append(e)
+        print("")
+        print("   ESTATES: %d matching, of %d notices read" % (len(erows), len(estates)))
+        for e in erows:
+            print("   %-18s%-40s%-12s%s" % (e["kind"], e["address"][:38],
+                                            str(e["meeting"] or ""),
+                                            e["trustee"][:34]))
+        if erows:
+            print("")
+            print("   deal with the trustee, who has a duty to sell; individuals")
+            print("   are named in the notices and are deliberately not shown here")
+
     print("\n   a notice runs at least four weeks before the sitting, so this is")
     print("   the earliest public sighting of a property in trouble")
     return 0
