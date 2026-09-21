@@ -838,6 +838,23 @@ First successful run of the routine (see corrections folded into the
   decision log are in `~\.preiss\finance` on main-pc only. The snapshot
   there is still the unfilled template.
 
+## Found 2026-09-21 (standup, cloud sandbox)
+
+- ⚠ **Tracker gap: three PRs merged straight to website `main` on 09-19, live
+  in production, never recorded here.** Branch
+  `claude/admin-phone-version-5v9tft`, PRs #3/#4/#5, all merged by
+  `PreissWorkshop`: **7f3c8080** "Make the admin usable on a phone" (below
+  820px the sidebar becomes an off-canvas drawer; fixed-column tables scroll
+  in their own box instead of dragging the page; 16px fields so iOS Safari
+  stops zooming on focus; `dvh` layout so the browser chrome doesn't cover
+  the bottom), then two follow-ups, **b43747d3** and **cc0487d8**, fixing the
+  logo clipping a letter and cache-busting it. `main` is at `5deaf27c`. This
+  is separate from the still-unmerged `audit/2026-09-19-site-admin-crew`
+  branch (20 commits, correctly still 🔒 below) — a different, smaller
+  effort that shipped the same day and was never logged. Website
+  `PROGRESS.md` also has no entry for either. Not independently re-verified
+  live (no browser in this sandbox); the commits and merge are on GitHub.
+
 ## Waiting on Tenis
 
 - 🔒 **Money skill - six numbers, then merge or not** (09-20). The snapshot
