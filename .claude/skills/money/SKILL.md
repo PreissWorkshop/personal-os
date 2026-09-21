@@ -255,6 +255,7 @@ is in `references/maker-leverage.md`:
 | `portfolio --price --rent [--reno --ltv --rate --indexed --inflation --vacancy --mgmt-pct --maint-pct --property-tax --other-monthly --income-tax --years --contribution --rent-growth --value-growth]` | buy-to-let: one flat's yield and monthly cash flow, whether the rent covers the borrowing, and a portfolio built one flat at a time with the manager's fee alongside it |
 | `forecast --cash --income a,b,c --burn --debt --months` | month-by-month cash; names the first month that goes negative |
 | `iceland_comps.py --csv kaupskra.csv --postcode N [--size MIN MAX --built FROM TO --kind --street --months --split-built --list N]` | real recorded Icelandic sale prices for comparable properties, from the public HMS register; the download URL and the five ways the file misleads a reader are in the script's header |
+| `iceland_distressed.py [--muni <names> --near <postcodes> --issues N --live-only --all]` | property going to forced sale in Iceland, read from the official Legal Gazette and the sheriffs' live auction list: the earliest public sighting of a distressed building, typically four weeks before it can be bought. Prints no private debtor's name |
 | `verify_claims.py [--only prefix] [--report out.md]` | the upgrade pass: fetches each claim in `references/claims.json` and reports VERIFIED / NOT FOUND / BLOCKED |
 | `check_references.py` | before a commit: every table lines up, `claims.json` is well-formed, [V] labels carry dates |
 
