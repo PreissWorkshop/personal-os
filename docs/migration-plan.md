@@ -898,11 +898,15 @@ First successful run of the routine (see corrections folded into the
   in `~\.preiss\finance` is his to fill by hand; until then every answer is
   in ratios. The branch is unmerged by instruction.
 
-- 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
-  (09-19). Merging deploys. Three things in it are his alone: set a random
-  `CREW_SECRET` in the Pages project (the crew cookie is signed with the
-  admin password today), the kennitala / VSK number for the footer, and the
-  quote terms that say "prices include 24% VAT" over ex-VAT lines.
+- 🔒 **Website audit: three follow-ups from `AUDIT-2026-09-19.md`, merge
+  already decided.** *Corrected 2026-09-22 (standup): this item still read
+  "then merge or not" after the merge happened — `audit/2026-09-19-site-
+  admin-crew` → `main` @ eca8035, 09-21, per this file's own entry above.*
+  Still his alone, verified unresolved in source 09-22: set a random
+  `CREW_SECRET` in the Pages project (`src/api/crew.js` still falls back to
+  `ADMIN_PASSWORD` when it is unset), the kennitala / VSK number for the
+  footer, and the quote terms that say "prices include 24% VAT" over
+  ex-VAT lines.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is
