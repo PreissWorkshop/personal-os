@@ -881,6 +881,21 @@ First successful run of the routine (see corrections folded into the
   subscriber numbers could be read. `wrangler login` in the website folder
   unblocks that.
 
+## Executed 2026-09-23 (website-audit cloud routine, 07:00 UTC)
+
+- ✅ **Website weekly audit, clean.** No source commits since the 09-19 audit
+  merged (eca8035) — same site, four days later. Build reproduces byte-
+  identical (114 pages), `audit_seo.py` 0 warnings, 0 broken internal links or
+  image paths across all 114 generated pages, 0 missing titles/meta
+  descriptions, 0 empty pages, alt text correct (spot-checked the empty-`alt`
+  thumbnail pattern — intentional, paired with an `sr-only` button label), no
+  broken-ASCII Icelandic in visible copy, CSS/JS already minified and not
+  oversized. Only finding: the same 4 images over 1 MB already in
+  `AUDIT-2026-09-19.md` backlog #19 — unfixable from a cloud session, the raw
+  photos live only on main-pc. Nothing fixed, nothing new for Tenis; report
+  at `docs/reports/2026-09-23-website-audit.md`. No branch/PR opened in the
+  website repo — there was nothing to put on one.
+
 ## Waiting on Tenis
 
 - 🔒 **Website: set QUOTE_FROM and QUOTE_TO in Cloudflare Pages** (09-21).
@@ -898,11 +913,12 @@ First successful run of the routine (see corrections folded into the
   in `~\.preiss\finance` is his to fill by hand; until then every answer is
   in ratios. The branch is unmerged by instruction.
 
-- 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
-  (09-19). Merging deploys. Three things in it are his alone: set a random
+- 🔒 **Website audit branch is merged and live (09-21, see above) — three
+  things from `AUDIT-2026-09-19.md` are still his alone**: set a random
   `CREW_SECRET` in the Pages project (the crew cookie is signed with the
   admin password today), the kennitala / VSK number for the footer, and the
-  quote terms that say "prices include 24% VAT" over ex-VAT lines.
+  quote terms that say "prices include 24% VAT" over ex-VAT lines. Confirmed
+  still open, nothing new, by the 09-23 website audit above.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is
