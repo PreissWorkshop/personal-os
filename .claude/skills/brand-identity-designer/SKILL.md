@@ -24,6 +24,19 @@ five lines, and ask only for what would change the work:
 - **Category landscape**: the competitors' marks and colours. Search the web for them.
   Note which colours and shapes the category already owns so you can avoid them.
 
+## 1b. What the great brands actually do (research, 2026-09-25)
+
+Before drawing, remember how famous marks got there - it changes what to look for:
+- A logo borrows its meaning from the product (Paul Rand, 1991); cleverness is secondary.
+- Brands win on a few **distinctive assets** scored by fame and uniqueness (Ehrenberg-Bass /
+  Romaniuk): one badge (Leica red dot on every body), one colour (Festool green), one wordmark
+  quirk (Stripe's slanted cuts; FedEx arrow found in the letters after 200+ versions).
+- The product can be the brand (Teenage Engineering); consistency over years does the rest
+  (Nike's $35 swoosh; Mastercard recognised without its name).
+So: look for an asset that is *native to the product* - ideally something the product itself
+uses or produces - and plan to put it on every product. Verify any functional claim (e.g. a
+logo that is also a machine-readable marker) with a real test before presenting it.
+
 ## 2. Explore wide: territories, then concepts
 
 Never present one idea. Generate at least 4 territories and 2-4 concepts per territory
