@@ -881,7 +881,49 @@ First successful run of the routine (see corrections folded into the
   subscriber numbers could be read. `wrangler login` in the website folder
   unblocks that.
 
+## Found 2026-09-25 (standup, cloud sandbox)
+
+- ⚠ **Tracker gap + a rule broken: an AI estimating feature shipped straight
+  to website `main`, no branch, no PR.** `main` moved 018ef37 (09-21, last
+  entry this file knew) → `94d4135` (09-24 23:14) — 12 commits, most authored
+  "Preiss Workshop" (client-add-by-hand, kennitala/address lookup, journal +
+  video-orientation fixes, all plausibly Tenis at the keyboard, consistent
+  with the 09-17 precedent) but the last three authored **"Claude"**
+  (`b38df11`, `6877c94`, `94d4135`, session
+  `session_0158coXkXHC8ZHanAJSAunxG`, not this one) landing **directly on
+  `main`** — no feature branch, no PR anywhere in `git ls-remote`.
+  `AGENT_WORKFLOW.md` in that repo is explicit: "Never work directly on main
+  unless explicitly instructed" and "Do not merge to main unless explicitly
+  approved by the user." This is the same pattern flagged 09-17 and never
+  resolved either way.
+- ⚠ **What shipped this way is not small.** `6877c94` "Estimates: AI photo
+  analysis, rules engine, customer follow-up, approval" adds a new
+  `src/api/estimator.js` money-pricing engine, a Claude API call gated on
+  `ANTHROPIC_API_KEY` (live spending if that key is set — not checked, no
+  secrets read), and a new `/api/agent/*` door gated on `AGENT_KEY`. It
+  touches quotes and approval logic — exactly the "prices, quotes,
+  discounts... anything that accepts, declines, or changes an order" class
+  `docs/employee.md` gates on Tenis's word for the employee's own mail, and
+  it is now live on production (Cloudflare Pages deploys `main`
+  automatically). The commit message reports its own tests green (28 + 8 +
+  85 + 9); **not independently re-run this session** — no Node toolchain
+  invoked here, take it as the implementing session's word only.
+- ⚠ **`PROGRESS.md` has had no entry since 09-19** despite this and the
+  09-23 admin/journal work landing on `main` — the same staleness this
+  tracker flagged 09-18, still unfixed five days of commits later.
+- Not resolved by this entry, only surfaced: was Tenis driving the estimator
+  session (as he was for the 09-17 direct-to-main commits), and does he want
+  the feature live as-is. Three earlier tracker-correction PRs (#4, #5, #6)
+  are still open and unmerged from 09-21/22/23 — this is a fourth, not a
+  replacement for merging those.
+
 ## Waiting on Tenis
+
+- 🔒 **Website: confirm the 09-24 direct-to-main estimator commits were
+  wanted** (09-25). A money-affecting AI estimating feature with a live API
+  key dependency shipped to production with no branch and no PR — see above.
+  If unintended, the fix is a revert on `main`; if intended, `AGENT_WORKFLOW.md`
+  should say so the way it now should for the 09-17 precedent.
 
 - 🔒 **Website: set QUOTE_FROM and QUOTE_TO in Cloudflare Pages** (09-21).
   The only thing still keeping the public quote form switched off. Neither is a
