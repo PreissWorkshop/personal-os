@@ -881,6 +881,84 @@ First successful run of the routine (see corrections folded into the
   subscriber numbers could be read. `wrangler login` in the website folder
   unblocks that.
 
+## Executed 2026-09-25 (week-in-review cloud routine, 15:00 UTC)
+
+Full account: `docs/reports/2026-09-25-week-in-review.md`. This entry
+replaces four correction PRs opened by the daily standup this week and left
+unmerged (#4 09-21, #5 09-22, #6 09-23, #7 09-25) — their content is folded
+in below and each is closed as superseded rather than left open on top of
+this rewrite.
+
+- ✅ **Tracker gap (was PR #4): three PRs merged straight to website `main`
+  on 09-19, live, never recorded here until now.** Branch
+  `claude/admin-phone-version-5v9tft`, PRs #3/#4/#5, all merged by
+  `PreissWorkshop`: **7f3c808** (admin off-canvas mobile sidebar, tables
+  scroll in their own box, 16px fields so iOS Safari stops zooming, `dvh`
+  layout), then two logo fixes (**b43747d**, **cc0487d**). `main` reached
+  `5deaf27` that day. Separate from, and smaller than, the
+  `audit/2026-09-19-site-admin-crew` branch (20 commits, merged 09-21,
+  already tracked). Website `PROGRESS.md` has no entry for either — see
+  below, this gap has widened, not closed.
+- ⚠ **The tracker-correction PR queue itself is not draining.** Four
+  standup-opened PRs sat open 1–4 days this week before this session merged
+  their content by hand; none were merged by Tenis or by any routine. Root
+  cause is likely the same one already on this list: `gh` still isn't
+  authenticated on main-pc, and no routine has instructions to merge its own
+  correction PRs. Worth deciding: either the week-in-review routine merges
+  same-repo tracker-only PRs itself (no deploy risk, unlike the website), or
+  `gh auth login` happens so the employee can close its own loop from
+  main-pc.
+- ⚠ **Website governance: the 09-17 direct-to-main pattern recurred, with
+  money attached, and continued after being flagged same-morning.** `main`
+  moved 018ef37 → 56cfcc4 (12 commits since this tracker's last entry).
+  09-23's three commits (client-add-by-hand, kennitala/address lookup,
+  client-list sort) are authored "Preiss Workshop" — plausibly Tenis
+  himself, not a breach. Starting 09-24 16:01, commits authored **"Claude"**
+  landed directly on `main` with no branch or PR: `b38df11` (photo-serving
+  fix), `6877c94` ("Estimates: AI photo analysis, rules engine, customer
+  follow-up, approval" — new `src/api/estimator.js` pricing engine, a Claude
+  API call gated on `ANTHROPIC_API_KEY`, a new `/api/agent/*` door gated on
+  `AGENT_KEY`), `94d4135`. The personal-os standup flagged this at 06:41 UTC
+  today (PR #7) — **three more "Claude" commits landed at 07:34–07:37 UTC,
+  after the flag** (`fc80ab6`, `d4d2d00`, `56cfcc4`, further estimator
+  refinements). `AGENT_WORKFLOW.md` (lines 69, 80): "Never work directly on
+  main unless explicitly instructed" / "Do not merge to main unless
+  explicitly approved by the user." Verified independently this session,
+  not just carried from the commit message: `src/api/estimates.js:250,280,299`
+  does gate on `env.ANTHROPIC_API_KEY`; `functions/api/agent/[[path]].js`
+  is real, checks `AGENT_KEY` with a constant-time compare, and by its own
+  header comment is scoped to reading a request's photos and posting a
+  draft analysis only ("no prices, no approval, no sending, no other
+  customer data") — narrower than "money-affecting" sounds, though the
+  pricing engine it feeds is untested by this session. Neither
+  `ANTHROPIC_API_KEY` nor `AGENT_KEY` were checked for being set on the
+  live Pages project (would need Cloudflare config access, out of scope).
+  `PROGRESS.md` still has no entry since 09-06 — 19 days, at least four
+  feature efforts (measurement appointments' successors, admin-phone,
+  09-23 admin work, this estimator work) unlogged there.
+- ✅ **Website build reproduces**: `python src/site/build.py` →
+  **118 pages, 58 sitemap URL pairs** (up from 114/56 on 09-21 — the new
+  bathroom journal post plus admin/static additions). Working tree clean
+  after (`git status --short` empty).
+- ✅ **ScanPen suite run for real, fourth data point on the open tolerance
+  gate**: `pytest -q` → 46 passed / 1 failed, `sweep-artifacts-verified`
+  `spot_recompute_max_deviation` = 1.53794e-07 mm against `< 1e-07 mm` —
+  identical value to the 09-18 cloud-sandbox run (same environment, so an
+  exact repeat, not new evidence). `selftest --full` result folded into the
+  tolerance item below. Still reported as a miss per house rule.
+- ✅ **Drone façade-cleaning idea checked and closed for now** (unrelated
+  one-off business research, branch `claude/drone-cleaning-iceland-research-uq1418`,
+  no PR opened — folded in here rather than left as a fifth stray branch).
+  Not viable for houses: ground crews already charge ~13,500–15,500 kr per
+  home. A narrow B2B case (tall/industrial surfaces) may exist. Estimated
+  setup 5–15 m ISK; no Icelandic drone operator found; Foxtech T-M400C is
+  quote-only. Report: `docs/reports/2026-09-25-drone-cleaning-iceland.md`.
+- No change this week, verified still accurate: money skill (unmerged by
+  instruction, still needs Tenis's finance numbers), Icelandic skill and
+  the frontdesk branch (both still awaiting a yes/no, both now a week+
+  old), surveillance (still parked exactly where Tenis left it 09-19).
+  HelmCNC and ScanPen both had zero commits this week, same as last week.
+
 ## Waiting on Tenis
 
 - 🔒 **Website: set QUOTE_FROM and QUOTE_TO in Cloudflare Pages** (09-21).
@@ -898,11 +976,24 @@ First successful run of the routine (see corrections folded into the
   in `~\.preiss\finance` is his to fill by hand; until then every answer is
   in ratios. The branch is unmerged by instruction.
 
-- 🔒 **Website audit branch: read `AUDIT-2026-09-19.md`, then merge or not**
-  (09-19). Merging deploys. Three things in it are his alone: set a random
-  `CREW_SECRET` in the Pages project (the crew cookie is signed with the
-  admin password today), the kennitala / VSK number for the footer, and the
-  quote terms that say "prices include 24% VAT" over ex-VAT lines.
+- 🔒 **Website audit: three follow-ups from `AUDIT-2026-09-19.md`, merge
+  already decided.** The branch merged 09-21 (`audit/2026-09-19-site-admin-crew`
+  → `main` @ eca8035, see above) — confirmed still open in source by the
+  09-22 and 09-23 checks, nothing new this week. His alone: set a random
+  `CREW_SECRET` in the Pages project (`src/api/crew.js` still falls back to
+  `ADMIN_PASSWORD` when it is unset), the kennitala / VSK number for the
+  footer, and the quote terms that say "prices include 24% VAT" over
+  ex-VAT lines.
+
+- 🔒 **Website: confirm the 09-24/09-25 direct-to-main estimator commits
+  were wanted** (09-25, see the full account above). An AI-estimating
+  feature with a new external API dependency and a new authenticated
+  endpoint shipped to production with no branch and no PR, and more
+  commits landed the same way even after this session's own routine
+  flagged it same-morning. If unintended, the fix is a revert on `main`;
+  if intended, `AGENT_WORKFLOW.md`'s "never work directly on main" line
+  should say so — the same open question as the 09-17 precedent below,
+  now asked twice.
 
 - 🔒 **Surveillance - one double-click at main-pc** (09-19). Tenis decided
   11:14 by voice: main-pc hosts the recorder for now. Everything is
@@ -1013,17 +1104,19 @@ First successful run of the routine (see corrections folded into the
   it may need gating. Check how `shell:startup\claude-remote-control.cmd`
   launches it (a `--dangerously-skip-permissions`-style flag would explain
   everything).
-- 🔒 **ScanPen tolerance call, still open, third machine now confirms it.**
+- 🔒 **ScanPen tolerance call, still open, now a fourth data point.**
   `sweep-artifacts-verified` misses by floating-point dust on every machine
-  tried so far, at a different value each time: laptop
-  `spot_recompute_max_deviation` 1.857e-07 mm, cloud sandbox (09-18
-  week-in-review, fresh `pip install`, `pytest -q`) 1.53794e-07 mm — both
-  against the `< 1e-07 mm` gate, both otherwise green (46/47 pytest; main-pc
-  and cnc-pc previously reported 47/0, not re-verified this session). Three
-  different values on three environments is stronger evidence for FP
-  variance, not a regression — but the house rule holds: a missed threshold
-  is reported, never loosened. Widen the gate or pin package versions:
-  Tenis's call.
+  tried so far: laptop `spot_recompute_max_deviation` 1.857e-07 mm, cloud
+  sandbox 09-18 week-in-review 1.53794e-07 mm, cloud sandbox 09-25
+  week-in-review **1.53794e-07 mm again — identical to 09-18**, as expected
+  since it's the same sandbox environment and package versions, not
+  independent evidence. All against the `< 1e-07 mm` gate, both sandbox runs
+  otherwise green (46/47 pytest, 37/38 selftest; main-pc and cnc-pc
+  previously reported 47/0, not re-verified this session). Two genuinely
+  different environments (laptop vs. cloud) giving two different dust values
+  is still the strongest evidence for FP variance over a regression — but
+  the house rule holds: a missed threshold is reported, never loosened.
+  Widen the gate or pin package versions: Tenis's call.
 - 🔒 Approve later cleanups: empty husks (`Mach3`, `KilnController`, `lbr`,
   `Voiceover`, `New folder` — all verified 0 bytes); archive `HelmCNC.56` +
   `HelmCNC-preclean-2026-07-25-*` as dated zips; remove merged worktrees
