@@ -1043,3 +1043,13 @@ First successful run of the routine (see corrections folded into the
   is ever wanted, run `git filter-repo` (dropping `capture/`) on **main-pc**,
   never on the shop PC.
 - Big media never lands on the cnc-pc disk again.
+
+## Executed 2026-09-25 (cloud session)
+
+- ✅ **ScanPen renamed Tipmark** (owner decision; trademark register search still
+  open). Strategy report + narrated briefing + logo rounds live in the scanpen
+  repo, branch `claude/scan-pen-tech-analysis-xmt0bq` (`docs/strategy/`, `docs/brand/`).
+- ✅ **New skill `brand-identity-designer`** at `.claude/skills/` — logo/identity
+  process (brief → territories → construction → stress tests → palettes →
+  presentation) with a contact-sheet test script. Copy to `~/.claude/skills/` on a
+  machine to use it outside this repo.
