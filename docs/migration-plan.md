@@ -881,6 +881,19 @@ First successful run of the routine (see corrections folded into the
   subscriber numbers could be read. `wrangler login` in the website folder
   unblocks that.
 
+## Executed 2026-09-25 (cloud session, no machine access)
+
+- ✅ **Drone facade cleaning idea checked. Verdict: no equipment purchase yet.**
+  Report: `docs/reports/2026-09-25-drone-cleaning-iceland.md`. Not viable for
+  houses: ground crews charge ~13,500–15,500 kr per home. A narrow B2B case
+  may exist for tall or industrial surfaces. Estimated setup is 5–15 m ISK;
+  the Foxtech T-M400C price is quote-only. No Icelandic drone operator was
+  found; KTV (Norway) already cleans for Samherji. The proxy blocked every
+  page fetch, so all facts come from search snippets.
+- 🔒 Tenis: next steps are free validation — get a Foxtech quote, call
+  8–10 buyers, one call to Samgöngustofa about SORA. Only proceed if there
+  are ≥ 10,000 m² of likely work per season.
+
 ## Waiting on Tenis
 
 - 🔒 **Website: set QUOTE_FROM and QUOTE_TO in Cloudflare Pages** (09-21).
